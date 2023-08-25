@@ -1,0 +1,5 @@
+---
+applications:
+  - name: export-support
+    buildpacks:
+      - https://github.com/cloudfoundry/nodejs-buildpack.git
