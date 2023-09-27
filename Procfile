@@ -1,0 +1,1 @@
+web: entry.sh

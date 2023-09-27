@@ -1,5 +1,11 @@
 ---
 applications:
-  - name: export-support
+  - name: prototypes-on-paas
     buildpacks:
+      - https://github.com/cloudfoundry/nginx-buildpack.git
       - https://github.com/cloudfoundry/nodejs-buildpack.git
+    env:
+      ALLOWED_IPS: |
+        allow 51.182.159.103/32;
+    timeout: 80
+    memory: 512M

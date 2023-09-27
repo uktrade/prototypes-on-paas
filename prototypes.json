@@ -1,0 +1,15 @@
+[
+  {
+    "name": "proto-1",
+    "path": "proto-1",
+    "repository_url": "",
+    "additional_config": {
+        "env_var": "1234556"
+    }
+  },
+  {
+    "name": "proto-2",
+    "path": "proto-2",
+    "repository_url": ""
+  }
+]
