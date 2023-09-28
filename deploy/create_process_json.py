@@ -23,5 +23,5 @@ with open(os.path.join(parent_directory, "prototypes.json"), "r") as file:
         })
 
 # writing the completed processes file to JSON
-with open(os.path.join(parent_directory, "process.json"), "w") as jsonFile:
+with open("process.json", "w") as jsonFile:
     json.dump(processes, jsonFile)

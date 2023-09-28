@@ -18,7 +18,7 @@ s.add(
      ),
  )
 
-with open(os.path.join(parent_directory, "process.json"), "r") as process_file:
+with open("process.json", "r") as process_file:
     process_file = json.load(process_file)
 
     for process in process_file["apps"]:
@@ -29,4 +29,4 @@ with open(os.path.join(parent_directory, "process.json"), "r") as process_file:
 
 http.add(s)
 c.add(http)
-nginx.dumpf(c, os.path.join(parent_directory, "nginx.conf"))
+nginx.dumpf(c, "nginx.conf")
