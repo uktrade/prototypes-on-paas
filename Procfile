@@ -1,1 +1,1 @@
-web: entry.sh
+web: deploy/run.sh
