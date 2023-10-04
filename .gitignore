@@ -216,3 +216,5 @@ process.json
 /.idea/prototypes-on-paas.iml
 /.pm2/touch
 /.idea/vcs.xml
+
+node_modules
