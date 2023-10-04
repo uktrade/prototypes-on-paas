@@ -1,0 +1,8 @@
+---
+applications:
+  - name: dmas-prototype
+    memory: 256M
+    buildpacks:
+      - nodejs_buildpack
+    env:
+      NODE_ENV: production

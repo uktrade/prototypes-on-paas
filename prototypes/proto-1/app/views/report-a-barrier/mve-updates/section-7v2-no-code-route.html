@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Goods, services or investments affected – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-m">Section 7 of 8</span>
+    <h1 class="govuk-heading-l">
+      Goods, services or investments affected
+    </h1>
+
+    <div data-module="moj-add-another">
+      <form method="post" action="section-8">
+        {% call govukFieldset({
+          classes: 'moj-add-another__item'
+        }) %}
+
+        {{ govukRadios({
+          id: 'affected[0][export_type]',
+          name: "affected[0][export_type]",
+          fieldset: {
+            legend: {
+              text: "Which types of exports does the barrier affect?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Goods",
+              text: "Goods",
+                attributes: {
+                'data-name': 'affected[%index%][export_type]',
+                'data-id': 'affected[%index%][export_type]'
+                }
+            },
+            {
+              value: "Service",
+              text: "Service",
+              attributes: {
+              'data-name': 'affected[%index%][export_type]',
+              'data-id': 'affected[%index%][export_type]'
+              }
+            },
+            {
+              value: "Investment",
+              text: "Investment",
+              attributes: {
+              'data-name': 'affected[%index%][export_type]',
+              'data-id': 'affected[%index%][export_type]'
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukInput({
+          id: 'affected[0][export_desc]',
+          name: 'affected[0][export_desc]',
+          label: {
+            html: 'Which goods, services or investments does the barrier affect?',
+            classes: 'govuk-!-font-weight-bold'
+          },
+          hint: {
+            text: 'Enter a brief description of the type of export'
+          },
+          attributes: {
+            'data-name': 'affected[%index%][export_desc]',
+            'data-id': 'affected[%index%][export_desc]'
+          }
+        }) }}
+
+
+        {% endcall %}
+
+        <div class="moj-button-action">
+          {{ govukButton({
+            text: 'Add another export type',
+            classes: 'govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4'
+          }) }}
+        </div>
+    
+        <div class="moj-button-action">
+          {{ govukButton({
+            text: 'Submit'
+          }) }}
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="/public/javascripts/jquery.js"></script>
+  <script src="/public/javascripts/all.js"></script>
+  <script>
+    window.MOJFrontend.initAll()
+  </script>
+{% endblock %}

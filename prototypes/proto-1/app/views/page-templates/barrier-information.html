@@ -1,0 +1,140 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Barrier information – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-width">
+        <div class="ma-masthead">
+            <section class="barrier-summary">
+            <div class="barrier-summary__heading flex justify-between align-end">
+                <div>
+                    <p class="barrier-summary__code">Barrier code</p>
+                    <h1 class="barrier-summary__heading__text">Barrier title</h1>
+                    <p class="barrier-summary__heading__country">Barrier location</p>
+                    <!-- Tag work will go here to be above the change links in layout -->
+                    
+                        <div class="barrier-summary__edit-links">
+                            <a href="#">Edit title</a>
+                            or
+                            <a href="#">location</a>
+                        </div>                
+                </div>
+                <div>                
+                        <div class="barrier-summary__status">
+                            <ul class="barrier-tag-list barrier-tag-list--inline m0">
+                                
+                            </ul>
+                            <div class="barrier-summary__status__edit-links">
+                            
+                                <a aria-expanded="false" class="barrier-summary__status__link js-barrier-summary-link" href="#ß">
+                                    <span class="sr-only govuk-visually-hidden">Activate link to change barrier priority.</span>
+                                    Change priority
+                                </a>
+                            
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            </section>
+        </div>
+<!-- TAGS -->
+<!-- TABS -->
+
+<div class="govuk-tabs govuk-!-padding-top-8" data-module="govuk-tabs">
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#barrier-information">
+          Barrier information
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#barrier-team">
+          Barrier team
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#barrier-assessment">
+          Assessment
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#barrier-history">
+          History
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#barrier-action-plan">
+          Action plan
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#barrier-public-view">
+          Public view
+        </a>
+      </li>
+    </ul>
+        <!-- BARRIER INFORMATION TAB -->
+        <div class="govuk-tabs__panel" id="barrier-information">
+          <h2 class="govuk-heading-l">Barrier headlines</h2>
+          <!-- LH CONTENT -->
+          <section class="summary-group">
+            <div class="summary-group__list">
+              <dt class="summary-group__list__key">Item 1 heading</dt>
+              <dd class="summary-group__list__value">Sub item 1 <a class="summary-group__list__value__edit govuk-link--no-visited-state" href="#">Edit</a></dd>
+          <!-- Dotted box component -->
+              <dt class="summary-group__list__key">Item 1 heading</dt>
+              <dd class="summary-group__list__value"><a href="#" class="summary-group__list__value__add govuk-link--no-visited-state">Link goes here</a></dd>
+            </div>
+        <div class="summary-group__list">
+            <div class="summary-group__list-item-50">
+                <dt class="summary-group__list__key">Item 1 heading</dt>
+                <dd class="summary-group__list__value">Information 1</dd>
+            </div>
+            <div class="summary-group__list-item-50">
+                <dt class="summary-group__list__key">Item 1 heading</dt>
+                <dd class="summary-group__list__value">Information 1</dd>
+            </div>
+        </div>
+          </section>
+          <!-- RH CONTENT -->
+          <section class="barrier-content">
+          <div class="barrier-status-details">
+            <span class="barrier-status-details__icon barrier-status-details__icon--open-in-progress">       
+                <svg width="20" height="20" viewBox="0 0 100 100" fill="#00703c" xmlns="http://www.w3.org/2000/svg" style="position:relative;top:3px;">
+                <circle cx="50" cy="50" r="50" fill="#00703c"></circle>
+                </svg>
+            </span>
+            <h2 class="barrier-status-details__heading">Barrier open  
+            <span class="barrier-status-details__heading__caption">on 21 August 2023</span></h2>
+            <h3 class="barrier-status-details__sub-heading">Summary</h3>
+            <p class="barrier-status-details__text"></p>
+            <a href="#" class="govuk-link--no-visited-state"> Edit status</a>
+          </div>
+          </section>
+        </div>
+
+        <div class="govuk-tabs__panel" id="barrier-team">
+            <h2 class="govuk-heading-l">Barrier team</h2>      
+          </div>
+          <div class="govuk-tabs__panel" id="barrier-assessment">
+            <h2 class="govuk-heading-l">Barrier assessment</h2>      
+          </div>
+          <div class="govuk-tabs__panel" id="barrier-history">
+            <h2 class="govuk-heading-l">Barrier history</h2>      
+          </div>
+          <div class="govuk-tabs__panel" id="barrier-action-plan">
+            <h2 class="govuk-heading-l">Barrier action plan</h2>      
+          </div>
+          <div class="govuk-tabs__panel" id="barrier-public-view">
+            <h2 class="govuk-heading-l">Barrier public view</h2>      
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

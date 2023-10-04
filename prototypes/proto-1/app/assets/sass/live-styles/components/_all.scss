@@ -1,0 +1,42 @@
+// For ease of use we don't want every style in the prototype. Only enable add the ones we need
+
+/* SCSS used by this prototype */
+@import 'barrier-summary';
+@import 'event-list'; /* contains styling for notes */
+@import 'selection-list'; /* contains styling for multi selection components on report a barrier flow, e.g. add company etc. */
+@import 'summary-group'; /* contains styling for items on barrier information page */
+//@import 'summary-list';
+
+
+/* SCSS NOT used by this prototype */
+//@import 'card-list';
+//@import 'badges';
+//@import 'dash-button';
+//@import 'dash-card';
+//@import 'data-list';
+//@import 'task-list';
+//@import 'details-list';
+//@import 'search-form';
+//@import 'table-standard';
+//@import 'tabs';
+//@import 'warning-icon';
+//@import 'side-nav';
+//@import 'checkmark';
+//@import 'search-card';
+//@import 'toast';
+//@import 'checkbox-filter';
+//@import 'typeahead';
+//@import 'collapsible';
+//@import 'toggle-box';
+//@import 'modal';
+//@import 'pagination';
+//@import 'env-banner';
+//@import 'archived-banner';
+//@import 'saved-searches';
+//@import 'list';
+//@import 'text-area-with-mentions';
+//@import 'mentions';
+//@import 'dashboard_tabs';
+//@import 'notification-banner';
+//@import 'sorted_table';
+//@import 'quoted-text';

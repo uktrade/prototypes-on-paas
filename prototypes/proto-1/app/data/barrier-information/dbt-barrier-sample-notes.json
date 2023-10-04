@@ -1,0 +1,51 @@
+[
+    {
+        "sampleIDRelatedTo": "B001",
+        "noteType": "user",
+        "noteDateTime": "28 August 2023 at 5:31 p.m. (GMT)",
+        "notePerson": "Jonathan Porton",
+        "noteText": "I added some new information to this barrier" 
+     },
+     {
+        "sampleIDRelatedTo": "B001",
+        "noteType": "system",
+        "noteDateTime": "24 August 2023 at 4:02 p.m. (GMT)",
+        "notePerson": "Jonathan Porton",
+        "noteText": "Another new test note." 
+     },
+     {
+        "sampleIDRelatedTo": "B002",
+        "noteType": "user",
+        "noteDateTime": "25 August 2023 at 1:43 p.m. (GMT)",
+        "notePerson": "Santino Molinaro",
+        "noteText": "Another new test note." 
+     },
+     {
+        "sampleIDRelatedTo": "B002",
+        "noteType": "user",
+        "noteDateTime": "25 August 2023 at 1:43 p.m. (GMT)",
+        "notePerson": "Santino Molinaro",
+        "noteText": "My test note 1" 
+     },
+     {
+        "sampleIDRelatedTo": "B002",
+        "noteType": "system",
+        "noteDateTime": "at 10:27 a.m. (GMT)",
+        "notePerson": "Jonathan Porton",
+        "noteText": "Barrier status changed from Open to Dormant by Jonathan Porton." 
+     },
+     {
+        "sampleIDRelatedTo": "B002",
+        "noteType": "system",
+        "noteDateTime": "at 10:27 a.m. (GMT)",
+        "notePerson": "Jonathan Porton",
+        "noteText": "Barrier status changed from Resolved: In part to Open by Jonathan Porton. Reason: Now open" 
+     },
+    {
+       "sampleIDRelatedTo": "B002",
+       "noteType": "system",
+       "noteDateTime": "24 August 2023 at 4:43 p.m. (GMT)",
+       "notePerson": "Jonathan Porton",
+       "noteText": "Barrier status set to Resolved: In part by Jonathan Porton. Resolved date set as June 2023." 
+    }
+]

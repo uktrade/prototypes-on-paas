@@ -1,0 +1,15 @@
+// For ease of use we don't want every style in the prototype. Only enable add the ones we need
+
+/* SCSS used by this prototype */
+@import 'barrier/detail'; /* contains styling for the barrier information page */
+
+
+/* SCSS NOT used by this prototype */
+// @import 'barrier/action_plans';
+// @import 'barrier/assessment';
+// @import 'barrier/commodity-codes';
+// @import 'barrier/history';
+// @import 'barrier/priority';
+// @import 'barrier/publish';
+// @import 'barrier/team';
+// @import 'barrier/type';

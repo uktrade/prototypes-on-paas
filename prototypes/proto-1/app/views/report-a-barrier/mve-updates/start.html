@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Report a barrier
+      </h1>
+
+      <p>Let us know about a barrier that's affecting UK companies exporting or importing.</p>
+      <p>You can save your information and come back later to complete.</p>
+      <p>You will be asked:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>to describe the barrier</li>
+        <li>what the status of the barrier is</li>
+        <li> which countries the barrier relates to</li>
+        <li>whether the barrier affects exporting or importing</li>
+        <li>which sectors the barrier affects</li>
+        <li>which companies the barrier affects</li>
+        <li>which goods and services or investments the barrier affects</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "section-1",
+        isStartButton: true
+      }) }}
+      <p><a href="section-7v2" class="govuk-link">Skip to section 7 version 2</a></p>
+    </div>   
+  </div>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Sectors affected – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-width">
+      <h1 class="govuk-heading-l">
+        Confirm approvers
+      </h1>
+
+      <form class="form" action="barrier-information#public-view-tab" method="post">
+        <input type="hidden" name="approvers-confirm-status" value="true">
+        <!-- LEAD -->
+        <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Lead</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-two-thirds">Organisation</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Department for Environment Food & Rural Affairs</th>
+                <td class="govuk-table__cell "><a href="#" class="govuk-link approvers-table">Make secondary</a><a href="#" class="govuk-link">Remove</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- SECONDARY -->
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m govuk-!-padding-top-5">Secondary</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-two-thirds">Organisation</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">HM Revenue & Customs</th>
+                <td class="govuk-table__cell"><a href="#" class="govuk-link approvers-table">Make lead</a><a href="#" class="govuk-link">Remove</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- MANDATORY -->
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m govuk-!-padding-top-5">Mandatory</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-two-thirds">Organisation</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Market Access Regional Coordinators</th>
+                <td class="govuk-table__cell">No actions available</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">BTR Regional Teams</th>
+                <td class="govuk-table__cell">No actions available</td>
+              </tr>
+            </tbody>
+          </table>
+        {{ govukButton({
+          text: "Confirm approvers"
+        }) }}
+        <a href="#"></a>
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add additional approvers
+        </button></a>
+        <a href="barrier-information#public-view-tab" class="govuk-link form-cancel">Cancel</a>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{ serviceName }}
+    </h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>This is the prototype for DMAS. This prototype is <strong>NOT</strong> fully functional</p>
+    <p>Please <a href="/manage-prototype/clear-data" class="govuk-link--no-visited-state">clear data</a> to delete all stored data and re-set the prototype between journeys.</p>
+        <ol class="app-task-list">
+          <li> 
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">1. </span> 
+              Market Access Utilisation (Publication Process)
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">TSS-870&nbsp;&nbsp;<span class="govuk-body govuk-!-font-size-14">(<a href="https://uktrade.atlassian.net/browse/TSS-870?atlOrigin=eyJpIjoiOGZhNTgzYWE0ZDZhNGEyODkzOGU1MjQ2NTIwN2E2MDkiLCJwIjoiaiJ9" target="_blank">open in JIRA</a>)</span></span><br>
+                <span class="app-task-list__task-name">
+                  <a href="publishing/barrier-information#public-view-tab" class="govuk-link--no-visited-state">
+                    Publising prototype v2
+                  </a>
+                </span>
+                <span class="app-task-list__tag">In design</span>
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <ol class="app-task-list">
+          <li> 
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">2. </span> 
+              Search
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">TSS-899&nbsp;&nbsp;<span class="govuk-body govuk-!-font-size-14">(<a href="https://uktrade.atlassian.net/browse/TSS-899?atlOrigin=eyJpIjoiZGM5Yzc3MjJiMzVlNDM1MGI0NDRjOWVkZTY3ODc4YzYiLCJwIjoiaiJ9" target="_blank">open in JIRA</a>)</span></span><br>
+                  <span class="app-task-list__task-name">
+                    <a href="barrier-search/search" class="govuk-link--no-visited-state">
+                      Search filtering example here
+                    </a>
+                  </span>
+                  <span class="app-task-list__tag">In design
+                  </span>
+                </li>
+              </ul>
+          </li>
+        </ol>
+        <ol class="app-task-list">
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">3. </span> 
+              MVE / Report a barrier
+            </h2>
+              <ul class="app-task-list__items">
+                <li class="app-task-list__item">
+                  <span class="app-task-list__task-name">TSS-864&nbsp;&nbsp;<span class="govuk-body govuk-!-font-size-14">(<a href="https://uktrade.atlassian.net/browse/TSS-864?atlOrigin=eyJpIjoiYWJlYWQ0OGZkMGI1NDg3OTk4MWVjNDY0NTY4MzhjZDgiLCJwIjoiaiJ9" target="_blank">open in JIRA</a>)</span></span><br>
+                  <span class="app-task-list__task-name">
+                    <a href="report-a-barrier/mve-updates/start" class="govuk-link--no-visited-state">
+                      MVE Section 7 iteration (full journey)
+                    </a>
+                  </span>
+                  <span class="app-task-list__tag">In design
+                </span>
+                  <span class="app-task-list__task-name">
+                    <a href="report-a-barrier/mve-updates/section-7v2" class="govuk-link--no-visited-state">
+                      MVE Section 7 iteration (part journey)
+                    </a>
+                  </span>
+                  <span class="app-task-list__tag">In design
+                </span>
+                </li>
+              </ul>
+          </li>
+        </ol>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <!--<aside class="app-related-items" role="complementary">
+      </aside>-->
+    </div>
+</div>
+
+
+{% endblock %}

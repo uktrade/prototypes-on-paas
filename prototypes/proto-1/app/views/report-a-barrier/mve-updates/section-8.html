@@ -1,0 +1,116 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% set exportsList = data['affected'] %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+      <h2 class="govuk-heading-m">
+        About the barrier
+      </h2>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Barrier title
+          </dt>
+          <dd class="govuk-summary-list__value">
+            answer 1
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Barrier description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            answer 2
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+    
+<p class="govuk-body">A couple of new alternative check answer patterns</p>
+      <h2 class="govuk-heading-m">
+        Goods, services or investments affected (Option A)
+      </h2>
+      <p>{{ exportsList | length }} export types affected</p>
+
+      {% for item in exportsList %}
+      <h3 class="govuk-heading-m">
+        Item {{ loop.index }}
+      </h3>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            {{ item.export_type }}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ item.export_desc }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>        
+      </dl>
+      {% endfor %}     
+
+<p>OR</p>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Goods, services or investments affected (Option B)</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-one-third">Export type</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-two-thirds">Export description</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-third"></th>
+    </tr>
+  </thead>
+  {% for item in exportsList %}
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">{{ item.export_type }}</th>
+        <td class="govuk-table__cell">{{ item.export_desc }}</td>
+        <td class="govuk-table__cell"><a href='#' class='govuk-link'>Change</a></td>
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+
+  <form action="/confirmation" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Accept and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
+

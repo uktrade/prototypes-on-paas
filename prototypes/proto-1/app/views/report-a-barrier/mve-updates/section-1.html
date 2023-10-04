@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  About the barrier – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% set captionHeading %}
+        <span class="govuk-caption-m">Section 1 of 8</span>
+        About the barrier
+      {% endset %}
+
+      <form class="form" action="section-2" method="post">
+
+        <p>
+         
+          {% call govukFieldset({
+            legend: {
+              html: captionHeading,
+              classes: "govuk-fieldset__legend--l",
+              isPageHeading: false
+            }
+          }) %}
+          
+            {{ govukInput({
+              label: {
+                text: 'Barrier title',
+                classes: 'govuk-label--s'
+              },
+              hint: {
+                text: "Include the product, service or investment and the type of problem. For example, Import quotas for steel rods."
+              },
+              id: "barrier-title",
+              name: "barrier-title",
+              autocomplete: "barrier-title"
+            }) }}
+          
+            {{ govukTextarea({
+              label: {
+                text: 'Barrier description',
+                classes: 'govuk-label--s'
+              },
+              hint: {
+                text: "Explain how the barrier is affecting trade and why it exists. Where relevant include the specific laws or measures blocking trade, and any political context."
+              },
+              id: "barrier-description",
+              name: "barrier-description",
+              autocomplete: "barrier-description"
+            }) }}
+          {% endcall %}
+        </p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

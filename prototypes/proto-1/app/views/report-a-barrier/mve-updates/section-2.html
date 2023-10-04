@@ -1,0 +1,147 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Barrier status – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-m">Section 2 of 8</span>
+      <h1 class="govuk-heading-l">
+        Barrier status
+      </h1>
+
+      <form class="form" action="section-3" method="post">
+
+        <p>
+         
+          <!-- set the html for conditional questions when resolved in part -->
+          {% set resolvedinpartHtml %}
+          {{ govukDateInput({
+            id: "barrier-status-date-part-resolved",
+            namePrefix: "barrier-status-date-part-resolved",
+              fieldset: {
+              legend: {
+                text: "Date the barrier was partially resolved",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+
+            items: [
+              {
+                name: "month",
+                classes: "govuk-input--width-2"
+              },
+              {
+                name: "year",
+                classes: "govuk-input--width-4"
+              }
+            ]
+          }) }}
+          {{ govukTextarea({
+            name: "how-partially-resolved",
+            id: "how-partially-resolved",
+            label: {
+              text: "Describe briefly how this barrier was partially resolved",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            }
+          }) }}
+          {% endset -%}
+
+          <!-- set the html for conditional questions when resolved in full -->
+          {% set resolvedfulltHtml %}
+          {{ govukDateInput({
+            id: "barrier-status-date-full-resolved",
+            namePrefix: "barrier-status-date-full-resolved",
+              fieldset: {
+              legend: {
+                text: "Date the barrier was partially resolved",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+
+            items: [
+              {
+                name: "month",
+                classes: "govuk-input--width-2"
+              },
+              {
+                name: "year",
+                classes: "govuk-input--width-4"
+              }
+            ]
+          }) }}
+          {{ govukTextarea({
+            name: "how-fully-resolved",
+            id: "how-fully-resolved",
+            label: {
+              text: "Describe briefly how this barrier was resolved",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            }
+          }) }}
+          {% endset -%}          
+          
+          {{ govukRadios({
+            name: "barrier-status",
+            fieldset: {
+              legend: {
+                text: "Choose barrier status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "open",
+                text: "Open",
+                hint: {
+                  text: "Barrier is being worked on, or work will begin soon"
+                }
+              },
+              {
+                value: "resolved in part",
+                text: "Resolved: In part",
+                hint: {
+                  text: "Barrier has been partially resolved and is still being worked on"
+                },
+                conditional: {
+                  html: resolvedinpartHtml
+                }
+              },
+              {
+                value: "resolved in full",
+                text: "Resolved: In full",
+                hint: {
+                  text: "Barrier has been fully resolved"
+                },
+                conditional: {
+                  html: resolvedfulltHtml
+                }
+              }
+            ]
+          }) }}
+        </p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,5 @@
+{
+  "serviceName": "Proto 2",
+  "port": 9002,
+  "useBrowserSync": false
+}

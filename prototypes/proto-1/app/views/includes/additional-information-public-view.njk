@@ -1,0 +1,40 @@
+{% set otherBarrierDetails %}
+<dl class="summary-group__list">
+  
+
+  <dt class="summary-group__list__key">Public ID</dt>
+  <dd class="summary-group__list__value">      
+          A public ID will appear once published.      
+  </dd>
+
+  <dt class="summary-group__list__key">Resolved</dt>
+  <dd class="summary-group__list__value">      
+          No      
+  </dd>
+
+  <dt class="summary-group__list__key">Date reported</dt>
+  <dd class="summary-group__list__value">
+          24 August 2023
+  </dd>
+
+  <dt class="summary-group__list__key">Location</dt>
+  <dd class="summary-group__list__value">      
+          United States      
+  </dd>
+
+  <dt class="summary-group__list__key">Sector</dt>
+  <dd class="summary-group__list__value">          
+          Not selected, <a href="barrier-information#barrier-info-tab">add on main barrier tab</a>.
+  </dd>
+
+  <dt class="summary-group__list__key">Category</dt>
+  <dd class="summary-group__list__value">          
+          Not selected, <a href="barrier-information#barrier-info-tab">add on main barrier tab</a>.
+  </dd>
+</dl>
+{% endset %}
+
+{{ govukDetails({
+    summaryText: "Other barrier details",
+    html: otherBarrierDetails
+  }) }}
