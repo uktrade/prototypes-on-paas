@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Invite contact details - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+<!-- This sets a body class for the whole page, changing the standard width and indication which section the user is on in the navigation-->
+{% set bodyClasses = 'caseworker-width cases-nav' %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Who do you want to invite?</h1>
+      <form action="invite-party-check" novalidate method="post" id="invite-party-check">  
+
+        {{ govukInput({
+          label: {
+            text: "Organisation name",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-20",
+          id: "invite-contact-org-name",
+          name: "invite-contact-org-name",
+          value: data['invite-contact-org-name'],
+          type: "text"
+        }) }}
+
+        {% call govukFieldset({
+          legend: {
+            text: "Who is your primary contact?",
+            classes: "govuk-fieldset__legend--s",
+            isPageHeading: true
+          }
+        }) %}
+
+          {{ govukInput({
+            label: {
+              text: "Contact name",
+              isPageHeading: false
+            },
+            classes: "govuk-input--width-20",
+            id: "invite-contact-name",
+            name: "invite-contact-name",
+            type: "text",
+            autocomplete: "name",
+            value: data['invite-contact-name']
+
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Contact email address"
+            },
+            id: "invite-contact-email",
+            name: "invite-contact-email",
+            classes: "govuk-input--width-20",
+            type: "email",
+            autocomplete: "email",
+            value: data['invite-contact-email']
+          }) }}
+        
+        {% endcall %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}    
+           
+        </div>
+      </form> 
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

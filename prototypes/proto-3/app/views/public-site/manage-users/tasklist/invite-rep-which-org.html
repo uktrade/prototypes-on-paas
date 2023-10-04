@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who is registering interest – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'org-nav' %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+ <a class="govuk-back-link govuk-link--no-visited-state" href="invite-rep-tasks">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">2. About your representative</span>
+
+    <form action="/invite-contact-details-route" method="post" id="invite-rep-which-org-form">
+      
+      {{ govukRadios({
+        idPrefix: "invite-rep-what-org",
+        name: "invite-rep-what-org",
+        fieldset: {
+          legend: {
+            text: "Who does your representative work for?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "existing-org",
+            html: data['representative1'],
+            checked: checked("invite-rep-what-org", "existing-org" )
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "new-org",
+            text: "An organisation that has not represented us before",
+            checked: checked("invite-rep-what-org", "new-org")
+          }
+          
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}    
+        <a class="govuk-link govuk-link--no-visited-state" href="invite-rep-tasks">Back</a>
+      </div>
+
+    </form>
+      <!-- Test data -->
+          <!--<div class="govuk-inset-text">
+            Test data: <br>
+            Which org started?: {{ data['which-org-started']}}<br> 
+            Type of reg org: {{ data['reginterest-what-org']}}
+          </div> 
+        -->
+  </div>
+
+  
+
+</div>
+
+
+{% endblock %}
+
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

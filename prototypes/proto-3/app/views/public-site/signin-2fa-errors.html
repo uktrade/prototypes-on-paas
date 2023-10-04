@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Two factor authentication - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Two factor authentication      
+      </h1>
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              The authentication code could not be sent, try again shortly.
+            </li>
+            <li>
+              <a href="signin-2FA?rerequest2FA=yes">Send new code</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              Please wait before requesting another authentication code: <br>
+              <strong><span id="countdown1"></span></strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    
+      <script>
+      var timeleft1 = 20;
+      var downloadTimer = setInterval(function(){
+        if(timeleft1 <= 0){
+          clearInterval(downloadTimer);
+          document.getElementById("countdown1").innerHTML = " <a href='signin-2FA?rerequest2FA=yes'>Send new code</a> ";
+        } else {
+          document.getElementById("countdown1").innerHTML = timeleft1 + " seconds";
+        }
+        timeleft1 -= 1;
+      }, 1000);
+
+      </script>
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "The authentication code is incorrect and your account has been temporarily locked. Try again in 5 minutes",
+            href: "#signin-code"
+          }
+        ]
+      }) }}
+
+      {% if (data['rerequest2FA'] == "yes") %}
+
+        {% set requestSent %}
+            We have sent a new authetication code to [email address or mobile number].
+        {% endset %}
+
+        {{ govukInsetText({
+          text: requestSent
+        }) }}
+
+      {% else %}
+
+        <p>We have sent you an authentication code to [email address or mobile number].  </p>
+
+      {% endif %}
+
+
+      <p>This code will only be valid for 30 minutes, after that you will need to request a new code.</p>
+
+      <form action="/public-site/dashboard" method="post" id="signin-2fa-form">
+    
+        {{ govukInput({
+          label: {
+            text: "Enter the code"
+          },
+          errorMessage: {
+            text: "The authentication code is incorrect and your account has been temporarily locked. Try again in 5 minutes"
+          },
+          classes: "govuk-input--width-5",
+          id: "signin-code",
+          name: "signin-code"
+        }) }}
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              I'm having issues with my code
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>If you have not received your code or your code has expired you can request a new code using the link below. </p>
+              <p> Note you will have a limited number attempts before your account is temporarily locked. It will however be automatically re-enabled after a set period of time.</p>
+            <p><a href="signin-2FA?rerequest2FA=yes">Send new code</a></p>
+            <p>If you chose to receive your code by SMS it can sometimes be slow or unreliable. Click the link below to get your authentication code sent to your email  address: myemail@email.com</p>
+            <p><a href="signin-2FA?rerequest2FA=yes">Email me instead</a></p>
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Submit code"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "#1",
+          text: "Help"
+        },
+        {
+          href: "#2",
+          text: "Cookies"
+        },
+        {
+          href: "#3",
+          text: "Privacy"
+        },
+        {
+          href: "#4",
+          text: "Terms and conditions"
+        },
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+        },
+        {
+        },
+        {
+          href: "email/email-signin-2fa",
+          text: "For user testing: Go to email"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}

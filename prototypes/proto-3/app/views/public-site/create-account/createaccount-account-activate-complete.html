@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Email address is verified - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Email address is verified
+        </h1>
+      </div>
+
+      {% if data['user-permissions'] == "User" %}
+      <p>You can now sign in and access your organisation's Trade Remedies account.</p>
+      <p>With this account you can now:</p>
+      
+        <ul class="govuk-list govuk-list--bullet">
+          <li>request a new trade remedies investigation or review</li>
+          <li>participate in an active trade remedies case</li>
+          <li>invite an organisation or individual to represent you in an active case</li>
+        </ul>
+
+        {% else %}
+
+        {% if data['user-permissions'] != "User" %}
+        <p>You can now sign in and access your organisation's Trade Remedies account. </p>
+        <p>You can:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>request a new trade remedies investigation or review</li>
+            <li>participate in an active trade remedies case</li>
+            <li>invite an organisation or individual to represent you in an active case</li>
+            <li>add a colleague to your account or an active case</li>
+          </ul>
+        {% endif %}
+      {% endif %}
+ 
+     
+      <form action="../signin" method="post" id="dashboard">              
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+        
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "#1",
+          text: "Help"
+        },
+        {
+          href: "#2",
+          text: "Cookies"
+        },
+        {
+          href: "/public-site/terms-privacy",
+          text: "Terms & Privacy"
+        },
+        {
+          href: "#4",
+          text: "Accessibility statement"
+        },
+        {
+        },
+        {
+        },
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+        },
+        {
+        },
+        {
+          href: "/public-site/email/email-createaccount-reg-complete",
+          text: "For user testing: Go to email"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}

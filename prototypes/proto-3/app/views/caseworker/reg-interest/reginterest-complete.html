@@ -1,0 +1,194 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Registration of interest accepted - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% set bodyClasses = 'caseworker-width' %}
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['verify-type'] == "reg-interest" %}
+
+        {% if data['accept-on-case-result'] == "accept" %}
+
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Registration of interest accepted
+            </h1>
+          </div>
+          {% if data['third-party'] == "yes"%}
+            <p><strong>{{data ['case-ref1']}} - {{data ['case-name1']}}</strong>.</p>
+            <p>You have accepted the registration of interest for <strong>{{ data['party1'] }}</strong> that was submitted by:</p>
+            <p>{{ data['rep-user1'] }} - {{ data['rep-email1'] }}<br>
+              {{ data['representative1'] }}
+            </p>
+            <p>Your decision will be notified to both parties.</p>
+            {% else %}
+            {% if data['third-party'] == "no" %}
+              <p>You have accepted the registration of interest for <strong>{{ data['dup-party1'] }}</strong> that was submitted by <strong>{{ data['dup-user1'] }} - {{data['dup-email1']}}</strong></p>
+              <p>We will notify your decision to the interested party.</p>
+            {% endif %}
+          {% endif %}
+          
+          {% else %}
+
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Registration of Interest rejected
+            </h1>
+          </div>
+          <p><strong>{{data ['case-ref1']}} - {{data ['case-name1']}}</strong>.
+
+          {% if data['third-party'] == "yes"%}
+            <p>You have rejected the registration of interest for <strong>{{ data['party1'] }}</strong> that was submitted by:</p>
+            <p>{{ data['rep-user1'] }} - {{ data['rep-email1'] }}<br>
+                {{ data['representative1'] }}
+            </p>
+
+            {% else %}
+            {% if data['third-party'] == "no" %}
+              <p>You have rejected the registration of interest for <strong>{{ data['dup-party1'] }}</strong> that was submitted by <strong>{{ data['dup-user1'] }} - {{data['dup-email1']}}</strong></p>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        <h2 class="govuk-heading-m">What next?</h2>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="/caseworker/cases/case-overview#new-party" class="govuk-link--no-visited-state">Confirm other parties in this case</a></li>
+          <li><a href="/caseworker/cases/case-overview#new-submissions" class="govuk-link--no-visited-state">Review submissions for this case</a></li>
+        </ul>
+      {% endif %}
+
+      {% if data['verify-type'] == "rep-invite" %}
+
+        {% if data['accept-on-case-result'] == "accept" %}
+
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Representative invite approved
+            </h1>
+          </div>
+          <p><strong>{{data ['case-ref1']}} - {{data ['case-name1']}}</strong>.</p>
+          <p>You have approved {{ data['party1'] }}'s representative invite for {{ data['representative1'] }}
+          </p>
+
+          {% else %}
+          {% if data['accept-on-case-result'] == "decline" %}
+            <div class="govuk-panel govuk-panel--confirmation">
+              <h1 class="govuk-panel__title">
+                Representative invite rejected
+              </h1>
+            </div>
+
+            <p><strong>{{data ['case-ref1']}} - {{data ['case-name1']}}</strong>.</p>
+            <p>You have rejected {{ data['party1'] }}'s representative invite for {{ data['representative1'] }}
+            </p>
+          {% endif %}
+        {% endif %}
+
+        <p>Both parties will be notified of your decision.</p>
+          
+      {% endif %}
+
+
+      {{ govukButton({
+        text: "Back to case",
+        href: "../cases/case-overview"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+
+{% if data['verify-type'] == "reg-interest" %}
+
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "#1",
+          text: "Help"
+        },
+        {
+          href: "#2",
+          text: "Cookies"
+        },
+        {
+          href: "#3",
+          text: "Privacy"
+        },
+        {
+          href: "#4",
+          text: "Terms and conditions"
+        },
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+        },
+        {
+        },
+        {
+          href: "/public-site/email/email-reginterest-accept.html",
+          text: "Email: Accept email"
+        },
+        {
+          href: "/public-site/email/email-reginterest-decline.html",
+          text: "Email: Reject email"
+        }
+      ]
+    }
+  }) }}
+  {% else %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "#1",
+          text: "Help"
+        },
+        {
+          href: "#2",
+          text: "Cookies"
+        },
+        {
+          href: "#3",
+          text: "Privacy"
+        },
+        {
+          href: "#4",
+          text: "Terms and conditions"
+        },
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+        },
+        {
+        },
+        {
+          href: "/public-site/email/email-invite-rep-accept.html",
+          text: "Email: Accept email"
+        },
+        {
+          href: "/public-site/email/email-invite-rep-decline.html",
+          text: "Email: Reject email"
+        }
+      ]
+    }
+  }) }}
+{% endif %}
+{% endblock %}

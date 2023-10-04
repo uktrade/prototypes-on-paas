@@ -208,3 +208,11 @@ dist
 
 process.json
 
+/.idea/jsLibraryMappings.xml
+/.idea/misc.xml
+/.pm2/module_conf.json
+/.idea/modules.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/prototypes-on-paas.iml
+/.pm2/touch
+/.idea/vcs.xml

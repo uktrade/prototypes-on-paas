@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  No cases found – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'org-nav' %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+ <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">No cases found</h1>
+    <form action="/public-site/reg-interest/reginterest-tasks?tasklist-type=reg-interest" method="post" id="invite-rep-which-case"> 
+      <p>You need to register interest in a case before inviting your representative to join. </p>
+      <p>Alternatively, you can ask your representative to register interest on your behalf. Your representative will need to create an account first.</p>
+      
+      <div class="govuk-button-group clearfix">
+        {{ govukButton({
+          text: "Register interest"
+        }) }}    
+        <a class="govuk-link govuk-link--no-visited-state" href="/public-site/dashboard">Back to dashboard</a>
+      </div>
+    </form> 
+    <!--Having to add the break in this way as there is an issue with button groupings and the <hr> size at l or xl which appears on other similar pages-->
+    <hr class="govuk-section-break govuk-section-break--visible">
+    <br>
+    <br>
+    <form action="/feedback-task-route" method="post" id="feedback-task-complete-form">
+      <div class="address-card address-card-duplicate">
+        <div class="address-container">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset task">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s align">
+                <h2 class="govuk-fieldset__heading">
+                  Overall, how would you rate your experience with the Trade Remedies Service today? 
+                </h2>
+              </legend>
+              <div class="govuk-radios star-rating3__stars task" data-module="govuk-radios">
+                  <input class="star-rating3__input" type="radio" name="task-rating" value="1" id="task-rating-1" {{ checked("task-rating", "1") }} />
+                  <label class="star-rating3__label" for="task-rating-1" aria-label="Very dissatisfied"><span class="govuk-label text">Very dissatisfied</span></label></a>
+                  <input class="star-rating3__input" type="radio" name="task-rating" value="2" id="task-rating-2" {{ checked("task-rating", "2") }} />
+                  <label class="star-rating3__label" for="task-rating-2" aria-label="Dissatisfied"><span class="govuk-label text">Dissatisfied</span></label>
+                  <input class="star-rating3__input" type="radio" name="task-rating" value="3" id="task-rating-3" {{ checked("task-rating", "3") }} />
+                  <label class="star-rating3__label" for="task-rating-3" aria-label="Neither satisified or dissatisfied"><span class="govuk-label text">Neither satisified or dissatisfied</span></label>
+                  <input class="star-rating3__input" type="radio" name="task-rating" value="4" id="task-rating-4" {{ checked("task-rating", "4") }} />
+                  <label class="star-rating3__label" for="task-rating-4" aria-label="Satisfied"><span class="govuk-label text">Satisfied</span></label>
+                  <input class="star-rating3__input" type="radio" name="task-rating" value="5" id="task-rating-5" {{ checked("task-rating", "5") }} />
+                  <label class="star-rating3__label" for="task-rating-5" aria-label="Very satisfied"><span class="govuk-label text">Very satisfied</span></label>
+                  <div class="star-rating3__focus"></div>
+                </div>
+            </fieldset>
+          </div>
+          <div class="flex-parent jc-center">
+              {{ govukButton({
+                text: "Continue",
+                classes: "govuk-button--secondary"
+              }) }}
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

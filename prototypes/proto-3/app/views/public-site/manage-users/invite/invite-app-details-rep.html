@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Representative invite – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'org-nav' %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+  <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-xl">
+      Representative invite
+    </h1>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['invite-rep-task'] == "Deficient" %}
+            <p><strong class="govuk-tag govuk-tag--pink" id="pre-sampling-upload-status">Deficient documentation</strong></p>
+            {{ govukButton({
+              text: "Review documentation",
+              href: "../tasklist/invite-rep-tasks?who-signin=org&tasklist-type=invite-rep&invite-rep-task=Deficient&invite-loa-task=def&invite-case-task=complete&invite-which-org-task=complete&loa-download=no"
+            }) }}  
+            <p><span id="date"></span></p>
+            {% else %}
+            {% if data['invite-rep-task'] == "Draft" %}
+              <p>Draft<br>
+              <span id="date"></span></p>
+              {% else %}
+              {% if data['invite-rep-task'] == "Sent" %}
+                <p>Invite sent<br>Waiting for invitee acceptance</p>
+                <p><span id="date"></span></p>
+                {% else %}
+                {% if data['invite-rep-task'] == "Accepted" %}
+                  <p>Waiting TRA review <br>Invitee accepted your invite</p>
+                  <p><span id="date"></span></p>
+                  {% else %}
+                  {% if data['invite-rep-task'] == "Rejected" %}
+                    <p>Rejected<br>Invite rejected by the TRA</p>
+                    <p><span id="date"></span></p>
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+
+
+          {% if data['invite-rep-task'] == "All" %}
+            <p>Draft<br><br>
+            <p>Invite sent<br>Waiting invitee acceptance<br></p>
+            <p>Waiting TRA review <br>Invitee accepted your invite</p>
+            <p>Invite approved <br>Approved by the TRA <br></p>
+            <p>Rejected<br>Invite rejected by the TRA<br></p>
+            <p><strong class="govuk-tag govuk-tag--pink" id="pre-sampling-upload-status">Deficient documentation</strong><br>
+            </p>
+            {{ govukButton({
+              text: "Review documentation",
+              href: "../tasklist/invite-rep-tasks"
+            }) }}  
+            <p><span id="date"></span></p>
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Case details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p><a href="">
+              {{data ['invite-rep-what-case'] or "AD2224 - Steel plate from Russia"}}
+             </a><br>
+          </p>
+        </dd>
+      </div>
+
+      <script>
+        const date = new Date();
+        const formattedDate = date.toLocaleDateString('en-GB', {
+          day: '2-digit', month: 'short', year: 'numeric'
+        }).replace(/ /g, ' ');
+        document.getElementById("date").innerHTML = formattedDate;
+      </script>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Representative details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['invite-rep-task'] == "Deficient" %}
+            {{data['party-rep-name'] or data['party-user5'] }}
+            <br>
+            {{data['invite-rep-email'] or data['party-email5'] }}
+            <br><br>
+            {{data['party5']}}
+            {% else %}
+            {% if data['invite-rep-task'] == "Draft" %}
+             {{data['party-rep-name'] or data['party-user2'] }}
+              <br>
+              {{data['invite-rep-email'] or data['party-email2'] }}
+              <br><br>
+              {{data['party2']}}
+              {% else %}
+              {% if data['invite-rep-task'] == "Sent" %}
+                {{data['invite-rep-name'] or data['rep-user3'] }}
+                <br>
+                {{data['invite-rep-email'] or data['rep-email3'] }}
+                <br><br>
+                {{data['representative1']}}
+                {% else %}
+                {% if data['invite-rep-task'] == "Accepted" %}
+                  {{data['invite-rep-name'] or data['party-user3'] }}
+                  <br>
+                  {{data['invite-rep-email'] or data['party-email3'] }}
+                  <br><br>
+                  {{data['party3']}}
+                  {% else %}
+                  {% if data['invite-rep-task'] == "Rejected" %}
+                    {{data['invite-rep-name'] or data['party-user4'] }}
+                    <br>
+                    {{data['invite-rep-email'] or data['party-email4'] }}
+                    <br><br>
+                    {{data['party4']}}
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        </dd>        
+      </div>
+    
+      {% if data['invite-rep-task'] != "Draft"  %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Letter of Authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+              <a href="">loa.docx</a>
+          </dd>
+        </div>
+      {% endif %} 
+    </dl>
+
+   
+    <div class="govuk-button-group">
+      {% if data['invite-rep-task'] == "Draft" or data['invite-rep-task'] == "All" %}
+        {{ govukButton({
+          text: "Continue",
+          href: "../tasklist/invite-rep-tasks?tasklist-type=invite-rep&invite-case-task=draft"
+        }) }}  
+        <a class="govuk-link govuk-link--no-visited-state" href="invite-delete-draft">Delete invite</a>
+      {% endif %} 
+    </div>
+    {% if data['invite-rep-task'] == "Sent" or data['invite-rep-task'] == "All" %}
+      {{ govukButton({
+        text: "Cancel invite",
+        href: "invite-user-cancel?cancel-invite=rep"
+      }) }}   
+    {% endif %} 
+    
+  </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Change account status - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'user-nav' %}
+
+{% block header %}
+  {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="user-account#account-details" method="post" id="account-update-status-form"> 
+
+        {% if data['account-user'] =="invite-user-name" %}
+
+          {{ govukRadios({
+            idPrefix: "invite-user-status",
+            name: "invite-user-status",
+            fieldset: {
+              legend: {
+                text: "Select the user’s status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+            {
+              value: "Active",
+              text: "User is active and has access to your organisation’s cases.",
+              checked: checked("invite-user-status", "Active")
+            },
+            {
+              value: "Inactive",
+              text: "User is inactive and does not have access to any of your organisation’s cases.",
+              checked: checked("invite-user-status", "Inactive")
+            }
+            ]
+          }) }}
+
+          {% else %}
+          {% if data['account-user'] =="party-user6" %}
+            {{ govukRadios({
+              idPrefix: "party-user6-status",
+              name: "party-user6-status",
+              fieldset: {
+                legend: {
+                text: "Select the user’s status",
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              items: [
+               {
+                  value: "Active",
+                  text: "User is active and has access to your organisation’s cases.",
+                  checked: checked("party-user6-status", "Active")
+                },
+                {
+                  value: "Inactive",
+                  text: "User is inactive and does not have access to any of your organisation’s cases.",
+                  checked: checked("party-user6-status", "Inactive")
+                }
+              ]
+            }) }}
+
+            {% else %}
+            {% if data['account-user'] =="invite-rep-name" or data['account-user'] == "rep-user3" %}
+              {{ govukRadios({
+                idPrefix: "invite-rep-status",
+                name: "invite-rep-status",
+                fieldset: {
+                  legend: {
+                  text: "Select the user’s status",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                items: [
+                {
+                    value: "Active",
+                    text: "User is active and has access to your organisation’s cases.",
+                    checked: checked("invite-rep-status", "Active")
+                  },
+                  {
+                    value: "Inactive",
+                    text: "User is inactive and does not have access to any of your organisation’s cases.",
+                    checked: checked("invite-rep-status", "Inactive")
+                  }
+                ]
+              }) }}
+            
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Submit"
+          }) }}    
+           
+        </div>
+
+        </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+ {% include "includes/footer.html" %}
+{% endblock %}

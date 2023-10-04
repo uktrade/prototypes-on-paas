@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How to get an account - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        How to get an account 
+      </h1>
+
+      <p>You must ask an admin from your organisation to invite you to join. They can do this from the Manage users link on their dashboard.</p>
+      <p>Once your account is set up, you can:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>request a new trade remedies investigation or review</li>
+        <li>participate in an active trade remedies investigation</li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+You have a new password  - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        You have a new password
+      </h1>
+    </div>
+
+    <p>You have successfully reset your password.</p>
+    <p>Sign in to your Trade Remedies Service account with your new password.</p>   
+    <form action="signin" method="post" id="forgotton-password-complete-form">              
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

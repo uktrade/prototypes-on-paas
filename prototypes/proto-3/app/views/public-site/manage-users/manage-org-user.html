@@ -1,0 +1,1031 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Manage my organisation – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'user-nav' %}
+
+
+{% block header %}
+  {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+ <div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="../dashboard">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      Manage users
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Manage users
+    </h1>
+  </div>
+  <!--If there is an invite show tabs-->
+  <!--If there is an invite invite show tabs-->
+  <!--If there is an invite invite show tabs-->
+  {% if data['manage-user-states'] == "All" %}
+    <div class="govuk-grid-column-full">
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You have 1 pending invite with deficient documentation
+        </strong>
+      </div>
+      {% set manageTeamHTML %}
+        <h2 class="govuk-heading-m">Account users
+          <span class="govuk-body right-aligned-link">
+            <a href="invite/invite-user-type?tasklist-type=invite-rep&existing-cases-reps=yes" class="govuk-link--no-visited-state">Invite user</a>
+          </span>
+        </h2>
+        <p>Select a user to manage their access to your cases.</p>
+      
+        <form>
+            <div class="govuk-form-group table-sort">
+              <label class="govuk-label govuk-!-display-inline" for="sort-user">
+                Sort users by
+              </label>
+              <select class="govuk-select" id="sort-user" name="sort-user">
+                <option value="User" selected>User</option>
+                <option value="Email">Email</option>
+                <option value="Account Account role">Account role</option>
+                <option value="Number of cases">Number of cases</option>
+              </select>
+            </div>
+            <div class="govuk-form-group table-sort">
+              <label class="govuk-label govuk-visually-hidden" for="direction-users">
+                Direction
+              </label>
+              <select class="govuk-select" id="direction-users" name="direction-users">
+                <option value="Decending" selected>Decending</option>
+                <option value="Ascending ">Ascending </option>
+              </select>
+            </div>
+            {{ govukButton({
+              text: "Sort users",
+              classes: "govuk-button--secondary table-sort"
+            }) }}
+        </form>
+
+        <table class="govuk-table sortable mobile-table-border" id="table-header">
+          <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular govuk-visually-hidden--desktop">
+            A table listing all of the users that have access to this organisations account
+          </caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" aria-sort="ascending">
+                <button class="govuk-button govuk-button--secondary">
+                  <span class="govuk-visually-hidden--desktop">Sort by: </span>User
+                  <span class="indicator" aria-hidden="true"></span>
+                </button>
+              </th>
+              <th class="govuk-table__header">
+                <button class="govuk-button govuk-button--secondary">
+                  <span class="govuk-visually-hidden--desktop">Sort by: </span>Email
+                  <span class="indicator" aria-hidden="true"></span>
+                </button>
+              </th>
+              <th class="govuk-table__header">
+                <button class="govuk-button govuk-button--secondary">
+                  <span class="govuk-visually-hidden--desktop">Sort by: </span>Account role
+                  <span class="indicator" aria-hidden="true"></span>
+                </button>
+              </th>
+              <th class="govuk-table__header">
+                <button class="govuk-button govuk-button--secondary">
+                  <span class="govuk-visually-hidden--desktop">Sort by: </span>Cases
+                  <span class="indicator" aria-hidden="true"></span>
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">         
+            <!--Demi - If the user Approved by TRA the invite move them from 'Invites' tab to Account users tab OR if you want to see all user states-->
+            {% if data['invite-rep-task'] == "Approved" or data['manage-user-states'] == "All" %}
+              <tr class="govuk-table__row no-border">
+                <td class="govuk-table__cell text-overflow">
+                  <span class="govuk-visually-hidden--desktop">User: </span><a href="user-account?account-user=invite-rep-name" class="govuk-link--no-visited-state">{{data['invite-rep-name'] or data['rep-user3'] }}</a>
+                </td>
+                <td class="govuk-table__cell text-overflow">
+                  <span class="govuk-visually-hidden--desktop">Email: </span>{{data['invite-rep-email'] or data['rep-email3'] }}
+                </td>
+                <td class="govuk-table__cell">
+                  <span class="govuk-visually-hidden--desktop">Account role: </span>
+                  {% if data['invite-rep-status'] != "Inactive" %} 
+                    Representative
+                    {% else %}
+                    Inactive 
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell">
+                  <span class="govuk-visually-hidden--desktop">Cases: </span>1
+                </td>
+              </tr>
+            {% endif %}
+            <!--Jane - Always show-->
+            <tr class="govuk-table__row no-border">
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">User: </span><a href="user-account?account-user=party-user1" class="govuk-link--no-visited-state">{{data['createaccount-name'] or data['party-user1'] }}</a>
+              </td>
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Email: </span>{{data['createaccount-email'] or data['party-email1'] }}
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Account role: </span>Admin user
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Cases: </span>2
+              </td>
+            </tr>
+            <!--Lara - If the user Approved the invite move them from 'Invites' tab to Account users tab OR if you want to see all user states-->
+            {% if data['invite-org-task'] == "Approved" or data['manage-user-states'] == "All" %}
+              <tr class="govuk-table__row no-border">
+                <td class="govuk-table__cell text-overflow">
+                  <span class="govuk-visually-hidden--desktop">User: </span><a href="user-account?account-user=invite-user-name" class="govuk-link--no-visited-state">{{data['invite-user-name'] or data['party-user11'] }}</a>
+                </td>
+                <td class="govuk-table__cell text-overflow">
+                  <span class="govuk-visually-hidden--desktop">Email: </span>{{data['invite-user-email'] or data['party-email11'] }}
+                </td>
+                <td class="govuk-table__cell">
+                  <span class="govuk-visually-hidden--desktop">Account role: </span>
+                  {% if data['invite-user-status'] != "Inactive" %} 
+                    {{data['invite-user-permission'] or data['party-user11-permission'] }} 
+                    {% else %}
+                    {{data['invite-user-status'] or data['party-user11-status'] }} 
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell">
+                  {% if data['invite-case'] =="None" or data['invite-case'] == null %}
+                    <span class="govuk-visually-hidden--desktop">Cases: </span>0
+                    {% else %}
+                      {% if data['invite-case'] == "AD2224 - Steel plate from Russia,AS3464 - Garnets from Gabon" %}
+                      <span class="govuk-visually-hidden--desktop">Cases: </span>2
+                      {% else %}
+                      {% if data['invite-case'] == "AD2224 - Steel plate from Russia" or data['invite-case'] == "AS3464 - Garnets from Gabon" %}
+                        <span class="govuk-visually-hidden--desktop">Cases: </span>1
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                </td>
+              </tr>
+            {% endif %}   
+            <!--Rodney - show if you want to see all user states-->
+            {% if data['manage-user-states'] == "All" %}
+              <tr class="govuk-table__row no-border">
+                <td class="govuk-table__cell text-overflow">
+                  <span class="govuk-visually-hidden--desktop">User: </span><a href="user-account?account-user=party-user6" class="govuk-link govuk-link--no-visited-state">{{data['party-user6']}}</a>
+                </td>
+                <td class="govuk-table__cell text-overflow">
+                  <span class="govuk-visually-hidden--desktop">Email: </span>{{data['party-email6']}}
+                </td>
+                <td class="govuk-table__cell">
+                  <span class="govuk-visually-hidden--desktop">Account role: </span>
+                  {% if data['party-user6-status'] != "Inactive" %} 
+                    {{data['party-user6-permiss'] or "User"}} 
+                    {% else %}
+                    {{data['party-user6-status'] or "Inactive" }} 
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell">
+                  <span class="govuk-visually-hidden--desktop">Cases: </span>0
+                </td>
+              </tr>  
+            {% endif %}
+          </body>
+        </table>
+      {% endset %}
+    
+      {% set manageInvitesHTML %}
+        <h2 class="govuk-heading-m">Pending invites
+          <span class="govuk-body right-aligned-link">
+            <a href="invite/invite-user-type?tasklist-type=invite-rep&existing-cases-reps=yes" class="govuk-link--no-visited-state">Invite user</a>
+          </span>
+        </h2>
+        <p>You have 6 pending invites</p>
+        <form>
+            <div class="govuk-form-group table-sort">
+              <label class="govuk-label govuk-!-display-inline" for="sort-pending">
+                Sort users by
+              </label>
+              <select class="govuk-select" id="sort-pending" name="sort-pending">
+                <option value="User" selected>User</option>
+                <option value="Email">Email</option>
+                <option value="Account role">Account role</option>
+                <option value="Invite status">Status</option>
+              </select>
+            </div>
+            <div class="govuk-form-group table-sort">
+              <label class="govuk-label govuk-visually-hidden" for="direction-pending">
+                Direction
+              </label>
+              <select class="govuk-select" id="direction-pending" name="direction-pending">
+                <option value="Decending" selected>Decending</option>
+                <option value="Ascending ">Ascending </option>
+              </select>
+            </div>
+            {{ govukButton({
+              text: "Sort pending invites",
+              classes: "govuk-button--secondary table-sort"
+            }) }}
+        </form>
+        <table class="govuk-table sortable mobile-table-border" id="table-header">
+          <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular govuk-visually-hidden--desktop">
+            A table listing all of the users that have pending invites
+          </caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" aria-sort="ascending">
+                <button class="govuk-button govuk-button--secondary">
+                  <span class="govuk-visually-hidden--desktop">Sort by: </span>User
+                  <span class="indicator" aria-hidden="true"></span>
+                </button>
+              </th>
+              <th class="govuk-table__header">
+                <button class="govuk-button govuk-button--secondary">
+                  <span class="govuk-visually-hidden--desktop">Sort by: </span>Email
+                  <span class="indicator" aria-hidden="true"></span>
+                </button>
+              </th>
+              <th class="govuk-table__header">
+                <button class="govuk-button govuk-button--secondary">
+                  <span class="govuk-visually-hidden--desktop">Sort by: </span>Account role
+                  <span class="indicator" aria-hidden="true"></span>
+                </button>
+              </th>
+              <th class="govuk-table__header">
+                <button class="govuk-button govuk-button--secondary">
+                  <span class="govuk-visually-hidden--desktop">Sort by: </span>Status
+                  <span class="indicator" aria-hidden="true"></span>
+                </button>
+              </th>
+              <th class="govuk-table__header no-sort">
+                  <span class="govuk-visually-hidden--desktop">Action: </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            {% if (data['invite-rep-task'] == "Sent") %}
+              <tr class="govuk-table__row no-border">
+                <td class="govuk-table__cell">
+                  <span class="govuk-visually-hidden--desktop">User: </span>{{data['invite-user1'] or data['rep-user3'] }}
+                </td>
+                <td class="govuk-table__cell text-overflow">
+                  <span class="govuk-visually-hidden--desktop">Email: </span>{{data['invite-user-email'] or data['rep-email3'] }}
+                </td>
+                <td class="govuk-table__cell">
+                  <span class="govuk-visually-hidden--desktop">Account role: </span>Representative
+                </td>
+                <td class="govuk-table__cell">
+                  <span class="govuk-visually-hidden--desktop">Status: </span>Invite sent
+                </td>
+                <td class="govuk-table__cell">
+                  <span class="govuk-visually-hidden--desktop">Action: </span><a href="invite/invite-app-details-rep?invite-rep-task=Sent" class="govuk-link--no-visited-state">View invite</a>
+                </td>
+              </tr>
+            {% endif %}
+
+            <!--All status-->
+
+            <!--Rodney -->
+            <tr class="govuk-table__row no-border">
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">User: </span>{{data['party-user6']}}
+              </td>
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Email: </span>{{data['party-email6']}}
+              </td>
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Account role: </span>User
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Status: </span>Draft
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Action: </span><a href="invite/invite-app-details-org?invite-org-task=Draft" class="govuk-link--no-visited-state">View invite</a>
+              </td>
+            </tr>
+            <!--Lara -->
+            <tr class="govuk-table__row no-border">
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">User: </span>{{data['party-user11']}}
+              </td>
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Email: </span>{{data['party-email11']}}
+              </td>
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Account role: </span>User
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Status: </span>Invite sent
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Action: </span><a href="invite/invite-app-details-org?invite-org-task=Sent" class="govuk-link--no-visited-state">View invite</a>
+              </td>
+            </tr>
+            <!--Clay -->
+            <tr class="govuk-table__row no-border">
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">User: </span>{{data['party-user2'] }}
+              </td>
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Email: </span>{{data['party-email2'] }}
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Account role: </span>Representative
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Status: </span>Draft
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Action: </span><a href="invite/invite-app-details-rep?invite-rep-task=Draft" class="govuk-link--no-visited-state">View invite</a>
+              </td>
+            </tr>
+            <!--Demi -->  
+            <tr class="govuk-table__row no-border">
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">User: </span>{{data['rep-user3'] }}
+              </td>
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Email: </span>{{data['rep-email3'] }}
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Account role: </span>Representative
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Status: </span>Invite sent
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Action: </span><a href="invite/invite-app-details-rep?invite-rep-task=Sent" class="govuk-link--no-visited-state">View invite</a>
+              </td>
+            </tr>
+            <!--Odessa-->
+            <tr class="govuk-table__row no-border">
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">User: </span>{{data['party-user3'] }}
+              </td>
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Email: </span>{{data['party-email3'] }}
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Account role: </span>Representative
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Status: </span>Waiting TRA review
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Action: </span><a href="invite/invite-app-details-rep?invite-rep-task=Accepted" class="govuk-link--no-visited-state">View invite</a>
+              </td>
+            </tr>
+            <!--George -->
+            <tr class="govuk-table__row no-border">
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">User: </span>{{data['party-user5'] }}
+              </td>
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Email: </span>{{data['party-email5'] }}
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Account role: </span>Representative
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Status: </span><strong class="govuk-tag govuk-tag--pink app-task-list__tag">Deficient</strong>
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Action: </span><a href="invite/invite-app-details-rep?invite-rep-task=Deficient" class="govuk-link--no-visited-state">View invite</a>
+              </td>
+            </tr>
+          </body>
+        </table>
+      {% endset %}
+    
+      {% set rejectedInvitesHTML %}
+        <h2 class="govuk-heading-m">Rejected invites
+        </h2>
+        <p>You have 1 rejected invite</p>
+        <form>
+            <div class="govuk-form-group table-sort">
+              <label class="govuk-label govuk-!-display-inline" for="sort-rejected">
+                Sort rejected invites by
+              </label>
+              <select class="govuk-select" id="sort-rejected" name="sort-rejected">
+                <option value="User" selected>User</option>
+                <option value="Email">Email</option>
+                <option value="Invite status">Status</option>
+              </select>
+            </div>
+            <div class="govuk-form-group table-sort">
+              <label class="govuk-label govuk-visually-hidden" for="direction-rejected">
+                Direction
+              </label>
+              <select class="govuk-select" id="direction-rejected" name="direction-rejected">
+                <option value="Decending" selected>Decending</option>
+                <option value="Ascending ">Ascending </option>
+              </select>
+            </div>
+            {{ govukButton({
+              text: "Sort users",
+              classes: "govuk-button--secondary table-sort"
+            }) }}
+        </form>
+        <table class="govuk-table sortable mobile-table-border" id="table-header">
+          <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular govuk-visually-hidden--desktop">
+            A table listing all of the users that have been rejected from representing your organisation
+          </caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" aria-sort="ascending">
+                <button class="govuk-button govuk-button--secondary">
+                  <span class="govuk-visually-hidden--desktop">Sort by: </span>User
+                  <span class="indicator" aria-hidden="true"></span>
+                </button>
+              </th>
+              <th class="govuk-table__header">
+                <button class="govuk-button govuk-button--secondary">
+                  <span class="govuk-visually-hidden--desktop">Sort by: </span>Email
+                  <span class="indicator" aria-hidden="true"></span>
+                </button>
+              </th>
+              <th class="govuk-table__header">
+                <button class="govuk-button govuk-button--secondary">
+                  <span class="govuk-visually-hidden--desktop">Sort by: </span>Status
+                  <span class="indicator" aria-hidden="true"></span>
+                </button>
+              </th>
+              <th class="govuk-table__header no-sort">
+                  <span class="govuk-visually-hidden--desktop">Action: </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+              
+            <!--All status-->
+            <tr class="govuk-table__row no-border">
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">User: </span>{{data['party-user4'] }}
+              </td>
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Email: </span>{{data['party-email4'] }}
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Status: </span>Rejected
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop">Action: </span><a href="invite/invite-app-details-rep?invite-rep-task=Rejected" class="govuk-link--no-visited-state">View invite</a>
+              </td>
+            </tr>
+          </body>
+        </table>
+      {% endset %}
+
+      {{ govukTabs ({
+        items: [
+        { 
+          label: "Account users",
+          id: "manage-team",
+          panel: {
+            html: manageTeamHTML
+          }
+        },
+        { 
+          label: "Pending invites (6)",
+          id: "manage-invites",
+          panel: {
+            html: manageInvitesHTML
+          }
+        },
+        { 
+          label: "Rejected invites (1)",
+          id: "rejected-invites",
+          panel: {
+            html: rejectedInvitesHTML
+          }
+        }
+        ]
+      }) }}
+    </div>
+  
+    {% else %}
+    {% if data['manage-user-states'] != "All" %}
+        
+      {% if (data['invite-org-task'] == "Sent" or data['invite-rep-task'] == "Sent") or (data['invite-org-task'] == "Accepted" or data['invite-rep-task'] == "Accepted") %}
+        <div class="govuk-grid-column-full">
+          {% set manageTeamHTML %}
+            <h2 class="govuk-heading-m">Account users
+              <span class="govuk-body right-aligned-link">
+                <a href="invite/invite-user-type?tasklist-type=invite-rep&existing-cases-reps=yes" class="govuk-link--no-visited-state">Invite user</a>
+              </span>
+            </h2>
+            <p>Select a user to manage their access to your cases.</p>
+          
+            <form>
+                <div class="govuk-form-group table-sort">
+                  <label class="govuk-label govuk-!-display-inline" for="sort-user">
+                    Sort users by
+                  </label>
+                  <select class="govuk-select" id="sort-user" name="sort-user">
+                    <option value="User" selected>User</option>
+                    <option value="Email">Email</option>
+                    <option value="Account Account role">Account role</option>
+                    <option value="Number of cases">Number of cases</option>
+                  </select>
+                </div>
+                <div class="govuk-form-group table-sort">
+                  <label class="govuk-label govuk-visually-hidden" for="direction-users">
+                    Direction
+                  </label>
+                  <select class="govuk-select" id="direction-users" name="direction-users">
+                    <option value="Decending" selected>Decending</option>
+                    <option value="Ascending ">Ascending </option>
+                  </select>
+                </div>
+                {{ govukButton({
+                  text: "Sort users",
+                  classes: "govuk-button--secondary table-sort"
+                }) }}
+            </form>
+
+            <table class="govuk-table sortable mobile-table-border" id="table-header">
+              <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular govuk-visually-hidden--desktop">
+                A table listing all of the users that have access to this organisations account
+              </caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" aria-sort="ascending">
+                    <button class="govuk-button govuk-button--secondary">
+                      <span class="govuk-visually-hidden--desktop">Sort by: </span>User
+                      <span class="indicator" aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th class="govuk-table__header">
+                    <button class="govuk-button govuk-button--secondary">
+                      <span class="govuk-visually-hidden--desktop">Sort by: </span>Email
+                      <span class="indicator" aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th class="govuk-table__header">
+                    <button class="govuk-button govuk-button--secondary">
+                      <span class="govuk-visually-hidden--desktop">Sort by: </span>Account role
+                      <span class="indicator" aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th class="govuk-table__header">
+                    <button class="govuk-button govuk-button--secondary">
+                      <span class="govuk-visually-hidden--desktop">Sort by: </span>Cases
+                      <span class="indicator" aria-hidden="true"></span>
+                    </button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">         
+                <!--Demi - If the user Approved by TRA the invite move them from 'Invites' tab to Account users tab OR if you want to see all user states-->
+                {% if data['invite-rep-task'] == "Approved" or data['manage-user-states'] == "All" %}
+                  <tr class="govuk-table__row no-border">
+                    <td class="govuk-table__cell text-overflow">
+                      <span class="govuk-visually-hidden--desktop">User: </span><a href="user-account?account-user=invite-rep-name" class="govuk-link--no-visited-state">{{data['invite-rep-name'] or data['rep-user3'] }}</a>
+                    </td>
+                    <td class="govuk-table__cell text-overflow">
+                      <span class="govuk-visually-hidden--desktop">Email: </span>{{data['invite-rep-email'] or data['rep-email3'] }}
+                    </td>
+                    <td class="govuk-table__cell">
+                      <span class="govuk-visually-hidden--desktop">Account role: </span>
+                      {% if data['invite-rep-status'] != "Inactive" %} 
+                        Representative
+                        {% else %}
+                        Inactive 
+                      {% endif %}
+                    </td>
+                    <td class="govuk-table__cell">
+                      <span class="govuk-visually-hidden--desktop">Cases: </span>1
+                    </td>
+                  </tr>
+                {% endif %}
+                <!--Jane - Always show-->
+                <tr class="govuk-table__row no-border">
+                  <td class="govuk-table__cell text-overflow">
+                    <span class="govuk-visually-hidden--desktop">User: </span><a href="user-account?account-user=party-user1" class="govuk-link--no-visited-state">{{data['createaccount-name'] or data['party-user1'] }}</a>
+                  </td>
+                  <td class="govuk-table__cell text-overflow">
+                    <span class="govuk-visually-hidden--desktop">Email: </span>{{data['createaccount-email'] or data['party-email1'] }}
+                  </td>
+                  <td class="govuk-table__cell">
+                    <span class="govuk-visually-hidden--desktop">Account role: </span>Admin user
+                  </td>
+                  <td class="govuk-table__cell">
+                    <span class="govuk-visually-hidden--desktop">Cases: </span>2
+                  </td>
+                </tr>
+                <!--Lara - If the user Approved the invite move them from 'Invites' tab to Account users tab OR if you want to see all user states-->
+                {% if data['invite-org-task'] == "Approved" or data['manage-user-states'] == "All" %}
+                  <tr class="govuk-table__row no-border">
+                    <td class="govuk-table__cell text-overflow">
+                      <span class="govuk-visually-hidden--desktop">User: </span><a href="user-account?account-user=invite-user-name" class="govuk-link--no-visited-state">{{data['invite-user-name'] or data['party-user11'] }}</a>
+                    </td>
+                    <td class="govuk-table__cell text-overflow">
+                      <span class="govuk-visually-hidden--desktop">Email: </span>{{data['invite-user-email'] or data['party-email11'] }}
+                    </td>
+                    <td class="govuk-table__cell">
+                      <span class="govuk-visually-hidden--desktop">Account role: </span>
+                      {% if data['invite-user-status'] != "Inactive" %} 
+                        {{data['invite-user-permission'] or data['party-user11-permission'] }} 
+                        {% else %}
+                        {{data['invite-user-status'] or data['party-user11-status'] }} 
+                      {% endif %}
+                    </td>
+                    <td class="govuk-table__cell">
+                      {% if data['invite-case'] =="None" or data['invite-case'] == null %}
+                        <span class="govuk-visually-hidden--desktop">Cases: </span>0
+                        {% else %}
+                        {% if data['invite-case'] == "AD2224 - Steel plate from Russia,AS3464 - Garnets from Gabon" %}
+                          <span class="govuk-visually-hidden--desktop">Cases: </span>2
+                          {% else %}
+                          {% if data['invite-case'] == "AD2224 - Steel plate from Russia" or data['invite-case'] == "AS3464 - Garnets from Gabon" %}
+                            <span class="govuk-visually-hidden--desktop">Cases: </span>1
+                            {% else %}
+                          {% endif %}
+                        {% endif %}
+                      {% endif %}
+                    </td>
+                  </tr>
+                {% endif %}   
+                <!--Rodney - show if you want to see all user states-->
+                {% if data['manage-user-states'] == "All" %}
+                  <tr class="govuk-table__row no-border">
+                    <td class="govuk-table__cell text-overflow">
+                      <span class="govuk-visually-hidden--desktop">User: </span><a href="user-account?account-user=party-user6" class="govuk-link govuk-link--no-visited-state">{{data['party-user6']}}</a>
+                    </td>
+                    <td class="govuk-table__cell text-overflow">
+                      <span class="govuk-visually-hidden--desktop">Email: </span>{{data['party-email6']}}
+                    </td>
+                    <td class="govuk-table__cell">
+                      <span class="govuk-visually-hidden--desktop">Account role: </span>
+                      {% if data['party-user6-status'] != "Inactive" %} 
+                        {{data['party-user6-permiss'] or "User"}} 
+                        {% else %}
+                        {{data['party-user6-status'] or "Inactive" }} 
+                      {% endif %}
+                    </td>
+                    <td class="govuk-table__cell">
+                      <span class="govuk-visually-hidden--desktop">Cases: </span>0
+                    </td>
+                  </tr>  
+                {% endif %}
+              </body>
+            </table>
+          {% endset %}
+
+          {% set manageInvitesHTML %}
+            <h2 class="govuk-heading-m">Invites
+              <span class="govuk-body right-aligned-link">
+                <a href="invite/invite-user-type?tasklist-type=invite-rep&existing-cases-reps=yes" class="govuk-link--no-visited-state">Invite user</a>
+              </span>
+            </h2>
+            {% if (data['invite-org-task'] == "Sent" and data['invite-rep-task'] == "Sent") or (data['invite-rep-task'] == "Accepted" and data['invite-org-task'] == "Sent") %}            
+              <p>You have 2 pending invites</p>
+              {% else %}
+              <p>You have 1 pending invite</p>
+            {% endif %}
+            <form>
+                <div class="govuk-form-group table-sort">
+                  <label class="govuk-label govuk-!-display-inline" for="sort-pending">
+                    Sort users by
+                  </label>
+                  <select class="govuk-select" id="sort-pending" name="sort-pending">
+                    <option value="User" selected>User</option>
+                    <option value="Email">Email</option>
+                    <option value="Email">Account role</option>
+                    <option value="Invite status">Status</option>
+                  </select>
+                </div>
+                <div class="govuk-form-group table-sort">
+                  <label class="govuk-label govuk-visually-hidden" for="direction-pending">
+                    Direction
+                  </label>
+                  <select class="govuk-select" id="direction-pending" name="direction-pending">
+                    <option value="Decending" selected>Decending</option>
+                    <option value="Ascending ">Ascending </option>
+                  </select>
+                </div>
+                {{ govukButton({
+                  text: "Sort pending invites",
+                  classes: "govuk-button--secondary table-sort"
+                }) }}
+            </form>
+            <table class="govuk-table sortable mobile-table-border" id="table-header">
+              <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular govuk-visually-hidden--desktop">
+                A table listing all of the users that have pending invites
+              </caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" aria-sort="ascending">
+                    <button class="govuk-button govuk-button--secondary">
+                      <span class="govuk-visually-hidden--desktop">Sort by: </span>User
+                      <span class="indicator" aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th class="govuk-table__header">
+                    <button class="govuk-button govuk-button--secondary">
+                      <span class="govuk-visually-hidden--desktop">Sort by: </span>Email
+                      <span class="indicator" aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th class="govuk-table__header">
+                    <button class="govuk-button govuk-button--secondary">
+                      <span class="govuk-visually-hidden--desktop">Sort by: </span>Account role
+                      <span class="indicator" aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th class="govuk-table__header">
+                    <button class="govuk-button govuk-button--secondary">
+                      <span class="govuk-visually-hidden--desktop">Sort by: </span>Status
+                      <span class="indicator" aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th class="govuk-table__header no-sort">
+                      <span class="govuk-visually-hidden--desktop">Action: </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                  
+                {% if (data['invite-org-task'] == "Sent") %}
+                  <tr class="govuk-table__row no-border">
+                    <td class="govuk-table__cell text-overflow">
+                      <span class="govuk-visually-hidden--desktop">User: </span>{{data['invite-user-name'] or data['party-user11'] }}
+                    </td>
+                    <td class="govuk-table__cell text-overflow">
+                      <span class="govuk-visually-hidden--desktop">Email: </span>{{data['invite-user-email'] or data['party-email11'] }}
+                    </td>
+                    <td class="govuk-table__cell">
+                      <span class="govuk-visually-hidden--desktop">Account role: </span>{{data['invite-user-permission'] or data['party-user11-permission'] }}
+                    </td>
+                    <td class="govuk-table__cell">
+                      <span class="govuk-visually-hidden--desktop">Status: </span>Invite sent
+                    </td>
+                    <td class="govuk-table__cell ">
+                      <span class="govuk-visually-hidden--desktop">Action: </span><a href="invite/invite-app-details-org" class="govuk-link--no-visited-state">View invite</a>
+                    </td>
+                  </tr>
+                {% endif %}
+                
+                <!--Rep invite -->
+                {% if (data['invite-rep-task'] == "Sent") %}
+                  <tr class="govuk-table__row no-border">
+                    <td class="govuk-table__cell text-overflow">
+                      <span class="govuk-visually-hidden--desktop">User: </span>{{data['invite-rep-name'] or data['rep-user3'] }}
+                    </td>
+                    <td class="govuk-table__cell text-overflow">
+                      <span class="govuk-visually-hidden--desktop">Email: </span>{{data['invite-rep-email'] or data['rep-email3'] }}
+                    </td>
+                    <td class="govuk-table__cell">
+                      <span class="govuk-visually-hidden--desktop">Account role: </span>Representative
+                    </td>
+                    <td class="govuk-table__cell">
+                      <span class="govuk-visually-hidden--desktop">Status: </span>Invite sent
+                    </td>
+                    <td class="govuk-table__cell">
+                      <span class="govuk-visually-hidden--desktop">Action: </span><a href="invite/invite-app-details-rep" class="govuk-link--no-visited-state">View invite</a>
+                    </td>
+                  </tr>
+                  {% else %}
+                  {% if (data['invite-rep-task'] == "Accepted") %}
+                    <tr class="govuk-table__row no-border">
+                      <td class="govuk-table__cell text-overflow">
+                        <span class="govuk-visually-hidden--desktop">User: </span>{{data['invite-rep-name'] or data['rep-user3'] }}
+                      </td>
+                      <td class="govuk-table__cell text-overflow">
+                        <span class="govuk-visually-hidden--desktop">Email: </span>{{data['invite-rep-email'] or data['rep-email3'] }}
+                      </td>
+                      <td class="govuk-table__cell">
+                        <span class="govuk-visually-hidden--desktop">Account role: </span>Representative
+                      </td>
+                      <td class="govuk-table__cell">
+                        <span class="govuk-visually-hidden--desktop">Status: </span>Waiting TRA review
+                      </td>
+                      <td class="govuk-table__cell">
+                        <span class="govuk-visually-hidden--desktop">Action: </span><a href="invite/invite-app-details-rep" class="govuk-link--no-visited-state">View invite</a>
+                      </td>
+                    </tr>
+                  {% endif %}
+                {% endif %}
+              </body>
+            </table>
+          {% endset %}
+          
+          <!--Determine the number of invites in the tab -->
+          {% set inviteNumberHTML %}
+            {% if (data['invite-org-task'] == "Sent" and data['invite-rep-task'] == "Sent") or (data['invite-rep-task'] == "Accepted" and data['invite-org-task'] == "Sent") %}  
+              Pending invites (2)
+              {% else %}
+              Pending invites (1)
+            {% endif %}
+          {% endset %}
+
+          {{ govukTabs ({
+            items: [
+            { 
+              label: "Account users",
+              id: "manage-team",
+              panel: {
+                html: manageTeamHTML
+              }
+            },
+            { 
+              label: inviteNumberHTML,
+              id: "manage-invites",
+              panel: {
+                html: manageInvitesHTML
+              }
+            }
+            ]
+          }) }}
+
+        </div>
+        {% else %}
+        <!--If there is no sent invites do not show tabs-->
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-m">Account users
+            <span class="govuk-body right-aligned-link">
+              <a href="invite/invite-user-type?tasklist-type=invite-rep&existing-cases-reps=yes" class="govuk-link--no-visited-state">Invite user</a>
+            </span>
+          </h2>
+          <p>Select a user to manage their access to your cases.</p>
+        
+          <form>
+              <div class="govuk-form-group table-sort">
+                <label class="govuk-label govuk-!-display-inline" for="sort-user">
+                  Sort users by
+                </label>
+                <select class="govuk-select" id="sort-user" name="sort-user">
+                  <option value="User" selected>User</option>
+                  <option value="Email">Email</option>
+                  <option value="Account Account role">Account role</option>
+                  <option value="Number of cases">Number of cases</option>
+                </select>
+              </div>
+              <div class="govuk-form-group table-sort">
+                <label class="govuk-label govuk-visually-hidden" for="direction-users">
+                  Direction
+                </label>
+                <select class="govuk-select" id="direction-users" name="direction-users">
+                  <option value="Decending" selected>Decending</option>
+                  <option value="Ascending ">Ascending </option>
+                </select>
+              </div>
+              {{ govukButton({
+                text: "Sort users",
+                classes: "govuk-button--secondary table-sort"
+              }) }}
+          </form>
+
+          <table class="govuk-table sortable mobile-table-border desktop-table-border" id="table-header">
+            <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular govuk-visually-hidden--desktop">
+              A table listing all of the users that have access to this organisations account
+            </caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" aria-sort="ascending">
+                  <button class="govuk-button govuk-button--secondary">
+                    <span class="govuk-visually-hidden--desktop">Sort by: </span>User
+                    <span class="indicator" aria-hidden="true"></span>
+                  </button>
+                </th>
+                <th class="govuk-table__header">
+                  <button class="govuk-button govuk-button--secondary">
+                    <span class="govuk-visually-hidden--desktop">Sort by: </span>Email
+                    <span class="indicator" aria-hidden="true"></span>
+                  </button>
+                </th>
+                <th class="govuk-table__header">
+                  <button class="govuk-button govuk-button--secondary">
+                    <span class="govuk-visually-hidden--desktop">Sort by: </span>Account role
+                    <span class="indicator" aria-hidden="true"></span>
+                  </button>
+                </th>
+                <th class="govuk-table__header">
+                  <button class="govuk-button govuk-button--secondary">
+                    <span class="govuk-visually-hidden--desktop">Sort by: </span>Cases
+                    <span class="indicator" aria-hidden="true"></span>
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">         
+              <!--Demi - If the user Approved by TRA the invite move them from 'Invites' tab to Account users tab OR if you want to see all user states-->
+              {% if data['invite-rep-task'] == "Approved" %}
+                <tr class="govuk-table__row no-border">
+                  <td class="govuk-table__cell text-overflow">
+                    <span class="govuk-visually-hidden--desktop">User: </span><a href="user-account?account-user=invite-rep-name" class="govuk-link--no-visited-state">{{data['invite-rep-name'] or data['rep-user3'] }}</a>
+                  </td>
+                  <td class="govuk-table__cell text-overflow">
+                    <span class="govuk-visually-hidden--desktop">Email: </span>{{data['invite-rep-email'] or data['rep-email3'] }}
+                  </td>
+                  <td class="govuk-table__cell">
+                    <span class="govuk-visually-hidden--desktop">Account role: </span>
+                    {% if data['invite-rep-status'] != "Inactive" %} 
+                      Representative
+                      {% else %}
+                      Inactive 
+                    {% endif %}
+                  </td>
+                  <td class="govuk-table__cell">
+                    <span class="govuk-visually-hidden--desktop">Cases: </span>1
+                  </td>
+                </tr>
+              {% endif %}
+              <!--Jane - Always show-->
+              <tr class="govuk-table__row no-border">
+                <td class="govuk-table__cell text-overflow">
+                  <span class="govuk-visually-hidden--desktop">User: </span><a href="user-account?account-user=party-user1" class="govuk-link--no-visited-state">{{data['createaccount-name'] or data['party-user1'] }}</a>
+                </td>
+                <td class="govuk-table__cell text-overflow">
+                  <span class="govuk-visually-hidden--desktop">Email: </span>{{data['createaccount-email'] or data['party-email1'] }}
+                </td>
+                <td class="govuk-table__cell">
+                  <span class="govuk-visually-hidden--desktop">Account role: </span>Admin user
+                </td>
+                <td class="govuk-table__cell">
+                  <span class="govuk-visually-hidden--desktop">Cases: </span>2
+                </td>
+              </tr>
+              <!--Lara - If the user Approved the invite move them from 'Invites' tab to Account users tab OR if you want to see all user states-->
+              {% if data['invite-org-task'] == "Approved" %}
+                <tr class="govuk-table__row no-border">
+                  <td class="govuk-table__cell text-overflow">
+                    <span class="govuk-visually-hidden--desktop">User: </span><a href="user-account?account-user=invite-user-name" class="govuk-link--no-visited-state">{{data['invite-user-name'] or data['party-user11'] }}</a>
+                  </td>
+                  <td class="govuk-table__cell text-overflow">
+                    <span class="govuk-visually-hidden--desktop">Email: </span>{{data['invite-user-email'] or data['party-email11'] }}
+                  </td>
+                  <td class="govuk-table__cell">
+                    <span class="govuk-visually-hidden--desktop">Account role: </span>
+                    {% if data['invite-user-status'] != "Inactive" %} 
+                      {{data['invite-user-permission'] or data['party-user11-permission'] }} 
+                      {% else %}
+                      {{data['invite-user-status'] or data['party-user11-status'] }} 
+                    {% endif %}
+                  </td>
+                  <td class="govuk-table__cell">
+                    {% if data['invite-case'] =="None" or data['invite-case'] == null %}
+                      <span class="govuk-visually-hidden--desktop">Cases: </span>0
+                      {% else %}
+                        {% if data['invite-case'] == "AD2224 - Steel plate from Russia,AS3464 - Garnets from Gabon" %}
+                        <span class="govuk-visually-hidden--desktop">Cases: </span>2
+                        {% else %}
+                        {% if data['invite-case'] == "AD2224 - Steel plate from Russia" or data['invite-case'] == "AS3464 - Garnets from Gabon" %}
+                          <span class="govuk-visually-hidden--desktop">Cases: </span>1
+                          {% else %}
+                        {% endif %}
+                      {% endif %}
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endif %}             
+            </body>
+          </table>
+        </div>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+</div>
+
+{% endblock %}
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+      
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+          href: "?invite-org-task=Approved",
+          text: "Org accepts invite"
+        },
+        {
+          href: "?invite-rep-task=Accepted#manage-invites",
+          text: "Rep accept invite"
+        },
+        {
+          href: "?invite-rep-task=Approved",
+          text: "Rep approved by TRA"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Change your Two-factor authentication - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+    
+
+      <form action="account" method="post" id="account-2fa-form">   
+
+        <h1 class="govuk-heading-xl">
+          Change your two-factor authentication
+        </h1>
+
+        <p>When you sign in, we will send you a code as part of our two-factor authentication. This helps ensure that your account is kept safe and secure.</p>
+        
+        {% set mobileHtml %} 
+          By text message: 
+          <strong>+447821945034</strong> 
+        {% endset -%}
+
+        {% set emailText %}
+          By email:  
+          <strong>
+            <!--Determine who is signed in -->
+            {% if (data['who-signin'] == "rep") %}
+              {{data['createaccount-email'] or data['rep-email1'] }}
+              {% else %}
+              {% if (data['who-signin'] == "org") %}
+                {{data['createaccount-email'] or data['party-email1'] }}
+                {% else %}
+                {% if (data['who-signin'] == "rep-invite") %}
+                  {{data['invite-rep-email'] or data['rep-email3'] }}
+                  {% else %}
+                  {% if (data['who-signin'] == "org-invite") %}
+                      {{data['invite-user-email'] or data['party-email11'] }}
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          </strong>
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "2fa",
+          name: "2fa",
+          fieldset: {
+            legend: {
+              text: "How would you like to receive your code?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+          {
+            value: "text message",
+            html: mobileHtml
+          },
+          {
+            value: "email",
+            html: emailText
+          }
+          ]
+        }) }}
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Submit"
+          }) }}    
+           
+        </div>
+      </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+ {% include "includes/footer.html" %}
+{% endblock %}

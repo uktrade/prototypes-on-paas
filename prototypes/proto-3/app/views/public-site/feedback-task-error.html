@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your interest in the case has been registered - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select a rating of between 1 to 5 stars",
+            href: "#feedback-error"
+          }
+        ]
+      }) }}
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Registration complete
+        </h1>
+        <div class="govuk-panel__body">
+          Case number:<br>
+          <strong>
+            {% if (data['regnterest-due-date'] == "current") %}
+              {{data ['case-ref1']}}
+            {% else %}
+
+              {{data['case-ref']}}
+            {% endif %}
+          </strong>
+        </div>
+      </div>
+  
+      <p>Thank you for your Registration of Interest. We have sent you a confirmation email.</p>
+      
+      <p>Case: 
+        {% if (data['regnterest-due-date'] == "current") %}
+          {{data ['case-ref1']}} - {{data ['case-name1']}}
+        {% else %}
+
+          {{data['case-ref']}} - {{data['case-name']}}
+        {% endif %}<br>
+        
+        Interested party: 
+        <!--Show the org who is reg for interest-->
+       
+
+        <!-- Show the reg of interest for new or existing clients according to who has signed in: Org-->
+        {% if (data['who-signin'] == "org") or (data['who-signin'] == "org-invite") %}
+        {% if (data['reginterest-what-org'] == "my-org") %}
+          {{data['createaccount-org-name'] or data['party1'] }}
+          {% else %}
+          {% if data['reginterest-what-org'] == "existing-org" %}
+            {{data['reginterest-existing-org'] or data['party1']}}
+            {% else %}
+            {% if (data['reginterest-what-org'] == "new-org") %}
+              {% if data['reginterest-uk-reg'] == "yes" %}
+                Aluminium Trade Ltd
+                {% else %}
+                {{data['reginterest-org-name'] or "Aluminium Trade Ltd"}}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        <!-- Show the reg of interest for new or existing clients according to who has signed in: Rep-->
+        {% else %}
+        {% if (data['who-signin'] == "rep") or (data['who-signin'] == "rep-invite") %}
+          {% if (data['reginterest-what-org'] == "my-org") %}
+            {{data['createaccount-org-name'] or data['representative1'] }}
+            {% else %}
+            {% if data['reginterest-what-org'] == "existing-org" %}
+              {{data['reginterest-existing-org'] or data['party1']}}
+              {% else %}
+              {% if (data['reginterest-what-org'] == "new-org") %}
+                {% if data['reginterest-uk-reg'] == "yes" %}
+                  Aluminium Trade Ltd
+                  {% else %}
+                  {{data['reginterest-org-name'] or data['party1'] }}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endif %}<br>
+
+        Received on: <span id="date"></span>
+      </p>
+
+      <script>
+        const date = new Date();
+        const formattedDate = date.toLocaleDateString('en-GB', {
+          day: '2-digit', month: 'short', year: 'numeric'
+        }).replace(/ /g, ' ');
+        document.getElementById("date").innerHTML = formattedDate;
+      </script>
+        
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>We will review your registration of interest, and let you know if your request to participate in this case is successful.  </li>
+        <li>You may be asked to complete a further questionnaire. We will contact you if so.  </li>
+        <li>Organisations taking part in the investigation will all be placed on a public record of the case. </li>
+      </ul>
+      <p>If you need to make any changes to your registration, contact us as soon as possible at <strong>{{data ['case-ref']}}@traderemedies.gov.uk</strong>.</p>
+      
+      <form action="../dashboard" method="post" id="to-dashboard-form">
+        {{ govukButton({
+          text: "Go to my dashboard"
+        }) }}
+      </form>
+
+      <!--Having to add the break in this way as there is an issue with button grouping and the <hr> size at l or xl which appears on other similar pages-->
+      <hr class="govuk-section-break govuk-section-break--visible">
+      <br>
+      <br>    
+
+      <form action="/feedback-task-route" method="post" id="feedback-task-complete-form">
+        <div class="address-card address-card-duplicate">
+          <div class="address-container">
+            <div class="govuk-form-group govuk-form-group--error">
+              <fieldset class="govuk-fieldset task" aria-describedby="feedback-error">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s align">
+                  <h2 class="govuk-fieldset__heading">
+                    Overall, how would you rate your experience with the Trade Remedies Service today? 
+                  </h2>
+                </legend>
+                <p id="feedback-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Select a rating of between 1 to 5 stars
+                </p>
+                <div class="govuk-radios star-rating3__stars task" data-module="govuk-radios">
+                    <input class="star-rating3__input" type="radio" name="task-rating" value="1" id="task-rating-1" {{ checked("task-rating", "1") }} />
+                    <label class="star-rating3__label" for="task-rating-1" aria-label="Very dissatisfied"><span class="govuk-label text">Very dissatisfied</span></label></a>
+                    <input class="star-rating3__input" type="radio" name="task-rating" value="2" id="task-rating-2" {{ checked("task-rating", "2") }} />
+                    <label class="star-rating3__label" for="task-rating-2" aria-label="Dissatisfied"><span class="govuk-label text">Dissatisfied</span></label>
+                    <input class="star-rating3__input" type="radio" name="task-rating" value="3" id="task-rating-3" {{ checked("task-rating", "3") }} />
+                    <label class="star-rating3__label" for="task-rating-3" aria-label="Neither satisified or dissatisfied"><span class="govuk-label text">Neither satisified or dissatisfied</span></label>
+                    <input class="star-rating3__input" type="radio" name="task-rating" value="4" id="task-rating-4" {{ checked("task-rating", "4") }} />
+                    <label class="star-rating3__label" for="task-rating-4" aria-label="Satisfied"><span class="govuk-label text">Satisfied</span></label>
+                    <input class="star-rating3__input" type="radio" name="task-rating" value="5" id="task-rating-5" {{ checked("task-rating", "5") }} />
+                    <label class="star-rating3__label" for="task-rating-5" aria-label="Very satisfied"><span class="govuk-label text">Very satisfied</span></label>
+                    <div class="star-rating3__focus"></div>
+                  </div>
+              </fieldset>
+            </div>
+            <div class="flex-parent jc-center">
+                {{ govukButton({
+                  text: "Continue",
+                  classes: "govuk-button--secondary"
+                }) }}
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+   {% include "includes/footer.html" %}
+{% endblock %}

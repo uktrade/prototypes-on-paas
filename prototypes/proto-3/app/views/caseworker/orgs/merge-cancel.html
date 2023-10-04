@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Cancel merge - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Cancel merge
+      </h1>
+
+      <p>Are you sure you want to cancel this merge?</p>
+      <p>This will reset all of your selections, allowing you to start again.</p>
+
+      <form action="merge-two-orgs" method="post" id="cancel-merge-form">
+      <input type="hidden" id="show-invite" name="show-invite" value="no">
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Cancel merge",
+          classes: "govuk-button--warning"
+        }) }}    
+        
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

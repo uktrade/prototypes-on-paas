@@ -1,0 +1,120 @@
+<!--If the user is trying to reg interest show: -->
+<!--If the user is trying to reg interest show: -->
+<!--If the user is trying to reg interest show: -->
+{% if data['tasklist-type'] == "reg-interest" %}
+  <!-- If the user has completed  Review and submit show: -->
+  {% if (data['check-task'] == "complete")  %}
+    <li class="app-task-list__item">
+      <span class="app-task-list__task-name">
+        <a href="reginterest-check" class="govuk-link--no-visited-state" aria-describedby="check-status">
+           Review and submit
+        </a>
+      </span>
+      <strong class="govuk-tag app-task-list__tag" id="check-status">Complete</strong>
+    </li>
+
+    {% else %}
+      <!-- If the user has started  Review and submit show: -->
+    {% if (data['check-task'] == "started")  %}
+      <li class="app-task-list__item">
+        <span class="app-task-list__task-name">
+          <a href="reginterest-check" class="govuk-link--no-visited-state" aria-describedby="check-status">
+            Review and submit
+          </a>
+        </span>
+        <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="check-status">In progress</strong>
+      </li>
+
+      {% else %}
+      <!-- If the user not started Check and it is not their org loa and pre docs are uploaded -->
+      {% if (data['reginterest-what-org'] != "my-org") and (data['upload-loa-task'] == "complete") and (data['upload-pre-task'] == "complete") %}
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="reginterest-check?check-task=started" class="govuk-link--no-visited-state" aria-describedby="check-status">
+              Review and submit
+            </a>
+          </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="check-status">Not started</strong>
+        </li>
+
+        {% else %}
+          <!-- If the user not started Check and it is their org and pre docs are uploaded -->
+        {% if (data['reginterest-what-org'] == "my-org") and (data['upload-pre-task'] == "complete") %}
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="reginterest-check?check-task=started" class="govuk-link--no-visited-state" aria-describedby="check-status">
+                Review and submit
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="check-status">Not started</strong>
+          </li>
+
+          {% else %}
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+                Review and submit
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="check-status">Cannot start yet</strong>
+          </li>
+        {% endif %}
+      {% endif %}     
+    {% endif %}
+  {% endif %}
+
+  {% else %}
+    <!--If the user is trying to Invite a rep show: -->
+    <!--If the user is trying to Invite a rep show: -->
+    <!--If the user is trying to Invite a rep show: -->
+
+  {% if data['tasklist-type'] == "invite-rep" %}
+
+    <!-- If the user has completed  Review and submit show: -->
+    {% if (data['invite-check-task'] == "complete")  %}
+      <li class="app-task-list__item">
+        <span class="app-task-list__task-name">
+          <a href="invite-rep-check" class="govuk-link--no-visited-state" aria-describedby="check-status">
+             Review and submit
+          </a>
+        </span>
+        <strong class="govuk-tag app-task-list__tag" id="check-status">Complete</strong>
+      </li>
+
+      {% else %}
+
+        <!-- If the user has started Check show: -->
+      {% if (data['invite-check-task'] == "started")  %}
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="invite-rep-check" class="govuk-link--no-visited-state" aria-describedby="check-status">
+               Review and submit
+            </a>
+          </span>
+          <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="check-status">In progress</strong>
+        </li>
+      
+        {% else %}
+
+          <!-- If the user not started Check -->
+        {% if (data['invite-loa-task'] == "complete") or (data['existing-cases-reps'] == "no" and data['invite-which-org-task'] == "complete" ) %}
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="invite-rep-check?invite-rep-check-task=started" class="govuk-link--no-visited-state" aria-describedby="check-status">
+                 Review and submit
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="check-status">Not started</strong>
+          </li>
+
+          {% else %}
+
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+                 Review and submit
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="check-status">Cannot start yet</strong>
+          </li>
+        {% endif %}     
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endif %}

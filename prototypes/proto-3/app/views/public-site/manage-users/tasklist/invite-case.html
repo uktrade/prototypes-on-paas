@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Select Trade Remedies case – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'org-nav' %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+ <a class="govuk-back-link govuk-link--no-visited-state" href="invite-rep-tasks">Back</a>
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">1. Your cases</span>
+    <form action="invite-rep-tasks?invite-case-task=complete&invite-rep-task=Draft" method="post" id="invite-rep-which-case"> 
+
+      {{ govukRadios({
+        idPrefix: "invite-rep-what-case",
+        name: "invite-rep-what-case",
+        fieldset: {
+          legend: {
+            text: "Which case?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+          text: "Select the case you would like your representative to participate in."
+        },
+        items: [
+          {
+            value: "AG0404 - Farnets from Fabon",
+            text: "AG0404 - Farnets from Fabon",
+            checked: checked("invite-rep-what-case", "AG0404 - Farnets from Fabon")
+          },
+          {
+            value: "AD2224 - Steel plate from Russia",
+            text: "AD2224 - Steel plate from Russia",
+            checked: checked("invite-rep-what-case", "AD2224 - Steel plate from Russia")
+          }
+        ]
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "Why can’t I view more active cases?",
+        html: '<p>You can only select cases that you are currently participating in.</p>
+        <p> You can <a href="" class="govuk-link">Register Interest</a> in an active case and then invite your representative if accepted.</p>
+        <p>You cannot invite a representative to work on a case where you are already the representative for the interested party.'
+      }) }}
+      
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}    
+        <a class="govuk-link govuk-link--no-visited-state" href="invite-rep-tasks">Back</a>
+      </div>
+
+    </form> 
+
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

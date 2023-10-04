@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Create an account - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/beta-banner.html"%}
+  <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="createaccount-password" novalidate method="post" id="createaccount-your-account-form">  
+        
+        <h1 class="govuk-heading-xl">
+          Your account details
+        </h1>
+        
+        {% if data['reg-type'] == "invite-own-org" %}
+        <!--For invite org -->
+          {{ govukInput({
+            label: {
+              text: "Enter your name",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            },
+            hint: {
+              text: "How would you like to be addressed?"
+            },
+            classes: "govuk-input--width-20",
+            id: "invite-user-name",
+            name: "invite-user-name",
+            type: "text",
+            autocomplete: "name",
+            value: data['invite-user-name'] or data['party-user11']
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Your email address",
+              classes: "govuk-label--s"
+            },
+          
+            id: "invite-user-email",
+            name: "invite-user-email",
+            classes: "govuk-input--width-20 govuk-input--readonly",
+            type: "email",
+            autocomplete: "email",
+            attributes: {
+              "readonly": true
+            },
+            value: data['invite-user-email'] or data['party-email11']
+          }) }}
+
+          {% else %}
+          <!--For invite rep -->
+          <p>You will be creating this account for your own organisation and will be the admin for the account. This is the organisation you are directly employed by.</p>
+
+            {% if (data['reg-type'] == "invite-rep") and (data['invite-rep-who-reg'] == "Email recipient") %}
+            
+              {{ govukInput({
+                label: {
+                  text: "Enter your name",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                },
+                hint: {
+                  text: "How would you like to be addressed?"
+                },
+                classes: "govuk-input--width-20",
+                id: "invite-rep-name",
+                name: "invite-rep-name",
+                type: "text",
+                autocomplete: "name",
+                value: data['invite-rep-name'] or data['rep-user1']
+              }) }}
+
+              {{ govukInput({
+                label: {
+                  text: "Your email address",
+                  classes: "govuk-label--s"
+                },
+              
+                id: "invite-rep-email",
+                name: "invite-rep-email",
+                classes: "govuk-input--width-20 govuk-input--readonly",
+                type: "email",
+                autocomplete: "email",
+                attributes: {
+                  "readonly": true
+                },
+                value: data['invite-rep-email'] or data['rep-email1']
+              }) }}
+
+              {% else %}
+
+              {{ govukInput({
+                label: {
+                  text: "Enter your name",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                },
+                hint: {
+                  text: "How would you like to be addressed?"
+                },
+                classes: "govuk-input--width-20",
+                id: "invite-rep-name",
+                name: "invite-rep-name",
+                type: "text",
+                autocomplete: "name"
+              }) }}
+
+              {{ govukInput({
+                label: {
+                  text: "Your email address",
+                  classes: "govuk-label--s"
+                },
+              
+                id: "invite-rep-email",
+                name: "invite-rep-email",
+                classes: "govuk-input--width-20",
+                type: "email",
+                autocomplete: "email"
+              }) }}
+
+            {% endif %}
+
+        {% endif %}
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h1 class="govuk-fieldset__heading">
+                Terms of Use and Privacy Notice
+              </h1>
+            </legend>
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  I have read and understood the <a href="/public-site/terms-privacy" target="_blank">Terms of Use and Privacy Notice (opens in a new window or tab)</a> 
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}    
+          
+
+      </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

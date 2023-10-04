@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  2 factor authentication - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+    
+{% if (data['reg-type'] == "invite-own-org") or (data['reg-type'] == "invite-rep") %}
+  <form action="createaccount-account-complete?invite-reg=complete" method="post" id="create-account-2fa-form">   
+    {% else %}
+      <form action="createaccount-uk-reg" method="post" id="create-account-2fa-form">   
+{% endif %}
+
+        <h1 class="govuk-heading-xl">
+          Two-factor authentication
+        </h1>
+
+        <p>The next time you sign in, you will receive a code to verify that it’s really you. This provides an extra layer of security.</p>
+        
+      <!-- Put this text into the radio for mobile-->
+        {% set mobileHtml %} 
+          {% include "includes/country-code-list.html" %}    
+        
+          {{ govukInput({
+            id: "2FA-mobile",
+            name: "2FA-mobile",
+            value: data['2FA-mobile'],
+            type: "tel",
+            autocomplete: "tel",
+            classes: "govuk-!-width-one-third",
+            label: {
+              text: "Enter your mobile number"
+            }
+          }) }}
+        {% endset -%}
+
+    <!-- Put this text into the radio for email-->
+        {% set emailText %}
+          By email: <strong>{{data['createaccount-email'] or data['party-email1'] }}</strong>
+        {% endset -%}
+
+    <!-- Radio buttons-->
+        {{ govukRadios({
+          name: "2fa-choice",
+          fieldset: {
+            legend: {
+              text: "How would you like to receive your code?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+          {
+            value: "mobile",
+            text: "By text message",
+            id: "mobile",
+            checked: checked("2fa-choice", "mobile"),
+            conditional: {
+              html: mobileHtml
+            }
+          },
+          {
+            value: "createaccount-email",
+            html: emailText,
+            id: "createaccount-email",
+            checked: checked("2fa-choice", "createaccount-email")
+          }
+          ]
+        }) }}
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}    
+          
+
+       </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

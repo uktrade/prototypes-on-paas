@@ -1,0 +1,32 @@
+<!-- Show the relevent docs for the diff types of applications-->
+
+  <!-- Show the relevent docs for 3rd parties appls-->
+  {% if (data['reginterest-what-org'] == "existing") or (data['reginterest-what-org'] == "new")  %}
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell text-overflow">letter-of-authority-template.docx</th>
+    <td class="govuk-table__cell text-overflow govuk-table__cell--numeric">389kb</td>
+    <td class="govuk-table__cell text-overflow govuk-table__cell--numeric">
+
+      <!-- Show whether the doc has been downloaded or not and change set loa-download to be yes if it has-->
+      {% if (data['loa-download'] == "yes" ) %}
+        <span class="govuk-visually-hidden--desktop">Download:</span><a href="reginterest-download?loa-download=yes" class="govuk-link--no-visited-state"> Download <span class="govuk-visually-hidden">letter-of-authority-template </span></a><span>&#10003;</span>
+        {% else %}
+        <span class="govuk-visually-hidden--desktop">Download:</span><a href="reginterest-download?loa-download=yes" class="govuk-link--no-visited-state"> Download <span class="govuk-visually-hidden">letter-of-authority-template</span></a>
+      {% endif %}
+    </td>
+  </tr>  
+  {% endif %}
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell text-overflow">registration-form-presampling.docx</th>
+    <td class="govuk-table__cell text-overflow govuk-table__cell--numeric">434kb</td>
+    <td class="govuk-table__cell text-overflow govuk-table__cell--numeric" >
+
+      <!-- Show whether the doc has been downloaded or not and change set sample-download to be yes if it has-->
+      {% if (data['sample-download'] == "yes" ) %}
+        <span class="govuk-visually-hidden--desktop">Download:</span><a href="reginterest-download?sample-download=yes" class="govuk-link--no-visited-state"> Download <span class="govuk-visually-hidden">registration-form-presampling </span></a><span>&#10003;</span>
+      {% else %}
+        <span class="govuk-visually-hidden--desktop">Download:</span><a href="reginterest-download?sample-download=yes" class="govuk-link--no-visited-state"> Download <span class="govuk-visually-hidden">registration-form-presampling</span></a>
+      {% endif %}
+
+    </td>
+  </tr>

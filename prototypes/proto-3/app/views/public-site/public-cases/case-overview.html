@@ -1,0 +1,421 @@
+{{ data | log }}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Steel plate from Russia – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page-->
+
+{% set bodyClasses = 'invest-nav' %}
+
+
+{% block header %}
+  {% if data['signed-out'] == "no" %}
+    {% include "includes/header-public.html" %}
+    {% else %}
+    {% include "includes/header-public-signedout.html" %}
+  {% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "includes/beta-banner.html"%}
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="../dashboard">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="cases-all">TRA investigations</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        {{data['case-ref1']}}
+      </li>
+    </ol>
+  </div>
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{data['case-ref1']}} - {{data['case-name1']}}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m">{{data['case-type1']}}</h2>
+    <p>The goods that are the subject of the investigation are:</p>
+    <p>Stainless steel bars and rods, not further worked than cold-formed or cold-finished, other than bars and rods of circular cross-section of a diameter of 80 mm or more.</p>
+  </div>
+  
+  <div class="govuk-grid-column-one-third">
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-s" id="subsection-title">
+        Email Submission team
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+             <a class="govuk-link govuk-link--no-visited-state" href="mailto:Submissionref@traderemedies.gov.uk">{{data['case-ref1']}}@traderemedies.gov.uk</a>
+          </li>   
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+      
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {% set SubmissionDetailsHTML %}
+      <h2 class="govuk-heading-m">Case details</h2>
+      {% if data['signed-out'] == "no" %}
+        <p>To take part in the investigation, you need to <a href="/public-site/reg-interest/reginterest-tasks?tasklist-type=reg-interest" class="govuk-link--no-visited-state">register interest.</a></p>
+        {% else %}
+        <p>To take part in the investigation, <a href="/public-site/create-account/createaccount-your-account" class="govuk-link--no-visited-state">create an account</a> or <a href="/public-site/signin" class="govuk-link--no-visited-state">sign in</a> to register interest.</p>
+      {% endif %}
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Status
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['status1']}}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Applicant
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['applicant1']}}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Country
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Russian Federation
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Last updated
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['updated1']}}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Registration due by
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['register-date1']}}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Initiation date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['initiated1']}}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Commodities affected
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              <li>7222202100</li>
+              <li>7222202900</li>
+              <li>7222203100</li>
+              <li>7222203900</li>
+              <li>7222208100</li>
+              <li>7222208900</li>
+            </ul>
+          </dd>
+        </div>
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Linked cases
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list govuk-list--bullet">
+              <li><a href="" class="govuk-link--no-visited-state">AD5832 - Steel Magnolia's from Mongolia</a>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>{{data['case-ref1']}}: {{data['case-name1']}}
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li><a href="" class="govuk-link--no-visited-state">AD3467 - Steel Plating from Poland</a>
+                        <ul class="govuk-list govuk-list--bullet">
+                          <li><a href="" class="govuk-link--no-visited-state">AD11234 - Polished Steel Plates from Paraguay</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </dd>
+        </div>
+      </dl>
+
+    {% endset %}
+
+    {% set submissionsHTML %}
+      <h2 class="govuk-heading-m">Public file</h2>
+      <p>The public file contains non-confidential versions of documents submitted by registered participants in the case. It also contains non-confidential versions of reports or other documents generated by the Trade Remedies Authority during the investigation and links to all relevant public notices for the case.</p>
+
+      <form>
+        <div class="govuk-form-group table-sort">
+          <label class="govuk-label govuk-!-display-inline" for="sort-Submissions">
+            Sort by
+          </label>
+          <select class="govuk-select" id="sort-Submissions" name="sort-Submissions">
+            <option value="Submission">Submission</option>
+            <option value="Party">Party</option>
+            <option value="Type">Type</option>
+            <option value="Published">Published</option>
+            <option value="No. of files">Files</option>
+          </select>
+        </div>
+        <div class="govuk-form-group table-sort">
+          <label class="govuk-label govuk-visually-hidden" for="direction-Submissions">
+            Direction
+          </label>
+          <select class="govuk-select" id="direction-Submissions" name="direction-Submissions">
+            <option value="Decending" selected>Decending</option>
+            <option value="Ascending ">Ascending </option>
+          </select>
+        </div>
+        {{ govukButton({
+          text: "Sort",
+          classes: "govuk-button--secondary table-sort"
+        }) }}
+        
+      </form>     
+      <table class="govuk-table sortable mobile-table-border" id="table-header">
+        <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular govuk-visually-hidden--desktop">
+          A table listing all of Public File submissions for this investigation
+        </caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">
+              <button class="govuk-button govuk-button--secondary">
+                <span class="govuk-visually-hidden--desktop">Sort by: </span>Submission
+                <span class="indicator" aria-hidden="true"></span>
+              </button>
+            </th>
+            <th class="govuk-table__header">
+              <button class="govuk-button govuk-button--secondary">
+                <span class="govuk-visually-hidden--desktop">Sort by: </span>Party
+                <span class="indicator" aria-hidden="true"></span>
+              </button>
+            </th>
+            <th class="govuk-table__header">
+              <button class="govuk-button govuk-button--secondary">
+                <span class="govuk-visually-hidden--desktop">Sort by: </span>Type
+                <span class="indicator" aria-hidden="true"></span>
+              </button>
+            </th>
+            <th class="govuk-table__header" aria-sort="ascending">
+              <button class="govuk-button govuk-button--secondary">
+                <span class="govuk-visually-hidden--desktop">Sort by: </span>Published
+                <span class="indicator" aria-hidden="true"></span>
+              </button>
+            </th>
+            <th class="govuk-table__header">
+              <button class="govuk-button govuk-button--secondary">
+                <span class="govuk-visually-hidden--desktop">Sort by: </span>Files
+                <span class="indicator" aria-hidden="true"></span>
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">Submission: </span><a href="case-submission?party=VIRAJ PROFILES PRIVATE LIMITED&submission=Questionnaire&type=Exporter">Questionnaire</a>
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Party: </span>VIRAJ PROFILES PRIVATE LIMITED
+            </td>
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">Type: </span>Exporter
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Published: </span>{{data ['updated5']}}
+            </td>
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">No. of files: </span>12
+            </td>  
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">Submission: </span><a href="case-submission-tra-intparty?party=VIRAJ PROFILES PRIVATE LIMITED&submission=General publication - Submission (from an interested party)&type=Exporter">General publication - Submission (from an interested party)</a>
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Party: </span>VIRAJ PROFILES PRIVATE LIMITED
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Type: </span>Exporter
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Published: </span>{{data ['updated8']}}
+            </td>
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">No. of files: </span>2
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">Submission: </span><a href="case-submission-tra?party=Trade Remedies Authority&submission=The Statement of Essential Facts&type=Trade Remedies Authority">	The Statement of Essential Facts</a>
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Party: </span>Trade Remedies Authority
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Type: </span>Trade Remedies Authority
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Published: </span>{{data ['updated1']}}
+            </td>
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">No. of files: </span>2
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">Submission: </span><a href="case-submission-tra?party=Trade Remedies Authority&submission=General publication - Verification report&type=Trade Remedies Authority">General publication - Verification report</a>
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Party: </span>Trade Remedies Authority
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Type: </span>Trade Remedies Authority
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Published: </span>{{data ['updated10']}}
+            </td>
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">No. of files: </span>2
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">Submission: </span><a href="case-submission-tra?party=Trade Remedies Authority&submission=General publication - Case timeline&type=Trade Remedies Authority">General publication - Case timeline</a>
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Party: </span>Trade Remedies Authority
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Type: </span>Trade Remedies Authority
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Published: </span>{{data ['updated9']}}
+            </td>
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">No. of files: </span>1
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">Submission: </span><a href="case-submission?party=British Stainless Steel Association&submission=Registration of Interest&type=Trade Body">Registration of Interest</a>
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Party: </span>British Stainless Steel Association
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Type: </span>Trade Body
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Published: </span>{{data ['updated3']}}
+            </td>
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">No. of files: </span>34
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">Submission: </span><a href="case-submission-tra?party=Trade Remedies Authority&submission=General publication - Notice of extension&type=Trade Remedies Authority">General publication - Notice of extension</a>
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Party: </span>Trade Remedies Authority
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Type: </span>Trade Remedies Authority
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Published: </span>{{data ['updated6']}}
+            </td>
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">No. of files: </span>2
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">Submission: </span><a href="case-submission-tra?party=Trade Remedies Authority&submission=General publication - Questionnaire&type=Trade Remedies Authority">General publication - Questionnaire</a>
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Party: </span>Trade Remedies Authority
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Type: </span>Trade Remedies Authority
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop">Published: </span>{{data ['updated4']}}
+            </td>
+            <td class="govuk-table__cell ">
+              <span class="govuk-visually-hidden--desktop">No. of files: </span>1
+            </td>
+          </tr>
+        </tdbody>
+      </table>
+    {% endset %}
+
+    {{ govukTabs ({
+      items: [
+      { 
+        label: "Case details",
+        id: "Submission-details",
+        panel: {
+          html: SubmissionDetailsHTML
+        }
+      },
+      { 
+        label: "Public file",
+        id: "public-file",
+        panel: {
+          html: submissionsHTML
+        }
+      }
+      ]
+    }) }}
+
+        
+  </div>
+  
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

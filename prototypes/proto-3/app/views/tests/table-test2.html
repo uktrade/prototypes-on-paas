@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+
+{% set title = "Accessible table test" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+    <table class="govuk-table sortable table-border" id="table-header">
+      <caption class="govuk-table__caption govuk-visually-hidden">All team members
+        <span class="sr-only">, column headers with buttons are sortable.</span>
+      </caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header">
+            <button>
+              <span class="govuk-visually-hidden--desktop">Sort by: </span>Team member</span>
+              <span aria-hidden="true"></span>
+            </button>
+          </th>
+          <th class="govuk-table__header" aria-sort="ascending">
+            <button>
+              <span class="govuk-visually-hidden--desktop">Sort by: </span>Email address</span>
+              <span aria-hidden="true"></span>
+            </button>
+          </th>
+          <th class="govuk-table__header">
+            <button>
+              <span class="govuk-visually-hidden--desktop">Sort by: </span>Acccount role</span>
+              <span aria-hidden="true"></span>
+            </button>
+          </th>
+          <th class="govuk-table__header num">
+            <button>
+              <span class="govuk-visually-hidden--desktop">Sort by: </span>Number</span>
+              <span aria-hidden="true"></span>
+            </button>
+          </th>
+          <th class="govuk-table__header num">
+            <button>
+              <span class="govuk-visually-hidden--desktop">Sort by: </span>Number</span>
+              <span aria-hidden="true"></span>
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell text-overflow">Fred</td>
+          <td class="govuk-table__cell text-overflow">Jackson</td>
+          <td class="govuk-table__cell text-overflow">Canary, Inc.</td>
+          <td class="govuk-table__cell text-overflow">123 Broad St.</td>
+          <td class="govuk-table__cell text-overflow num">56</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell text-overflow">Sara</td>
+          <td class="govuk-table__cell text-overflow">James</td>
+          <td class="govuk-table__cell text-overflow">Cardinal, Inc.</td>
+          <td class="govuk-table__cell text-overflow">457 First St.</td>
+          <td class="govuk-table__cell text-overflow num">7</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell text-overflow">Ralph</td>
+          <td class="govuk-table__cell text-overflow">Jefferson</td>
+          <td class="govuk-table__cell text-overflow">Robin, Inc.</td>
+          <td class="govuk-table__cell text-overflow">456 Main St.</td>
+          <td class="govuk-table__cell text-overflow num">513</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell text-overflow">Nancy</td>
+          <td class="govuk-table__cell text-overflow">Jensen</td>
+          <td class="govuk-table__cell text-overflow">Eagle, Inc.</td>
+          <td class="govuk-table__cell text-overflow">2203 Logan Dr.</td>
+          <td class="govuk-table__cell text-overflow num">3.5</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <table class="sortable">
+      <caption>
+        Students currently enrolled in WAI-ARIA 101
+        <span class="sr-only">, column headers with buttons are sortable.</span>
+      </caption>
+      <thead>
+        <tr>
+          <th>
+            <button>
+              First Name
+              <span aria-hidden="true"></span>
+            </button>
+          </th>
+          <th aria-sort="ascending">
+            <button>
+              Last Name
+              <span aria-hidden="true"></span>
+            </button>
+          </th>
+          <th>
+            <button>
+              Company
+              <span aria-hidden="true"></span>
+            </button>
+          </th>
+          <th class="no-sort">Address</th>
+          <th class="num">
+            <button>
+              Favorite Number
+              <span aria-hidden="true"></span>
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fred</td>
+          <td>Jackson</td>
+          <td>Canary, Inc.</td>
+          <td>123 Broad St.</td>
+          <td class="num">56</td>
+        </tr>
+        <tr>
+          <td>Sara</td>
+          <td>James</td>
+          <td>Cardinal, Inc.</td>
+          <td>457 First St.</td>
+          <td class="num">7</td>
+        </tr>
+        <tr>
+          <td>Ralph</td>
+          <td>Jefferson</td>
+          <td>Robin, Inc.</td>
+          <td>456 Main St.</td>
+          <td class="num">513</td>
+        </tr>
+        <tr>
+          <td>Nancy</td>
+          <td>Jensen</td>
+          <td>Eagle, Inc.</td>
+          <td>2203 Logan Dr.</td>
+          <td class="num">3.5</td>
+        </tr>
+      </tbody>
+    </table>
+          
+
+{% endblock %}

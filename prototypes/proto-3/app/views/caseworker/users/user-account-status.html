@@ -1,0 +1,272 @@
+{% extends "layout.html" %}
+
+{% set header1 = "User account status" %}
+
+{% block pageTitle %}
+  {{header1}} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page, changing the standard width and indication which section the user is on in the navigation-->
+
+{% set bodyClasses = 'caseworker-width user-nav' %}
+
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['account-user'] == "new-customer" %}
+          <form action="user-account-valid" method="post" id="account-update-status-form">
+        {% else %}
+        {% if data['account-user'] == "new-caseworker" %}
+          <form action="invest-account?show-invest=yes#user-details" method="post" id="account-update-status-form">
+          {% else %}
+          {% if data['account-user'] == "caseworker-invest" %}
+            <form action="invest-account#user-details" method="post" id="account-update-status-form">
+            {% else %}
+            <form action="user-account#user-details" method="post" id="account-update-status-form">
+          {% endif %}
+        {% endif %}
+      {% endif %}
+       
+      <!--Jane-->
+      {% if data['account-user'] =="party-user1" %}
+        {{ govukRadios({
+          idPrefix: "party-user1-status",
+          name: "party-user1-status",
+          fieldset: {
+            legend: {
+              html: header1,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+          {
+            value: "Active",
+            text: "Active - the user has access to their account.",
+            checked: checked("party-user1-status", "Active")
+          },
+          {
+            value: "Inactive",
+            text: "Inactive - user does not have access to their account.",
+            checked: checked("party-user1-status", "Inactive")
+          }
+          ]
+        }) }}
+        {% else %}
+        <!--Lara-->
+        {% if data['account-user'] =="party-user11" %}
+          {{ govukRadios({
+            idPrefix: "party-user11-status",
+            name: "party-user11-status",
+            fieldset: {
+              legend: {
+                html: header1,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+            {
+              value: "Active",
+              text: "Active - the user has access to their account.",
+              checked: checked("party-user11-status", "Active")
+            },
+            {
+              value: "Inactive",
+              text: "Inactive - user does not have access to their account.",
+              checked: checked("party-user11-status", "Inactive")
+            }
+            ]
+          }) }}
+          <!--Rodney-->
+          {% else %}
+          {% if data['account-user'] =="party-user6" %}
+            {{ govukRadios({
+              idPrefix: "party-user6-status",
+              name: "party-user6-status",
+              fieldset: {
+                legend: {
+                html: header1,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              items: [
+              {
+                  value: "Active",
+                  text: "Active - the user has access to their account.",
+                  checked: checked("party-user6-status", "Active")
+                },
+                {
+                  value: "Inactive",
+                  text: "Inactive - user does not have access to their account.",
+                  checked: checked("party-user6-status", "Inactive")
+                }
+              ]
+            }) }}
+            <!--Bob-->
+            {% else %}
+            {% if  data['account-user'] == "rep-user1" %}
+              {{ govukRadios({
+                idPrefix: "rep-user1-status",
+                name: "rep-user1-status",
+                fieldset: {
+                  legend: {
+                  html: header1,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                items: [
+                {
+                    value: "Active",
+                    text: "Active - the user has access to their account.",
+                    checked: checked("rep-user1-status", "Active")
+                  },
+                  {
+                    value: "Inactive",
+                    text: "Inactive - user does not have access to their account.",
+                    checked: checked("rep-user1-status", "Inactive")
+                  }
+                ]
+              }) }}
+              <!--Demi-->
+              {% else %}
+              {% if data['account-user'] == "rep-user3" %}
+                {{ govukRadios({
+                  idPrefix: "rep-user3-status",
+                  name: "rep-user3-status",
+                  fieldset: {
+                    legend: {
+                    html: header1,
+                      isPageHeading: true,
+                      classes: "govuk-fieldset__legend--xl"
+                    }
+                  },
+                  items: [
+                  {
+                      value: "Active",
+                      text: "Active - the user has access to their account.",
+                      checked: checked("rep-user3-status", "Active")
+                    },
+                    {
+                      value: "Inactive",
+                      text: "Inactive - user does not have access to their account.",
+                      checked: checked("rep-user3-status", "Inactive")
+                    }
+                  ]
+                }) }}
+                <!--Demi-->
+                {% else %}
+                {% if data['account-user'] == "caseworker-invest" %}
+                  {{ govukRadios({
+                    idPrefix: "caseworker-invest-status",
+                    name: "caseworker-invest-status",
+                    fieldset: {
+                      legend: {
+                      html: header1,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--xl"
+                      }
+                    },
+                    items: [
+                    {
+                        value: "Active",
+                        text: "Active - the user has access to their account.",
+                        checked: checked("caseworker-invest-status", "Active")
+                      },
+                      {
+                        value: "Inactive",
+                        text: "Inactive - user does not have access to their account.",
+                        checked: checked("caseworker-invest-status", "Inactive")
+                      }
+                    ]
+                  }) }}
+                  <!--New customer-->
+                  {% else %}
+                  {% if data['account-user'] == "new-customer" %}
+                    {{ govukRadios({
+                      idPrefix: "rep-user3-status",
+                      name: "rep-user3-status",
+                      fieldset: {
+                        legend: {
+                        html: header1,
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--xl"
+                        }
+                      },
+                      items: [
+                      {
+                          value: "Active",
+                          text: "Active - the user has access to their account."
+                        },
+                        {
+                          value: "Inactive",
+                          text: "Inactive - user does not have access to their account."
+                        }
+                      ]
+                    }) }}
+                    <!--New invest-->
+                    {% else %}
+                    {% if data['account-user'] == "new-caseworker" %}
+                      {{ govukRadios({
+                        idPrefix: "caseworker-status",
+                        name: "caseworker-status",
+                        fieldset: {
+                          legend: {
+                          html: header1,
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--xl"
+                          }
+                        },
+                        items: [
+                        {
+                            value: "Active",
+                            text: "Active - the user has access to their account."
+                          },
+                          {
+                            value: "Inactive",
+                            text: "Inactive - user does not have access to their account."
+                          }
+                        ]
+                      }) }}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+
+        {% if data['account-user'] == "new-customer" or data['account-user'] == "new-caseworker" %}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}    
+          </div>
+          {% else %}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Submit"
+            }) }}    
+          </div>
+        {% endif %}
+
+      </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+ {% include "includes/footer.html" %}
+{% endblock %}

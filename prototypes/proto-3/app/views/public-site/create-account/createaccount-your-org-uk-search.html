@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your organisation details - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="createaccount-your-org-dets" method="post" id="createaccount-your-org-confirm-form">  
+    
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--xl" for="search-reg-org">
+              Your organisation details
+            </label>
+          </h1>
+
+          <div id="sort-hint" class="govuk-hint">
+            Search Companies House to find your UK registered company details. This is the organisation you are directly employed by.
+          </div>
+          <select class="govuk-select" id="search-reg-org" name="search-reg-org">
+            <option value="" class="selected"></option>
+            <option value="ALUMINUM TRADE LTD (05850450) Suite 19 Old Anglo House, Mitton Street, Stourport-On-Severn, Worcestershire, DY13 9AQ">ALUMINUM TRADE LTD (05850450)</option>
+            <option value="ALUMINUM ELECTRICS LIMITED (05337101) 20 Highbury Place, Bramley, Leeds, United Kingdom, LS13 4PW">ALUMINUM ELECTRICS LIMITED (05337101)</option>
+            <option value="ALUMINUM SQUIRREL LIMITED (SOUTH WALES) (08199303) 16 Bracken Park, Bingley, United Kingdom, BD16 3LG">ALUMINUM SQUIRREL LIMITED (SOUTH WALES) (08199303)</option>
+            <option value="ALUMINIUM PROFILE SERVICES LIMITED (09849849) Clock Cottage, Corneybury Farm, Royston Road, Buntingford, Hertfordshire, England, SG9 9RS">ALUMINIUM PROFILE SERVICES LIMITED (09849849)</option>
+            <option value="ALUMINIUM INTEGRATED SOLUTIONS LIMITED (09424974) 61 Great North Road, Newcastle Upon Tyne, Tyne And Wear, United Kingdom, NE3 2DQ">ALUMINIUM INTEGRATED SOLUTIONS LIMITED (09424974)</option>
+            <option value="ALUMINIUM STAR LIMITED (07751077) 21 Princess Mary House, Vincent Street Westminster, London, England, SW1P 4HL">ALUMINIUM STAR LIMITED (07751077) </option>
+            <option value="ALUMINUMNOW LIMITED (07650927) 29 Belfont Walk, London, 29 Belfont Walk, London, Greater London, England, N7 0SN">ALUMINUMNOW LIMITED (07650927) </option>
+            <option value="ALUMINUMNOW MARITIME SOLUTIONS LTD. (08567105) 29 Belfont Walk 29 Belfont Walk, London, Greater London, England, N7 0SN">ALUMINUMNOW MARITIME SOLUTIONS LTD. (08567105)</option>
+            <option value="AEROSPACE ALUMINUM CO., LTD (08667181) Unit G25 Waterfront Studios, 1 Dock Road, London, United Kingdom, E16 1AH">AEROSPACE ALUMINUM CO., LTD (08667181)</option>
+            <option value="BLUESTEEL (223456789) 243 Cupboard Lane, Leeds, LE1 1AF, United Kingdomm">BLUESTEEL (223456789)</option>
+            <option value="BLUESTEEL PARTNERS (223456789) 305 Fleet Street, London, EC4Y 1JU, United Kingdom">BLUESTEEL PARTNERS (223456789)</option>
+            <option value="Steel UK (49069784) 20 Highbury Place, Bramley, Leeds, LS13 4PW, United Kingdom">Steel UK (49069784)</option>
+          </select>
+        </div>
+
+        <div style="display:none;" id="selected_company_wrapper">
+          <p>Check the details below carefully. If it does not match the details of your organisation, you should go back to the previous page and select "No".</p>
+          <div class="govuk-inset-text" id="selected_company"></div>
+        </div>
+
+        {{ govukDetails({
+          summaryText: "If you can’t find your organisation",
+          html: ' <p class="govuk-body">Search for your organisation on the <a href="https://www.gov.uk/get-information-about-a-company" target="_blank" rel="noopener noreferrer" class="govuk-link">Companies House register (opens in a new tab)</a>.</p>
+          <p>If the organisation is not on the register it is not a UK registered company. Go back to the previous page and select "No". </p>'
+        }) }}
+   
+        {{ govukButton({
+          text: "I confirm these details are correct"
+        }) }}           
+      </form> 
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

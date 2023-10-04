@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Cancel merge - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Cancel merge
+      </h1>
+
+      <p>Are you sure you want to cancel this merge?</p>
+      <p>This will reset all of your selections, allowing you to start again.</p>
+
+      {% if data['verify-type'] =="reg-interest" %}
+        <form action="/caseworker/reg-interest/reginterest-tasks-dup?merge-duplicates=1of2&third-party=yes&loa-sufficient=yes" method="post" id="cancel-merge-form">
+        {% else %}
+        {% if data['verify-type'] =="rep-invite" %}
+          <form action="/caseworker/reg-interest/reginterest-tasks-dup?merge-duplicates=1of2&duplicate-org=rep&third-party=yes&loa-sufficient=yes" method="post" id="cancel-merge-form">
+          {% else %}
+          {% if data['verify-type'] =="merge-only" %}
+            <form action="/caseworker/cases/existing-orgs-duplicate" method="post" id="cancel-merge-form">
+          {% endif %}
+        {% endif %}
+      {% endif %}
+
+      <input type="hidden" id="show-invite" name="show-invite" value="no">
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Cancel merge",
+          classes: "govuk-button--warning"
+        }) }}    
+        
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

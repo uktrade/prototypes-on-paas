@@ -1,0 +1,212 @@
+{% extends "layout.html" %}
+
+{% set header1 = "Select what the user can do" %}
+
+{% block pageTitle %}
+  {{header1}} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page, changing the standard width and indication which section the user is on in the navigation-->
+
+{% set bodyClasses = 'caseworker-width user-nav' %}
+
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['account-user'] == "new-customer" %}
+          <form action="user-account-status" method="post" id="account-update-details-form"> 
+        {% else %}
+          <form action="user-account#user-details" method="post" id="account-update-details-form"> 
+      {% endif %}
+
+      
+        <!--Jane-->
+        {% if data['account-user'] =="party-user1" %}
+          {{ govukRadios({
+              idPrefix: "party-user1-permissions",
+              name: "party-user1-permissions",
+              fieldset: {
+                legend: {
+                  html: header1,
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              items: [
+              {
+                value: "User",
+                text: "User: they can access and manage cases.",
+                checked: checked("party-user1-permissions", "User")
+              },
+              {
+                value: "Admin user",
+                text: "Admin user: they can access and manage cases, assign cases and manage other team members.",
+                checked: checked("party-user1-permissions", "Admin user")
+                }
+              ]
+            }) }}    
+          {% else %}
+          <!--Lara-->
+          {% if data['account-user'] =="party-user11" %}
+            {{ govukRadios({
+              idPrefix: "party-user11-permissions",
+              name: "party-user11-permissions",
+              fieldset: {
+                legend: {
+                  html: header1,
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              items: [
+              {
+                value: "User",
+                text: "User: they can access and manage cases.",
+                checked: checked("party-user11-permissions", "User")
+              },
+              {
+                value: "Admin user",
+                text: "Admin user: they can access and manage cases, assign cases and manage other team members.",
+                checked: checked("party-user11-permissions", "Admin user")
+                }
+              ]
+            }) }}    
+            {% else %}
+            <!--Rodney-->
+            {% if data['account-user'] =="party-user6" %}
+              {{ govukRadios({
+                idPrefix: "party-user6-permissions",
+                name: "party-user6-permissions",
+                fieldset: {
+                  legend: {
+                    html: header1,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                items: [
+                {
+                  value: "User",
+                  text: "User: they can access and manage cases.",
+                  checked: checked("party-user6-permissions", "User")
+                },
+                {
+                  value: "Admin user",
+                  text: "Admin user: they can access and manage cases, assign cases and manage other team members.",
+                  checked: checked("party-user6-permissions", "Admin user")
+                  }
+                ]
+              }) }}  
+              {% else %}
+              <!--Bob-->
+              {% if data['account-user'] =="rep-user1" %}
+                {{ govukRadios({
+                  idPrefix: "rep-user1-permissions",
+                  name: "rep-user1-permissions",
+                  fieldset: {
+                    legend: {
+                      html: header1,
+                      isPageHeading: true,
+                      classes: "govuk-fieldset__legend--xl"
+                    }
+                  },
+                  items: [
+                  {
+                    value: "User",
+                    text: "User: they can access and manage cases.",
+                    checked: checked("rep-user1-permissions", "User")
+                  },
+                  {
+                    value: "Admin user",
+                    text: "Admin user: they can access and manage cases, assign cases and manage other team members.",
+                    checked: checked("rep-user1-permissions", "Admin user")
+                    }
+                  ]
+                }) }}    
+                {% else %}
+                <!--Demi-->
+                {% if data['account-user'] =="rep-user3" %}
+                  {{ govukRadios({
+                    idPrefix: "rep-user3-permissions",
+                    name: "rep-user3-permissions",
+                    fieldset: {
+                      legend: {
+                        html: header1,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--xl"
+                      }
+                    },
+                    items: [
+                    {
+                      value: "User",
+                      text: "User: they can access and manage cases.",
+                      checked: checked("rep-user3-permissions", "User")
+                    },
+                    {
+                      value: "Admin user",
+                      text: "Admin user: they can access and manage cases, assign cases and manage other team members.",
+                      checked: checked("rep-user3-permissions", "Admin user")
+                      }
+                    ]
+                  }) }}   
+                  {% else %}
+                  <!--new customer-->
+                  {% if data['account-user'] =="new-customer" %}
+                    {{ govukRadios({
+                      idPrefix: "rep-user3-permissions",
+                      name: "rep-user3-permissions",
+                      fieldset: {
+                        legend: {
+                          html: header1,
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--xl"
+                        }
+                      },
+                      items: [
+                      {
+                        value: "User",
+                        text: "User: they can access and manage cases."
+                      },
+                      {
+                        value: "Admin user",
+                        text: "Admin user: they can access and manage cases, assign cases and manage other team members."
+                        }
+                      ]
+                    }) }}    
+                  {% endif %}    
+                {% endif %}   
+              {% endif %}    
+            {% endif %}  
+          {% endif %}  
+        {% endif %}
+
+        {% if (data['account-user'] == "new-customer") %}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}    
+          </div>
+          {% else %}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Submit"
+            }) }}    
+          </div>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+ {% include "includes/footer.html" %}
+{% endblock %}

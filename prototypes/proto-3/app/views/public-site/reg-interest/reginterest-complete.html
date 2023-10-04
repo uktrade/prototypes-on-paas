@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your interest in the case has been registered - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Registration complete
+        </h1>
+        <div class="govuk-panel__body">
+          Case number:<br>
+          <strong>
+            {% if (data['regnterest-due-date'] == "current") %}
+              {{data ['case-ref1']}}
+            {% else %}
+
+              {{data['case-ref']}}
+            {% endif %}
+          </strong>
+        </div>
+      </div>
+  
+      <p>Thank you for your Registration of Interest. We have sent you a confirmation email.</p>
+      
+      <p>Case: 
+        {% if (data['regnterest-due-date'] == "current") %}
+          {{data ['case-ref1']}} - {{data ['case-name1']}}
+        {% else %}
+
+          {{data['case-ref']}} - {{data['case-name']}}
+        {% endif %}<br>
+        
+        Interested party: 
+        <!--Show the org who is reg for interest-->
+       
+
+        <!-- Show the reg of interest for new or existing clients according to who has signed in: Org-->
+        {% if (data['who-signin'] == "org") or (data['who-signin'] == "org-invite") %}
+        {% if (data['reginterest-what-org'] == "my-org") %}
+          {{data['createaccount-org-name'] or data['party1'] }}
+          {% else %}
+          {% if data['reginterest-what-org'] == "existing-org" %}
+            {{data['reginterest-existing-org'] or data['party1']}}
+            {% else %}
+            {% if (data['reginterest-what-org'] == "new-org") %}
+              {% if data['reginterest-uk-reg'] == "yes" %}
+                Aluminium Trade Ltd
+                {% else %}
+                {{data['reginterest-org-name'] or "Aluminium Trade Ltd"}}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        <!-- Show the reg of interest for new or existing clients according to who has signed in: Rep-->
+        {% else %}
+        {% if (data['who-signin'] == "rep") or (data['who-signin'] == "rep-invite") %}
+          {% if (data['reginterest-what-org'] == "my-org") %}
+            {{data['createaccount-org-name'] or data['representative1'] }}
+            {% else %}
+            {% if data['reginterest-what-org'] == "existing-org" %}
+              {{data['reginterest-existing-org'] or data['party1']}}
+              {% else %}
+              {% if (data['reginterest-what-org'] == "new-org") %}
+                {% if data['reginterest-uk-reg'] == "yes" %}
+                  Aluminium Trade Ltd
+                  {% else %}
+                  {{data['reginterest-org-name'] or data['party1'] }}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endif %}<br>
+
+        Received on: <span id="date"></span>
+      </p>
+
+    
+      <script>
+        const date = new Date();
+        const formattedDate = date.toLocaleDateString('en-GB', {
+          day: '2-digit', month: 'short', year: 'numeric'
+        }).replace(/ /g, ' ');
+        document.getElementById("date").innerHTML = formattedDate;
+      </script>
+        
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>We will review your registration of interest, and let you know if your request to participate in this case is successful.  </li>
+        <li>You may be asked to complete a further questionnaire. We will contact you if so.  </li>
+        <li>Organisations taking part in the investigation will all be placed on a public record of the case. </li>
+      </ul>
+      <p>If you need to make any changes to your registration, contact us as soon as possible at <strong>{{data ['case-ref']}}@traderemedies.gov.uk</strong>.</p>
+
+
+        {{ govukButton({
+          text: "Go to my dashboard",
+          href: "../dashboard"
+        }) }}
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "#1",
+          text: "Help"
+        },
+        {
+          href: "#2",
+          text: "Cookies"
+        },
+        {
+          href: "#3",
+          text: "Privacy"
+        },
+        {
+          href: "#4",
+          text: "Terms and conditions"
+        },
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+        },
+        {
+        },
+        {
+          href: "../email/email-reginterest-app-sent.html",
+          text: "For user testing: Go to email"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}

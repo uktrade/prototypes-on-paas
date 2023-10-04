@@ -1,0 +1,199 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Confirm – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% set bodyClasses = 'caseworker-width' %}
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <!--REg interest-->
+  {% if data['verify-type'] == "reg-interest" %}
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{data['case-ref5']}}: {{data['case-name5']}}</span>   
+      <h1 class="govuk-heading-xl">
+        Registration of interest
+      </h1>
+      
+      <p>This registration of interest was <strong>approved</strong> on 21 Feb 2020 by Bobby Caseworker</p>
+      <h2 class="govuk-heading-m">Interested party</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation
+          </dt>
+          <dd class="govuk-summary-list__value">       
+              {{data ['party5']}}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Submitted by
+          </dt>
+          <dd class="govuk-summary-list__value">
+              {{data ['party-user5']}}<br>
+              {{data['party-email5']}}
+          </dd>
+        </div>
+        {% if data['third-party'] == "yes" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              LOA signatory
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data ['party-user5']}}<br>
+              {{data['party-email5']}}               
+            </dd>
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Org status
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['reginterest-valid-primary'] or "Verified"}}             
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Party type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['reginterest-party-type'] or "Exporter"}}             
+          </dd>
+        </div>
+      </dl>
+
+      {% if data['third-party'] == "yes" %}
+        <h2 class="govuk-heading-m">Representative </h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation 
+            </dt>
+            <dd class="govuk-summary-list__value">      
+                {{data['representative1'] }} 
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Case contact 
+            </dt>
+            <dd class="govuk-summary-list__value">      
+                {{data ['rep-user1']}}<br>
+                {{data['rep-user1']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['reginterest-valid-representative'] or "Verified"}}             
+            </dd>
+          </div>
+        </dl>
+
+      {% endif %}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Amend registration of interest",
+          href: "../reg-interest/reginterest-accept"
+        }) }} 
+      </div>
+    </div>
+    {% else %}
+
+    <!--Rep invite-->
+    {% if data['verify-type'] == "rep-invite" %}
+      <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{data['case-ref6']}}: {{data['case-name6']}}</span>   
+        <h1 class="govuk-heading-xl">
+          Representative invite
+        </h1>
+        <p>This representative invite was <strong>approved</strong> on 21 Feb 2020 by Bobby Caseworker</p>
+        <h2 class="govuk-heading-m">Interested party </h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation
+            </dt>
+            <dd class="govuk-summary-list__value">       
+              {{data ['applicant6']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Submitted by
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data ['party-user66']}}<br>
+              {{data ['party-email66']}}      
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              LOA signatory
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data ['party-user66']}}<br>
+              {{data ['party-email66']}}   
+            </dd>
+          </div>
+        </dl>
+        <h2 class="govuk-heading-m">Representative </h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation 
+            </dt>
+            <dd class="govuk-summary-list__value">      
+                {{data['representative1'] }} 
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Case contact 
+            </dt>
+            <dd class="govuk-summary-list__value">      
+                {{data ['rep-user1']}}<br>
+                {{data ['rep-email1']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['reginterest-valid-representative'] or "Verified"}}             
+            </dd>
+          </div>
+        </dl>
+        {{ govukButton({
+          text: "Amend representative invite",
+          href: "reginterest-complete?accept-on-case-result=accept"
+        }) }} 
+      </div>
+    {% endif %} 
+  {% endif %} 
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}
+
+

@@ -1,1 +1,1 @@
-web: deploy/run.sh
+web: chmod +x run.sh && ./run.sh

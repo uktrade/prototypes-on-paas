@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Invite details – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'org-nav' %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+  <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-xl">
+      Invite details
+    </h1>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['invite-org-task'] == "Sent" %}
+            <p>Invite sent<br>Awaiting invitee acceptance<br>
+          {% else %}
+            <p>Draft</p>
+          {% endif %}
+          <span id="date"></span></p>
+        </dd>
+      </div>
+      <script>
+        const date = new Date();
+        const formattedDate = date.toLocaleDateString('en-GB', {
+          day: '2-digit', month: 'short', year: 'numeric'
+        }).replace(/ /g, ' ');
+        document.getElementById("date").innerHTML = formattedDate;
+      </script>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          User details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['invite-org-task'] == "Sent" %}
+            {{data['invite-user-name'] or data['party-user11'] }}
+            <br>
+            {{data['invite-user-email'] or data['party-email11'] }}
+            <br>
+            Permission: {{data['invite-user-permission'] or "User" }}
+            {% else %}
+            {{data['party-user6'] }}
+            <br>
+            {{data['party-email6'] }}
+            <br>
+          {% endif %}
+        </dd>        
+      </div>
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Cases
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['invite-case'] == "None" or data['invite-case'] == Null %}
+            None
+            {% else %}
+            <ul class="govuk-list">
+              {% for case in data['invite-case'] %}
+                <li>{{ case }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </dd>
+      </div>
+    </dl>
+
+    <div class="govuk-button-group">
+      {% if data['invite-org-task'] == "Draft" %}
+        {{ govukButton({
+          text: "Continue",
+          href: "invite-user-details"
+        }) }}  
+        <a class="govuk-link govuk-link--no-visited-state" href="invite-delete-draft">Delete invite</a>
+      {% endif %} 
+    </div>
+      {% if data['invite-org-task'] == "Sent" %}
+        {{ govukButton({
+          text: "Cancel invite",
+          href: "invite-user-cancel?cancel-invite=org"
+        }) }}  
+      {% endif %} 
+  </div>
+</div>
+{% endblock %}
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}
+

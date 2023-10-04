@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  My cases – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'notices-nav' %}
+
+
+{% block header %}
+  {% if data['signed-out'] == "no" %}
+    {% include "includes/header-public.html" %}
+    {% else %}
+    {% include "includes/header-public-signedout.html" %}
+  {% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-bluepanel govuk-bluepanel--confirmation">
+      <span class="govuk-caption-l inverse-header">Trade Remedies Authority</span> 
+      <h1 class="govuk-heading-l inverse-header">
+        Notices
+      </h1>
+    </div>
+    <p>This page contains a list of the notices published for cases that are currently active. To review the notices for cases that have been archived see the relevant case file under <a href="cases-all#completed-cases">Archived cases</a>.</p>
+
+      {% set recentNoticesHTML %}
+      <h2 class="govuk-heading-m">Notices</h2>
+
+      content yet to be done
+
+      {% endset %}
+    
+    
+    
+    
+    
+    {{ govukTabs ({
+      items: [
+      { 
+        label: "Notices",
+        id: "recent-notices",
+        panel: {
+          html: recentNoticesHTML
+        }
+      }
+      ]
+    }) }}
+
+  </div>
+
+</div>
+
+
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

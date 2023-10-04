@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Verify representative – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% set bodyClasses = 'caseworker-width' %}
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link govuk-link--no-visited-state" href="reginterest-tasks">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+     {% if (data['verify-type'] == "rep-invite") %}
+      <span class="govuk-caption-xl">1.
+        Review representative 
+      </span>
+      {% else %}
+      {% if (data['verify-type'] == "reg-interest") and (data['third-party'] == "yes") %}
+        <span class="govuk-caption-xl">2.
+          Review representative 
+        </span>
+        {% else %}
+        <span class="govuk-caption-xl">1.
+          Review interested party
+        </span>
+      {% endif %}
+    {% endif %}
+      
+    <h1 class="govuk-heading-xl">
+      Verify representative
+    </h1>
+    <div class="govuk-inset-text govuk-inset-text__reginterest">
+      <strong>{{data['representative1']}}</strong> has been approved on to 2 cases <br>
+      The last approval was on <strong>21 Feb 2020</strong> by <strong>Bobby Caseworker</strong><br>
+      <strong>{{data['representative1']}}</strong> has been rejected from 1 case <br>
+      The last rejection was on <strong>13 March 2020</strong> by <strong>Edwina Worker</strong>
+    </div> 
+    <div class="address-card">
+      {% include "includes/org-bluesteel-invite.html" %}
+    </div> 
+
+    <form action="/reginterest-representative-party-route" method="post" id="reginterest-representative-party-form">
+
+      {% set validHTML %}
+      Have you been able to verify the representative?
+      {% endset %}
+
+      {{ govukRadios({
+        idPrefix: "reginterest-valid-representative",
+        name: "reginterest-valid-representative",
+        fieldset: {
+          legend: {
+            html: validHTML,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Verified",
+            text: "Yes, I have been able to verify the representative",
+            checked: checked("reginterest-valid-representative", "Verified")
+          },
+          {
+            value: "Unverified",
+            text: "No, I have not been able to verify the representative ",
+            checked: checked("reginterest-valid-representative", "Unverified")
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}    
+        <a class="govuk-link" href="reginterest-tasks">Back</a>
+      </div>
+
+    </form>
+    
+  </div>
+
+</div>
+
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+

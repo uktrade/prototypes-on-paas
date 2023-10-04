@@ -1,0 +1,194 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Select if duplicate – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% set bodyClasses = 'caseworker-width' %}
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form action="/reginterest-merge-int-route" method="post" id="reginterest-merge-form">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">
+        Review matching organisations
+      </span>
+      <h1 class="govuk-heading-xl">
+          Select if duplicate
+      </h1>
+    </div>
+  </div>
+
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <table class="govuk-table merge">
+        <caption class="govuk-table__caption">
+          <span class="govuk-visually-hidden">A table showing the selected organisation and the matching organisation</span>
+        </caption>    
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Field</th>
+            <th scope="col" class="govuk-table__header">Selected organisation </th>
+            <th scope="col" class="govuk-table__header">
+                Matching organisation
+            </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Name</th>
+            <td class="govuk-table__cell text-overflow">
+                {{data['party1'] }}
+            </td>
+              <td class="govuk-table__cell text-overflow">
+                {{data['dup-party1'] }}
+              </td>
+          </tr>
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Address</th>
+            <td class="govuk-table__cell text-overflow">
+              {{data['party-address1'] }}
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              {{data['dup-party-address1'] }}
+            </td>
+          </tr>
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Postcode/ zip</th>
+            <td class="govuk-table__cell text-overflow">
+              {{data['party-postcode1'] }}
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              {{data['dup-party-postcode1'] }}
+            </td>
+          </tr>
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Country</th>
+            <td class="govuk-table__cell text-overflow">
+              {{data['party-country1'] }}
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              {{data['dup-party-country1'] }}
+            </td>
+          </tr>
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Reg number</th>
+            <td class="govuk-table__cell text-overflow">
+              {{data['party-org-number1'] }}
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              {% if (data['dup-party-org-number1'] == null) %}
+                {% else %}
+                  {{data['dup-party-org-number1'] }}
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Website</th>
+            <td class="govuk-table__cell text-overflow">
+              {{data['party-web1'] }}
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              {% if (data['dup-party-web1'] == null) %}
+                {% else %}                      
+                  {{data['dup-party-web1'] }}
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">VAT number</th>
+            <td class="govuk-table__cell text-overflow">
+              {% if (data['party-vat1'] == null) %}
+                {% else %}
+                  {{data['party-vat1'] }}
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              {% if (data['dup-party-vat1'] == null) %}
+                {% else %}
+                  {{data['dup-party-vat1'] }}
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">EORI number</th>
+            <td class="govuk-table__cell text-overflow">
+              {% if (data['party-eori1'] == null) %}
+                  {% else %}
+                    {{data['party-eori1'] }}
+                {% endif %}
+
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              {% if (data['dup-party-eori1'] == null) %}
+                {% else %}
+                 <mark>{{data['dup-party-eori1'] }}</mark>
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">DUNS number</th>
+            <td class="govuk-table__cell text-overflow">
+              {% if (data['party-duns1'] == null) %}
+                  
+                {% else %}
+                  {{data['party-duns1'] }}
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              {% if (data['dup-party-duns1'] == null) %}
+                {% else %}
+                  {{data['dup-party-duns1'] }}
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table> 
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "reginterest-matching-orgs-question",
+        fieldset: {
+          legend: {
+            text: "Is the matching organisation a duplicate?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        }, 
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}  
+
+      <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}  
+        <a class="govuk-link" govuk-link--no-visited-state href="reginterest-tasks-dup">Exit</a>
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+

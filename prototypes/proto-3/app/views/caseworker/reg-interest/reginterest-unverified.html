@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {% if data['party-type'] == "int" %}
+        Unverified interested party
+        {% else %}
+          Unverified representative
+      {% endif %} – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% set bodyClasses = 'caseworker-width' %}
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">1.  
+      {% if data['verify-type'] == "rep-invite" %}
+        Review representative
+      {% else %}
+        Review parties
+      {% endif %}
+    </span>
+    <h1 class="govuk-heading-xl">
+      {% if data['party-type'] == "int" %}
+        Unverified interested party
+        {% else %}
+          Unverified representative
+      {% endif %}
+    </h1>
+    <h2 class="govuk-heading-m">Internal case notes</h2>
+
+    <form action="reginterest-tasks" method="post" id="reginterest-valid-org-form">
+      {% if data['party-type'] == "int" %}
+        {{ govukCharacterCount({
+          name: "unverfied-reason-int",
+          id: "unverfied-reason",
+          maxlength: 200,
+          label: {
+            text: "Explain why the organisation cannot be verified",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          hint: {
+            text: "This information will help other caseworkers if the organisation requests to be involved in other cases."
+          }
+        }) }}
+
+        {% else %}
+
+        {{ govukCharacterCount({
+          name: "unverfied-reason-rep",
+          id: "unverfied-reason",
+          maxlength: 200,
+          label: {
+            text: "Explain why the organisation cannot be verified",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          hint: {
+            text: "This information will help other caseworkers if the organisation requests to be involved in other cases."
+          }
+        }) }}
+
+      {% endif %}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}    
+        <a class="govuk-link" govuk-link--no-visited-state href="javascript: history.back()">Back</a>
+      </div>
+
+    </form>
+    
+  </div>
+
+</div>
+
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+

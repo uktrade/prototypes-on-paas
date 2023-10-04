@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Change case role - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'user-nav' %}
+
+{% block header %}
+  {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="user-account" method="post" id="case-role-update-form"> 
+
+        {% if data['account-case'] =="case1" %}
+
+          {{ govukRadios({
+            idPrefix: "case1-permissions",
+            name: "case1-permissions",
+            fieldset: {
+              legend: {
+                text: "What is the user’s role in this case?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+              {
+                value: "Case contact",
+                text: "Case contact: they can access and manage the case, and are a key point of contact for communication with the TRA.",
+                checked: checked("case1-permissions", "Case contact")
+              },
+              {
+                value: "User",
+                text: "User: they can access and manage the case on behalf of the organisation.",
+                checked: checked("case1-permissions", "User")
+              }
+            ]
+          }) }}    
+          {% else %}
+          {% if data['account-case'] =="case5" %}
+
+            {{ govukRadios({
+              idPrefix: "case5-permissions",
+              name: "case5-permissions",
+              fieldset: {
+                legend: {
+                  text: "What is the users role in this case?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              items: [
+                {
+                  value: "Case contact",
+                  text: "Case contact: they can access and manage the case, and are a key point of contact for communication with the TRA.",
+                  checked: checked("case5-permissions", "Case contact")
+                },
+                {
+                  value: "User",
+                  text: "User: they can access and manage the case on behalf of the organisation.",
+                  checked: checked("case5-permissions", "User")
+                }
+              ]
+            }) }}    
+            {% else %}
+            {% if data['account-case'] =="case6" %}
+              {{ govukRadios({
+                idPrefix: "case6-permissions",
+                name: "case6-permissions",
+                fieldset: {
+                  legend: {
+                    text: "What is the users role in this case?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                hint: {
+                  html: 'Choose if the user is to be a key point of contact for this organisations involvement in the case. You can have more than one person assigned to this role.'
+                },
+                items: [
+                  {
+                    value: "Case contact",
+                    text: "Case contact: they can access and manage the case, and are a key point of contact for communication with the TRA.",
+                    checked: checked("case6-permissions", "Case contact")
+                  },
+                  {
+                    value: "User",
+                    text: "User: they can access and manage the case on behalf of the organisation.",
+                    checked: checked("case6-permissions", "User")
+                  }
+                ]
+              }) }} 
+            {% endif %}   
+          {% endif %}
+        {% endif %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Submit"
+          }) }}    
+           
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+ {% include "includes/footer.html" %}
+{% endblock %}

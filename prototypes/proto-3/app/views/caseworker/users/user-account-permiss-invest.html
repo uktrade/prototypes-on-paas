@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% set header1 = "Select the users account permission" %}
+
+{% block pageTitle %}
+  {{header1}} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page, changing the standard width and indication which section the user is on in the navigation-->
+
+{% set bodyClasses = 'caseworker-width user-nav' %}
+
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['account-user'] =="caseworker-invest" %}
+        <form action="invest-account#user-details" method="post" id="account-update-details-form"> 
+        {% else %}
+        <form action="user-account-invest-title" method="post" id="account-update-details-form"> 
+        {% endif %}
+
+
+        {% if data['account-user'] =="caseworker-invest" %}
+          {{ govukRadios({
+            idPrefix: "caseworker-invest-permiss",
+            name: "caseworker-invest-permiss",
+            fieldset: {
+              legend: {
+                html: header1,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+            {
+              value: "Investigator",
+              text: "Investigator",
+              checked: checked("caseworker-invest-permiss", "Investigator")
+            },
+            {
+              value: "Lead investigator",
+              text: "Lead investigator",
+              checked: checked("caseworker-invest-permiss", "Lead investigator")
+            },
+            {
+              value: "Head of investigaton",
+              text: "Head of investigaton",
+              checked: checked("caseworker-invest-permiss", "Head of investigaton")
+            },
+            {
+              value: "Administrator",
+              text: "Administrator",
+              checked: checked("caseworker-invest-permiss", "Administrator")
+            }
+            ]
+          }) }} 
+
+          {% else %}
+          {{ govukRadios({
+            idPrefix: "caseworker-permiss",
+            name: "caseworker-permiss",
+            fieldset: {
+              legend: {
+                html: header1,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+            {
+              value: "Investigator",
+              text: "Investigator"
+            },
+            {
+              value: "Lead investigator",
+              text: "Lead investigator"
+            },
+            {
+              value: "Head of investigaton",
+              text: "Head of investigaton"
+            },
+            {
+              value: "Administrator",
+              text: "Administrator"
+            }
+            ]
+          }) }}    
+        {% endif %}
+
+        {% if (data['account-user'] == "caseworker-invest") %}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Submit"
+            }) }}    
+          </div>
+          {% else %}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}    
+          </div>
+        {% endif %}
+          
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+ {% include "includes/footer.html" %}
+{% endblock %}

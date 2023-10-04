@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+   Review your answers – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'org-nav' %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+ <a class="govuk-back-link govuk-link--no-visited-state" href="invite-rep-tasks">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <span class="govuk-caption-xl">4.  Invite representative</span>
+    <h1 class="govuk-heading-xl">
+      Review your answers
+    </h1>
+
+    <h2 class="govuk-heading-m">Your invite</h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Case details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['existing-cases-reps'] !="no" %}
+              {{data ['invite-rep-what-case'] or "AD2224 - Steel plate from Russia"}}
+            {% else %}
+            No case
+          {% endif %}
+        </dd>
+      </div>
+    </dl>
+    {% if data['existing-cases-reps'] !="no" %}
+      <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% else %}
+      <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+    {% endif %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Representative details
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+            <!-- Show the invite for new or existing rep according to who has signed in: Org-->
+            {% if (data['who-signin'] == "org") or (data['who-signin'] == "org-invite") %}
+              {% if data['invite-rep-what-org'] == "existing-org" %}
+                {{data['invite-rep-name'] or data['rep-user3'] }}<br>
+                {{data['invite-rep-email'] or data['rep-email3'] }}<br>
+                {{data['representative1']}}<br>
+                {% else %}
+                {% if (data['invite-rep-what-org'] == "new-org") %}
+                  {{data['invite-rep-name'] or data['rep-user3'] }}<br>
+                  {{data['invite-rep-email'] or data['rep-email3'] }}<br>
+                  {{data['invite-rep-org-name'] or data['representative1'] }}<br>
+                  {% else %}
+                  {{data['party-user5'] }}<br>
+                  {{data['party-email5'] }}<br>
+                  {{data['party5'] }}<br>
+                {% endif %}
+              {% endif %}
+            {% endif %}
+
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="invite-rep-which-org" class="govuk-link--no-visited-state">
+            Change
+            <span class="govuk-visually-hidden"> who is registering interest</span>
+          </a>
+        </dd>
+        
+      </div>
+    
+    </dl>
+    {% if data['existing-cases-reps'] !="no" %}
+      <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Letter of Authority 
+          </dt>
+          <dd class="govuk-summary-list__value">
+            loa.docx
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="invite-upload-loa" class="govuk-link--no-visited-state">
+              Change
+              <span class="govuk-visually-hidden"> Letter of Authority</span>
+            </a>
+          </dd>
+        </div> 
+      </dl>
+    {% endif %}
+
+    <h2 class="govuk-heading-m">Now send your invite</h2>
+    <p>Check this information carefully. After it’s sent, you can only correct errors by contacting the Trade Remedies Authority.  </p>
+    
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Confirm and submit invite",
+        href: "invite-rep-complete?invite-rep-task=Sent"
+      }) }}    
+      <a class="govuk-link govuk-link--no-visited-state" href="invite-rep-tasks">Back</a>
+
+    </div>
+
+    </form>
+
+
+</div>
+
+</div>
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

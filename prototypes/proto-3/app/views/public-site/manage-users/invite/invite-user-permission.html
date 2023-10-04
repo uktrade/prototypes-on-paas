@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  User permissions - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'org-nav' %}
+
+
+{% block header %}
+  {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      <!--<form action="invite-user-case" method="post" id="invite-permissions-form">   -->
+      <form action="invite-user-case" method="post" id="invite-permissions-form">   
+
+        
+        {{ govukRadios({
+          idPrefix: "invite-user-permission",
+          name: "invite-user-permission",
+          fieldset: {
+            legend: {
+              text: "Select permissions",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+          {
+            value: "User",
+            text: "User: they can access and interact with specific cases",
+            checked: checked("invite-user-permission", "User")
+          },
+          {
+            value: "Admin user",
+            text: "Admin user: they can access and interact with cases, assign cases and manage other team members",
+            checked: checked("invite-user-permission", "Admin user")
+            }
+          ]
+        }) }}
+        <!--
+        {{ govukDetails({
+          summaryText: "Regular verses Admin users",
+          text: "Some words"
+        }) }}
+        -->
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}    
+           
+        </div>
+
+      </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+ {% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,337 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Upload registration documentation – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+    {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/beta-banner.html" %}
+
+    <a class="govuk-back-link govuk-link--no-visited-state" href="reginterest-tasks">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">3. Documentation</span>
+    <h1 class="govuk-heading-xl">
+        Registration documentation
+    </h1>
+        
+    {% if data['upload-pre-task'] == "def" %}
+      <!--Deficiency notice -->
+      <div class="address-card">
+        <div class="address-container">
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <p class="govuk-warning-text__text">
+              <strong>
+                <span class="govuk-warning-text__assistive">Warning</span>
+                Review Deficiency Notice
+              </strong>
+            </p>
+            <p class="govuk-warning-text__text-p">You need to review documents marked as deficient. Download the following document for instructions.</p>
+          </div>
+          <ul class="govuk-list govuk-warning-text__text-p">
+            <li>
+              {% if (data['deficiency-pre-download'] == "yes" ) %}
+                <a href="?deficiency-pre-download=yes" class="govuk-link--no-visited-state"><img src="/public/images/doc.png" class="doc-icon-sm"> Deficiency-Notice-RegDocs.docx (344KB) </a><span>&#10003;</span>
+                {% else %}
+                <a href="?deficiency-pre-download=yes" class="govuk-link--no-visited-state"><img src="/public/images/doc.png" class="doc-icon-sm"> Deficiency-Notice-RegDocs.docx (344KB) </a>
+              {% endif %}
+            </li>
+          </ul>    
+        </div>
+      </div>
+      {% else %}
+      <!--Confir - non-confi notification -->
+      {% set notification_html %}
+        <p class="govuk-notification-banner__heading">
+            You need to upload a confidential and non-confidential version of each document.
+        </p>
+        <p>The confidential version is needed for the case investigation and the non-confidential version is published to our <a class="govuk-notification-banner__link" href="#">public case</a> page.</p>
+      {% endset %}
+
+      {{ govukNotificationBanner({
+        html: notification_html
+      }) }}
+
+    {% endif %}
+    <p>Download the documentation and complete the relevant forms. Once complete, upload two versions: one
+        confidential and one non-confidential (max. file size 30MB).</p>
+    <p>To upload multiple documents, click 'Add another document'.</p>
+
+    <ul class="govuk-list">
+      <li>
+        {% if (data['pre-download'] == "yes" ) %}
+          <a href="reginterest-upload-pre?pre-download=yes" class="govuk-link--no-visited-state"><img
+                  src="/public/images/doc.png" class="doc-icon-sm">
+              registration-documentation-form.docx (344KB) </a><span>&#10003;</span>
+        {% else %}
+          <a href="reginterest-upload-pre?pre-download=yes" class="govuk-link--no-visited-state"><img
+                  src="/public/images/doc.png" class="doc-icon-sm">
+              registration-documentation-form.docx (344KB) </a>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div id="doc-1">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          How to create a non-confidential version of your registration documentation
+        </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>So that all interested parties get the opportunity to understand case evidence, one version needs
+              to be non-confidential. Remove all sensitive data from your non-confidential files.</p>
+          <p>Create one confidential file containing all details, and one file containing only information
+              open to the public. For more help, see: <a
+                href="https://www.gov.uk/government/publications/the-uk-trade-remedies-investigations-process/an-introduction-to-our-investigations-process#confidential-information-and-non-confidential-summaries"
+                target="_blank" class="link govuk-link--no-visited-state">creating confidential and non-confidential documents (opens in a new window or tab)</a></p>
+        </div>
+      </details>
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+          Upload document 1
+      </h2>
+      <div class="row-colour">
+        <div class="govuk-grid-column-one-half">
+          <h3 class="govuk-heading-s govuk-!-text-align-centre govuk-!-margin-bottom-1">
+              Non-confidential file
+          </h3>
+          {% if data['upload-pre-task'] == "def" %} 
+            <div class="upload-card">
+              <div class="upload-container">
+                <div class="waiting_for_upload" id="waiting-upload-{{ id }}">
+                  <p class="govuk-tag govuk-tag--pink">Deficient document</p>
+                  <p class="file_name" id="progress-complete">my-reg-docs.pdf</p>
+                  <p>
+                    <label for="file-{{ id }}" class="govuk-link govuk-link--no-visited-state">Replace file</label>
+                    <input type="file" name="private-file" id="file-{{ id }}" class="inputfile" />
+                  </p>
+                </div>
+                
+                <div class="scanning_file_for_virus" style="display:none">
+                  <label class="govuk-label" for="progress-1">
+                    Scanning file:
+                    <div class="file_name"></div>
+                  </label>
+                  <progress id="progress-scan"></progress>
+                  <p><a href="#" class="govuk-link--no-visited-state" id="cancel-upload"> Cancel <span class="govuk-visually-hidden">file</span></a></p>
+                </div>
+
+                <div class="uploading_file" style="display:none">
+                  <label class="govuk-label" for="progress-10">
+                      <div class="upload_percentage">Uploading 10%:</div>
+                      <div class="file_name"></div>
+                  </label>
+                  <progress class="progress-10" max="100" value="10"></progress>
+                  <progress class="progress-40" max="100" value="40" style="display:none"></progress>
+                  <progress class="progress-70" max="100" value="70" style="display:none"></progress>
+                  <progress class="progress-100" max="100" value="100" style="display:none"></progress>
+                  <p><a href="#" class="govuk-link--no-visited-state" id="case-selected-status">Cancel <span class="govuk-visually-hidden">file</span></a></p>
+                </div>
+
+                <div class="upload_file_complete" style="display:none" id="complete-upload-{{ id }}">
+                  <label class="govuk-label" for="progress-complete">
+                      <span class="govuk-visually-hidden">Upload complete:</span>
+                  </label>
+                  <p class="file_name" id="progress-complete"></p>
+                  <p><a href="#doc-1" class="govuk-link govuk-link--no-visited-state" onclick="removeDoc()">Remove <span class="govuk-visually-hidden">file</span></a></p>
+                </div>
+              </div>
+            </div>  
+            {% else %}  
+            {% set id="1" %}
+            {% include 'includes/drag_drop_upload-nonconfi.html' %}
+          {% endif %}  
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <h3 class="govuk-heading-s govuk-!-text-align-centre govuk-!-margin-bottom-1">
+              Confidential file
+          </h3>
+          {% if data['upload-pre-task'] == "def" %} 
+            <div class="upload-card">
+              <div class="upload-container">
+                 <label class="govuk-label" for="progress-complete">
+                      <span class="govuk-visually-hidden">Upload complete:</span>
+                  </label>
+                  <p class="file_name" id="progress-complete">my-confi-reg-docs.pdf</p>
+                  <p><a href="#doc-1" class="govuk-link govuk-link--no-visited-state" onclick="removeDoc()">Remove <span class="govuk-visually-hidden">file</span></a></p>
+
+                <div class="scanning_file_for_virus" style="display:none">
+                  <label class="govuk-label" for="progress-1">
+                    Scanning file:
+                    <div class="file_name"></div>
+                  </label>
+                  <progress id="progress-scan"></progress>
+                  <p><a href="#" class="govuk-link--no-visited-state" id="cancel-upload"> Cancel <span class="govuk-visually-hidden">file</span></a></p>
+                </div>
+
+                <div class="uploading_file" style="display:none">
+                  <label class="govuk-label" for="progress-10">
+                      <div class="upload_percentage">Uploading 10%:</div>
+                      <div class="file_name"></div>
+                  </label>
+                  <progress class="progress-10" max="100" value="10"></progress>
+                  <progress class="progress-40" max="100" value="40" style="display:none"></progress>
+                  <progress class="progress-70" max="100" value="70" style="display:none"></progress>
+                  <progress class="progress-100" max="100" value="100" style="display:none"></progress>
+                  <p><a href="#" class="govuk-link--no-visited-state" id="case-selected-status">Cancel <span class="govuk-visually-hidden">file</span></a></p>
+                </div>
+
+                <div class="upload_file_complete" style="display:none" id="complete-upload-{{ id }}">
+                  <label class="govuk-label" for="progress-complete">
+                      <span class="govuk-visually-hidden">Upload complete:</span>
+                  </label>
+                  <p class="file_name" id="progress-complete"></p>
+                  <p><a href="#doc-1" class="govuk-link govuk-link--no-visited-state" onclick="removeDoc()">Remove <span class="govuk-visually-hidden">file</span></a></p>
+                </div>
+              </div>
+            </div>  
+            {% else %}  
+            {% set id="2" %}
+            {% include 'includes/drag_drop_upload-confi.html' %}
+          {% endif %}  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add another document panel -->
+
+<div id="doc-2" style="display:none">
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+                Upload document 2
+            </h2>
+            <div class="row-colour">
+
+                <div class="govuk-grid-column-one-half">
+                    <h3 class="govuk-heading-s govuk-!-text-align-centre">
+                        Non-confidential file
+                    </h3>
+                    {% set id="3" %}
+                    {% include 'includes/drag_drop_upload-nonconfi.html' %}
+                </div>
+                <div class="govuk-grid-column-one-half">
+                    <h3 class="govuk-heading-s govuk-!-text-align-centre">
+                        Confidential file
+                    </h3>
+                    {% set id="4" %}
+                    {% include 'includes/drag_drop_upload-confi.html' %}
+                </div>
+                <div class="remove-doc-panel">
+                    <a href="#doc-2" alt="Delete panel" title="Delete panel" onclick="hideDoc2Panel()"
+                       class="govuk-link govuk-link--no-visited-state">
+                        Remove documents
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add another document button -->
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <button class="govuk-button govuk-button--secondary govuk-!-margin-top-2" id="add-doc-button"
+                data-module="govuk-button" onclick="showDoc2Panel()">
+            Add another document
+        </button>
+        <form action="reginterest-tasks?upload-pre-task=complete" method="post" id="upload-form">
+
+            <div class="govuk-button-group">
+                {{ govukButton({
+                text: "Continue"
+              }) }}
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+  function showDoc2Panel () {
+    var x = document.getElementById('doc-2')
+    if (x.style.display === 'none') {
+      x.style.display = 'block'
+    }
+  }
+
+  function hideDoc2Panel () {
+    var x = document.getElementById('doc-2')
+    if (x.style.display === 'block') {
+      x.style.display = 'none'
+    }
+  }
+
+  function removeDoc () {
+    var x = document.getElementById('complete-upload-1')
+    var y = document.getElementById('waiting-upload-1')
+    if (x.style.display === '') {
+      x.style.display = 'none'
+      y.style.display = 'block'
+    }
+  }
+
+</script>
+
+
+{% endblock %}
+
+{% block footer %}
+    {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "#1",
+          text: "Help"
+        },
+        {
+          href: "#2",
+          text: "Cookies"
+        },
+        {
+          href: "#3",
+          text: "Privacy"
+        },
+        {
+          href: "#4",
+          text: "Terms and conditions"
+        },
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+        },
+        {
+        },
+        {
+          href: "reginterest-upload-flow.html",
+          text: "Uploading flow"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="/public/javascripts/drag_and_drop.js"></script>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Review your answers – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'org-nav' %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+ <a class="govuk-back-link govuk-link--no-visited-state" href="invite-user-case">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-xl">
+      Review your answers
+    </h1>
+
+    <h2 class="govuk-heading-m">Your invite</h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          User type
+        </dt>
+        <dd class="govuk-summary-list__value">
+            Employee of your org
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="invite-user-type" class="govuk-link govuk-link--no-visited-state">
+            Change
+            <span class="govuk-visually-hidden"> user type</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          User name
+        </dt>
+        <dd class="govuk-summary-list__value">
+            {{data['invite-user-name'] or data['party-user11']}}<br>
+            {{data['invite-user-email'] or data['party-email11']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="invite-user-details" class="govuk-link govuk-link--no-visited-state">
+            Change
+            <span class="govuk-visually-hidden"> who is being invited</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Permissions
+        </dt>
+        <dd class="govuk-summary-list__value">
+            <!-- Show client permissions-->
+           {{data['invite-user-permission'] or data['party-user11-permission'] }}<br>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="invite-user-permission" class="govuk-link govuk-link--no-visited-state">
+            Change
+            <span class="govuk-visually-hidden"> users permissions</span>
+          </a>
+        </dd>
+      </div>
+      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Cases invited to
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['invite-case'] == "None" or data['invite-case'] == null %}
+            None
+            {% else %}
+            <ul class="govuk-list">
+              {% for case in data['invite-case'] %}
+                <li>{{ case }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="invite-user-case" class="govuk-link govuk-link--no-visited-state">
+            Change
+            <span class="govuk-visually-hidden"> case</span>
+          </a>
+        </dd>
+      </div>
+      
+    
+    </dl>
+
+    <h2 class="govuk-heading-m">Now send your invite</h2>
+    <p>The invite will ask the new user to register. This will give them access to your organisation’s account.</p>
+   
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Confirm and submit invite",
+        href: "invite-user-complete?invite-user=complete&invite-org-task=Sent"
+      }) }}    
+      <a class="govuk-link govuk-link--no-visited-state" href="invite-user-case">Back</a>
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

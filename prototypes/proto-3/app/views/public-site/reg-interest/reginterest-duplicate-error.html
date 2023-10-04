@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Interest in the case has already been registered - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        There is a problem
+      </h1>
+
+      <p>Someone has already registered interest in the following case on-behalf of your organisation:</p>
+      
+      <p><strong>{{data ['case-ref1']}} - {{data ['case-name1']}}</strong><br>
+        Submitted: <span id="date"></span>
+      </p>
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>If you are an admin for this account you can review all of your organsiations applications on your dashboard.</li>
+        <li>Otherwise please contact the admin for this account should you have any outstanding issues.</li>
+      </ul>
+          
+      <script>
+        const date = new Date();
+        const formattedDate = date.toLocaleDateString('en-GB', {
+          day: '2-digit', month: 'short', year: 'numeric'
+        }).replace(/ /g, ' ');
+        document.getElementById("date").innerHTML = formattedDate;
+      </script>
+        
+     
+
+
+        {{ govukButton({
+          text: "Go to my dashboard",
+          href: "../dashboard"
+        }) }}
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "#1",
+          text: "Help"
+        },
+        {
+          href: "#2",
+          text: "Cookies"
+        },
+        {
+          href: "#3",
+          text: "Privacy"
+        },
+        {
+          href: "#4",
+          text: "Terms and conditions"
+        },
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+        },
+        {
+        },
+        {
+          href: "../email/email-reginterest-app-sent.html",
+          text: "For user testing: Go to email"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}

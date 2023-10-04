@@ -1,0 +1,55 @@
+<div class="address-container">   
+  <h3 class="govuk-heading-m clearfix"><a href="../orgs/org-steeel" class="govuk-link--no-visited-state">{{data['dup-party1']}}</a>   
+  </h3>
+  <dl class="govuk-summary-list govuk-!-margin-bottom-1">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Address:</dt>
+      <dd class="govuk-summary-list__value">{{data['dup-party-address1']}}<br>
+        {{data['dup-party-postcode1']}}<br>
+        {{data['dup-party-country1']}}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Reg number: </dt>
+      <dd class="govuk-summary-list__value">{{data['dup-party-org-number1']}}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Web address: </dt>
+      <dd class="govuk-summary-list__value">{{data['dup-party-web1']}}</dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">VAT no: </dt>
+      <dd class="govuk-summary-list__value">{{data['dup-party-vat1']}}</dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">EORI: </dt>
+      <dd class="govuk-summary-list__value">{{data['dup-party-eori1']}}</dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">D-U-N-S: </dt>
+      <dd class="govuk-summary-list__value">{{data['dup-party-duns1']}}</dd>
+    </div>
+  </dl> 
+  <br>
+  <!--Case / user details-->
+  <div>
+    <details class="case-details govuk-details">
+      <summary>
+          Cases acting as an interested party: 0
+      </summary>
+    </details>
+    <details class="case-details govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Users: 1
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <ul class="govuk-list">
+          <li><a href="#" class="govuk-link--no-visited-state">{{data['dup-user1']}}</a> - {{data['dup-email1']}}</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</div>

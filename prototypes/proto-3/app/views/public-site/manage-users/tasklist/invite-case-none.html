@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  No cases found – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'org-nav' %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+ <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">No cases found</h1>
+    <form action="/public-site/reg-interest/reginterest-tasks?tasklist-type=reg-interest" method="post" id="invite-rep-which-case"> 
+      <p>You need to register interest in a case before inviting your representative to join. </p>
+      <p>Alternatively, you can ask your representative to register interest on your behalf. Your representative will need to create an account first.</p>
+      
+      <div class="govuk-button-group clearfix">
+        {{ govukButton({
+          text: "Register interest"
+        }) }}    
+        <a class="govuk-link govuk-link--no-visited-state" href="/public-site/dashboard">Back to dashboard</a>
+      </div>
+    </form> 
+  </div>
+</div>
+
+
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

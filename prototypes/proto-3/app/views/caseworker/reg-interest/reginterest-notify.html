@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Notify parties of decision  – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% set bodyClasses = 'caseworker-width' %}
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+  
+      <h1 class="govuk-heading-xl">
+        Notify parties of decision       
+      </h1>
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">
+    <p>The following email will be sent to the relevent parties who have registered interest. </p>
+    
+      
+    <h2 class="govuk-heading-m">What next?</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="../cases/case-overview#new-party">Review other parties</a></li>
+      <li><a href="">Review submissions</a></li>
+    </ul>
+
+
+        {{ govukButton({
+          text: "Send email",
+          href: "reginterest-complete?notify-complete=yes"
+        }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">Registration of Interest</h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <strong>Case</strong><br>
+              {{data['case-ref1']}}: {{data['case-name1']}}
+            </li>
+            <li>
+              <strong>Interested party</strong><br>
+              {{data ['party1']}}
+            </li> 
+  
+            {% if data['third-party'] == "yes" %}
+            <li>
+              <strong>Representative </strong><br>
+              {{data ['representative1']}}
+            </li>
+            {% endif %} 
+  
+            <li>
+              <strong>Registered by</strong><br>
+              {{data ['rep-user1']}}
+            </li>          
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "#1",
+          text: "Help"
+        },
+        {
+          href: "#2",
+          text: "Cookies"
+        },
+        {
+          href: "#3",
+          text: "Privacy"
+        },
+        {
+          href: "#4",
+          text: "Terms and conditions"
+        },
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+        },
+        {
+        },
+        {
+          href: "../email/email-reginterest-app-sent.html",
+          text: "For user testing: Go to email"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}

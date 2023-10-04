@@ -1,0 +1,213 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Upload registration documentation – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+ <a class="govuk-back-link govuk-link--no-visited-state" href="reginterest-tasks">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">3. Documentation</span>
+    <h1 class="govuk-heading-xl">
+      Upload a Letter of Authority 
+    </h1>
+     <!--Deficiency notice -->
+    {% if data['upload-loa-task'] == "def" %}
+      <div class="address-card">
+        <div class="address-container">
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <p class="govuk-warning-text__text">
+              <strong>
+                <span class="govuk-warning-text__assistive">Warning</span>
+                Review Deficiency Notice
+              </strong>
+            </p>
+            <p class="govuk-warning-text__text-p">You need to review documents marked as deficient. Download the following document for instructions. </p>
+          </div>
+          <ul class="govuk-list govuk-warning-text__text-p">
+            <li>
+              {% if (data['loa-deficiency-download'] == "yes" ) %}
+                <a href="?loa-deficiency-download=yes" class="govuk-link--no-visited-state"><img src="/public/images/doc.png" class="doc-icon-sm"> Deficiency-Notice-LoA.docx (344KB) </a><span>&#10003;</span>
+                {% else %}
+                <a href="?loa-deficiency-download=yes" class="govuk-link--no-visited-state"><img src="/public/images/doc.png" class="doc-icon-sm"> Deficiency-Notice-LoA.docx (344KB) </a>
+              {% endif %}
+            </li>
+          </ul>    
+        </div>
+      </div>
+    {% endif %}
+    <p>Download the Letter of Authority and ask your client to complete it.  This will confirm you have authority to act on their behalf.</p> 
+    <p>Upload it when finished (max. file size 30MB). Your information is kept confidential.</p>
+    <ul class="govuk-list">
+      <li>
+        {% if (data['loa-download'] == "yes" ) %}
+        <a href="reginterest-upload-loa?loa-download=yes" class="govuk-link--no-visited-state"><img src="/public/images/doc.png" class="doc-icon-sm"> letter_of_authority.docx (344KB) </a><span>&#10003;</span>
+        {% else %}
+        <a href="reginterest-upload-loa?loa-download=yes" class="govuk-link--no-visited-state"><img src="/public/images/doc.png" class="doc-icon-sm"> letter_of_authority.docx (344KB) </a>
+        {% endif %}
+      </li>
+    </ul>    
+
+  </div>
+</div>
+<form action="reginterest-tasks?upload-loa-task=complete" method="post" id="upload-form">
+  
+    <!-- Add LOA -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+        Letter of Authority
+      </h2>
+    </div>
+  </div>
+    
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <div class="row-colour">
+        <div class="govuk-grid-column-full"> 
+
+          {% if data['upload-loa-task'] == "def" %} 
+            <div class="upload-card">
+              <div class="upload-container">
+                <div class="waiting_for_upload" id="waiting-upload-{{ id }}">
+                  <p class="govuk-tag govuk-tag--pink">Deficient document</p>
+                  <p class="file_name" id="progress-complete">my-loa.pdf</p>
+                  <p>
+                    <label for="file-{{ id }}" class="govuk-link">Replace file</label>
+                    <input type="file" name="private-file" id="file-{{ id }}" class="inputfile" />
+                  </p>
+                </div>
+                <div class="scanning_file_for_virus" style="display:none">
+                  <label class="govuk-label" for="progress-1">
+                    Scanning file:
+                    <div class="file_name"></div>
+                  </label>
+                  <progress id="progress-scan"></progress>
+                  <p><a href="#" class="govuk-link--no-visited-state" id="cancel-upload"> Cancel <span class="govuk-visually-hidden">file</span></a></p>
+                </div>
+
+                <div class="uploading_file" style="display:none">
+                  <label class="govuk-label" for="progress-10">
+                      <div class="upload_percentage">Uploading 10%:</div>
+                      <div class="file_name"></div>
+                  </label>
+                  <progress class="progress-10" max="100" value="10"></progress>
+                  <progress class="progress-40" max="100" value="40" style="display:none"></progress>
+                  <progress class="progress-70" max="100" value="70" style="display:none"></progress>
+                  <progress class="progress-100" max="100" value="100" style="display:none"></progress>
+                  <p><a href="#" class="govuk-link--no-visited-state" id="case-selected-status">Cancel <span class="govuk-visually-hidden">file</span></a></p>
+                </div>
+
+                <div class="upload_file_complete" style="display:none" id="complete-upload-{{ id }}">
+                  <label class="govuk-label" for="progress-complete">
+                      <span class="govuk-visually-hidden">Upload complete:</span>
+                  </label>
+                  <p class="file_name" id="progress-complete"></p>
+                  <p><a href="#doc-1" class="govuk-link govuk-link--no-visited-state" onclick="removeDoc()">Remove <span class="govuk-visually-hidden">file</span></a></p>
+                </div>
+              </div>
+            </div>  
+            {% else %}  
+            {% set id="5" %}
+            {% include 'includes/drag_drop_upload-confi.html' %}
+          {% endif %}  
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">    
+    <div class="govuk-grid-column-full">
+        <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+        </div>      
+    </div>
+  </div>
+
+</form>
+
+<script type="text/javascript">
+
+  function showDoc2Panel() {
+    var x = document.getElementById("doc-2");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } 
+  }
+
+  function hideDoc2Panel() {
+    var x = document.getElementById("doc-2");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } 
+  }
+
+  function removeDoc() {
+    var x = document.getElementById("complete-upload-1");
+    var y = document.getElementById("waiting-upload-1");
+    if (x.style.display === "") {
+      x.style.display = "none";
+      y.style.display = "block";
+    } 
+  }
+
+</script>
+
+
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "#1",
+          text: "Help"
+        },
+        {
+          href: "#2",
+          text: "Cookies"
+        },
+        {
+          href: "#3",
+          text: "Privacy"
+        },
+        {
+          href: "#4",
+          text: "Terms and conditions"
+        },
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+        },
+        {
+        },
+        {
+          href: "reginterest-upload-flow.html",
+          text: "Uploading flow"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/drag_and_drop.js"></script>
+{% endblock %}

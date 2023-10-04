@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  The organisation you are representing - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">2. About you</span>
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+    <form action="reginterest-the-org-dets" method="post" id="reginterest-the-org-form"> 
+      
+      {% call govukFieldset({
+        legend: {
+          text: "Your client’s details",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+      <p>Ensure you have permission to register interest in a case on behalf of your client.</p>
+
+      {{ govukInput({
+        label: {
+          text: "Organisation name",
+          classes: "govuk-label--s",
+          isPageHeading: false
+        },
+        classes: "govuk-input--width-20",
+        id: "reginterest-org-name",
+        name: "reginterest-org-name",
+        value: data['reginterest-org-name'],
+        type: "text"
+      }) }}
+
+     
+      {% call govukFieldset({
+        legend: {
+          text: "Organisation address",
+          classes: "govuk-fieldset__legend--s",
+          isPageHeading: true
+        }
+      }) %}
+
+      <p>This is the address of the main office.</p>
+
+        {{ govukTextarea({
+          label: {
+            text: "Street address",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-20",
+          id: "reginterest-org-address",
+          name: "reginterest-org-address",
+          value: data['reginterest-org-address'],
+          type: "text"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode or zip code",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-5",
+          id: "reginterest-org-zip",
+          name: "reginterest-org-zip",
+          value: data['reginterest-org-zip'],
+          type: "text"
+        }) }}
+      
+      {% endcall %}
+
+      {% include "includes/country-list.html" %}
+
+      {{ govukInput({
+        label: {
+          text: "Organisation registration number",
+          classes: "govuk-label--s",
+          isPageHeading: false
+        },
+        hint: {
+          text: "Some organisations have an official registration number from the country they are based in."
+        },
+        classes: "govuk-input--width-10",
+        id: "createaccount-reg-org-number",
+        name: "createaccount-reg-org-number",
+        value: data['createaccount-reg-org-number'],
+        type: "text"
+      }) }} 
+      
+      {% endcall %} 
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}    
+         
+      </div>
+
+      </form>
+
+      <!-- Test data 
+      <div class="govuk-inset-text">
+        Test data: <br>
+        Org type : {{ data['reginterest-what-org']}}
+        <br>
+      </div>
+      -->
+        
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Is your organisation registered in the UK - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/createaccount-uk-reg-route" method="post" id="createaccount-uk-reg-form"> 
+               
+        <h1 class="govuk-heading-xl">
+          Your organisation
+        </h1>
+
+        <p>You will be creating this account for your own organisation and will be the admin for the account.</p>
+        <p>If you are a lawyer or consultant, you will be able to tell us about your client later when you register interest in a specific case.</p>
+      
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "createaccount-uk-reg",
+          name: "createaccount-uk-reg",
+          fieldset: {
+            legend: {
+              text: "Is your organisation a UK registered company?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("createaccount-uk-reg", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: checked("createaccount-uk-reg", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "How to find out if your organisation is a UK registered company",
+          html: ' <p class="govuk-body">Search the <a href="https://www.gov.uk/get-information-about-a-company" target="_blank" rel="noopener noreferrer" class="govuk-link">Companies House register (opens in a new tab).</a></p>              
+          <p>If you cannot find your organisation in the register, it’s not a UK registered company.</p>'
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}    
+          
+      </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

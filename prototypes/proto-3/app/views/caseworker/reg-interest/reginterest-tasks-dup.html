@@ -1,0 +1,186 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {% if data['verify-type'] =="reg-interest" %}
+        Registration of interest
+        {% else %}
+        {% if data['verify-type'] =="rep-invite" %}
+          Representative invite
+        {% endif %}
+      {% endif %} – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% set bodyClasses = 'caseworker-width' %}
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">{{data['case-ref1']}}: {{data['case-name1']}}</span>
+
+      <h1 class="govuk-heading-xl">
+      {% if data['verify-type'] =="reg-interest" %}
+        Registration of interest
+        {% else %}
+        {% if data['verify-type'] =="rep-invite" %}
+          Representative invite
+        {% endif %}
+      {% endif %}
+      </h1>
+
+      <div class="address-card">
+        <div class="address-container">
+          <div class="govuk-warning-text">
+            <p class="govuk-warning-text__text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong> 
+                <span class="govuk-warning-text__assistive">Warning</span>
+                {% if data['verify-type'] =="reg-interest" %}
+                    The organisation in this registration of interest invite matches other organisations in our records.  
+                  {% else %}
+                  {% if data['verify-type'] =="rep-invite" %}
+                    The organisation in this representative invite matches other organisations in our records. 
+                  {% endif %}
+                {% endif %}
+              </strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m" id="subsection-title">Review matching organisations</h2>
+      <p>Organisations are matching when one or more of their registered details are the same as another organisation.</p>
+      {% if data['verify-type'] =="reg-interest" %}
+        <p>You need to check if they are duplicates before you can review this registration of interest.</p>
+        {% else %}
+        {% if data['verify-type'] =="rep-invite" %}
+          <p>You need to check if they are duplicates before you can review this representative invite.</p>
+        {% endif %}
+      {% endif %}
+
+      <table class="govuk-table sortable mobile-table-border" id="table-header">
+        <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular govuk-visually-hidden--desktop">
+          A table listing all of the parties waiting to be verified
+        </caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">
+              <span class="govuk-visually-hidden--desktop">Sort by: </span>Organisation
+            </th>
+            <th class="govuk-table__header">
+              <span class="govuk-visually-hidden--desktop">Sort by: </span>Matching organisations
+            </th>
+            <th class="govuk-table__header">
+              <span class="govuk-visually-hidden--desktop">Sort by: </span>Status
+            </th>
+            <th class="govuk-table__header">
+                <span class="govuk-visually-hidden--desktop">Action:</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">  
+          {% if data['verify-type'] =="reg-interest" %}
+            <tr class="govuk-table__row no-border">
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Organisation: </span><a href="" class="govuk-link--no-visited-state">{{data['party1']}}</a>
+              </td>
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Matches: </span>1
+              </td>  
+              <td class="govuk-table__cell text-overflow">
+                <span class="govuk-visually-hidden--desktop">Status: </span>
+                  {{data['merge-int-task'] or "Not started"}}
+              </td>  
+              <td class="govuk-table__cell action">
+                {% if data['merge-int-task'] =="Complete" %}
+                  {% else %}
+                  <a href="reginterest-merge-int-review?merge-duplicates=1b" class="govuk-link govuk-link--no-visited-state">Select<a/><span class="govuk-visually-hidden"> {{data['party1']}}</span>
+                {% endif %}
+              </td>             
+            </tr>
+          {% endif %}           
+          <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell text-overflow">
+              <span class="govuk-visually-hidden--desktop">Organisation: </span><a href="" class="govuk-link--no-visited-state">{{data['representative1']}}</a>
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              {% if data['merge-duplicates'] == "1c" %}
+                <span class="govuk-visually-hidden--desktop">Matches: </span>1
+                {% else %}
+                <span class="govuk-visually-hidden--desktop">Matches: </span>2
+              {% endif %}
+            </td>  
+            <td class="govuk-table__cell text-overflow">
+              <span class="govuk-visually-hidden--desktop">Status: </span>
+              {{data['merge-rep-task'] or "Not started" }}
+            </td>  
+            <td class="govuk-table__cell action">
+              {% if data['merge-rep-task'] =="Complete" %}
+                {% else %}
+                {% if data['merge-duplicates'] == "1c" %}
+                  <a href="reginterest-merge-rep-review?merge-duplicates=1c" class="govuk-link govuk-link--no-visited-state">Select<a/><span class="govuk-visually-hidden"> {{data['representative1']}}</span>
+                  {% else %}
+                  <a href="reginterest-merge-rep-review?merge-duplicates=1of2" class="govuk-link govuk-link--no-visited-state">Select<a/><span class="govuk-visually-hidden"> {{data['representative1']}}</span>
+                {% endif %}
+              {% endif %}
+            </td>             
+          </tr>
+        </body>
+      </table>  
+        
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">Party details</h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <strong>Interested party</strong><br>
+          {% if data['third-party'] == "no" %}
+            <a href="/caseworker/orgs/org-steeel" class="govuk-link--no-visited-state">{{data['dup-party1']}}</a><br>
+            <a href="" class="govuk-link--no-visited-state">{{data ['party-user111']}}</a>
+            {% else %}
+            <a href="/caseworker/orgs/org-steeluk" class="govuk-link--no-visited-state">{{data ['party1']}}</a><br>
+            <a href="" class="govuk-link--no-visited-state">{{data ['party-user1']}}</a>
+          {% endif %} 
+          </li> 
+          {% if data['third-party'] == "yes" or data['verify-type'] =="rep-invite" %}
+            <li>
+              <strong>Representative </strong><br>
+              <a href="/caseworker/orgs/org-bluesteel" class="govuk-link--no-visited-state">{{data ['representative1']}}</a><br>
+              <a href="" class="govuk-link--no-visited-state">{{data ['rep-user1']}}</a>
+            </li>
+          {% endif %} 
+          <li>
+            <strong>Submitted by</strong><br>
+            {% if data['verify-type'] == "rep-invite" %}
+              <a href="" class="govuk-link--no-visited-state">{{data ['party-user1']}}</a>
+              {% else %}
+              {% if data['third-party'] == "yes" %}
+                <a href="" class="govuk-link--no-visited-state">{{data ['rep-user1']}}</a>
+                {% else %}
+                <a href="" class="govuk-link--no-visited-state">{{data ['party-user111']}}</a>
+              {% endif%}
+            {% endif%}
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+
+{% endblock %}
+{% block footer %}
+ {% include "includes/footer.html" %}
+{% endblock %}
+
+

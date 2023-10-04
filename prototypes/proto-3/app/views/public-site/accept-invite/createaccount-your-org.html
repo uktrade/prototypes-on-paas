@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your organisation details - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="createaccount-your-org-dets" method="post" id="createaccount-your-org-form">          
+
+        <h1 class="govuk-heading-xl">
+          Your organisation details
+
+        </h1>
+        <p>This is the organisation you are directly employed by.</p>
+
+        {{ govukInput({
+          label: {
+            text: "Name of your organisation",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-20 govuk-input--readonly",
+          id: "createaccount-org-name",
+          name: "createaccount-org-name",
+          type: "text",
+          value: data['invite-rep-what-org'] or data['representative1'],
+          attributes: {
+            "readonly": true
+          }
+        }) }} 
+       
+        {% call govukFieldset({
+          legend: {
+            text: "Address of your organisation",
+            classes: "govuk-fieldset__legend--s",
+            isPageHeading: true
+          }
+        }) %}
+
+        <p>Provide the address of the main office.</p>
+
+          {{ govukTextarea({
+            label: {
+              text: "Street address",
+              isPageHeading: false
+            },
+            classes: "govuk-input--width-20",
+            id: "createaccount-org-address",
+            name: "createaccount-org-address",
+            value: data['createaccount-reg-org-address'],
+            type: "text"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Postcode or zip code",
+              isPageHeading: false
+            },
+            classes: "govuk-input--width-5",
+            id: "createaccount-org-zip",
+            name: "createaccount-org-zip",
+            value: data['createaccount-reg-org-zip'],
+            type: "text"
+          }) }}
+        
+        {% endcall %}
+
+        {% include "includes/country-list.html" %}
+        {{ govukInput({
+          label: {
+            text: "Organisation registration number",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          hint: {
+            text: "Some organisations have an official registration number from the country they are based in."
+          },
+          classes: "govuk-input--width-10",
+          id: "createaccount-reg-org-number",
+          name: "createaccount-reg-org-number",
+          value: data['createaccount-reg-org-number'],
+          type: "text"
+        }) }} 
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}    
+          
+
+      </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

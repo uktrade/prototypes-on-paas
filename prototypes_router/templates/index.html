@@ -1,0 +1,12 @@
+<body>
+
+<p>Prototypes</p>
+<ul>
+    {% for prototype_name, info in prototypes.items %}
+        <li>
+            <a href="/{{ prototype_name }}">{{ info.name }}</a>
+        </li>
+    {% endfor %}
+
+</ul>
+</body>

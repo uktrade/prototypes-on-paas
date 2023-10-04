@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter your password – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="container">
+        <nav>
+          <ul class="case-nav">
+            <li class="nav__item"><a class="nav__link active" href="#">All</a></li>
+            <li class="nav__item"><a class="nav__link" href="#">Filter nr 1</a></li>
+            <li class="nav__item"><a class="nav__link" href="#">Filter nr 2</a></li>
+            <li class="nav__item"><a class="nav__link" href="#">Filter nr 3</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <script type="text/javascript">
+
+        document.addEventListener('DOMContentLoaded', function() {
+          const selector = '.nav__link';
+          const elems = Array.from( document.querySelectorAll( selector ) );
+          const navigation = document.querySelector( 'nav' );
+          
+          function makeActive( evt ) {
+            const target = evt.target;
+            
+            if ( !target || !target.matches( selector ) ) {
+              return;
+            }
+            
+            elems.forEach( elem => elem.classList.remove( 'active' ) );
+              
+              evt.target.classList.add( 'active' );
+          };
+          
+          navigation.addEventListener( 'mousedown', makeActive );
+          
+          } );
+
+      </script>
+  
+     
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

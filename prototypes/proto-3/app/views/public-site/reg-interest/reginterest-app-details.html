@@ -1,0 +1,231 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Registration of Interest application – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+ <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-xl">
+      Registration of Interest
+    </h1>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          
+          {% if data['reginterest-task'] == "Deficient" %}
+            <p><strong class="govuk-tag govuk-tag--pink" id="pre-sampling-upload-status">Deficient documentation</strong></p>
+            {{ govukButton({
+              text: "Review documentation",
+              href: "reginterest-tasks?tasklist-type=reg-interest&regcase-task=complete"
+            }) }} 
+            <p><span id="date"></span></p>
+            {% else %}
+             {% if data['reginterest-task'] == "Draft" %}
+              <p>Draft<br>
+              <span id="date"></span></p>
+              {% else %}
+              {% if data['reginterest-task'] == "Sent" %}
+                <p>Submitted<br>Awaiting TRA approval<br>
+                <span id="date"></span></p>
+                {% else %}
+                {% if data['reginterest-task'] == "Rejected" %}
+                  <p>Rejected<br>The TRA rejected your registration of interest<br>
+                  <span id="date"></span></p>
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+
+          {% if data['reginterest-task'] == "all" %}
+            <p>Draft<br></p>
+            <p>Submitted<br>Awaiting TRA approval<br></p>
+            <p>Rejected<br>Registration of interest was rejected by the TRA<br><br></p>
+                <p><strong class="govuk-tag govuk-tag--pink" id="pre-sampling-upload-status">Deficient documentation</strong></p>
+                {{ govukButton({
+                  text: "Review documentation",
+                  href: "reginterest-tasks?tasklist-type=reg-interest&regcase-task=complete"
+                }) }}  </p>
+            <p><span id="date"></span></p>
+          {% endif %}
+            
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Case details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p>{{data ['case-ref1']}} - {{data ['case-name1']}}
+          </p>
+        </dd>
+      </div>
+
+      <script>
+        const date = new Date();
+        const formattedDate = date.toLocaleDateString('en-GB', {
+          day: '2-digit', month: 'short', year: 'numeric'
+        }).replace(/ /g, ' ');
+        document.getElementById("date").innerHTML = formattedDate;
+      </script>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Interested party
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <!--if it is a complete app show address details-->
+          {% if (data['reginterest-what-org'] == "my-org") %}
+            <p>My organisation:</p>
+            {% else %}
+            {% if (data['reginterest-what-org'] == "existing-org") or (data['reginterest-what-org'] == "new-org") %}
+              <p>My client:</p>
+            {% endif %}
+          {% endif %}
+
+                       {% if (data['who-signin'] == "org") or (data['who-signin'] == "org-invite") %}
+                            {% if (data['reginterest-what-org'] == "my-org") %}
+                                {{ data['createaccount-org-name'] or data['party1'] }}
+                                {% else %}
+                                {% if data['reginterest-what-org'] == "existing-org" %}
+                                    {{ data['reginterest-client-name'] or data['party-user1'] }}<br>
+                                    {{ data['reginterest-client-email'] or data['party-email1'] }}<br><br>
+                                    {{ data['reginterest-existing-org'] or data['party1'] }}
+                                    {% else %}
+                                    {% if (data['reginterest-what-org'] == "new-org") %}
+                                        {{ data['reginterest-client-name'] or data['party-user1'] }}<br>
+                                        {{ data['reginterest-client-email'] or data['party-email1'] }}<br><br>
+                                        {% if data['reginterest-uk-reg'] == "yes" %}
+                                            Aluminium Trade Ltd
+                                            {% else %}
+                                            {{ data['reginterest-org-name'] or "Aluminium Trade Ltd" }}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                            <!-- Show the reg of interest for clients according to who has signed in: Rep-->
+                            {% else %}
+                            {% if (data['who-signin'] == "rep") or (data['who-signin'] == "rep-invite") %}
+                                {% if (data['reginterest-what-org'] == "my-org") %}
+                                    {{ data['createaccount-org-name'] or data['representative1'] }}
+                                    {% else %}
+                                    {% if data['reginterest-what-org'] == "existing-org" %}
+                                        {{ data['reginterest-client-name'] or data['party-user1'] }}<br>
+                                        {{ data['reginterest-client-email'] or data['party-email1'] }}<br><br>
+                                        {{ data['reginterest-existing-org'] or data['party1'] }}
+                                        {% else %}
+                                        {% if (data['reginterest-what-org'] == "new-org") %}
+                                            {{ data['reginterest-client-name'] or data['party-user1'] }}<br>
+                                            {{ data['reginterest-client-email'] or data['party-email1'] }}<br><br>
+                                            {% if data['reginterest-uk-reg'] == "yes" %}
+                                                Aluminium Trade Ltd
+                                                {% else %}
+                                                {{ data['reginterest-org-name'] or data['party1'] }}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}<br>
+
+          {% if (data['reginterest-what-org'] != "my-org") %}
+          <!-- And show address if not my own org-->     
+            345, The Shard, London <br>
+            EC2 3TF<br>
+            United Kingdom
+          {% endif %}
+        </dd>        
+      </div>
+
+      {% if (data['reginterest-what-org'] != "my-org") %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Letter of Authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <!--if it is a complete app show doc details-->
+            {% if data['reginterest-task'] != "Draft" %}
+              <a href="#">loa.docx</a>
+            {% endif %}
+          </dd>
+        </div>
+      {% endif %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Registration documentation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <!--if it is a complete app show doc details-->
+          {% if data['reginterest-task'] != "Draft" %}
+            Confidential documentation
+            <ul class="govuk-list">
+              <li><a href="#">confidentialdocument1.docx</a></li>
+              <li><a href="#">confidentialdocument2.docx</a></li>
+              <li><a href="#">confidentialdocument3.docx</a></li>
+            </ul>
+            Non-confidential documentation
+            <ul class="govuk-list">
+              <li><a href="#">nonconfidentialdocument1.docx</a></li>
+              <li><a href="#">nonconfidentialdocument2.docx</a></li>
+              <li><a href="#">nonconfidentialdocument3.docx</a></li>
+            </ul>
+          {% endif %}
+        </dd>
+      </div>   
+    </dl>
+
+   {% if data['reginterest-task'] == "Draft" %}
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Continue registration of interest",
+        href: "reginterest-tasks?tasklist-type=reg-interest&regcase-task=complete"
+      }) }}    
+      <a class="govuk-link govuk-link--no-visited-state" href="reginterest-delete-draft">Delete</a>
+    </div>
+  {% endif %}
+</div>
+
+  <div class="govuk-grid-column-one-third">
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">Read the guidance documents</h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a class="link" href="https://www.gov.uk/government/publications/the-uk-trade-remedies-investigations-process" target="_blank">Trade remedies investigations process (opens in a new window or tab)</a>
+          </li>  
+          
+          <li>
+            <br>
+            <strong>Email the case team</strong>   
+              {% if (data['regnterest-due-date'] == "current") %}
+                <a class="govuk-link govuk-link--no-visited-state" href="mailto:caseref@traderemedies.gov.uk">{{data['case-ref1']}}@traderemedies.gov.uk</a>
+                {% else %}       
+                  <a class="govuk-link govuk-link--no-visited-state" href="mailto:caseref@traderemedies.gov.uk"">{{data['case-ref']}}@traderemedies.gov.uk</a>
+              {% endif %}
+          </li> 
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

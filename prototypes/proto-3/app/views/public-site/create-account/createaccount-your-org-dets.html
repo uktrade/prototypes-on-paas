@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  More details about your organisation - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="createaccount-account-complete" method="post" id="createaccount-your-org-dets-form">  
+
+        <h1 class="govuk-heading-xl">
+          More details about your organisation
+        </h1>
+
+        <p>Provide as many details as you can. These are optional, but can help us with our investigations into any case you register an interest in.</p>
+
+        {{ govukInput({
+          label: {
+            text: "Website (optional)",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          hint: {
+            text: "Provide your organisation’s website if it has one."
+          },
+          classes: "govuk-input--width-20",
+          id: "createaccount-web",
+          name: "createaccount-web",
+          type: "text",
+          value: data['createaccount-web']  
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "VAT registration number (optional)",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          hint: {
+            text: "Your organisation may be registered for VAT (Value Added Tax) or an international equivalent."
+          },
+          classes: "govuk-input--width-20",
+          id: "createaccount-vat",
+          name: "createaccount-vat",
+          type: "text",
+          value: data['createaccount-vat']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "EORI number (optional)",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          hint: {
+            text: "Your organisation will have an EORI (Economic Operators Registration and Identification) number if you have brought goods into the UK or EU."
+          },
+          classes: "govuk-input--width-20",
+          id: "createaccount-eori",
+          name: "createaccount-eori",
+          type: "text",
+          value: data['createaccount-eori']          
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "DUNS number (optional)",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          hint: {
+            text: "Your organisation may have a 9-digit DUNS (Data Universal Numbering System) number."
+          },
+          classes: "govuk-input--width-20",
+          id: "createaccount-duns",
+          name: "createaccount-duns",
+          type: "text",
+          value: data['createaccount-duns']  
+        }) }}
+  
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Create my account"
+          }) }}    
+                  
+
+      </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

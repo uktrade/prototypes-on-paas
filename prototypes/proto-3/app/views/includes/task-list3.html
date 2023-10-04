@@ -1,0 +1,176 @@
+<!-- Reg Interest -->
+<!-- Reg Interest -->
+
+{% if data['tasklist-type'] == "reg-interest" %}
+
+<!-- If the user has completed org details show: -->
+  {% if (data['reginterest-what-org'] == "existing-org") or (data['reginterest-what-org'] == "new-org")  %}
+
+    <!-- LOA -->
+    {% if (data['upload-loa-task'] == "complete")  %}
+      <li class="app-task-list__item">
+        <span class="app-task-list__task-name">
+          <a href="reginterest-upload-loa" class="govuk-link--no-visited-state" aria-describedby="loa-upload-status">
+            Letter of Authority
+          </a>
+        </span>
+        <strong class="govuk-tag app-task-list__tag" id="loa-upload-status">Complete</strong>
+      </li>
+
+      {% else %}
+      <!--If the LOA is deficient-->
+      {% if (data['upload-loa-task'] == "def") %}
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="reginterest-upload-loa" class="govuk-link--no-visited-state" aria-describedby="organisation-loa-status">
+              Letter of Authority
+            </a>
+          </span>
+          <strong class="govuk-tag govuk-tag--pink app-task-list__tag" id="pre-sampling-upload-status">Deficient document</strong>
+        </li>
+
+        {% else %}
+        <!-- If the user has not started loa but has completed section 2 show: -->
+        {% if (data['which-org-task'] == "complete")  %}
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="reginterest-upload-loa" class="govuk-link--no-visited-state" aria-describedby="loa-upload-status">
+                Letter of Authority
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="loa-upload-status">Not started</strong>
+          </li>
+
+          {% else %}
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name" aria-describedby="loa-upload-status">              
+              Letter of Authority
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="loa-upload-status">Cannot start yet</strong>
+          </li>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+
+  <!-- If the user has completed Uploads show: -->
+  <!-- If the user has completed Uploads show: -->
+  {% if (data['upload-pre-task'] == "complete") and (data['tasklist-type'] == "reg-interest")  %}
+    <li class="app-task-list__item">
+      <span class="app-task-list__task-name">
+        <a href="reginterest-upload-pre" class="govuk-link--no-visited-state" aria-describedby="pre-sampling-upload-status">
+          Registration documentation
+        </a>
+      </span>
+      <strong class="govuk-tag app-task-list__tag" id="pre-sampling-upload-status">Documents uploaded: 2</strong>
+    </li>
+
+    {% else %}
+    <!-- If the user has visited Uploads show: -->
+    {% if (data['upload-pre-task'] == "started")  %}
+      <li class="app-task-list__item">
+        <span class="app-task-list__task-name">
+          <a href="reginterest-upload-pre" class="govuk-link--no-visited-state" aria-describedby="pre-sampling-upload-status">
+            Registration documentation
+          </a>
+        </span>
+        <strong class="govuk-tag govuk-tag--pink app-task-list__tag" id="pre-sampling-upload-status">Documents uploaded: 1</strong>
+      </li>
+
+      {% else %}
+      <!--If the Doc is deficient-->
+      {% if (data['upload-pre-task'] == "def") %}
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="reginterest-upload-pre" class="govuk-link--no-visited-state" aria-describedby="organisation-loa-status">
+              Registration documentation
+            </a>
+          </span>
+          <strong class="govuk-tag govuk-tag--pink app-task-list__tag" id="pre-sampling-upload-status">Deficient documents: 1</strong>
+        </li>
+
+        {% else %}
+        <!-- If the user has not started Uploads but has completed section 2 show: -->
+        {% if (data['which-org-task'] == "complete")  %}
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="reginterest-upload-pre?upload-pre-task=started" class="govuk-link--no-visited-state" aria-describedby="pre-sampling-upload-status">
+                Registration documentation
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="pre-sampling-upload-status">Not started</strong>
+          </li>
+
+          {% else %}
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name" aria-describedby="pre-sampling-upload-status">
+              Registration documentation
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="pre-sampling-upload-status">Cannot start yet</strong>
+          </li>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+
+  {% else %}
+
+  <!-- 3rd Party rep -->
+  <!--If the user is trying to invite a third party show: -->
+  {% if data['tasklist-type'] == "invite-rep" %}
+
+    <!-- LOA -->
+    {% if (data['invite-loa-task'] == "complete")  %}
+    <li class="app-task-list__item">
+      <span class="app-task-list__task-name">
+        <a href="invite-upload-loa" class="govuk-link--no-visited-state" aria-describedby="loa-upload-status">
+          Letter of Authority
+        </a>
+      </span>
+      <strong class="govuk-tag app-task-list__tag" id="loa-upload-status">Complete</strong>
+    </li>
+
+    {% else %}
+      <!--If the LOA is deficient-->
+      {% if (data['invite-loa-task'] == "def") %}
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="invite-upload-loa" class="govuk-link--no-visited-state" aria-describedby="organisation-loa-status">
+              Letter of Authority
+            </a>
+          </span>
+          <strong class="govuk-tag govuk-tag--pink app-task-list__tag" id="pre-sampling-upload-status">Deficient document</strong>
+        </li>
+
+        {% else %}
+        <!-- If the user has not started loa but has completed section 2 show: -->
+        {% if (data['invite-which-org-task'] == "complete")  %}
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="invite-upload-loa?invite-loa-task=started" class="govuk-link--no-visited-state" aria-describedby="loa-upload-status">
+                Letter of Authority
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="loa-upload-status">Not started</strong>
+          </li>
+
+          {% else %}
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name" aria-describedby="loa-upload-status">              
+              Letter of Authority
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="loa-upload-status">Cannot start yet</strong>
+          </li>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+
+
+
+
+
+
+

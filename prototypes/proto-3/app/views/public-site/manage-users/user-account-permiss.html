@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Change account permission - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'user-nav' %}
+
+{% block header %}
+  {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="user-account#account-details" method="post" id="account-update-details-form"> 
+
+        {% if data['account-user'] =="invite-user-name" %}
+          {{ govukRadios({
+              idPrefix: "invite-user-permission",
+              name: "invite-user-permission",
+              fieldset: {
+                legend: {
+                  text: "Select what the user can do",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              items: [
+              {
+                value: "User",
+                text: "User: they can access and manage cases.",
+                checked: checked("invite-user-permission", "User")
+              },
+              {
+                value: "Admin user",
+                text: "Admin user: they can access and manage cases, assign cases and manage other team members.",
+                checked: checked("invite-user-permission", "Admin user")
+                }
+              ]
+            }) }}    
+          {% else %}
+          {% if data['account-user'] =="party-user6" %}
+            {{ govukRadios({
+              idPrefix: "party-user6-permissions",
+              name: "party-user6-permissions",
+              fieldset: {
+                legend: {
+                  text: "Select what the user can do",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              items: [
+              {
+                value: "User",
+                text: "User: they can access and manage cases.",
+                checked: checked("party-user6-permissions", "User")
+              },
+              {
+                value: "Admin user",
+                text: "Admin user: they can access and manage cases, assign cases and manage other team members.",
+                checked: checked("party-user6-permissions", "Admin user")
+                }
+              ]
+            }) }}  
+          {% endif %}  
+        {% endif %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Submit"
+          }) }}    
+           
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+ {% include "includes/footer.html" %}
+{% endblock %}

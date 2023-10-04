@@ -1,0 +1,247 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Upload registration documentation – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+ <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      Uploads no javascript and errors
+    </h1>
+
+
+  
+  
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-m">No javascript / basic
+        </h2>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="row-colour">
+          <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s govuk-!-text-align-centre">
+              Private file
+            </h3>
+            <div class="upload-card">
+              <div class="upload-container">
+                  <input class="govuk-file-upload upload-button" id="input-js" name="input-js" type="file">
+                  <br><br>
+                  <input class="govuk-label upload-button" type="button" value="Upload file">
+              </div>
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s govuk-!-text-align-centre">
+              Public file
+            </h3>
+            <div class="upload-card">
+              <div class="upload-container">
+                <label class="govuk-label" for="progress-1">
+                  Scanning file: mydocumentation.docx
+                </label>
+                <progress id="progress-scan"></progress>
+                <p><a href="#" class="govuk-link--no-visited-state" id="cancel-upload">
+                Cancel <span class="govuk-visually-hidden">file</span></a></p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="row-colour">
+          <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s govuk-!-text-align-centre">
+              Private file
+            </h3>
+            <div class="upload-card">
+              <div class="upload-container">
+                <label class="govuk-label" for="progress-100">
+                  Uploading file: mydocumentation.docx
+                </label>
+                <progress></progress>
+                <p><a href="#" class="govuk-link--no-visited-state" id="case-selected-status">
+                Cancel <span class="govuk-visually-hidden">file</span></a></p>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s govuk-!-text-align-centre">
+              Public file
+            </h3>
+            <div class="upload-card">
+              <div class="upload-container">
+                <label class="govuk-label" for="progress-complete">
+                  Upload complete:<br>mydocumentation.docx
+                </label>
+                <p><a href="#" class="govuk-link--no-visited-state" id="case-selected-status">
+                  Remove <span class="govuk-visually-hidden">file</span></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+  
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-m">Upload errors
+        </h2>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="row-colour">
+
+          <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s govuk-!-text-align-centre">
+              Private file
+            </h3>
+            <div class="upload-card">
+              <div class="upload-container">
+                <div class="govuk-form-group govuk-form-group--error">
+                  <p id="file-upload-1-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error: </span>Select a Public file to upload</p>
+                    <br>
+                  <p><input type="file" name="public-file" id="public-file" class="inputfile" />
+                    <label for="public-file" class="govuk-link">Choose new file</label> or drag it here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s govuk-!-text-align-centre">
+              Private file
+            </h3>
+            <div class="upload-card">
+              <div class="upload-container">
+                <div class="govuk-form-group govuk-form-group--error">
+                  <p id="file-upload-1-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> The selected file must be a DOCX, PNG, or PDF: mydocumentation.html
+                  </p>
+                  <p><input type="file" name="public-file" id="public-file" class="inputfile" />
+                    <label for="public-file" class="govuk-link">Choose new file</label> or drag it here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="row-colour">
+          <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s govuk-!-text-align-centre">
+              Private file
+            </h3>
+            <div class="upload-card">
+              <div class="upload-container">
+                <div class="govuk-form-group govuk-form-group--error">
+                  <p id="file-upload-1-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> The selected file must be smaller than 30MB: mydocumentation.docx
+                  </p>
+                  <p><input type="file" name="public-file" id="public-file" class="inputfile" />
+                    <label for="public-file" class="govuk-link">Choose new file</label> or drag it here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s govuk-!-text-align-centre">
+              Private file
+            </h3>
+            <div class="upload-card">
+              <div class="upload-container">
+                <div class="govuk-form-group govuk-form-group--error">
+                  <p id="file-upload-1-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> This file contains a virus: mydocumentation.docx
+                  </p>
+                  <p><input type="file" name="public-file" id="public-file" class="inputfile" />
+                    <label for="public-file" class="govuk-link">Choose new file</label> or drag it here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="row-colour">
+          <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s govuk-!-text-align-centre">
+              Private file
+            </h3>
+            <div class="upload-card">
+              <div class="upload-container">
+                <div class="govuk-form-group govuk-form-group--error">
+                  <p id="file-upload-1-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> This file could not be uploaded – try again: mydocumentation.docx
+                  </p>
+                  <p><input type="file" name="public-file" id="public-file" class="inputfile" />
+                    <label for="public-file" class="govuk-link">Choose a file</label> or drag it here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-s govuk-!-text-align-centre">
+              Public file
+            </h3>
+            <div class="upload-card">
+              <div class="upload-container">
+                <div class="govuk-form-group govuk-form-group--error">
+                  <p id="file-upload-1-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> You cannot add more than one file to represent this Public document 
+                  </p>
+                  <p><input type="file" name="public-file" id="public-file" class="inputfile" />
+                    <label for="public-file" class="govuk-link">Choose a file</label> or drag it here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+   
+  </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

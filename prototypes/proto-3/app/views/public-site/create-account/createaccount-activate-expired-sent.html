@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Email verification email sent - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/beta-banner.html"%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Email verification link sent
+      </h1>
+      <p>We sent an email to <strong>{{ data['createaccount-email'] }}</strong>.</p>
+      <p>Open the email and click on the link to verify your email address.</p>
+      <p>The link is valid for 24 hours. If it expires, you can request a new verification email.</p>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            I have not received an email
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>Check that you entered your email address correctly. If it is incorrect, create an account again with the correct email address.</p>
+          <p>Check your spam or junk mail folders.</p>
+          <p>If you still have not received your verification email, <a href="createaccount-account-complete?rerequestEmail=yes">request a new email</a>.</p>
+        </div>
+      </details>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            The link in my email has expired
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p><a href="createaccount-account-complete?rerequestEmail=yes">Request a new verification email</a>.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "#1",
+          text: "Help"
+        },
+        {
+          href: "#2",
+          text: "Cookies"
+        },
+        {
+          href: "#3",
+          text: "Privacy"
+        },
+        {
+          href: "#4",
+          text: "Terms and conditions"
+        },
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+        },
+        {
+        },
+        {
+          href: "../email/email-createaccount-activate-account",
+          text: "For user testing: Go to email"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}

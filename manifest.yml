@@ -5,8 +5,10 @@ applications:
       - https://github.com/cloudfoundry/nginx-buildpack.git
       - https://github.com/cloudfoundry/nodejs-buildpack.git
       - https://github.com/cloudfoundry/python-buildpack.git
-    env:
-      ALLOWED_IPS: |
-        allow 51.182.159.103/32;
-    timeout: 80
     memory: 512M
+    env:
+      APP_NAME: prototypes-on-paas
+      ALLOWED_IPS: |
+        allow 1.2.3.4/32;
+        allow 2.3.4.5/32;
+    health-check-type: process

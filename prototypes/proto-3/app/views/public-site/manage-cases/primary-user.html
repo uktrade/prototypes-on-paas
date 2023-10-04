@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Change primary contact - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="user-account" method="post" id="account-primary-contact-form"> 
+
+        {% if data['account-user'] =="party-user11" %}
+
+          {{ govukRadios({
+            idPrefix: "party-user11-status",
+            name: "party-user11-status",
+            fieldset: {
+              legend: {
+                text: "Change primary contact",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+            {
+              value: "Primary",
+              text: "Primary contact: some words here",
+              checked: checked("party-user11-status", "Primary")
+            },
+            {
+              value: "Not-primary",
+              text: "Not primary contact: some words here",
+              checked: checked("party-user11-status", "Not-primary")
+            }
+            ]
+          }) }}
+
+          {% else %}
+          {% if data['account-user'] =="party-user6" %}
+            {{ govukRadios({
+              idPrefix: "party-user6-status",
+              name: "party-user6-status",
+              fieldset: {
+                legend: {
+                  text: "Change account status",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              items: [
+               {
+                  value: "Active",
+                  text: "Active user: some words here",
+                  checked: checked("party-user6-status", "Active")
+                },
+                {
+                  value: "Inactive",
+                  text: "Inactive user: some words here",
+                  checked: checked("party-user6-status", "Inactive")
+                }
+              ]
+            }) }}
+            {% else %}
+            {% if data['account-user'] =="rep-user3" %}
+              {{ govukRadios({
+                idPrefix: "rep-user3-status",
+                name: "rep-user3-status",
+                fieldset: {
+                  legend: {
+                    text: "Change account status",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                items: [
+                {
+                  value: "Active",
+                  text: "Active user: some words here",
+                  checked: checked("rep-user3-status", "Active")
+                },
+                {
+                  value: "Inactive",
+                  text: "Inactive user: some words here",
+                  checked: checked("rep-user3-status", "Inactive")
+                }
+                ]
+              }) }}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Submit"
+          }) }}    
+           
+        </div>
+
+        </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+ {% include "includes/footer.html" %}
+{% endblock %}

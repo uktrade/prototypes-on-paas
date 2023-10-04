@@ -1,0 +1,248 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+     Review your answers – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+    {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/beta-banner.html" %}
+
+    <a class="govuk-back-link govuk-link--no-visited-state" href="reginterest-tasks">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds-from-desktop"><span
+                class="govuk-caption-xl">4.  Register interest</span>
+            <h1 class="govuk-heading-xl">
+                Review your answers
+            </h1>
+
+            <h2 class="govuk-heading-m">Your registration of interest</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Case details
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+
+                        {% if (data['regnterest-due-date'] == "current") %}
+                            {{ data ['case-ref1'] }} - {{ data ['case-name1'] }}
+                            {% else %}
+                            {{ data['case-ref'] }} - {{ data['case-name'] }}
+                        {% endif %}
+                    </dd>
+
+                </div>
+            </dl>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Interested party
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if (data['reginterest-what-org'] == "my-org") %}
+                            <p>My organisation:</p>
+                            {% else %}
+                            {% if (data['reginterest-what-org'] == "existing-org") or (data['reginterest-what-org'] == "new-org") %}
+                                <p>My client:</p>
+                            {% endif %}
+                        {% endif %}
+
+                        <!-- Show the reg of interest for clients according to who has signed in: Org-->
+                        {% if (data['who-signin'] == "org") or (data['who-signin'] == "org-invite") %}
+                            {% if (data['reginterest-what-org'] == "my-org") %}
+                                {{ data['createaccount-org-name'] or data['party1'] }}
+                                {% else %}
+                                {% if data['reginterest-what-org'] == "existing-org" %}
+                                    {{ data['reginterest-client-name'] or data['party-user1'] }}<br>
+                                    {{ data['reginterest-client-email'] or data['party-email1'] }}<br><br>
+                                    {{ data['reginterest-existing-org'] or data['party1'] }}
+                                    {% else %}
+                                    {% if (data['reginterest-what-org'] == "new-org") %}
+                                        {{ data['reginterest-client-name'] or data['party-user1'] }}<br>
+                                        {{ data['reginterest-client-email'] or data['party-email1'] }}<br><br>
+                                        {% if data['reginterest-uk-reg'] == "yes" %}
+                                            Aluminium Trade Ltd
+                                            {% else %}
+                                            {{ data['reginterest-org-name'] or "Aluminium Trade Ltd" }}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                            <!-- Show the reg of interest for clients according to who has signed in: Rep-->
+                            {% else %}
+                            {% if (data['who-signin'] == "rep") or (data['who-signin'] == "rep-invite") %}
+                                {% if (data['reginterest-what-org'] == "my-org") %}
+                                    {{ data['createaccount-org-name'] or data['representative1'] }}
+                                    {% else %}
+                                    {% if data['reginterest-what-org'] == "existing-org" %}
+                                        {{ data['reginterest-client-name'] or data['party-user1'] }}<br>
+                                        {{ data['reginterest-client-email'] or data['party-email1'] }}<br><br>
+                                        {{ data['reginterest-existing-org'] or data['party1'] }}
+                                        {% else %}
+                                        {% if (data['reginterest-what-org'] == "new-org") %}
+                                            {{ data['reginterest-client-name'] or data['party-user1'] }}<br>
+                                            {{ data['reginterest-client-email'] or data['party-email1'] }}<br><br>
+                                            {% if data['reginterest-uk-reg'] == "yes" %}
+                                                Aluminium Trade Ltd
+                                                {% else %}
+                                                {{ data['reginterest-org-name'] or data['party1'] }}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}<br>
+
+                        <!-- And show address if not my own org-->
+                        345, The Shard, London <br>
+                        EC2 3TF<br>
+                        United Kingdom
+
+
+                        <!-- And show org dets if new org-->
+                        {% if data['reginterest-what-org'] == "new-org" %}
+                            <br><br>
+                            Company number: 595934925<br>
+                            VAT number: {{ data['reginterest-vat'] or "205672212000" }}<br>
+                            EORI number: {{ data['reginterest-eori'] or "GB205672212000" }}<br>
+                            DUNS number: {{ data['reginterest-duns'] or "123456789" }}<br>
+                            <a href="">www.orglongnameurlthatisannoying.com</a>
+                        {% endif %}
+
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a href="reginterest-which-org">
+                            Change
+                            <span class="govuk-visually-hidden"> interested party</span>
+                        </a>
+                    </dd>
+
+                </div>
+
+            </dl>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+
+                {% if (data['reginterest-what-org'] != "my-org") %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Letter of Authority
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <a href="#">loa.docx</a>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a href="reginterest-upload-loa">
+                                Change
+                                <span class="govuk-visually-hidden"> Letter of Authority</span>
+                            </a>
+                        </dd>
+                    </div>
+                {% endif %}
+            </dl>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Registration documentation
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Document 1
+                        <a href="#">confidentialdocument1.docx</a>
+                        <a href="#">nonconfidentialdocument1.docx</a>
+                        <br><br>
+                        Document 2
+                        <a href="#">confidentialdocument2.docx</a>
+                        <a href="#">nonconfidentialdocument2.docx</a>
+                        <br><br>
+                        Document 3
+                        <a href="#">confidentialdocument3.docx</a>
+                        <a href="#">nonconfidentialdocument3.docx</a>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a href="reginterest-upload-pre">
+                            Change
+                            <span class="govuk-visually-hidden"> registration documentation</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+
+            <h2 class="govuk-heading-m">Now send your registration of interest</h2>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"
+                                   value="carcasses">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                I am authorised to provide this information.
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+            <div class="govuk-button-group">
+                {{ govukButton({
+        text: "Confirm and submit registration",
+        href: "reginterest-complete?reginterest-task=Submitted"
+      }) }}
+                <a class="govuk-link govuk-link--no-visited-state" href="reginterest-tasks">Back</a>
+
+            </div>
+
+            </form>
+
+            <!-- Test data
+    <div class="govuk-inset-text">
+      Test data: <br>
+      Upload started:{{ data['upload-started']}}<br>
+      Type of org: {{data['reginterest-what-org']}}<br>
+      Upload sample doc: {{data['sample-download']}}<br>
+      Upload loa doc: {{data['loa-download']}}
+    </div>
+
+  -->
+
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+            <aside class="app-related-items" role="complementary">
+                <h2 class="govuk-heading-m" id="subsection-title">Read the guidance documents</h2>
+                <nav role="navigation" aria-labelledby="subsection-title">
+                    <ul class="govuk-list govuk-!-font-size-16">
+                        <li>
+                            <a class="govuk-link govuk-link--no-visited-state"
+                               href="https://www.gov.uk/government/publications/the-uk-trade-remedies-investigations-process"
+                               target="_blank">Trade remedies investigations process (opens in a new window or tab)</a>
+                        </li>
+
+                        <li>
+                            <br>
+                            <strong>Email the case team</strong>
+                            {% if (data['regnterest-due-date'] == "current") %}
+                                <a class="govuk-link govuk-link--no-visited-state" href="mailto:caseref@traderemedies.gov.uk">{{ data['case-ref1'] }}@traderemedies.gov.uk</a>
+                            {% else %}
+                                <a class="govuk-link govuk-link--no-visited-state" href="mailto:caseref@traderemedies.gov.uk">{{ data['case-ref'] }}@traderemedies.gov.uk</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    {% include "includes/footer.html" %}
+{% endblock %}

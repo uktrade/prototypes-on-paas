@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  User details - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'org-nav' %}
+
+
+{% block header %}
+  {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="invite-user-permission" novalidate method="post" id="invite-rep-contact-name-form">  
+        
+        <h1 class="govuk-heading-xl">
+          Who are you inviting?
+        </h1>
+
+        {{ govukInput({
+          label: {
+            text: "Your team member’s name",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-20",
+          id: "invite-user-name",
+          name: "invite-user-name",
+          type: "text",
+          autocomplete: "name",
+          value: data['invite-user-name']
+
+        }) }}
+  
+        {{ govukInput({
+          label: {
+            text: "Your team member’s email address",
+            classes: "govuk-label--s"
+          },
+          hint: {
+            text: "Use their professional or company email."
+          },
+          id: "invite-user-email",
+          name: "invite-user-email",
+          classes: "govuk-input--width-20",
+          type: "email",
+          autocomplete: "email",
+          value: data['invite-user-email']
+        }) }}
+
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}    
+          
+
+      </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "#1",
+        text: "Help"
+      },
+      {
+        href: "#2",
+        text: "Cookies"
+      },
+      {
+        href: "/public-site/terms-privacy",
+        text: "Terms & Privacy"
+      },
+      {
+        href: "#4",
+        text: "Accessibility statement"
+      },
+      {
+        href: "/manage-prototype/clear-data",
+        text: "Clear data"
+      },
+      {
+        href: "invite-user-already-error",
+        text: "Existing email error"
+      }
+    ]
+  }
+}) }}{% endblock %}

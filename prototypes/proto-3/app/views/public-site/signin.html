@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% set header1 = "Sign in to Trade Remedies Service" %}
+
+{% block pageTitle %}
+  {{header1}} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="signin-2fa?rerequest2FA=no" novalidate method="post" id="signin-form">
+
+ <!-- This text is only shown to screen readers and informs the user that the password is / isn't hidden -->
+        <p aria-live="polite" id="password-text" class="sr-only">Password hidden.</p>
+
+        <h1 class="govuk-heading-xl">
+          {{header1}}
+        </h1>
+
+        {% if data['autosignedout'] =="yes" %}
+        <div class="govuk-inset-text">
+          You have been signed out due to activity on another device.
+        </div>
+        {% else %}
+        {% endif %}
+
+        <p>Sign in to request a new investigation or participate in an existing case.</p>
+        
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            classes: "govuk-input--width-20",
+            id: "signin-email",
+            name: "signin-email",
+            type: "email",
+            autocomplete: "email"
+          }) }}
+        
+
+          <div class="input-with-button">
+            <button id="show-password" type="button" role="switch" aria-checked="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              <span class="show-text">Show</span>
+            </button>
+            
+            {{ govukInput({
+              label: {
+                text: "Password"
+              },
+              classes: "govuk-input--width-15",
+              id: "password",
+              name: "password",
+              type: "password",
+              describedBy: "password-hints",
+              autocomplete: "new-password" 
+            }) }}
+          
+          </div>
+
+        <p><a href="signin-forgotpass" class="govuk-link govuk-link--no-visited-state">Forgot your password?</a></p>
+
+        {{ govukButton({
+          text: "Sign in"
+        }) }}
+
+        <p><a href="create-account/createaccount-existing-account" class="govuk-link govuk-link--no-visited-state">Create an account</a></p>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

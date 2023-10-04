@@ -1,0 +1,344 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Select details to keep when the records are merged – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% set bodyClasses = 'caseworker-width' %}
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+     <span class="govuk-caption-xl">
+      Review matching organisations
+    </span>
+    <h1 class="govuk-heading-xl">
+      Select details to keep when the records are merged
+    </h1>
+    <p>Select the information that should be kept when these two organisations are merged.</p>
+    <form action="reginterest-merge-int-check" method="post" id="reginterest-merge-form">
+      <table class="govuk-table merge">
+        <caption class="govuk-table__caption govuk-visually-hidden">
+           A table to select the information from the selected organisation or the matching organisation that should be kept after the merge.
+        </caption>      
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Field</th>
+            <th scope="col" class="govuk-table__header">Selected organisation</th>
+            <th scope="col" class="govuk-table__header">Matching organisation</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Name</th>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">  
+                  <input class="govuk-radios__input" id="name-party1" name="party1" type="radio" value="{{data['party1']}}" checked>
+                  <label class="govuk-label govuk-radios__label" for="name-party1">
+                    {{data['party1'] }}
+                  </label>
+                </div>
+              </div>
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="name-dup1" name="party1" type="radio" value="{{data['dup-party1']}}" >
+                  <label class="govuk-label govuk-radios__label" for="name-dup1">
+                    {{data['dup-party1'] }}
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Address</th>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="address-dup" name="party-address1" type="radio" value="{{data['party-address1']}}" checked>
+                  <label class="govuk-label govuk-radios__label" for="address-dup">
+                    {{data['party-address1'] }}
+                  </label>
+                </div>
+              </div>
+            </td> 
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="address-dup1" name="party-address1" type="radio" value="{{data['dup-party-address1']}}">
+                  <label class="govuk-label govuk-radios__label" for="address-dup1">
+                  {{data['dup-party-address1'] }}
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Postcode/ zip</th>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="postcode-dup" name="party-postcode1" type="radio" value="{{data['party-postcode1']}}" checked>
+                  <label class="govuk-label govuk-radios__label" for="postcode-dup">
+                  {{data['party-postcode1'] }}
+                  </label>
+                </div>
+              </div>
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="postcode-dup1" name="party-postcode1" type="radio" value="{{data['rep-postcode1']}}">
+                  <label class="govuk-label govuk-radios__label" for="postcode-dup1">
+                    {{data['dup-party-postcode1'] }}
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Country</th>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="country-int" name="party-country1" type="radio" value="{{data['party-country1']}}" checked>
+                  <label class="govuk-label govuk-radios__label" for="country-int">
+                    {{data['party-country1'] }}
+                  </label>
+                </div>
+              </div>
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="country-dup1" name="party-country1" type="radio" value="{{data['dup-party-country1']}}">
+                  <label class="govuk-label govuk-radios__label" for="country-dup1">
+                    {{data['dup-party-country1'] }}
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Reg number</th>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">  
+                  {% if (data['party-org-number1'] == null) %}
+                    <input class="govuk-radios__input" id="org-number-dup" name="party-org-number1" type="radio" value="{{data['party-org-number1']}}">
+                    <label class="govuk-label govuk-radios__label" for="org-number-dup">
+                      (empty)
+                    </label>
+                    {% else %}
+                    <input class="govuk-radios__input" id="org-number-dup" name="party-org-number1" type="radio" value="{{data['party-org-number1']}}" checked>
+                    <label class="govuk-label govuk-radios__label" for="org-number-dup">
+                      {{data['party-org-number1'] }}
+                    </label>
+                  {% endif %}
+                </div>
+              </div>
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  {% if (data['dup-party-org-number1'] == null) %}
+                    <input class="govuk-radios__input" id="org-number-dup1" name="party-org-number1" type="radio" value="{{data['dup-party-org-number1']}}">
+                    <label class="govuk-label govuk-radios__label" for="org-number-dup1">
+                      (empty)
+                    </label>
+                    {% else %}
+                    <input class="govuk-radios__input" id="org-number-dup1" name="party-org-number1" type="radio" value="{{data['dup-party-org-number1']}}">
+                    <label class="govuk-label govuk-radios__label" for="org-number-dup1">
+                      {{data['dup-party-org-number1'] }}
+                    </label>
+                  {% endif %}
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">Website</th>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">  
+                {% if (data['dup-party-web3'] == null) %}
+                    <input class="govuk-radios__input" id="web-dup" name="party-web1" type="radio" value="{{data['party-web1']}}">
+                    <label class="govuk-label govuk-radios__label" for="web-dup">
+                      (empty)
+                    </label>
+                    {% else %}                      
+                    <input class="govuk-radios__input" id="web-rep" name="party-web1" type="radio" value="{{data['party-web1']}}" checked>
+                    <label class="govuk-label govuk-radios__label" for="web-rep">
+                      {{data['party-web1'] }}
+                    </label>
+                  {% endif %}
+                </div>
+              </div>
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  {% if (data['dup-party-web1'] == null) %}
+                    <input class="govuk-radios__input" id="web-dup1" name="party-web1" type="radio" value="{{data['dup-party-web1']}}">
+                    <label class="govuk-label govuk-radios__label" for="web-dup1">
+                      (empty)
+                    </label>
+                    {% else %}                      
+                    <input class="govuk-radios__input" id="web-dup1" name="party-web1" type="radio" value="{{data['dup-party-web1']}}">
+                    <label class="govuk-label govuk-radios__label" for="web-dup1">
+                      {{data['dup-party-web1'] }}
+                    </label>
+                  {% endif %}
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">VAT number</th>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  {% if (data['party-vat1'] == null) %}
+                    <input class="govuk-radios__input" id="vat-dup" name="party-vat1" type="radio" value="{{data['party-vat1']}}">
+                    <label class="govuk-label govuk-radios__label" for="vat-dup">
+                      (empty)
+                    </label>
+                    {% else %}
+                    <input class="govuk-radios__input" id="vat-dup" name="party-vat1" type="radio" value="{{data['party-vat1']}}" >
+                    <label class="govuk-label govuk-radios__label" for="vat-dup">
+                      {{data['party-vat1'] }}
+                    </label>
+                  {% endif %}
+                </div>
+              </div>
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  {% if (data['dup-party-vat1'] == null) %}
+                    <input class="govuk-radios__input" id="vat-dup1" name="party-vat1" type="radio" value="{{data['dup-party-vat1']}}">
+                    <label class="govuk-label govuk-radios__label" for="vat-dup1">
+                    (empty)
+                    </label>
+                    {% else %}
+                    <input class="govuk-radios__input" id="vat-dup1" name="party-vat1" type="radio" value="{{data['dup-party-vat1']}}" checked>
+                    <label class="govuk-label govuk-radios__label" for="vat-dup1">
+                      {{data['dup-party-vat1'] }}
+                    </label>
+                  {% endif %}
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">EORI number</th>
+              <td class="govuk-table__cell text-overflow">
+                <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                  <div class="govuk-radios__item">  
+                    {% if (data['party-eori1'] == null) %}
+                      <input class="govuk-radios__input" id="eori-dup" name="party-eori1" type="radio" value="{{data['party-eori1']}}">
+                      <label class="govuk-label govuk-radios__label" for="eori-dup">
+                      (empty)
+                      </label>
+                      {% else %}
+                      <input class="govuk-radios__input" id="eori-dup" name="party-eori1" type="radio" value="{{data['party-eori1']}}" checked>
+                      <label class="govuk-label govuk-radios__label" for="eori-dup">
+                        {{data['party-eori1'] }}
+                      </label>
+                    {% endif %}
+                  </div>
+                </div>
+              </td>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  {% if (data['dup-party-eori1'] == null) %}
+                    <input class="govuk-radios__input" id="eori-dup1" name="party-eori1" type="radio" value="{{data['dup-party-eori1']}}">
+                    <label class="govuk-label govuk-radios__label" for="eori-dup1">
+                    (empty)
+                    </label>
+                    {% else %}
+                    <input class="govuk-radios__input" id="eori-dup1" name="party-eori1" type="radio" value="{{data['dup-party-eori1']}}">
+                    <label class="govuk-label govuk-radios__label" for="eori-dup1">
+                      {{data['dup-party-eori1'] }}
+                    </label>
+                  {% endif %}
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row no-border">
+            <th scope="row" class="govuk-table__header">DUNS number</th>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                {% if (data['party-duns1'] == null) %}
+                  <input class="govuk-radios__input" id="duns-rep" name="party-duns1" type="radio" value="{{data['party-duns1']}}">
+                  <label class="govuk-label govuk-radios__label" for="duns-rep">
+                    (empty)
+                  </label>
+                  {% else %}
+                  <input class="govuk-radios__input" id="duns-rep" name="party-duns1" type="radio" value="{{data['party-duns1']}}">
+                  <label class="govuk-label govuk-radios__label" for="duns-rep">
+                    {{data['party-duns1'] }}
+                  </label>
+                {% endif %}
+                </div>
+              </div>
+            </td>
+            <td class="govuk-table__cell text-overflow">
+              <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  {% if (data['dup-party-duns1'] == null) %}
+                    <input class="govuk-radios__input" id="duns-dup1" name="party-duns1" type="radio" value="{{data['dup-party-duns1']}}">
+                    <label class="govuk-label govuk-radios__label" for="duns-dup1">
+                      (empty)
+                    </label>
+                    {% else %}
+                    <input class="govuk-radios__input" id="duns-dup1" name="party-duns1" type="radio" value="{{data['dup-party-duns1']}}" checked>
+                    <label class="govuk-label govuk-radios__label" for="duns-dup1">
+                      {{data['dup-party-duns1'] }}
+                    </label>
+                  {% endif %}
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}  
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
+
+

@@ -1,0 +1,198 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  TRA Investigations – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'invest-nav' %}
+
+
+{% block header %}
+  {% if data['signed-out'] == "no" %}
+    {% include "includes/header-public.html" %}
+    {% else %}
+    {% include "includes/header-public-signedout.html" %}
+  {% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+ {% include "includes/beta-banner.html"%}
+
+ <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="../dashboard">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="cases-all">TRA investigations</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="case-overview">{{data['case-ref1']}}</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        	{{data['submission']}}
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">{{data['case-ref1']}} - {{data['case-name1']}}</span>
+
+    <h1 class="govuk-heading-xl">
+      {{data['submission']}}
+    </h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Party
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['party']}}
+        </dd>
+      </div>
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Party type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['type']}}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Submitted
+        </dt>
+        <dd class="govuk-summary-list__value">
+          14 April 2022
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Published
+        </dt>
+        <dd class="govuk-summary-list__value">
+          20 May 2022
+        </dd>
+      </div>
+    </dl>
+
+    {% set submittedDocsHTML %}
+      <h2 class="govuk-heading-m">Interested party submissions</h2>
+      <ul class="govuk-list">
+        <li>
+          {% if (data['download1'] == "yes" ) %}
+            <a href="case-submission?download1=yes" class="govuk-link"><img
+                    src="/public/images/pdf.png" class="doc-icon">
+                Questionnaire (Contributor and other interested parties).pdf (344KB) </a><span>&#10003;</span>
+          {% else %}
+            <a href="case-submission?download1=yes" class="govuk-link--no-visited-state"><img
+                    src="/public/images/pdf.png" class="doc-icon">
+                Questionnaire (Contributor and other interested parties).pdf (344KB) </a>
+          {% endif %}
+        </li>
+        <li>
+          {% if (data['download2'] == "yes" ) %}
+            <a href="case-submission?download2=yes" class="govuk-link"><img
+                    src="/public/images/doc.png"class="doc-icon">
+                NON_CONFIDENTIAL_Questionnaire .odt (44KB) </a><span>&#10003;</span>
+          {% else %}
+            <a href="case-submission?download2=yes" class="govuk-link--no-visited-state"><img
+                    src="/public/images/doc.png" class="doc-icon">
+                NON_CONFIDENTIAL_Questionnaire .odt (44KB) </a>
+          {% endif %}
+        </li>
+         <li>
+          {% if (data['download3'] == "yes" ) %}
+            <a href="case-submission?download3=yes" class="govuk-link"><img
+                    src="/public/images/doc.png" class="doc-icon">
+                Questionnaire (Downstream).odt (344KB) </a><span>&#10003;</span>
+          {% else %}
+            <a href="case-submission?download3=yes" class="govuk-link--no-visited-state"><img
+                    src="/public/images/doc.png" class="doc-icon">
+                Questionnaire (Downstream).odt (344KB) </a>
+          {% endif %}
+        </li>
+         <li>
+          {% if (data['download3'] == "yes" ) %}
+            <a href="case-submission?download3=yes" class="govuk-link"><img
+                    src="/public/images/xls.png" class="doc-icon">
+                NON_CONFIDENTIAL_Questionnaire Annex I (3M Plastik).xls (55KB) </a><span>&#10003;</span>
+                   
+
+          {% else %}
+            <a href="case-submission?download3=yes" class="govuk-link--no-visited-state"><img
+                    src="/public/images/xls.png" class="doc-icon">
+                NON_CONFIDENTIAL_Questionnaire Annex I (3M Plastik).xls (55KB) </a>
+          {% endif %}
+        </li>
+      </ul>
+
+    {% endset %}
+
+    {% set traDocsHTML %}
+    <h2 class="govuk-heading-m">TRA documents</h2>
+      <ul class="govuk-list">
+        <li>
+          {% if (data['download5'] == "yes" ) %}
+            <a href="case-submission?download5=yes#TRA-docs" class="govuk-link"><img
+                    src="/public/images/pdf.png" class="doc-icon">
+                Questionnaire (Contributor and other interested parties).pdf (344KB) </a><span>&#10003;</span>
+          {% else %}
+            <a href="case-submission?download5=yes#TRA-docs" class="govuk-link--no-visited-state"><img
+                    src="/public/images/pdf.png" class="doc-icon">
+                Questionnaire (Contributor and other interested parties).pdf (344KB) </a>
+          {% endif %}
+        </li>
+        <li>
+          {% if (data['download6'] == "yes" ) %}
+            <a href="case-submission?download6=yes#TRA-docs" class="govuk-link"><img
+                    src="/public/images/doc.png" class="doc-icon">
+                Questionnaire (Downstream).odt (344KB) </a><span>&#10003;</span>
+          {% else %}
+            <a href="case-submission?download6=yes#TRA-docs" class="govuk-link--no-visited-state"><img
+                    src="/public/images/doc.png" class="doc-icon">
+                Questionnaire (Downstream).odt (344KB) </a>
+          {% endif %}
+        </li>
+      </ul>
+    {% endset %}
+  
+  
+    {{ govukTabs ({
+      items: [
+      
+      { 
+        label: "Interested party submissions",
+        id: "submitted-docs",
+        panel: {
+          html: submittedDocsHTML
+        }
+      },
+      { 
+        label: "TRA documents",
+        id: "TRA-docs",
+        panel: {
+          html: traDocsHTML
+        }
+      }
+      ]
+    }) }}
+
+  </div>
+</div>
+
+
+
+{% endblock %}
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

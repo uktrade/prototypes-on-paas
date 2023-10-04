@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Is your client a UK registered company? – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">2. About you</span>
+
+      <form action="/reginterest-uk-reg-route" method="post" id="reginterest-uk-reg-form"> 
+               
+        {{ govukRadios({
+          classes: "govuk-radioss",
+          idPrefix: "reginterest-uk-reg",
+          name: "reginterest-uk-reg",
+          fieldset: {
+            legend: {
+              text: "Is your client a UK registered company?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("reginterest-uk-reg", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: checked("reginterest-uk-reg", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "How do I find out if my client is a UK Registered company?",
+          html: ' <p class="govuk-body">Search for the organisation on the <a href="https://www.gov.uk/get-information-about-a-company" target="_blank" rel="noopener noreferrer" class="govuk-link">Companies House register (opens in a new tab)</a>.</p>
+          <p>If the organisation is not on the register, it is not a UK registered company. Select "No".</p>'
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+           
+        </div>
+
+        </form>
+
+         <!-- Test data 
+        <div class="govuk-inset-text">
+          Test data: <br>
+          Org type : {{ data['reginterest-what-org']}}
+          <br>
+        </div>
+        -->
+        
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

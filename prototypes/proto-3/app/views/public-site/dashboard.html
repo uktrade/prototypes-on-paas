@@ -1,0 +1,418 @@
+{{ data | log }}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page: indication which section the user is on in the navigation-->
+{% set bodyClasses = 'dash-nav' %}
+
+{% block header %}
+    {% include "includes/header-public.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/beta-banner.html"%}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Take part in a trade remedies investigation
+    </h1>
+    <p>This is your Trade Remedies Service (TRS) dashboard. You can view cases you are involved in and track your registration of interest in a case.</p>
+
+
+    {% if (data['account-activated'] == "no")  %}
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            Verify your email address
+          </p>
+          <p>Verify your email address to take part in a trade remedies investigation. <a href="account/account-activate-account">How to verify my email address</a>.
+          </p>
+        </div>
+      </div>
+      {% else %}
+      <!--Show all of the lovely content-->
+
+      <!-- INVITES FOR A REP -->
+      <!-- INVITES FOR A REP -->
+      <!--This is only shown in Rep account-->     
+      {% if (data['who-signin'] == "rep-invite") and (data['invite-rep-task'] == "Sent") %}
+        <div class="address-card">
+          <div class="address-container">
+            <h2 class="govuk-heading-m clearfix">
+              My invites
+            </h2>
+            <p>Invited by: Steel UK
+              <br>
+              {{data ['case-ref'] or "AD2224"}} - {{data ['case-name'] or "Steel plate from Russia"}}<br>
+              Status: Awaiting TRA verification (<span id="date3"></span>)                
+            </p>
+          </div>
+        </div>
+      {% endif %}
+     
+      {% if data['my-cases'] == "yes" %}
+        <!-- MY CASES -->
+        <!-- MY CASES -->
+        <!-- MY CASES -->
+        <div class="address-card">
+          <div class="address-container">
+            <h2 class="govuk-heading-m clearfix">
+              My cases
+              <span class="right-aligned-link govuk-body">
+                <a href="/public-site/manage-cases/manage-org-case" class="govuk-link--no-visited-state">Manage cases</a>
+              </span> 
+            </h2>
+            {% if (data[''] == "") %}
+              <p>
+                {{data ['case-ref'] or "AD2224"}} - {{data ['case-name'] or "Steel plate from Russia"}}<br>         
+                Interested party: Steel UK   
+                <br>
+                <a href="reg-interest/reginterest-app-details" class="govuk-link govuk-link--no-visited-state">Status: Pending TRA approval</a> (<span id="date"></span>)
+              </p>
+            {% endif %}
+
+            {% if (data['who-signin'] == "org") or (data['who-signin'] == "rep") or (data['who-signin'] == "rep-invite") %}
+              <p>
+                {{data ['case-ref2'] or "AD2224"}} - {{data ['case-name2'] or "Steel plate from Russia"}}<br>         
+                Interested party: {{ data['party1']}}   
+                <br>
+                <a href="" class="govuk-link govuk-link--no-visited-state">Status: Questionnaires sent</a> (14 May 2022)
+              </p>
+            {% endif %}
+            <p>
+              {{data ['invite-rep-what-case'] or "AS3464 - Garnets from Gabon"}}<br>  
+              Interested party: {{data['party1']}} <br>
+              <a href="cases/case-details-deficient-v1" class="govuk-link--no-visited-state">Status: Deficient documents</a> (22 
+              Dec 2022)
+            </p> 
+          </div>
+        </div>
+      {% endif %}
+
+      <!-- REGISTRATION OF INTEREST -->
+      <!-- REGISTRATION OF INTEREST -->
+      <!-- REGISTRATION OF INTEREST -->
+      {% if (data['reginterest-task'] == "Draft") or (data['reginterest-task'] == "Submitted") %}
+        <div class="address-card">
+          <div class="address-container">
+            <h2 class="govuk-heading-m clearfix">
+              Registration of interest
+              <span class="govuk-body right-aligned-link">
+                <a href="/public-site/manage-cases/manage-org-case" class="govuk-link--no-visited-state">Manage cases</a>
+              </span>
+            </h2>
+            <p>
+              {{data ['case-ref'] or "AD2224"}} - {{data ['case-name'] or "Steel plate from Russia"}}</a><br>
+              <!-- Show the reg of interest according to who has signed in: Org-->
+              {% if (data['who-signin'] == "org") or (data['who-signin'] == "org-invite") %}
+
+                {% if data['reginterest-what-org'] == "my-org" %}
+                  Interested party: {{data['party1']}}
+                  {% else %}
+                  {% if data['reginterest-what-org'] == "existing-org" %}
+                    Interested party: {{data['reginterest-existing-org'] or "Aluminium Trade Ltd"}}
+                    {% else %}
+                    {% if (data['reginterest-uk-reg'] == "yes") %}
+                      Interested party: Aluminium Trade Ltd 
+                      {% else %} 
+                        Interested party: {{data['reginterest-org-name'] or "Aluminium Trade Ltd"}}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+                <!-- Show the reg of interest according to who has signed in: Rep-->
+                {% else %}
+                {% if (data['who-signin'] == "rep") or (data['who-signin'] == "rep-invite") %}
+                  {% if data['reginterest-what-org'] == "my-org" %}
+                    Interested party: {{data['representative1']}}
+                    {% else %}
+                    {% if data['reginterest-what-org'] == "existing-org" %}
+                      Interested party: {{data['reginterest-org-name'] or data['party1']}}
+                      {% else %}
+                      {% if (data['reginterest-uk-reg'] == "yes") %}
+                        Interested party: Steel UK 
+                        {% else %} 
+                          Interested party: {{data['reginterest-org-name'] or data['party1']}}
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+              {% endif %}<br>
+              <a href="reg-interest/reginterest-app-details" class="govuk-link govuk-link--no-visited-state"> 
+              Status: {{data ['reginterest-task']}}</a> (<span id="date2"></span>)
+            </p>
+            <!--
+            <p>
+              {{data ['invite-rep-what-case'] or "AD2224 - Steel plate from Russia"}}<br>  
+              Interested party: {{data['party1']}} <br>
+              <a href="reg-interest/reginterest-app-details?reginterest-task=Draft&reginterest-what-org=new-org" class="govuk-link--no-visited-state">Status: Draft</a> (22 
+              Dec 2022)
+            </p>
+            <p>
+              {{data ['invite-rep-what-case'] or "AD2224 - Steel plate from Russia"}}<br>  
+              Interested party: {{data['party1']}} <br>
+              <a href="reg-interest/reginterest-app-details?reginterest-task=Sent&reginterest-what-org=new-org" class="govuk-link--no-visited-state">Status: Submitted</a> (22 
+              Dec 2022)
+            </p>
+            <p>
+              {{data ['invite-rep-what-case'] or "AD2224 - Steel plate from Russia"}}<br>  
+              Interested party: {{data['party1']}} <br>
+              <a href="reg-interest/reginterest-app-details?reginterest-task=Deficient&reginterest-what-org=new-org" class="govuk-link--no-visited-state">Status: Deficient documents</a> (22 
+              Dec 2022)
+            </p>
+            <p>
+              {{data ['invite-rep-what-case'] or "AD2224 - Steel plate from Russia"}}<br>  
+              Interested party: {{data['party1']}} <br>
+              <a href="reg-interest/reginterest-app-details?reginterest-task=Rejected&reginterest-what-org=new-org" class="govuk-link--no-visited-state">Status: Rejected</a> (22 
+              Dec 2022)
+            </p>
+            -->
+          </div>
+        </div>
+        {% else %}
+        {% if data['my-cases'] != "yes" %}
+
+          <!-- No cases show promo Reg interest -->
+          <!-- No cases show promo Reg interest -->
+          <!-- No cases show promo Reg interest -->
+          <div class="address-card">
+            <div class="address-container">
+              <h2 class="govuk-heading-m clearfix">
+                Register interest in a case
+                <span class="govuk-body right-aligned-link">
+                  <a href="/public-site/manage-cases/manage-org-case" class="govuk-link--no-visited-state">Manage cases</a>
+                </span>
+              </h2>
+              <p><a href="reg-interest/reginterest-tasks?tasklist-type=reg-interest" class="govuk-link--no-visited-state">Register interest</a> if you want to be able to</p>  
+              <ul class="govuk-list govuk-list--bullet">
+                <li>take part in an investigation</li>
+                <li>get updates on important developments</li>
+                <li>comment on TRA findings before a final decision is made</li>
+                <li>request reconsideration of a final determination in a case</li>
+              </ul>
+            </div>
+          </div>
+        {% endif%}
+      {% endif %}
+
+      <!-- PENDING INVITES -->
+      <!-- PENDING INVITES -->
+      <!-- PENDING INVITES -->
+      <!-- Only an admin can see these -->
+    
+      {% if data['user-permissions'] == "Admin user" %}
+
+        {% if (data['invite-org-task'] == "Sent" and data['invite-rep-task'] == "Approved" ) or (data   ['invite-rep-task'] == "Sent" and data['invite-org-task'] != "Sent" ) %}
+      
+          <div class="address-card">
+            <div class="address-container">
+              <h2 class="govuk-heading-m clearfix">
+                User invites 
+                <span class="govuk-body right-aligned-link">
+                  <a href="/public-site/manage-users/manage-org-user" class="govuk-link--no-visited-state">Manage users</a>
+                </span>
+              </h2>
+              <p>You have pending invites:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>1 invite waiting  for invitee to accept</li>
+              </ul>
+              <p><a href="/public-site/manage-users/manage-org-user#manage-invites" class="govuk-link--no-visited-state">View invites</a></p>
+            </div>
+          </div>
+
+          {% else %} 
+
+          <!--Show 2 invites if Org=Sent and Rep = Sent or Accepted -->
+          {% if (data['invite-org-task'] == "Sent" and data['invite-rep-task'] == "Sent") %}  
+            <!--A single line sent invite-->
+            <div class="address-card">
+              <div class="address-container">
+                <h2 class="govuk-heading-m clearfix">
+                  User invites 
+                  <span class="govuk-body right-aligned-link">
+                    <a href="/public-site/manage-users/manage-org-user" class="govuk-link--no-visited-state">Manage users</a>
+                  </span>
+                </h2>
+                <p>You have pending invites:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>2 invites waiting for invitee to accept</li>
+                </ul>
+                <p><a href="/public-site/manage-users/manage-org-user#manage-invites" class="govuk-link--no-visited-state">View invites</a></p>
+              </div>
+            </div>
+            {% else %} 
+            {% if (data['invite-org-task'] == "Sent") and (data['invite-rep-task'] == "Accepted") %}
+              <!--SWaiting for review and deficient invites-->
+              <div class="address-card">
+                <div class="address-container">
+                  <h2 class="govuk-heading-m clearfix">
+                    User invites
+                    <span class="govuk-body right-aligned-link">
+                      <a href="/public-site/manage-users/manage-org-user" class="govuk-link--no-visited-state">Manage users</a>
+                    </span>
+                  </h2>
+                  <p>You have pending invites:</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>1 invites waiting for invitee to accept</li>
+                    <li>1 invite waiting for TRA review</li>
+                  </ul>
+                  <p><a href="/public-site/manage-users/manage-org-user#manage-invites" class="govuk-link--no-visited-state">View invites</a></p>
+                </div>
+              </div>
+              {% else %} 
+              {% if (data['invite-org-task'] == "Approved") and (data['invite-rep-task'] == "Accepted") %}
+                <!--SWaiting for review and deficient invites-->
+                <div class="address-card">
+                  <div class="address-container">
+                    <h2 class="govuk-heading-m clearfix">
+                      User invites
+                      <span class="govuk-body right-aligned-link">
+                        <a href="/public-site/manage-users/manage-org-user" class="govuk-link--no-visited-state">Manage users</a>
+                      </span>
+                    </h2>
+                    <p>You have pending invites:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>1 invite waiting for TRA review</li>
+                    </ul>
+                    <p><a href="/public-site/manage-users/manage-org-user#manage-invites" class="govuk-link--no-visited-state">View invites</a></p>
+                  </div>
+                </div>
+
+                {% else %} 
+                {% if (data['invite-org-task'] == "Deficient") or (data['invite-rep-task'] == "Deficient") or data['manage-user-states'] =="All" %}
+                  <!--Deficient invites-->
+                  <div class="address-card">
+                    <div class="address-container">
+                      <h2 class="govuk-heading-m clearfix">
+                        User invites
+                        <span class="govuk-body right-aligned-link">
+                          <a href="/public-site/manage-users/manage-org-user" class="govuk-link--no-visited-state">Manage users</a>
+                        </span>
+                      </h2>
+                      <p>You have pending invites:</p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                          <strong>
+                            1 invite with deficient documentation
+                          </strong>
+                        </li>
+                        <li>2 invites waiting for invitee to accept</li>
+                        <li>1 invite waiting for TRA review</li>
+                      </ul>
+                      <p><a href="/public-site/manage-users/manage-org-user#manage-invites" class="govuk-link--no-visited-state">View invites</a></p>
+                    </div>
+                  </div>
+                  {% else %}
+                  <div class="address-card">
+                    <div class="address-container">
+                      <h2 class="govuk-heading-m clearfix">
+                        Invite users
+                        <span class="govuk-body right-aligned-link">
+                          <a href="/public-site/manage-users/manage-org-user" class="govuk-link--no-visited-state">Manage users</a>
+                        </span>
+                      </h2>
+                      <p>Give access to your organisation's active cases by inviting users to join your account.</p>
+                      <p><a href="manage-users/invite/invite-user-type" class="govuk-link--no-visited-state">Invite user</a></p>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+      
+
+
+
+
+
+
+
+   
+      <script>
+          const date = new Date();
+          const formattedDate = date.toLocaleDateString('en-GB', {
+            day: '2-digit', month: 'short', year: 'numeric'
+          }).replace(/ /g, ' ');
+          document.getElementById("date").innerHTML = formattedDate;
+      </script>
+
+      <script>
+        const date2 = new Date();
+        const formattedDate2 = date2.toLocaleDateString('en-GB', {
+          day: '2-digit', month: 'short', year: 'numeric'
+        }).replace(/ /g, ' ');
+        document.getElementById("date2").innerHTML = formattedDate2;
+      </script>
+
+      <script>
+        const date3 = new Date();
+        const formattedDate3 = date3.toLocaleDateString('en-GB', {
+          day: '2-digit', month: 'short', year: 'numeric'
+        }).replace(/ /g, ' ');
+        document.getElementById("date3").innerHTML = formattedDate3;
+      </script>
+    {% endif%}
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+    {% if (data['account-activated'] == "no")  %}
+      {% else %}
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Quick links
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="reg-interest/reginterest-tasks?tasklist-type=reg-interest">Register interest in a case</a> 
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Apply for an investigation</a> 
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <br>
+    {% endif %}
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Read the guidance documents
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a class="govuk-link--no-visited-state" href="https://www.gov.uk/government/organisations/trade-remedies-authority" target="_blank">Trade Remedies Authority news (opens in a new window or tab)</a> 
+          </li>
+          <li>
+            <a class="govuk-link--no-visited-state" href="https://www.gov.uk/government/organisations/trade-remedies-authority/about" target="_blank">Who is the Trade Remedies Authority (opens in a new window or tab)</a> 
+          </li>
+          <li>
+            <a class="govuk-link--no-visited-state" href="https://www.gov.uk/government/publications/the-uk-trade-remedies-investigations-process" target="_blank">Trade remedies investigations process (opens in a new window or tab)</a>
+          </li>      
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

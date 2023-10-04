@@ -1,0 +1,21 @@
+{% set values = [
+  "apples",
+  "oranges",
+  "pears",
+  "bananas"
+] %}
+
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--s" for="country">
+    Country
+  </label>
+  <select name="fruit" class="govuk-select">
+    {% for value in values %}
+      <option value="{{ value }}" {% if data["fruit"] == value %} selected {% endif %}>
+        {{ value }}
+      </option>
+    {% endfor %}
+  </select>
+</div>
+
+

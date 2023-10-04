@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Reset your password - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html"%}
+
+<a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Reset your password     
+      </h1>
+
+      <p>Enter the email you used to sign up. We will send you a link to reset your password.  </p>
+
+      <form action="signin-forgotpass-sent" method="post" id="signin-forgotpass-form">
+    
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          classes: "govuk-input--width-20",
+          id: "forgotpass-email",
+          name: "forgotpass-email",
+          autocomplete: "email"
+        }) }}
+
+        {{ govukButton({
+          text: "Request password reset"
+        }) }}
+
+        </form>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Reset your password - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/beta-banner.html"%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      <form action="signin-forgotpass-complete" method="post" id="signin-forgotpass-newpass-form">
+        <h1 class="govuk-heading-xl">
+          Reset your password
+        </h1>
+         
+  <!-- Content contains accessibility code for screen readers based on this blog: https://incl.ca/show-hide-password-accessibility-and-password-hints-tutorial -->
+         
+        <p id="password-hints">The password for this account must: 
+
+  <!-- This text is only shown to screen readers -->        
+        <span class="sr-only">Be at least 8 characters, have at least 1 number, have at least 1 uppercase letter, have at least one lowercase letter. and have at least 1 special character.</span></p>
+   
+  <!-- This text is not shown to screen readers --> 
+        <ul class="govuk-list govuk-list--bullet" aria-hidden="true">
+          <li id="length" class="invalid">be at least 8 characters long</li>
+          <li id="number" class="invalid">have at least one number (0 to 9)</li>
+          <li id="letter" class="invalid">include at least one lowercase letter</li>
+          <li id="captial" class="invalid">include at least one uppercase letter</li>
+          <li id="special" class="invalid">contain a special character (eg. !@$%/<)</li>
+        </ul>  
+  
+  <!-- This text is only shown to screen readers and informs the user that the password is / isn't hidden -->
+        <p aria-live="polite" id="password-text" class="sr-only">Password hidden.</p>
+        <p aria-live="polite" id="password-text2" class="sr-only">Confirm password hidden.</p>
+  
+        <div class="input-with-button">
+          <button id="show-password" type="button" role="switch" aria-checked="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            <span class="show-text">Show <span class="govuk-visually-hidden">password</span></span>
+          </button>
+          
+          {{ govukInput({
+            label: {
+              text: "Enter password"
+            },
+            classes: "govuk-input--width-15",
+            id: "password",
+            name: "password",
+            type: "password",
+            describedBy: "password-hints",
+            autocomplete: "new-password" 
+          }) }}
+        
+        </div>
+  
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form> 
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

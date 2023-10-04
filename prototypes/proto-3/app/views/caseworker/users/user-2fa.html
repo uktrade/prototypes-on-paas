@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% set header1 = "User two-factor authentication" %}
+
+{% block pageTitle %}
+  {{header1}} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+<!-- This sets a body class for the whole page, changing the standard width and indication which section the user is on in the navigation-->
+
+{% set bodyClasses = 'caseworker-width user-nav' %}
+
+
+{% block header %}
+ {% include "includes/header-caseworker.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link govuk-link--no-visited-state" href="javascript: history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data['account-user'] =="caseworker-invest" %}
+        <form action="invest-account#user-details" method="post" id="users-profile-2fa-form">  
+          {% else %}
+          <form action="user-account#user-details" method="post" id="users-profile-2fa-form"> 
+      {% endif %} 
+
+        <h1 class="govuk-heading-xl">
+          {{header1}}
+        </h1>
+
+        <p>When the user signs in, we will send them a code as part of our two-factor authentication. This helps ensure that their account is kept safe and secure.</p>
+        
+        {% set mobileHtml %} 
+          By text message: 
+          <strong>+447821945034</strong> 
+        {% endset -%}
+
+        {% set emailText %}
+          By email:  
+          <strong>
+            {% if data['account-user'] =="party-user1" %}
+              {{data['party-email1']}}<br>
+              {% else %}
+              {% if data['account-user'] =="party-user11" %}
+                {{data['party-email11']}}<br>
+                {% else %}
+                {% if data['account-user'] =="party-user6" %}
+                  {{data['party-email6']}}<br>
+                  {% else %}
+                  {% if data['account-user'] =="rep-user3" %}
+                    {{data['rep-email3']}}<br>
+                    {% else %}
+                    {% if data['account-user'] =="rep-user1" %}
+                      {{data['rep-email1']}}<br>
+                      {% else %}
+                      {% if data['account-user'] =="caseworker-invest" %}
+                        {{data['caseworker-invest-email']}} <br>
+                        {% else %}
+                        {% if data['account-user'] =="new-customer" %}
+                          {{data['rep-email3']}} <br>
+                        {% endif %}
+                      {% endif %}
+                    {% endif %}    
+                  {% endif %}  
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          </strong>
+        {% endset %}
+
+        {{ govukRadios({
+          idPrefix: "user-2fa",
+          name: "user-2fa",
+          fieldset: {
+            legend: {
+              text: "How do they want to receive their code?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+          {
+            value: "text-message",
+            html: mobileHtml,
+            id: "text-message",
+            checked: checked("user-2fa", "text-message")
+          },
+          {
+            value: "email",
+            html: emailText,
+            id: "email",
+            checked: checked("user-2fa", "email")
+          }
+          ]
+        }) }}
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Submit"
+          }) }}    
+           
+        </div>
+      </form>
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+ {% include "includes/footer.html" %}
+{% endblock %}
