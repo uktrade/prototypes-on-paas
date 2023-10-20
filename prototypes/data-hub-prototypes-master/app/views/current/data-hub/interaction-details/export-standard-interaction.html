@@ -1,0 +1,853 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "../contacts", "text": "Contacts"}, {"href": "../events", "text": "Events"}, {"href": "../interactions", "text": "Interactions"}, {"href": "../investments", "text": "Investments"}, {"href": "../orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="homepage">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="companies">Companies</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Add interaction for company name</a>
+    </li>
+  </ol>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-8">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-l">Add interaction for company name</h1>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-!-padding-top-0">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+        <form method="post" action="/current/data-hub/interaction-summary" id="interaction-form">
+          <h2 class="govuk-heading-m">Service</h2>
+          <div class="govuk-inset-text">
+            <p class="govuk-body">If your contact provided business intelligence (eg issues impacting the company or feedback on government policy), complete the business intelligence section.</p>
+            <p class="govuk-body">Read more <a href="https://data-services-help.trade.gov.uk/data-hub/how-articles/trade-agreement-activity/recording-trade-agreement-activity/" class="govuk-link">information and guidance</a> (opens in a new window or tab) on this section.</p>
+          </div>
+
+          <div class="govuk-form-group" id="interaction-service-group">
+            <label class="govuk-label govuk-visually-hidden">Service</label>
+            <select class="govuk-select govuk-!-width-one-half" id="interaction-service" name="interaction-service">
+              <option value="" selected disabled>-- Select service --</option>
+              <option value="A Specific DIT Export Service or Funding" {%- if data['interaction-service'] == "A Specific DIT Export Service or Funding" -%}selected{%- endif -%}>A Specific DIT Export Service or Funding</option>
+              <option value="Account Management" {%- if data['interaction-service'] == "Account Management" -%}selected{%- endif -%}>Account Management</option>
+              <option value="Enquiry or Referral Received">Enquiry or Referral Received</option>
+              <option value="Export Win" {%- if data['interaction-service'] == "Export Win" -%}selected{%- endif -%}>Export Win</option>
+              <option value="GREAT - Unicorn Kingdom Campaign - North America (2023)" {%- if data['interaction-service'] == "GREAT - Unicorn Kingdom Campaign - North America (2023)" -%}selected{%- endif -%}>GREAT - Unicorn Kingdom Campaign - North America (2023)</option>
+              <option value="Making Export Introductions" {%- if data['interaction-service'] == "Making Export Introductions" -%}selected{%- endif -%}>Making Export Introductions</option>
+              <option value="Providing Export Advice and Information" {%- if data['interaction-service'] == "Providing Export Advice and Information" -%}selected{%- endif -%}>Providing Export Advice &amp; Information</option>
+            </select>
+          </div>
+
+          <div class="govuk-form-group" id="interaction-tradeagr-group">
+            <fieldset class="govuk-fieldset" aria-describedby="interaction-trade-agreement-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h2 class="govuk-fieldset__heading">
+                  Does this interaction relate to a named trade agreement?
+                </h2>
+              </legend>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-trade-agreement" name="interaction-trade-agreement" type="radio" value="Yes" data-aria-controls="conditional-trade-agreement" {%- if data['interaction-trade-agreement'] == "Yes" -%}checked="checked"{%- endif -%}>
+                  <label class="govuk-label govuk-radios__label" for="interaction-trade-agreement">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-trade-agreement-2" name="interaction-trade-agreement" type="radio" value="No" {%- if data['interaction-trade-agreement'] == "No" -%}checked="checked"{%- endif -%}>
+                  <label class="govuk-label govuk-radios__label" for="interaction-trade-agreement-2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-width-full govuk-!-margin-top-4" id="conditional-trade-agreement">
+            <div class="govuk-form-group" id="interaction-tradeagrdet-group">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h3 class="govuk-fieldset__heading">Related named trade agreement(s)</h3>
+              </legend>
+              <label class="govuk-label" for="sort">
+                <select id="trade-picker" name="interaction-agreement-detail" multiple>
+                  <option value="Comprehensive and Progressive Agreement for Trans-Pacific Partnership">Comprehensive and Progressive Agreement for Trans-Pacific Partnership</option>
+                  <option value="Free Trade Agreement: Switzerland">Free Trade Agreement: Switzerland</option>
+                  <option value="UK-Australia Mutual Recognition Agreement">UK-Australia Mutual Recognition Agreement</option>
+                  <option value="UK-Iceland, Liechtenstein and Norway Free Trade Agreement">UK-Iceland, Liechtenstein and Norway Free Trade Agreement</option>
+                  <option value="EU-UK Trade Co-operation Agreement">EU-UK Trade Co-operation Agreement</option>
+                  <option value="UK-New Zealand Mutual Recognition Agreement">UK-New Zealand Mutual Recognition Agreement</option>
+                  <option value="UK-Mexico Trade Continuity Agreement">UK-Mexico Trade Continuity Agreement</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+
+          <h2 class="govuk-heading-m">Participants</h2>
+          <div class="govuk-form-group" id="interaction-contacts-group">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h3 class="govuk-fieldset__heading">Contacts</h3>
+            </legend>
+            <label class="govuk-label" for="sort">
+              <select id="contact-picker" name="interaction-contacts" multiple>
+                <option value="Andy Davies">Andy Davies, Lead Interaction Designer</option>
+                <option value="Rob Kinder">Rob Kinder, Product Manager</option>
+                <option value="Graham Sanders">Graham Sanders, Senior Interaction Designer</option>
+                <option value="Ross Gower">Ross Gower, Head of Design</option>
+                <option value="Peter Farah">Peter Farah, Interaction Designer</option>
+                <option value="Ieuan Parker">Ieuan Parker, Interaction Designer</option>
+                <option value="Ciara Atkinson">Ciara Atkinson, User Researcher</option>
+                <option value="Rich Stenning">Rich Stenning, Senior Interaction Designer</option>
+                <option value="Paul Gain">Paul Gain, Senior Developer</option>
+                <option value="Dan Greenslade">Dan Greenslade, Delivery Manager</option>
+                <option value="Nic Winchester">Nic Winchester, Lead Delivery Manager</option>
+                <option value="Graham Bird">Graham Bird, Lead Product Manager</option>
+              </select>
+            </label>
+          </div>
+          <p class="govuk-body govuk-!-margin-top-6">If a contact isn't listed <a href="" class="govuk-link">add a new contact</a>. After completing the form you'll return to this page without losing data.</p>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Information you'll need to add a contact
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">You'll need to give the new contact's:</p>
+              <ul class="src__OrderedList-sc-1392v8j-0 ejQwBx">
+                <li>full name</li>
+                <li>job title</li>
+                <li>email address</li>
+                <li>phone number</li>
+                <li>work address if different to the company address</li>
+              </ul>
+            </div>
+          </details>
+
+          <div class="govuk-form-group" id="interaction-advisers-group">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h3 class="govuk-fieldset__heading">Adviser(s)</h3>
+            </legend>
+            <label class="govuk-label" for="sort">
+              <select id="adviser-picker" name="interaction-advisers" multiple>
+                <option value="Andy Davies, Lead Interaction Designer" selected>Andy Davies, Lead Interaction Designer</option>
+                <option value="Rob Kinder, Product Manager">Rob Kinder, Product Manager</option>
+                <option value="Graham Sanders, Senior Interaction Designer">Graham Sanders, Senior Interaction Designer</option>
+                <option value="Ross Gower, Head of Design">Ross Gower, Head of Design</option>
+                <option value="Peter Farah, Interaction Designer">Peter Farah, Interaction Designer</option>
+                <option value="Ieuan Parker, Interaction Designer">Ieuan Parker, Interaction Designer</option>
+                <option value="Ciara Atkinson, User Researcher">Ciara Atkinson, User Researcher</option>
+                <option value="Rich Stenning, Senior Interaction Designer">Rich Stenning, Senior Interaction Designer</option>
+                <option value="Paul Gain, Senior Developer">Paul Gain, Senior Developer</option>
+                <option value="Dan Greenslade, Delivery Manager">Dan Greenslade, Delivery Manager</option>
+                <option value="Nic Winchester, Lead Delivery Manager">Nic Winchester, Lead Delivery Manager</option>
+                <option value="Graham Bird, Lead Product Manager">Graham Bird, Lead Product Manager</option>
+              </select>
+            </label>
+          </div>
+
+
+
+          <div class="govuk-form-group" id="interaction-date-group">
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="interaction-date-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h2 class="govuk-heading-m">Details</h2>
+                <h3 class="govuk-fieldset__heading">
+                  Date of interaction
+                </h3>
+              </legend>
+              <div class="govuk-date-input" id="interaction-date">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="interaction-date-day">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="interaction-date-day" name="interaction-date-day" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="interaction-date-month">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="interaction-date-month" name="interaction-date-month" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="interaction-date-year">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="interaction-date-year" name="interaction-date-year" type="text" inputmode="numeric">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-form-group" id="interaction-comms-group">
+            <label class="govuk-label" for="interaction-comms">
+              <b>Communication channel</b>
+            </label>
+            <select class="govuk-select govuk-!-width-full" id="interaction-comms" name="interaction-comms">
+              <option value="" selected disabled>-- Select communication channel --</option>
+              <option value="Email/Website" {%- if data['interaction-comms'] == "Email/Website" -%}selected{%- endif -%}>Email/Website</option>
+              <option value="Face to Face" {%- if data['interaction-comms'] == "Face to Face" -%}selected{%- endif -%}>Face to Face</option>
+              <option value="Find Exporters" {%- if data['interaction-comms'] == "Find Exporters" -%}selected{%- endif -%}>Find Exporters</option>
+              <option value="Letter" {%- if data['interaction-comms'] == "Email/Website" -%}selected{%- endif -%}>Letter</option>
+              <option value="Non-contact research" {%- if data['interaction-comms'] == "Non-contact research" -%}selected{%- endif -%}>Non-contact research</option>
+              <option value="Social media" {%- if data['interaction-comms'] == "Social media" -%}selected{%- endif -%}>Social media</option>
+              <option value="Telephone" {%- if data['interaction-comms'] == "Telephone" -%}selected{%- endif -%}>Telephone</option>
+              <option value="Video/Teleconf." {%- if data['interaction-comms'] == "Video/Teleconf." -%}selected{%- endif -%}>Video/Teleconf.</option>
+            </select>
+          </div>
+
+          <div class="govuk-form-group" id="interaction-summary-group">
+            <h2 class="govuk-heading-m">Notes</h2>
+            <label class="govuk-label" for="interaction-summary">
+              <b>Summary</b>
+            </label>
+            <input class="govuk-input" id="interaction-summary" name="interaction-summary" type="text" {%- if data['interaction-summary'] -%}value="{{ data['interaction-summary'] }}"{%- endif -%}>
+          </div>
+
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--s" for="interaction-notes">
+                Notes (optional)
+              </label>
+            </h1>
+            <div id="interaction-notes-hint" class="govuk-hint">
+              Use this text box to record any details of the logistics of the interaction eg how meeting(s) came about and where or when they happened. These are for your records. Do not include comments about issues impacting the company or feedback on government policy. Include that information in the business intelligence section.
+            </div>
+            <textarea class="govuk-textarea" id="interaction-notes" name="interaction-notes" rows="5" aria-describedby="interaction-notes-hint">{%- if data['interaction-notes'] -%}{{ data['interaction-notes'] }}{%- endif -%}</textarea>
+          </div>
+
+          <div class="govuk-form-group" id="interaction-busintel-group">
+            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h3 class="govuk-fieldset__heading">
+                  Did the contact provide business intelligence?
+                </h3>
+              </legend>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-business-intel" name="interaction-business-intel" type="radio" value="Yes" data-aria-controls="conditional-business-intel" {%- if data['interaction-business-intel'] == "Yes" -%}checked="checked"{%- endif -%}>
+                  <label class="govuk-label govuk-radios__label" for="interaction-business-intel">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-business-intel-2" name="interaction-business-intel" type="radio" value="No" {%- if data['interaction-business-intel'] == "No" -%}checked="checked"{%- endif -%}>
+                  <label class="govuk-label govuk-radios__label" for="interaction-business-intel-2">
+                    No
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-width-full govuk-!-margin-top-5" id="conditional-business-intel">
+                <div class="govuk-form-group" id="interaction-policytype-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend">
+                      <b>Policy issue types</b>
+                    </legend>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="interaction-policy-type" name="interaction-policy-type" type="checkbox" value="Domestic" {%- if data['interaction-policy-type'] == "Domestic" -%}checked="checked"{%- endif -%}>
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          Domestic
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="interaction-policy-type-2" name="interaction-policy-type" type="checkbox" value="EU exit" {%- if data['interaction-policy-type'] == "EU exit" -%}checked="checked"{%- endif -%}>
+                        <label class="govuk-label govuk-checkboxes__label" for="interaction-policy-type-2">
+                          EU exit
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="interaction-policy-type-3" name="interaction-policy-type" type="checkbox" value="Economic opportunity" {%- if data['interaction-policy-type'] == "Economic opportunity" -%}checked="checked"{%- endif -%}>
+                        <label class="govuk-label govuk-checkboxes__label" for="interaction-policy-type-3">
+                          Economic opportunity
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="interaction-policy-type-4" name="interaction-policy-type" type="checkbox" value="Economic risk" {%- if data['interaction-policy-type'] == "Economic risk" -%}checked="checked"{%- endif -%}>
+                        <label class="govuk-label govuk-checkboxes__label" for="interaction-policy-type-4">
+                          Economic risk
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="interaction-policy-type-5" name="interaction-policy-type" type="checkbox" value="International Climate" {%- if data['interaction-policy-type'] == "International Climate" -%}checked="checked"{%- endif -%}>
+                        <label class="govuk-label govuk-checkboxes__label" for="interaction-policy-type-5">
+                          International Climate
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="interaction-policy-type-6" name="interaction-policy-type" type="checkbox" value="Non-EU trade priority" {%- if data['interaction-policy-type'] == "Non-EU trade priority" -%}checked="checked"{%- endif -%}>
+                        <label class="govuk-label govuk-checkboxes__label" for="interaction-policy-type-6">
+                          Non-EU trade priority
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <details class="govuk-details govuk-!-margin-top-6" data-module="govuk-details">
+                    <summary class="govuk-details__summary" {%- if data['interaction-policy-type'] == "Domestic" -%}checked="checked"{%- endif -%}>
+                      <span class="govuk-details__summary-text">
+                        Help with policy issue types
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                      <p class="govuk-body">A policy type is the broad category/categories that the information fits into.</p>
+                      <p class="govuk-body"><a href="" class="govuk-link">Learn more about policy issue types</a> (opens in a new window or tab)</p>
+                    </div>
+                  </details>
+                </div>
+                <div class="govuk-form-group" id="interaction-policyarea-group">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    <h3 class="govuk-fieldset__heading">Policy areas</h3>
+                  </legend>
+                  <label class="govuk-label" for="sort">
+                    <select id="policy-picker" name="interaction-policy-areas" multiple>
+                      <option value="Access to Finance">Access to Finance</option>
+                      <option value="Access to Public Funding (inc. EU funding)">Access to Public Funding (inc. EU funding)</option>
+                      <option value="Agriculture (Regulation/Support)">Agriculture (Regulation/Support)</option>
+                      <option value="Announcement Feedback">Announcement Feedback</option>
+                      <option value="Art, Culture, Sport and Leisure">Art, Culture, Sport and Leisure</option>
+                      <option value="Business Regulation">Business Regulation</option>
+                      <option value="COP26 Adaptation and Resilience">COP26 Adaptation and Resilience</option>
+                      <option value="COP26 Clean Transport, including EV100">COP26 Clean Transport, including EV100</option>
+                      <option value="COP26 Energy Transitions, including RE100 and EP100">COP26 Energy Transitions, including RE100 and EP100</option>
+                      <option value="COP26 Finance, including TCFD">COP26 Finance, including TCFD</option>
+                      <option value="COP26 Nature, including supply chains">COP26 Nature, including supply chains</option>
+                    </select>
+                  </label>
+                </div>
+                <details class="govuk-details govuk-!-margin-top-4" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Help with Policy areas
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <p class="govuk-body">A policy area is the specific area that the information fits into. Completing this enables the correct team(s) to find the information and input into their reports to support businesses and ministers effectively.</p>
+                    <p class="govuk-body"><a href="" class="govuk-link">Learn more about policy areas</a> (opens in a new window or tab)</p>
+                  </div>
+                </details>
+                <div class="govuk-form-group" id="interaction-busdetail-group">
+                  <label class="govuk-label" for="interaction-business-intel-detail">
+                    <b>Business intelligence</b>
+                  </label>
+                  <div id="interaction-business-intel-detail-hint" class="govuk-hint">
+                    <p class="govuk-body govuk-hint">Please summarise the information the business shared during this interaction, including sufficient detail to convey the meaning and significance of the topics covered.</p>
+                    <p class="govuk-body govuk-hint govuk-!-margin-bottom-0">Where available, include:</p>
+                    <ul class="govuk-!-margin-top-0">
+                      <li>Opportunities, risks and/or anything affecting business operations (company, sector or market) or investor sentiment</li>
+                      <li>Quantify impacts and timescales (e.g. costs, number/location of jobs created/lost)</li>
+                      <li>Actions the business has or is proposing to take</li>
+                      <li>Comments, questions or requests of HMG</li>
+                    </ul>
+                  </div>
+                  <textarea class="govuk-textarea" id="interaction-business-intel-detail" name="interaction-business-intel-detail" rows="5">{%- if data['interaction-business-intel-detail'] -%}{{ data['interaction-business-intel-detail'] }}{%- endif -%}</textarea>
+                  <details class="govuk-details govuk-!-margin-top-4" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                        Help with business intelligence
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                      <p class="govuk-body">Consider these questions when filling out this text box:<br />
+                        What business intelligence did the company provide?</p>
+                      <p class="govuk-body">Why has the company raised this/these issue(s) and what are the impacts on the company, sector and wider economy?</p>
+                      <p class="govuk-body">Did the company make any wider requests of DBT/HMG, including ministerial engagement or policy changes? If so, provide details.</p>
+                      <p class="govuk-body">Will the company be taking any further actions (eg investment decisions or job creation/losses)? If so, provide details.</p>
+                      <p class="govuk-body"><a href="" class="govuk-link">Learn more about business intelligence</a> (opens in a new window or tab)</p>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="govuk-form-group" id="interaction-country-group">
+            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h3 class="govuk-fieldset__heading">
+                  Were any countries discussed?
+                </h3>
+              </legend>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-countries" name="interaction-countries" type="radio" value="Yes" data-aria-controls="conditional-current-countries" {%- if data['interaction-countries'] == "Yes" -%}checked="checked"{%- endif -%}>
+                  <label class="govuk-label govuk-radios__label" for="interaction-countries">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-countries-2" name="interaction-countries" type="radio" value="No" {%- if data['interaction-countries'] == "No" -%}checked="checked"{%- endif -%}>
+                  <label class="govuk-label govuk-radios__label" for="interaction-countries-2">
+                    No
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-width-full" id="conditional-current-countries">
+                <div class="govuk-form-group" id="interaction-countrydet-group">
+                  <h3 class="govuk-heading-s govuk-!-margin-top-4 govuk-!-margin-bottom-1">Countries currently exporting to</h3>
+                  <div id="more-detail-hint" class="govuk-hint">
+                    Add all that you discussed
+                  </div>
+                  <label class="govuk-label" for="sort">
+                    <select id="current-country-picker" name="interaction-current-country" multiple>
+                      <option value="Abu Dhabi">Abu Dhabi</option>
+                      <option value="Afghanistan">Afghanistan</option>
+                      <option value="Ajman">Ajman</option>
+                      <option value="Akrotiri">Akrotiri</option>
+                      <option value="Albania">Albania</option>
+                      <option value="Algeria">Algeria</option>
+                      <option value="American Samoa">American Samoa</option>
+                    </select>
+                  </label>
+                  <h3 class="govuk-heading-s govuk-!-margin-top-4 govuk-!-margin-bottom-1">Future countries of interest</h3>
+                  <div id="more-detail-hint" class="govuk-hint">
+                    Add all that you discussed
+                  </div>
+                  <label class="govuk-label" for="sort">
+                    <select id="future-country-picker" name="interaction-future-country" multiple>
+                      <option value="Abu Dhabi">Abu Dhabi</option>
+                      <option value="Afghanistan">Afghanistan</option>
+                      <option value="Ajman">Ajman</option>
+                      <option value="Akrotiri">Akrotiri</option>
+                      <option value="Albania">Albania</option>
+                      <option value="Algeria">Algeria</option>
+                      <option value="American Samoa">American Samoa</option>
+                    </select>
+                  </label>
+                  <h3 class="govuk-heading-s govuk-!-margin-top-4 govuk-!-margin-bottom-1">Countries not interested in</h3>
+                  <div id="more-detail-hint" class="govuk-hint">
+                    Add all that you discussed
+                  </div>
+                  <label class="govuk-label" for="sort">
+                    <select id="no-interest-country-picker" name="interaction-countries-no-interest" multiple>
+                      <option value="Abu Dhabi">Abu Dhabi</option>
+                      <option value="Afghanistan">Afghanistan</option>
+                      <option value="Ajman">Ajman</option>
+                      <option value="Akrotiri">Akrotiri</option>
+                      <option value="Albania">Albania</option>
+                      <option value="Algeria">Algeria</option>
+                      <option value="American Samoa">American Samoa</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="govuk-form-group" id="interaction-barrier-group">
+            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h3 class="govuk-fieldset__heading">
+                  Did the interaction help remove an export barrier?
+                </h3>
+              </legend>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-export-barrier" name="interaction-export-barrier" type="radio" value="Yes" data-aria-controls="conditional-barrier" {%- if data['interaction-export-barrier'] == "Yes" -%}checked="checked"{%- endif -%}>
+                  <label class="govuk-label govuk-radios__label" for="interaction-export-barrier" >
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-export-barrier-2" name="interaction-export-barrier" type="radio" value="No" {%- if data['interaction-export-barrier'] == "No" -%}checked="checked"{%- endif -%}>
+                  <label class="govuk-label govuk-radios__label" for="interaction-export-barrier-2">
+                    No
+                  </label>
+                </div>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-width-full govuk-!-margin-top-5" id="conditional-barrier">
+                <div class="govuk-form-group" id="interaction-barriertype-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend">
+                      <b>Tell us how the interaction helped remove an export barrier</b>
+                    </legend>
+                    <div id="conditional-barrier-hint" class="govuk-hint">
+                      Select all that apply
+                    </div>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="interaction-barrier-type" name="interaction-barrier-type" type="checkbox" value="Finance" {%- if data['interaction-barrier-type'] == "Finance" -%}checked="checked"{%- endif -%}>
+                        <label class="govuk-label govuk-checkboxes__label" for="interaction-barrier-type">
+                          Finance
+                        </label>
+                        <div id="interaction-barrier-type-hint" class="govuk-hint govuk-checkboxes__hint">
+                          For example, delivering export contracts, having access to export finance and insurance
+                        </div>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="interaction-barrier-type-2" name="interaction-barrier-type" type="checkbox" value="Knowledge" {%- if data['interaction-barrier-type'] == "Knowledge" -%}checked="checked"{%- endif -%}>
+                        <label class="govuk-label govuk-checkboxes__label" for="interaction-barrier-type-2">
+                          Knowledge
+                        </label>
+                        <div id="interaction-barrier-type-2-hint" class="govuk-hint govuk-checkboxes__hint">
+                          For example, having information about regulations or how to export to a market
+                        </div>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="interaction-barrier-type-3" name="interaction-barrier-type" type="checkbox" value="Capacity" {%- if data['interaction-barrier-type'] == "Capacity" -%}checked="checked"{%- endif -%}>
+                        <label class="govuk-label govuk-checkboxes__label" for="interaction-barrier-type-3">
+                          Capacity
+                        </label>
+                        <div id="interaction-barrier-type-3" class="govuk-hint govuk-checkboxes__hint">
+                          For example, understanding international markets and their costs, as well as having enough people
+                        </div>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="interaction-barrier-type-4" name="interaction-barrier-type" type="checkbox" value="Access" {%- if data['interaction-barrier-type'] == "Access" -%}checked="checked"{%- endif -%}>
+                        <label class="govuk-label govuk-checkboxes__label" for="interaction-barrier-type-4">
+                          Access
+                        </label>
+                        <div id="interaction-barrier-type-4-hint" class="govuk-hint govuk-checkboxes__hint">
+                          For example, having access to contacts, customers and the right networks
+                        </div>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="interaction-barrier-type-5" name="interaction-barrier-type" type="checkbox" value="Other" {%- if data['interaction-barrier-type'] == "Other" -%}checked="checked"{%- endif -%}>
+                        <label class="govuk-label govuk-checkboxes__label" for="interaction-barrier-type-5">
+                          Other
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">
+              Add interaction
+            </button>
+            <a class="govuk-link" href="../interaction-type">Back</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{{ page.url }}
+
+<!-- Todays date -->
+
+<script>
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0');
+var yyyy = today.getFullYear();
+document.getElementById('interaction-date-day').value = dd;
+document.getElementById('interaction-date-month').value = mm;
+document.getElementById('interaction-date-year').value = yyyy;
+
+
+</script>
+
+<!-- Page validation -->
+
+<script>
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const errorMsgsAll = new Array()
+const date = urlParams.get('date');
+const service = urlParams.get('service');
+const summary = urlParams.get('summary');
+const contacts = urlParams.get('contacts');
+const advisers = urlParams.get('advisers');
+const comms = urlParams.get('comms');
+const busintel = urlParams.get('busintel');
+const policytype = urlParams.get('policytype');
+const policyarea = urlParams.get('policyarea');
+const busdetail = urlParams.get('busdetail');
+const tradeagr = urlParams.get('tradeagr');
+const tradeagrdet = urlParams.get('tradeagrdet');
+const country = urlParams.get('country');
+const countrydet = urlParams.get('countrydet');
+const barrier = urlParams.get('barrier');
+const barriertype = urlParams.get('barriertype');
+var errorSummary = false;
+
+if (date) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-date-group',
+      errorTxt: 'Enter a valid date'
+    }
+});
+errorSummary = true;
+}
+
+if (service) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-service-group',
+      errorTxt: 'Select a service'
+    }
+});
+errorSummary = true;
+}
+
+if (summary) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-summary-group',
+      errorTxt: 'Enter a summary'
+    }
+});
+errorSummary = true;
+}
+
+if (contacts) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-contacts-group',
+      errorTxt: 'Select at least one contact'
+    }
+});
+errorSummary = true;
+}
+
+if (advisers) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-advisers-group',
+      errorTxt: 'Select at least one adviser'
+    }
+});
+errorSummary = true;
+}
+
+if (comms) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-comms-group',
+      errorTxt: 'Select a communication channel'
+    }
+});
+errorSummary = true;
+}
+
+if (busintel) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-busintel-group',
+      errorTxt: 'Select if the contact provided business intelligence'
+    }
+});
+errorSummary = true;
+}
+
+if (policytype) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-policytype-group',
+      errorTxt: 'Select at least one policy issue type'
+    }
+});
+errorSummary = true;
+}
+
+if (policyarea) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-policyarea-group',
+      errorTxt: 'Select at least one policy area'
+    }
+});
+errorSummary = true;
+}
+
+if (busdetail) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-busdetail-group',
+      errorTxt: 'Enter business intelligence'
+    }
+});
+errorSummary = true;
+}
+
+if (tradeagr) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-tradeagr-group',
+      errorTxt: 'This is error text for trade agreements'
+    }
+});
+errorSummary = true;
+}
+
+if (tradeagrdet) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-tradeagrdet-group',
+      errorTxt: 'Select if this relates to a named trade agreement'
+    }
+});
+errorSummary = true;
+}
+
+if (country) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-country-group',
+      errorTxt: 'Select if any countries were discussed'
+    }
+});
+errorSummary = true;
+}
+
+if (countrydet) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-countrydet-group',
+      errorTxt: 'Select at least one country in one of the three fields'
+    }
+});
+errorSummary = true;
+}
+
+if (barrier) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-barrier-group',
+      errorTxt: 'Select if the interaction helped remove an export barrier'
+    }
+});
+errorSummary = true;
+}
+
+if (barriertype) {
+errorMsgsAll.push({
+    'errorDetails' : {
+      errorGroup: 'interaction-barriertype-group',
+      errorTxt: 'Select at least one option'
+    }
+});
+errorSummary = true;
+}
+
+if (errorSummary == true) {
+
+let menu = document.querySelectorAll('.govuk-grid-column-three-quarters')[1];
+let menut = document.getElementById('interaction-form');
+let li = document.createElement('div');
+li.classList.add("govuk-error-summary");
+li.innerHTML = '<h2 class="govuk-error-summary__title">There is a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"></ul>';
+menu.insertBefore(li, menut);
+
+}
+
+errorMsgsAll.forEach((errorMsg) => {
+
+  const errorGroup = errorMsg.errorDetails.errorGroup;
+  const errorTxt = errorMsg.errorDetails.errorTxt;
+  const formGroup = document.getElementById(errorGroup);
+
+  // Add class to group
+  formGroup.className += " govuk-form-group--error";
+
+  // Add error class to each input or text area
+  var element =
+  formGroup.querySelectorAll('input, textarea');
+  element.forEach((errorMsg) => {
+    errorMsg.className += " govuk-input--error";
+  });
+
+  // Add error message
+  const insertAfter = (el, htmlString) =>
+  el.insertAdjacentHTML('afterend', htmlString);
+  insertAfter(formGroup.querySelectorAll("legend, label, .govuk-hint")[0], "<p class='govuk-error-message'>" + errorTxt + "</p>");
+
+  // Add error to </summary>
+  const summaryList = document.querySelectorAll('.govuk-error-summary__list')[0];
+  summaryList.innerHTML += "<li><a href='#" + errorGroup + "'>" + errorTxt + "</a></li>";
+});
+
+</script>
+
+<!-- Autocomplete JS -->
+
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+
+  accessibleAutocomplete.enhanceSelectElement({
+  placeholder: 'Select contact',
+  showAllValues: true,
+  autoselect: false,
+  selectElement: document.querySelector('#contact-picker'),
+  showNoOptionsFound: true
+})
+
+accessibleAutocomplete.enhanceSelectElement({
+  placeholder: 'Type to search for advisers',
+  showAllValues: true,
+  autoselect: false,
+  selectElement: document.querySelector('#adviser-picker'),
+  showNoOptionsFound: true
+})
+
+accessibleAutocomplete.enhanceSelectElement({
+  placeholder: '-- Select trade agreements --',
+  showAllValues: true,
+  autoselect: false,
+  selectElement: document.querySelector('#trade-picker'),
+  showNoOptionsFound: true
+})
+
+accessibleAutocomplete.enhanceSelectElement({
+  placeholder: '-- Select policy area --',
+  showAllValues: true,
+  autoselect: false,
+  selectElement: document.querySelector('#policy-picker'),
+  showNoOptionsFound: true
+})
+
+accessibleAutocomplete.enhanceSelectElement({
+  placeholder: '-- Search countries --',
+  showAllValues: true,
+  autoselect: false,
+  selectElement: document.querySelector('#current-country-picker'),
+  showNoOptionsFound: true
+})
+
+accessibleAutocomplete.enhanceSelectElement({
+  placeholder: '-- Search countries --',
+  showAllValues: true,
+  autoselect: false,
+  selectElement: document.querySelector('#future-country-picker'),
+  showNoOptionsFound: true
+})
+
+accessibleAutocomplete.enhanceSelectElement({
+  placeholder: '-- Search countries --',
+  showAllValues: true,
+  autoselect: false,
+  selectElement: document.querySelector('#no-interest-country-picker'),
+  showNoOptionsFound: true
+})
+
+
+</script>
+
+
+
+{% endblock %}

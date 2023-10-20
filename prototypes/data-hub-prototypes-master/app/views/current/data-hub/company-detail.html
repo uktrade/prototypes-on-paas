@@ -1,0 +1,1466 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="homepage">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="companies">Companies</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Company name</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      Overview
+    </li>
+  </ol>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-8">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Company name</h1>
+    <p class="govuk-body-s">THE BRICK CENTRE, Pottery Lane East, CHESTERFIELD, Derbyshire, S41 9BH, United Kingdom</p>
+  </div>
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+    <a href="interaction-type" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-bottom-3" data-module="govuk-button">
+      Add interaction
+    </a>
+    <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
+      Add export project
+    </button>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-tabs" data-module="govuk-tabs">
+          <h2 class="govuk-tabs__title">
+            Contents
+          </h2>
+          <ul class="govuk-tabs__list datahub-company-tabs">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+              <a class="govuk-tabs__tab" href="#company-overview">
+                Overview
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#activity">
+                Activity
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#business-details">
+                Business details
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#company-contacts">
+                Company contacts
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#lead-adviser">
+                Lead advisor
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#investment">
+                Investment
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#export">
+                Export
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#orders">
+                Orders
+              </a>
+            </li>
+          </ul>
+          <div class="govuk-tabs__panel" id="company-overview">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half">
+                <div class="datahub-box">
+                  <table class="govuk-table govuk-!-font-size-16 govuk-!-margin-bottom-3">
+                    <caption class="govuk-table__caption govuk-table__caption--m">Business details</caption>
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Companies House</th>
+                        <td class="govuk-table__cell"><a href="" class="govuk-link">00000000</a> (opens in a new window or tab)</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Trading Address</th>
+                        <td class="govuk-table__cell">An address<br />
+                        Cardiff<br />
+                        CF10 4NN</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Website</th>
+                        <td class="govuk-table__cell">Not set</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Turnover</th>
+                        <td class="govuk-table__cell">£2,200,000</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Number of employees</th>
+                        <td class="govuk-table__cell">123</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">DBT Sector</th>
+                        <td class="govuk-table__cell">Construction</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <a href="#business-details" class="govuk-link govuk-!-margin-bottom-0">View full business details</a>
+                </div>
+                <div class="datahub-box">
+                  <table class="govuk-table govuk-!-font-size-16 govuk-!-margin-bottom-3">
+                    <caption class="govuk-table__caption govuk-table__caption--m">Account Management</caption>
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">DBT Region</th>
+                        <td class="govuk-table__cell">East Midlands</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Account Manager</th>
+                        <td class="govuk-table__cell">Not set</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">One List</th>
+                        <td class="govuk-table__cell">Not set</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Primary Contact(s)</th>
+                        <td class="govuk-table__cell"><a href="" class="govuk-link">Andy Davies</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <a href="#business-details" class="govuk-link govuk-!-margin-bottom-0">View full account management</a>
+                </div>
+                <div class="datahub-box">
+                  <table class="govuk-table govuk-!-font-size-16 govuk-!-margin-bottom-3">
+                    <caption class="govuk-table__caption govuk-table__caption--m">Export status</caption>
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Export potential</th>
+                        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">VERY HIGH</strong></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Export sub-segment</th>
+                        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">SUSTAIN: DEVELOP EXPORT CAPABILITY</strong></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Currently exporting to</th>
+                        <td class="govuk-table__cell">Not set</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Future countries of interest</th>
+                        <td class="govuk-table__cell"><a href="" class="govuk-link">Finland</a></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Last export win</th>
+                        <td class="govuk-table__cell">No export wins recorded</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header datahub-w-50">Total exports won</th>
+                        <td class="govuk-table__cell">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <a href="#export" class="govuk-link govuk-!-margin-bottom-0">View full export details</a>
+                </div>
+              </div>
+              <div class="govuk-grid-column-one-half">
+                <div class="datahub-box">
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-half">
+                      <h2 class="govuk-!-margin-top-0">Recent activity</h2>
+                    </div>
+                    <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+                      <a href="" class="govuk-link">Add interaction</a>
+                    </div>
+                  </div>
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-full">
+                      <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half govuk-hint govuk-!-font-size-16">
+                          11 May 2023
+                        </div>
+                        <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+                          <strong class="govuk-tag govuk-tag--grey">INTERACTION</strong>
+                        </div>
+                      </div>
+                      <h3 class="govuk-!-margin-top-0 govuk-heading-s govuk-!-margin-bottom-2"><a href="" class="govuk-links">Example interaction</a></h3>
+                      <p class="govuk-body-s">An example interaction for a company which can be placed on the company overview tab.</p>
+                      <hr></hr>
+                    </div>
+                  </div>
+                  <div class="govuk-grid-row govuk-!-margin-top-3">
+                    <div class="govuk-grid-column-full">
+                      <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half govuk-hint govuk-!-font-size-16">
+                          11 May 2023
+                        </div>
+                        <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+                          <strong class="govuk-tag govuk-tag--grey">INTERACTION</strong>
+                        </div>
+                      </div>
+                      <h3 class="govuk-!-margin-top-0 govuk-heading-s govuk-!-margin-bottom-2"><a href="" class="govuk-links">Example interaction</a></h3>
+                      <p class="govuk-body-s">An example interaction for a company which can be placed on the company overview tab.</p>
+                      <hr></hr>
+                    </div>
+                  </div>
+                  <div class="govuk-grid-row govuk-!-margin-top-3 govuk-!-margin-bottom-1">
+                    <div class="govuk-grid-column-full">
+                      <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half govuk-hint govuk-!-font-size-16">
+                          11 May 2023
+                        </div>
+                        <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+                          <strong class="govuk-tag govuk-tag--grey">INTERACTION</strong>
+                        </div>
+                      </div>
+                      <h3 class="govuk-!-margin-top-0 govuk-heading-s govuk-!-margin-bottom-2"><a href="" class="govuk-links">Example interaction</a></h3>
+                      <p class="govuk-body-s">An example interaction for a company which can be placed on the company overview tab.</p>
+                      <hr></hr>
+                    </div>
+                  </div>
+                  <a href="#activity" class="govuk-link govuk-!-margin-bottom-0">View all activities</a>
+                </div>
+                <div class="datahub-box">
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                      <h2 class="govuk-!-margin-top-0">Upcoming activity</h2>
+                    </div>
+                    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+                      <a href="" class="govuk-link">Add interaction</a>
+                    </div>
+                  </div>
+                  <p class="govuk-body-s">There are no activities to show.</p>
+                  <a href="#activity" class="govuk-link govuk-!-margin-bottom-0">View all activities</a>
+                </div>
+                <div class="datahub-box">
+                  <h2 class="govuk-!-margin-top-0">Active investment projects</h2>
+                  <p class="govuk-body-s">There are no active investments.</p>
+                  <a href="#investment" class="govuk-link govuk-!-margin-bottom-0">View all investments</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="activity">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half">
+                <p class="gov-body govuk-!-font-size-27">9 activities</p>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+                <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0 govuk-!-margin-right-2" data-module="govuk-button">
+                  Refer this company
+                </button>
+                <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
+                  Add interaction
+                </button>
+              </div>
+            </div>
+            <hr></hr>
+            <div class="govuk-form-group govuk-!-margin-bottom-0">
+              <label class="govuk-label" for="sort">
+                Filter by activity types
+                <select class="govuk-select govuk-!-margin-left-1" id="sort-by" name="sort-by">
+                  <option value="All Data Hub activity">All Data Hub & external activity</option>
+                  <option value="All Data Hub activity">My activity</option>
+                  <option value="All Data Hub activity">All external activity</option>
+                  <option value="All Data Hub activity" selected>All Data Hub activity</option>
+                </select>
+              </label>
+            </div>
+            <hr></hr>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                    <strong class="govuk-tag">export</strong>
+                    <strong class="govuk-tag govuk-tag--blue">account management</strong>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                    <strong class="govuk-tag govuk-tag--grey">interaction</strong>
+                  </div>
+                </div>
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-2"><a class="govuk-link govuk-link--no-underline" href="event-detail">Example activity</a></h3>
+                <p class="govuk-body-s">An example interaction for the activities tab on the company page, to explain an acitivity which has taken place with a company and been entered into Data Hub.</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Date:</b></span> 9 to 11 May 2023</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Contact(s):</b></span> Joe Bloggs</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Communication channel:</b></span> Email/Website</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Adviser(s):</b></span> Andy Davies <a href="mailto:andrew.davies@digital.trade.gov.uk" class="govuk-link">andrew.davies@digital.trade.gov.uk</a>, DIT Wales</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-4"><span class="govuk-hint govuk-!-font-size-14"><b>Service:</b></span> Account Management : General</p>
+                <hr></hr>
+              </div>
+            </div>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                    <strong class="govuk-tag">export</strong>
+                    <strong class="govuk-tag govuk-tag--blue">account management</strong>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                    <strong class="govuk-tag govuk-tag--grey">interaction</strong>
+                  </div>
+                </div>
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-2"><a class="govuk-link govuk-link--no-underline" href="event-detail">Example activity</a></h3>
+                <p class="govuk-body-s">An example interaction for the activities tab on the company page, to explain an acitivity which has taken place with a company and been entered into Data Hub.</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Date:</b></span> 9 to 11 May 2023</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Contact(s):</b></span> Joe Bloggs</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Communication channel:</b></span> Email/Website</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Adviser(s):</b></span> Andy Davies <a href="mailto:andrew.davies@digital.trade.gov.uk" class="govuk-link">andrew.davies@digital.trade.gov.uk</a>, DIT Wales</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-4"><span class="govuk-hint govuk-!-font-size-14"><b>Service:</b></span> Account Management : General</p>
+                <hr></hr>
+              </div>
+            </div>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                    <strong class="govuk-tag">export</strong>
+                    <strong class="govuk-tag govuk-tag--blue">account management</strong>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                    <strong class="govuk-tag govuk-tag--grey">interaction</strong>
+                  </div>
+                </div>
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-2"><a class="govuk-link govuk-link--no-underline" href="event-detail">Example activity</a></h3>
+                <p class="govuk-body-s">An example interaction for the activities tab on the company page, to explain an acitivity which has taken place with a company and been entered into Data Hub.</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Date:</b></span> 9 to 11 May 2023</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Contact(s):</b></span> Joe Bloggs</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Communication channel:</b></span> Email/Website</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Adviser(s):</b></span> Andy Davies <a href="mailto:andrew.davies@digital.trade.gov.uk" class="govuk-link">andrew.davies@digital.trade.gov.uk</a>, DIT Wales</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-4"><span class="govuk-hint govuk-!-font-size-14"><b>Service:</b></span> Account Management : General</p>
+                <hr></hr>
+              </div>
+            </div>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                    <strong class="govuk-tag">export</strong>
+                    <strong class="govuk-tag govuk-tag--blue">account management</strong>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                    <strong class="govuk-tag govuk-tag--grey">interaction</strong>
+                  </div>
+                </div>
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-2"><a class="govuk-link govuk-link--no-underline" href="event-detail">Example activity</a></h3>
+                <p class="govuk-body-s">An example interaction for the activities tab on the company page, to explain an acitivity which has taken place with a company and been entered into Data Hub.</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Date:</b></span> 9 to 11 May 2023</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Contact(s):</b></span> Joe Bloggs</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Communication channel:</b></span> Email/Website</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Adviser(s):</b></span> Andy Davies <a href="mailto:andrew.davies@digital.trade.gov.uk" class="govuk-link">andrew.davies@digital.trade.gov.uk</a>, DIT Wales</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-4"><span class="govuk-hint govuk-!-font-size-14"><b>Service:</b></span> Account Management : General</p>
+                <hr></hr>
+              </div>
+            </div>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                    <strong class="govuk-tag">export</strong>
+                    <strong class="govuk-tag govuk-tag--blue">account management</strong>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                    <strong class="govuk-tag govuk-tag--grey">interaction</strong>
+                  </div>
+                </div>
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-2"><a class="govuk-link govuk-link--no-underline" href="event-detail">Example activity</a></h3>
+                <p class="govuk-body-s">An example interaction for the activities tab on the company page, to explain an acitivity which has taken place with a company and been entered into Data Hub.</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Date:</b></span> 9 to 11 May 2023</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Contact(s):</b></span> Joe Bloggs</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Communication channel:</b></span> Email/Website</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Adviser(s):</b></span> Andy Davies <a href="mailto:andrew.davies@digital.trade.gov.uk" class="govuk-link">andrew.davies@digital.trade.gov.uk</a>, DIT Wales</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-4"><span class="govuk-hint govuk-!-font-size-14"><b>Service:</b></span> Account Management : General</p>
+                <hr></hr>
+              </div>
+            </div>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                    <strong class="govuk-tag">export</strong>
+                    <strong class="govuk-tag govuk-tag--blue">account management</strong>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                    <strong class="govuk-tag govuk-tag--grey">interaction</strong>
+                  </div>
+                </div>
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-2"><a class="govuk-link govuk-link--no-underline" href="event-detail">Example activity</a></h3>
+                <p class="govuk-body-s">An example interaction for the activities tab on the company page, to explain an acitivity which has taken place with a company and been entered into Data Hub.</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Date:</b></span> 9 to 11 May 2023</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Contact(s):</b></span> Joe Bloggs</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Communication channel:</b></span> Email/Website</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Adviser(s):</b></span> Andy Davies <a href="mailto:andrew.davies@digital.trade.gov.uk" class="govuk-link">andrew.davies@digital.trade.gov.uk</a>, DIT Wales</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-4"><span class="govuk-hint govuk-!-font-size-14"><b>Service:</b></span> Account Management : General</p>
+                <hr></hr>
+              </div>
+            </div>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                    <strong class="govuk-tag">export</strong>
+                    <strong class="govuk-tag govuk-tag--blue">account management</strong>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                    <strong class="govuk-tag govuk-tag--grey">interaction</strong>
+                  </div>
+                </div>
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-2"><a class="govuk-link govuk-link--no-underline" href="event-detail">Example activity</a></h3>
+                <p class="govuk-body-s">An example interaction for the activities tab on the company page, to explain an acitivity which has taken place with a company and been entered into Data Hub.</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Date:</b></span> 9 to 11 May 2023</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Contact(s):</b></span> Joe Bloggs</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Communication channel:</b></span> Email/Website</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Adviser(s):</b></span> Andy Davies <a href="mailto:andrew.davies@digital.trade.gov.uk" class="govuk-link">andrew.davies@digital.trade.gov.uk</a>, DIT Wales</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-4"><span class="govuk-hint govuk-!-font-size-14"><b>Service:</b></span> Account Management : General</p>
+                <hr></hr>
+              </div>
+            </div>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                    <strong class="govuk-tag">export</strong>
+                    <strong class="govuk-tag govuk-tag--blue">account management</strong>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                    <strong class="govuk-tag govuk-tag--grey">interaction</strong>
+                  </div>
+                </div>
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-2"><a class="govuk-link govuk-link--no-underline" href="event-detail">Example activity</a></h3>
+                <p class="govuk-body-s">An example interaction for the activities tab on the company page, to explain an acitivity which has taken place with a company and been entered into Data Hub.</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Date:</b></span> 9 to 11 May 2023</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Contact(s):</b></span> Joe Bloggs</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Communication channel:</b></span> Email/Website</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Adviser(s):</b></span> Andy Davies <a href="mailto:andrew.davies@digital.trade.gov.uk" class="govuk-link">andrew.davies@digital.trade.gov.uk</a>, DIT Wales</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-4"><span class="govuk-hint govuk-!-font-size-14"><b>Service:</b></span> Account Management : General</p>
+                <hr></hr>
+              </div>
+            </div>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                    <strong class="govuk-tag">export</strong>
+                    <strong class="govuk-tag govuk-tag--blue">account management</strong>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                    <strong class="govuk-tag govuk-tag--grey">interaction</strong>
+                  </div>
+                </div>
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-2"><a class="govuk-link govuk-link--no-underline" href="event-detail">Example activity</a></h3>
+                <p class="govuk-body-s">An example interaction for the activities tab on the company page, to explain an acitivity which has taken place with a company and been entered into Data Hub.</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Date:</b></span> 9 to 11 May 2023</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Contact(s):</b></span> Joe Bloggs</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Communication channel:</b></span> Email/Website</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-1"><span class="govuk-hint govuk-!-font-size-14"><b>Adviser(s):</b></span> Andy Davies <a href="mailto:andrew.davies@digital.trade.gov.uk" class="govuk-link">andrew.davies@digital.trade.gov.uk</a>, DIT Wales</p>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-4"><span class="govuk-hint govuk-!-font-size-14"><b>Service:</b></span> Account Management : General</p>
+                <hr></hr>
+              </div>
+            </div>
+          </div>
+
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="business-details">
+            <p class="govuk-body">This page shows information about this business and how it is related to other businesses.<br />
+            Changes made to this information can be found on the Edit history page.<br />
+            Last updated on: 05 May 2023</p>
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Are these business details right?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">Most business details have been verified by trusted third-parties to keep them updated automatically. Business description, region and sector are not updated by third parties.</p>
+                <p class="govuk-body"><b>Think some details are wrong?</b> ‘Edit’ and ‘Submit’ new details for review.</p>
+              </div>
+            </details>
+            <table class="govuk-table govuk-!-font-size-16">
+              <caption class="govuk-table__caption govuk-table__caption--m">About COMPANY NAME <a href="" class="govuk-link">Edit</a></caption>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Trading name</th>
+                  <td class="govuk-table__cell">COMPANY NAME</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Companies House number</th>
+                  <td class="govuk-table__cell">00000000<br /><a href="govuk-link" href="">View on Companies House website</a> (opens in a new window or tab)</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Annual turnover</th>
+                  <td class="govuk-table__cell">£4,282.20
+                  <div class="datahub-flex">
+                    This is an estimated number
+                    <details class="govuk-details govuk-!-font-size-16 govuk-!-margin-left-4 govuk-!-margin-bottom-0" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          What does that mean?
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <p class="govuk-body-s">Actual turnover is not available for this business. The number has been modelled by Dun & Bradstreet, based on similar businesses.</p>
+                      </div>
+                    </details>
+                  </div></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Number of employees</th>
+                  <td class="govuk-table__cell">123
+                  <div class="datahub-flex">
+                    This is an estimated number
+                    <details class="govuk-details govuk-!-font-size-16 govuk-!-margin-left-4 govuk-!-margin-bottom-0" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          What does that mean?
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <p class="govuk-body-s">Actual number of employees is not available for this business. The number has been modelled by Dun & Bradstreet, based on similar businesses.</p>
+                      </div>
+                    </details>
+                  </div></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Website</th>
+                  <td class="govuk-table__cell">Not set</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Business description</th>
+                  <td class="govuk-table__cell">No description has been added</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Segment</th>
+                  <td class="govuk-table__cell">Not high export potential</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Sub-segment</th>
+                  <td class="govuk-table__cell">Sustain: develop export capability</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="govuk-table govuk-!-font-size-16">
+              <caption class="govuk-table__caption govuk-table__caption--m">Addresses</caption>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">COMPANY ADDRESS<br />
+                    LISVANE<br />
+                    CARDIFF<br />
+                    CF10 4NN</td>
+                  <td class="govuk-table__cell">
+                    <div class="datahub-badge govuk-!-margin-bottom-2">Registered</div><br/>
+                    COMPANY ADDRESS<br />
+                    LISVANE<br />
+                    CARDIFF<br />
+                    CF10 4NN</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="govuk-table govuk-!-font-size-16">
+              <caption class="govuk-table__caption govuk-table__caption--m">DBT region <a href="" class="govuk-link">Edit</a></caption>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">East Midlands</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="govuk-table govuk-!-font-size-16">
+              <caption class="govuk-table__caption govuk-table__caption--m">DBT sector <a href="" class="govuk-link">Edit</a></caption>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Construction</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="govuk-table govuk-!-font-size-16">
+              <caption class="govuk-table__caption govuk-table__caption--m">Business hierarchy <a href="" class="govuk-link">Edit</a></caption>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" colspan="2">This hierarchy information from Dun & Bradstreet cannot be edited.</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" colspan="2">This company is not related to any other company records.</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" colspan="2">This hierarchy information is manually recorded (linked) by Data Hub users. This means it can be different from the Dun & Bradstreet hierarchy, which in the future will replace this manually recorded information.</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Headquarter type</th>
+                  <td class="govuk-table__cell">UK HQ</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Subsidiaries</th>
+                  <td class="govuk-table__cell">None</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="company-contacts">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half">
+                <p class="gov-body govuk-!-font-size-36"><b>1</b> <span class="govuk-!-font-size-24">contact</span></p>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+                <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
+                  Add contact
+                </button>
+              </div>
+            </div>
+            <hr></hr>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-2">
+                <p class="govuk-body govuk-hint govuk-!-font-size-16">Page 1 of 1</p>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                  <label class="govuk-label" for="sort">
+                    Sort by
+                    <select class="govuk-select" id="sort-by" name="sort-by">
+                      <option value="Recently created">Recently created</option>
+                      <option value="Oldest">Oldest</option>
+                      <option value="Recently updated" selected>Recently updated</option>
+                      <option value="Least recently updated">Least recently updated</option>
+                      <option value="Last name A-Z">Last name A-Z</option>
+                      <option value="Country A-Z">Country A-Z</option>
+                      <option value="Company A-Z">Company A-Z</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <hr></hr>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                    <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Andy Davies</a></h3>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                    <div class="datahub-badge">Primary</div>
+                    <div class="datahub-badge">Archived</div>
+                  </div>
+                </div>
+                <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-3">Updated on 1 May 2023, 8:30pm</p>
+                <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Job title</span> Lead Interaction Designer</p>
+                <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Sector</span> Environment</p>
+                <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Country</span> United Kingdom</p>
+                <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">UK region</span> South East</p>
+                <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Phone number</span> +44 1622 715100</p>
+                <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Email</span> andrew.davies@digital.trade.gov.uk</p>
+                <hr></hr>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="lead-adviser">
+            <h2 class="govuk-heading-m">Lead ITA for COMPANY NAME LIMITED</h2>
+            <p class="govuk-body">This company record has no Lead International Trade Adviser (ITA).</p>
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="investment">
+
+            <div class="govuk-grid-row datahub-subtab">
+              <div class="govuk-grid-column-one-half govuk-!-text-align-centre">
+                <a class="datahub-subtab-active">Investments</a>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-text-align-centre">
+                <a>Large capital profile</a>
+              </div>
+            </div>
+
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-third">
+                <h2 class="govuk-heading-m">Filters</h2>
+
+                <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+                  <div class="govuk-accordion__section govuk-accordion__section--expanded">
+                    <div class="govuk-accordion__section-header">
+                      <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                          Stage and status
+                        </span>
+                      </h2>
+                    </div>
+                    <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+                      <!-- Stage -->
+
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                              Stage
+                          </legend>
+                          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="stage" name="stage" type="checkbox" value="Prospect">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="stage">
+                                Prospect
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="stage-2" name="stage" type="checkbox" value="Active">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="stage-2">
+                                Assign PM
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="stage-3" name="stage" type="checkbox" value="Active">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="stage-3">
+                                Active
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="stage-4" name="stage" type="checkbox" value="Verify win">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="stage-4">
+                                Verify win
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="stage-5" name="stage" type="checkbox" value="Won">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="stage-5">
+                                Won
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                      <!-- Status -->
+
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                              Status
+                          </legend>
+                          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="Ongoing">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="status">
+                                Ongoing
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="status-2" name="status" type="checkbox" value="Delayed">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="status-2">
+                                Delayed
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="status-3" name="status" type="checkbox" value="Abandoned">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="status-3">
+                                Abandoned
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="status-4" name="status" type="checkbox" value="Lost">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="status-4">
+                                Lost
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="status-5" name="status" type="checkbox" value="Dormant">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="status-5">
+                                Dormant
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="govuk-accordion__section">
+                    <div class="govuk-accordion__section-header">
+                      <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                          Project details
+                        </span>
+                      </h2>
+                    </div>
+                    <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+
+                      <!-- My projects -->
+
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                              My projects
+                          </legend>
+                          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="my-projects" name="my-projects" type="checkbox" value="My projects">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="my-projects">
+                                My projects
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                      <!-- Adviser -->
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-size-16" for="sort">
+                          <b>Adviser</b>
+                        </label>
+                        <select class="govuk-select govuk-!-font-size-16 govuk-!-width-full" id="adviser" name="adviser">
+                          <option value="Search adviser" selected disabled>Search adviser</option>
+                        </select>
+                      </div>
+
+                      <!-- Sector -->
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-size-16" for="sort">
+                          <b>Sector</b>
+                        </label>
+                        <select class="govuk-select govuk-!-font-size-16 govuk-!-width-full" id="sector" name="sector">
+                          <option value="Search sector" selected disabled>Search sector</option>
+                        </select>
+                      </div>
+
+                      <!-- Land date -->
+
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                              Land date
+                          </legend>
+                          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="current-year" name="current-year" type="checkbox" value="Current year 2023-24">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="current-year">
+                                Current year 2023-24
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="current-year" name="last-year" type="checkbox" value="Last year 2022-23">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="last-year">
+                                Last year 2022-23
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="next-year" name="next-year" type="checkbox" value="Next year 2024-25">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="next-year">
+                                Next year 2024-25
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                        <details class="govuk-details govuk-!-margin-top-5" data-module="govuk-details">
+                          <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text govuk-!-font-size-16">
+                              What do these options mean?
+                            </span>
+                          </summary>
+                          <div class="govuk-details__text govuk-!-font-size-16">
+                            Options show financial year. They filter by land date if available, then by estimated land date.
+                          </div>
+                        </details>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="govuk-accordion__section">
+                    <div class="govuk-accordion__section-header">
+                      <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                          Land date details
+                        </span>
+                      </h2>
+                    </div>
+                    <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+
+                      <!-- Actual land date from -->
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-size-16" for="land-date-from">
+                          <b>Actual land date from</b>
+                        </label>
+                        <span class="govuk-hint govuk-!-font-size-16">Date format month as text and year as four digits</span>
+                        <input class="govuk-input govuk-!-font-size-16 govuk-!-margin-top-1" id="land-date-from" name="land-date-from" type="text" placeholder="dd/mm/yyyy">
+                      </div>
+
+                      <!-- Actual land date to -->
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-size-16" for="land-date-to">
+                          <b>Actual land date to</b>
+                        </label>
+                        <span class="govuk-hint govuk-!-font-size-16">Date format month as text and year as four digits</span>
+                        <input class="govuk-input govuk-!-font-size-16 govuk-!-margin-top-1" id="land-date-to" name="land-date-to" type="text" placeholder="dd/mm/yyyy">
+                      </div>
+
+                      <!-- Estimated land date from -->
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-size-16" for="estimated-date-from">
+                          <b>Estimated land date from</b>
+                        </label>
+                        <span class="govuk-hint govuk-!-font-size-16">Date format month as text and year as four digits</span>
+                        <input class="govuk-input govuk-!-font-size-16 govuk-!-margin-top-1" id="estimated-date-from" name="estimated-date-from" type="text" placeholder="dd/mm/yyyy">
+                      </div>
+
+                      <!-- Estimated land date to -->
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-size-16" for="estimated-date-to">
+                          <b>Estimated land date to</b>
+                        </label>
+                        <span class="govuk-hint govuk-!-font-size-16">Date format month as text and year as four digits</span>
+                        <input class="govuk-input govuk-!-font-size-16 govuk-!-margin-top-1" id="estimated-date-to" name="estimated-date-to" type="text" placeholder="dd/mm/yyyy">
+                      </div>
+
+                      <!-- Likelihood to land -->
+
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                              Likelihood to land
+                          </legend>
+                          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="likelihood-land" name="likelihood-land" type="checkbox" value="Low">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="likelihood-land">
+                                Low
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="likelihood-land-3" name="likelihood-land" type="checkbox" value="Medium">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="likelihood-land-2">
+                                Medium
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="likelihood-land-3" name="likelihood-land" type="checkbox" value="High">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="likelihood-land-3">
+                                High
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="govuk-accordion__section">
+                    <div class="govuk-accordion__section-header">
+                      <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                          Investment and involvement details
+                        </span>
+                      </h2>
+                    </div>
+                    <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+
+                      <!-- Investment type -->
+
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                              Investment type
+                          </legend>
+                          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="investment-type" name="investment-type" type="checkbox" value="Commitment to invest">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="investment-type">
+                                Commitment to invest
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="investment-type-2" name="investment-type" type="checkbox" value="FDI">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="investment-type-2">
+                                FDI
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="investment-type-3" name="investment-type" type="checkbox" value="Non-FDI">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="investment-type-3">
+                                Non-FDI
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                      <!-- Involvement level -->
+
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                              Involvement level
+                          </legend>
+                          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="involvement-level" name="involvement-level" type="checkbox" value="Involved">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="involvement-level">
+                                Involved
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="involvement-level-2" name="involvement-level" type="checkbox" value="Not involved">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="involvement-level-2">
+                                Not involved
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="involvement-level-3" name="involvement-level" type="checkbox" value="Unspecified">
+                              <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="involvement-level-3">
+                                Unspecified
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                      <!-- Location details asdasdsa -->
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-size-16" for="sort">
+                          <b>Adviser</b>
+                        </label>
+                        <select class="govuk-select govuk-!-font-size-16 govuk-!-width-full" id="adviser" name="adviser">
+                          <option value="Search adviser" selected disabled>Search adviser</option>
+                        </select>
+                      </div>
+
+                      <!-- Sector -->
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-size-16" for="sort">
+                          <b>Sector</b>
+                        </label>
+                        <select class="govuk-select govuk-!-font-size-16 govuk-!-width-full" id="us-state" name="us-state">
+                          <option value="Search sector" selected disabled>Search sector</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="govuk-accordion__section">
+                    <div class="govuk-accordion__section-header">
+                      <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-5">
+                          Location details
+                        </span>
+                      </h2>
+                    </div>
+                    <div id="accordion-default-content-5" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-5">
+
+                      <!-- Location details -->
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-size-16" for="sort">
+                          <b>Country of company origin</b>
+                        </label>
+                        <select class="govuk-select govuk-!-font-size-16 govuk-!-width-full" id="country" name="country">
+                          <option value="Search country" selected disabled>Search country</option>
+                        </select>
+                      </div>
+
+                      <!-- UK region -->
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-font-size-16" for="sort">
+                          <b>UK region</b>
+                        </label>
+                        <select class="govuk-select govuk-!-font-size-16 govuk-!-width-full" id="uk-region" name="uk-region">
+                          <option value="Search UK region" selected disabled>Search UK region</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="govuk-grid-column-two-thirds">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half">
+                    <p class="gov-body govuk-!-font-size-36"><b>74,483</b> <span class="govuk-!-font-size-24">investment projects</span></p>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+                    <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
+                      Add investment project
+                    </button>
+                  </div>
+                </div>
+                <hr></hr>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-padding-top-2">
+                    <p class="govuk-body govuk-hint govuk-!-font-size-16">Page 1 of 1000</p>
+                  </div>
+                  <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+                    <div class="govuk-form-group govuk-!-margin-bottom-0">
+                      <label class="govuk-label" for="sort">
+                        Sort by
+                        <select class="govuk-select" id="sort-by" name="sort-by">
+                          <option value="Recently updated" selected>Recently created</option>
+                          <option value="Earliest land date">Earliest land date</option>
+                          <option value="Latest land date">Latest land date</option>
+                          <option value="Project name A-Z">Project name A-Z</option>
+                        </select>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <hr></hr>
+                <p class="govuk-body-s govuk-!-margin-bottom-0">Filter to fewer than 5,000 projects to download</p>
+                <hr></hr>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Example investment project</a></h3>
+                      </div>
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                        <div class="datahub-badge">Prospect</div>
+                        <div class="datahub-badge">FDI</div>
+                      </div>
+                    </div>
+                    <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-3">Project code DHP-00000000</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Investor</span> Cadburys</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Sector</span> Choc choc</p>
+                    <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Estimated land date</span> April 2029</p>
+                    <hr></hr>
+                  </div>
+                </div>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Example investment project</a></h3>
+                      </div>
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                        <div class="datahub-badge">Prospect</div>
+                        <div class="datahub-badge">FDI</div>
+                      </div>
+                    </div>
+                    <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-3">Project code DHP-00000000</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Investor</span> Cadburys</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Sector</span> Choc choc</p>
+                    <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Estimated land date</span> April 2029</p>
+                    <hr></hr>
+                  </div>
+                </div>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Example investment project</a></h3>
+                      </div>
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                        <div class="datahub-badge">Prospect</div>
+                        <div class="datahub-badge">FDI</div>
+                      </div>
+                    </div>
+                    <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-3">Project code DHP-00000000</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Investor</span> Cadburys</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Sector</span> Choc choc</p>
+                    <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Estimated land date</span> April 2029</p>
+                    <hr></hr>
+                  </div>
+                </div>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Example investment project</a></h3>
+                      </div>
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                        <div class="datahub-badge">Prospect</div>
+                        <div class="datahub-badge">FDI</div>
+                      </div>
+                    </div>
+                    <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-3">Project code DHP-00000000</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Investor</span> Cadburys</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Sector</span> Choc choc</p>
+                    <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Estimated land date</span> April 2029</p>
+                    <hr></hr>
+                  </div>
+                </div>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Example investment project</a></h3>
+                      </div>
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                        <div class="datahub-badge">Prospect</div>
+                        <div class="datahub-badge">FDI</div>
+                      </div>
+                    </div>
+                    <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-3">Project code DHP-00000000</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Investor</span> Cadburys</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Sector</span> Choc choc</p>
+                    <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Estimated land date</span> April 2029</p>
+                    <hr></hr>
+                  </div>
+                </div>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Example investment project</a></h3>
+                      </div>
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                        <div class="datahub-badge">Prospect</div>
+                        <div class="datahub-badge">FDI</div>
+                      </div>
+                    </div>
+                    <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-3">Project code DHP-00000000</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Investor</span> Cadburys</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Sector</span> Choc choc</p>
+                    <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Estimated land date</span> April 2029</p>
+                    <hr></hr>
+                  </div>
+                </div>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Example investment project</a></h3>
+                      </div>
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                        <div class="datahub-badge">Prospect</div>
+                        <div class="datahub-badge">FDI</div>
+                      </div>
+                    </div>
+                    <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-3">Project code DHP-00000000</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Investor</span> Cadburys</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Sector</span> Choc choc</p>
+                    <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Estimated land date</span> April 2029</p>
+                    <hr></hr>
+                  </div>
+                </div>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Example investment project</a></h3>
+                      </div>
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                        <div class="datahub-badge">Prospect</div>
+                        <div class="datahub-badge">FDI</div>
+                      </div>
+                    </div>
+                    <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-3">Project code DHP-00000000</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Investor</span> Cadburys</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Sector</span> Choc choc</p>
+                    <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Estimated land date</span> April 2029</p>
+                    <hr></hr>
+                  </div>
+                </div>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Example investment project</a></h3>
+                      </div>
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                        <div class="datahub-badge">Prospect</div>
+                        <div class="datahub-badge">FDI</div>
+                      </div>
+                    </div>
+                    <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-3">Project code DHP-00000000</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Investor</span> Cadburys</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Sector</span> Choc choc</p>
+                    <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Estimated land date</span> April 2029</p>
+                    <hr></hr>
+                  </div>
+                </div>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Example investment project</a></h3>
+                      </div>
+                      <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                        <div class="datahub-badge">Prospect</div>
+                        <div class="datahub-badge">FDI</div>
+                      </div>
+                    </div>
+                    <p class="govuk-body govuk-hint govuk-!-font-size-14 govuk-!-margin-bottom-3">Project code DHP-00000000</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Investor</span> Cadburys</p>
+                    <p class="govuk-body-s govuk-!-margin-bottom-3"><span class="govuk-hint govuk-!-font-size-16">Sector</span> Choc choc</p>
+                    <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Estimated land date</span> April 2029</p>
+                    <hr></hr>
+                  </div>
+                </div>
+
+                <!-- Pagination -->
+
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full govuk-!-padding-top-1">
+                    <nav class="govuk-pagination" role="navigation" aria-label="results">
+                      <ul class="govuk-pagination__list">
+                        <li class="govuk-pagination__item govuk-pagination__item--current">
+                          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+                            1
+                          </a>
+                        </li>
+                        <li class="govuk-pagination__item">
+                          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page">
+                            2
+                          </a>
+                        </li>
+                        <li class="govuk-pagination__item">
+                          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                            3
+                          </a>
+                        </li>
+                      </ul>
+                      <div class="govuk-pagination__next">
+                        <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                          </svg></a>
+                      </div>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="export">
+            <table class="govuk-table govuk-!-font-size-16">
+              <caption class="govuk-table__caption govuk-table__caption--m">Exports <a href="" class="govuk-link">Edit</a></caption>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Export win category</th>
+                  <td class="govuk-table__cell">None</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">great.gov.uk business profile</th>
+                  <td class="govuk-table__cell">No profile</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Export potential</th>
+                  <td class="govuk-table__cell">No score given</td>
+                </tr>
+              </tbody>
+            </table>
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  What is export potential?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">The export potential score is a prediction of a company's likelihood of exporting, and was originally created for the Find Exporters tool. DBT's data science team compared all HMRC export information with the features of all UK companies to find patterns; they then repeatedly tested their model against a subset of known-good data to improve it. The scores are as follows:</p>
+                <p class="govuk-body"><b>Very High</b> - Most companies like this one are exporters<br />
+                <b>High</b> - This business shares some features with successful exporters<br />
+                <b>Medium</b> - Some businesses that look like this one export, others don't<br />
+                <b>Low</b> - This business shares many features with companies that do not export<br />
+                <b>Very Low</b> - Most of the businesses like this aren't exporters</p>
+                <p class="govuk-body">We are continuing to improve the algorithm so please do share your feedback or let us know of any anomalies through the <a class="govuk-link" href="support">support channel</a>.</p>
+              </div>
+            </details>
+            <table class="govuk-table govuk-!-font-size-16">
+              <caption class="govuk-table__caption govuk-table__caption--m">Export countries information <a href="" class="govuk-link">Edit</a></caption>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Currently exporting to</th>
+                  <td class="govuk-table__cell">None</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Future countries of interest</th>
+                  <td class="govuk-table__cell">None</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header datahub-w-30">Countries of no interest</th>
+                  <td class="govuk-table__cell">None</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="govuk-body"><a href="" class="govuk-link">View full export countries history</a></p>
+            <h2 class="govuk-heading-m">Export wins</h2>
+            <p class="govuk-body"><a href="" class="govuk-link">Record your win</a> on our Export Wins site</p>
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  What is an export win?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">Export wins capture the export deals that Department for Business and Trade (DBT) support and quantify their expected export value. If applicable, they also quantify the non-export and outward direct investment (ODI) value, up to a 5-year period. They give a picture of DBT support for business.</p>
+                <p class="govuk-body">The export win metric is currently the only way the department measures export activity.</p>
+              </div>
+            </details>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <p class="gov-body govuk-!-font-size-36"><b>0</b> <span class="govuk-!-font-size-24">results</span></p>
+                <hr></hr>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="orders">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half">
+                <p class="gov-body govuk-!-font-size-36 govuk-!-margin-bottom-2"><b>0</b> <span class="govuk-!-font-size-24">orders</span></p>
+                <p class="govuk-body-s">Total value: <b>£0</b></p>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+                <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
+                  Add order
+                </button>
+              </div>
+            </div>
+            <hr></hr>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-2">
+                <p class="govuk-body govuk-hint govuk-!-font-size-16">Page 1 of 0</p>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+                <div class="govuk-form-group govuk-!-margin-bottom-0">
+                  <label class="govuk-label" for="sort">
+                    Sort by
+                    <select class="govuk-select" id="sort-by" name="sort-by">
+                      <option value="Recently created" selected>Recently created</option>
+                      <option value="Oldest">Oldest</option>
+                      <option value="Recently updated">Recently updated</option>
+                      <option value="Least recently updated">Least recently updated</option>
+                      <option value="Earliest delivery date">Earliest delivery date</option>
+                      <option value="Latest delivery date">Latest delivery date</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

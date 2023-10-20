@@ -1,0 +1,7 @@
+---
+applications:
+  - name: data-workspace-prototypes-dev
+    command: node start.js
+    memory: 256M
+    buildpacks:
+      - nodejs_buildpack

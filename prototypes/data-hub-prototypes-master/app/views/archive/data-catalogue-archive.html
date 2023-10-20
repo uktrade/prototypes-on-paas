@@ -1,0 +1,495 @@
+{% extends "layout-dw.html" %}
+{% block pageTitle %}
+ Data Workspace
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Workspace", navigation: [{"href": "#", "text": "Home"}, {"href": "#", "text": "Tools"}, {"href": "#", "text": "About"}, {"href": "#", "text": " Support and feedback"}, {"href": "#", "text": "Help centre"}]}) }}
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/public/javascripts/app-copy-button.js"></script>
+<script src="/public/javascripts/highlight.pack.js"></script>
+<script nonce="">hljs.initHighlightingOnLoad();</script>
+<script>
+  let $codeBlocks = document.querySelectorAll('[data-module="app-copy"]')
+  nodeListForEach($codeBlocks, function ($codeBlock) {
+    new Copy($codeBlock).init()
+  });
+</script>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        The lord of the rings triology
+      </li>
+
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">The lord of the rings triology</h1>
+      <div class="govuk-body">
+        <div>The Lord of the Rings is an epic high fantasy novel written by J. R. R. Tolkien, which was later fitted as a trilogy.</div>
+
+<div>&nbsp;</div>
+
+<div>The story began as a sequel to Tolkien's earlier fantasy book <a href="#">The Hobbit</a> and soon developed into a much larger story.</div>
+
+<div>&nbsp;</div>
+
+<div>Written in stages between 1937 and 1949, with much of it being written during World War II,[1] it was originally published in three volumes in 1954 and 1955.</div>
+
+<ul>
+	<li><strong>The fellowship of the ring</strong> - Bilbo celebrates his 111th (eleventy-first as written in the novel) birthday and leaves the Shire suddenly without warning, leaving the Ring to Frodo Baggins, his cousin[c] and heir.</li>
+	<li><strong>Two towers</strong> - Large Orcs, Uruk-hai, sent by Saruman and other Orcs sent by Sauron kill Boromir and capture Merry and Pippin.</li>
+	<li><strong>The return of the king</strong> - Sauron sends a great army against Gondor. Gandalf arrives at Minas Tirith to warn Denethor of the attack, while Théoden musters the Rohirrim to ride to Gondor's aid.</li>
+</ul>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row" style="overflow-x: auto;">
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l govuk-!-margin-top-8">Dataset Details</h2>
+      <table class="govuk-table">
+        <thead>
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header">Name</th>
+          <th class="govuk-table__header">Identifier</th>
+          <th class="govuk-table__header">Update frequency</th>
+          <th class="govuk-table__header">Last updated</th>
+          <th class="govuk-table__header">Details</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell app-table_cell--no-border">The fellowship of the ring</td>
+            <td class="govuk-table__cell app-table_cell--no-border">"the_lord_of_the_rigns"."the_fellowship_of_the_ring"</td>
+            <td class="govuk-table__cell app-table_cell--no-border">Daily</td>
+            <td class="govuk-table__cell app-table_cell--no-border">Feb. 3, 2021, 12:27 a.m.</td>
+
+            <td class="govuk-table__cell app-table_cell--no-border">
+
+
+                  <a class="govuk-link" href="#">
+                      Preview</a>
+
+
+            </td>
+
+              </tr><tr class="govuk-table__row">
+                <td colspan="6" class="govuk-table__cell">
+                  <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                        Code snippets <span class="govuk-visually-hidden">for "the_lord_of_the_rigns"."the_fellowship_of_the_ring"</span>
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+
+
+  <link rel="stylesheet" href="/__django_static/assets/vendor/highlight/styles/a11y-light.91cb02c1c49a.css">
+
+  <h3 class="govuk-heading-l">Code snippets <span class="govuk-visually-hidden">for "the_lord_of_the_rigns"."the_fellowship_of_the_ring"</span></h3>
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Contents</h2>
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#code-snippet-sql-public_health_england-uk_covid_prevalence_data_by_ltla">SQL</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#code-snippet-python-public_health_england-uk_covid_prevalence_data_by_ltla">Python</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#code-snippet-r-public_health_england-uk_covid_prevalence_data_by_ltla">R</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="code-snippet-sql-public_health_england-uk_covid_prevalence_data_by_ltla">
+      <h3 class="govuk-heading-m">SQL</h3>
+      <div class="app-example__code">
+        <pre data-module="app-copy" style="white-space: pre-wrap;"><button id="copy-code" class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>          <code class="hljs psql pgsql"><span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">SELECT</span></span></span> * <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">FROM</span></span></span> "public_health_england"."uk_covid_prevalence_data_by_ltla" <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">LIMIT</span></span></span> <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">50</span></span></span></code>
+        </pre>
+      </div>
+
+      <a id="launch-data-explorer" class="govuk-button govuk-!-margin-top-5" href="/data-explorer/?sql=SELECT+%2A+FROM+%22public_health_england%22.%22uk_covid_prevalence_data_by_ltla%22+LIMIT+50">Open <span class="govuk-visually-hidden">first 50 rows of "public_health_england"."uk_covid_prevalence_data_by_ltla" </span>in Data Explorer</a>
+    </div>
+
+    <div class="govuk-tabs__panel" id="code-snippet-python-public_health_england-uk_covid_prevalence_data_by_ltla">
+      <h3 class="govuk-heading-m">Python</h3>
+      <div class="app-example__code">
+        <pre data-module="app-copy" style="white-space: pre-wrap;"><button id="copy-code" class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>          <code class="hljs python"><span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> os
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> pandas
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> psycopg2
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> sqlalchemy
+
+conn = psycopg2.connect(os.environ[<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'DATABASE_DSN__datasets_1'</span></span></span>])
+engine = sqlalchemy.create_engine(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'postgresql://'</span></span></span>, creator=<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">lambda</span></span></span>: conn, execution_options={<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"stream_results"</span></span></span>: <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">True</span></span></span>})
+chunks = pandas.read_sql(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'SELECT * FROM "public_health_england"."uk_covid_prevalence_data_by_ltla" LIMIT 50'</span></span></span>, engine, chunksize=<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">10000</span></span></span>)
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">for</span></span></span> chunk <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">in</span></span></span> chunks:
+    display(chunk)</code>
+        </pre>
+      </div>
+    </div>
+
+    <div class="govuk-tabs__panel" id="code-snippet-r-public_health_england-uk_covid_prevalence_data_by_ltla">
+      <h3 class="govuk-heading-m">R</h3>
+      <div class="app-example__code">
+        <pre data-module="app-copy" style="white-space: pre-wrap;"><button id="copy-code" class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>          <code class="hljs r"><span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">library</span></span></span>(stringr)
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">library</span></span></span>(DBI)
+getConn &lt;- <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">function</span></span></span>(dsn) {
+    user &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"user=([a-z0-9_]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    password &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"password=([a-zA-Z0-9_]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    port &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"port=(\\d+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    dbname &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"dbname=([a-z0-9_\\-]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    host &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"host=([a-z0-9_\\-\\.]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    con &lt;- dbConnect(RPostgres::Postgres(), user = user, password = password, host = host, port = port, dbname = dbname)
+    <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">return</span></span></span>(con)
+}
+conn &lt;- getConn(Sys.getenv(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'DATABASE_DSN__datasets_1'</span></span></span>))
+
+res &lt;- dbSendQuery(conn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'SELECT * FROM "public_health_england"."uk_covid_prevalence_data_by_ltla" LIMIT 50'</span></span></span>)
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">while</span></span></span> (!dbHasCompleted(res)) {
+    chunk &lt;- dbFetch(res, n = <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">50</span></span></span>)
+    print(chunk)
+}</code>
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="/__django_static/app-copy.727f529f044e.js"></script>
+  <script src="/__django_static/assets/vendor/highlight/highlight.pack.ef0904a4a4b0.js"></script>
+  <script nonce="">hljs.initHighlightingOnLoad();</script>
+
+
+
+                    </div>
+                  </details>
+                </td>
+              </tr>
+
+
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell app-table_cell--no-border">The two towers</td>
+            <td class="govuk-table__cell app-table_cell--no-border">"the_lord_of_the_rigns"."the_two_towers"</td>
+            <td class="govuk-table__cell app-table_cell--no-border">Daily</td>
+            <td class="govuk-table__cell app-table_cell--no-border">Feb. 3, 2021, 12:29 a.m.</td>
+
+            <td class="govuk-table__cell app-table_cell--no-border">
+
+
+                  <a class="govuk-link" href="#">
+                      Preview
+                  </a>
+
+
+            </td>
+
+              </tr><tr class="govuk-table__row">
+                <td colspan="6" class="govuk-table__cell">
+                  <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                        Code snippets <span class="govuk-visually-hidden">for "public_health_england"."uk_covid_prevalence_data_by_nation"</span>
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+
+
+  <link rel="stylesheet" href="/__django_static/assets/vendor/highlight/styles/a11y-light.91cb02c1c49a.css">
+
+  <h3 class="govuk-heading-l">Code snippets <span class="govuk-visually-hidden">for "public_health_england"."uk_covid_prevalence_data_by_nation"</span></h3>
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Contents</h2>
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#code-snippet-sql-public_health_england-uk_covid_prevalence_data_by_nation">SQL</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#code-snippet-python-public_health_england-uk_covid_prevalence_data_by_nation">Python</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#code-snippet-r-public_health_england-uk_covid_prevalence_data_by_nation">R</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="code-snippet-sql-public_health_england-uk_covid_prevalence_data_by_nation">
+      <h3 class="govuk-heading-m">SQL</h3>
+      <div class="app-example__code">
+        <pre data-module="app-copy" style="white-space: pre-wrap;"><button id="copy-code" class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>          <code class="hljs psql pgsql"><span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">SELECT</span></span></span> * <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">FROM</span></span></span> "public_health_england"."uk_covid_prevalence_data_by_nation" <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">LIMIT</span></span></span> <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">50</span></span></span></code>
+        </pre>
+      </div>
+
+      <a id="launch-data-explorer" class="govuk-button govuk-!-margin-top-5" href="/data-explorer/?sql=SELECT+%2A+FROM+%22public_health_england%22.%22uk_covid_prevalence_data_by_nation%22+LIMIT+50">Open <span class="govuk-visually-hidden">first 50 rows of "public_health_england"."uk_covid_prevalence_data_by_nation" </span>in Data Explorer</a>
+    </div>
+
+    <div class="govuk-tabs__panel" id="code-snippet-python-public_health_england-uk_covid_prevalence_data_by_nation">
+      <h3 class="govuk-heading-m">Python</h3>
+      <div class="app-example__code">
+        <pre data-module="app-copy" style="white-space: pre-wrap;"><button id="copy-code" class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>          <code class="hljs python"><span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> os
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> pandas
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> psycopg2
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> sqlalchemy
+
+conn = psycopg2.connect(os.environ[<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'DATABASE_DSN__datasets_1'</span></span></span>])
+engine = sqlalchemy.create_engine(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'postgresql://'</span></span></span>, creator=<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">lambda</span></span></span>: conn, execution_options={<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"stream_results"</span></span></span>: <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">True</span></span></span>})
+chunks = pandas.read_sql(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'SELECT * FROM "public_health_england"."uk_covid_prevalence_data_by_nation" LIMIT 50'</span></span></span>, engine, chunksize=<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">10000</span></span></span>)
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">for</span></span></span> chunk <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">in</span></span></span> chunks:
+    display(chunk)</code>
+        </pre>
+      </div>
+    </div>
+
+    <div class="govuk-tabs__panel" id="code-snippet-r-public_health_england-uk_covid_prevalence_data_by_nation">
+      <h3 class="govuk-heading-m">R</h3>
+      <div class="app-example__code">
+        <pre data-module="app-copy" style="white-space: pre-wrap;"><button id="copy-code" class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>          <code class="hljs r"><span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">library</span></span></span>(stringr)
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">library</span></span></span>(DBI)
+getConn &lt;- <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">function</span></span></span>(dsn) {
+    user &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"user=([a-z0-9_]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    password &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"password=([a-zA-Z0-9_]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    port &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"port=(\\d+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    dbname &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"dbname=([a-z0-9_\\-]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    host &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"host=([a-z0-9_\\-\\.]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    con &lt;- dbConnect(RPostgres::Postgres(), user = user, password = password, host = host, port = port, dbname = dbname)
+    <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">return</span></span></span>(con)
+}
+conn &lt;- getConn(Sys.getenv(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'DATABASE_DSN__datasets_1'</span></span></span>))
+
+res &lt;- dbSendQuery(conn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'SELECT * FROM "public_health_england"."uk_covid_prevalence_data_by_nation" LIMIT 50'</span></span></span>)
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">while</span></span></span> (!dbHasCompleted(res)) {
+    chunk &lt;- dbFetch(res, n = <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">50</span></span></span>)
+    print(chunk)
+}</code>
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="/__django_static/app-copy.727f529f044e.js"></script>
+  <script src="/__django_static/assets/vendor/highlight/highlight.pack.ef0904a4a4b0.js"></script>
+  <script nonce="">hljs.initHighlightingOnLoad();</script>
+
+
+
+                    </div>
+                  </details>
+                </td>
+              </tr>
+
+
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell app-table_cell--no-border">The king returns</td>
+            <td class="govuk-table__cell app-table_cell--no-border">"the_lord_of_the_rigns"."the_return_of_the_king"</td>
+            <td class="govuk-table__cell app-table_cell--no-border">Daily</td>
+            <td class="govuk-table__cell app-table_cell--no-border">Feb. 3, 2021, 12:28 a.m.</td>
+
+            <td class="govuk-table__cell app-table_cell--no-border">
+
+
+                  <a class="govuk-link" href="#">
+                      Preview
+                  </a>
+
+
+            </td>
+
+              </tr><tr class="govuk-table__row">
+                <td colspan="6" class="govuk-table__cell">
+                  <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                        Code snippets <span class="govuk-visually-hidden">for "public_health_england"."uk_covid_prevalence_data_by_region"</span>
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+
+
+
+
+
+  <link rel="stylesheet" href="/__django_static/assets/vendor/highlight/styles/a11y-light.91cb02c1c49a.css">
+
+  <h3 class="govuk-heading-l">Code snippets <span class="govuk-visually-hidden">for "public_health_england"."uk_covid_prevalence_data_by_region"</span></h3>
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Contents</h2>
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#code-snippet-sql-public_health_england-uk_covid_prevalence_data_by_region">SQL</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#code-snippet-python-public_health_england-uk_covid_prevalence_data_by_region">Python</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#code-snippet-r-public_health_england-uk_covid_prevalence_data_by_region">R</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="code-snippet-sql-public_health_england-uk_covid_prevalence_data_by_region">
+      <h3 class="govuk-heading-m">SQL</h3>
+      <div class="app-example__code">
+        <pre data-module="app-copy" style="white-space: pre-wrap;"><button id="copy-code" class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>          <code class="hljs psql pgsql"><span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">SELECT</span></span></span> * <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">FROM</span></span></span> "public_health_england"."uk_covid_prevalence_data_by_region" <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">LIMIT</span></span></span> <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">50</span></span></span></code>
+        </pre>
+      </div>
+
+      <a id="launch-data-explorer" class="govuk-button govuk-!-margin-top-5" href="/data-explorer/?sql=SELECT+%2A+FROM+%22public_health_england%22.%22uk_covid_prevalence_data_by_region%22+LIMIT+50">Open <span class="govuk-visually-hidden">first 50 rows of "public_health_england"."uk_covid_prevalence_data_by_region" </span>in Data Explorer</a>
+    </div>
+
+    <div class="govuk-tabs__panel" id="code-snippet-python-public_health_england-uk_covid_prevalence_data_by_region">
+      <h3 class="govuk-heading-m">Python</h3>
+      <div class="app-example__code">
+        <pre data-module="app-copy" style="white-space: pre-wrap;"><button id="copy-code" class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>          <code class="hljs python"><span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> os
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> pandas
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> psycopg2
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">import</span></span></span> sqlalchemy
+
+conn = psycopg2.connect(os.environ[<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'DATABASE_DSN__datasets_1'</span></span></span>])
+engine = sqlalchemy.create_engine(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'postgresql://'</span></span></span>, creator=<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">lambda</span></span></span>: conn, execution_options={<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"stream_results"</span></span></span>: <span class="hljs-literal"><span class="hljs-literal"><span class="hljs-literal">True</span></span></span>})
+chunks = pandas.read_sql(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'SELECT * FROM "public_health_england"."uk_covid_prevalence_data_by_region" LIMIT 50'</span></span></span>, engine, chunksize=<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">10000</span></span></span>)
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">for</span></span></span> chunk <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">in</span></span></span> chunks:
+    display(chunk)</code>
+        </pre>
+      </div>
+    </div>
+
+    <div class="govuk-tabs__panel" id="code-snippet-r-public_health_england-uk_covid_prevalence_data_by_region">
+      <h3 class="govuk-heading-m">R</h3>
+      <div class="app-example__code">
+        <pre data-module="app-copy" style="white-space: pre-wrap;"><button id="copy-code" class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button>          <code class="hljs r"><span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">library</span></span></span>(stringr)
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">library</span></span></span>(DBI)
+getConn &lt;- <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">function</span></span></span>(dsn) {
+    user &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"user=([a-z0-9_]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    password &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"password=([a-zA-Z0-9_]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    port &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"port=(\\d+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    dbname &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"dbname=([a-z0-9_\\-]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    host &lt;- str_match(dsn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"host=([a-z0-9_\\-\\.]+)"</span></span></span>)[<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">2</span></span></span>]
+    con &lt;- dbConnect(RPostgres::Postgres(), user = user, password = password, host = host, port = port, dbname = dbname)
+    <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">return</span></span></span>(con)
+}
+conn &lt;- getConn(Sys.getenv(<span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'DATABASE_DSN__datasets_1'</span></span></span>))
+
+res &lt;- dbSendQuery(conn, <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">'SELECT * FROM "public_health_england"."uk_covid_prevalence_data_by_region" LIMIT 50'</span></span></span>)
+<span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">while</span></span></span> (!dbHasCompleted(res)) {
+    chunk &lt;- dbFetch(res, n = <span class="hljs-number"><span class="hljs-number"><span class="hljs-number">50</span></span></span>)
+    print(chunk)
+}</code>
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="/__django_static/app-copy.727f529f044e.js"></script>
+  <script src="/__django_static/assets/vendor/highlight/highlight.pack.ef0904a4a4b0.js"></script>
+  <script nonce="">hljs.initHighlightingOnLoad();</script>
+
+
+
+                    </div>
+                  </details>
+                </td>
+              </tr>
+
+
+
+
+        </tbody>
+
+        </table>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l govuk-!-margin-top-8">Additional information</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Date added</dt>
+          <dd class="govuk-summary-list__value">Dec. 31, 2020</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Licence</dt>
+          <dd class="govuk-summary-list__value">Open Government Licence V3.0</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Retention Policy</dt>
+          <dd class="govuk-summary-list__value">No retention policy</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Personal Data</dt>
+          <dd class="govuk-summary-list__value">Does not contain personal data</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Restrictions on usage</dt>
+          <dd class="govuk-summary-list__value">No restrictions on usage</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Information Asset Manager</dt>
+          <dd class="govuk-summary-list__value">
+
+
+<p class="govuk-body">
+    Samwise Gamgee
+
+        <br>
+        <a class="govuk-link" href="mailto:samwise.gamgee@digital.trade.gov.uk">antoine.russegger@digital.trade.gov.uk</a>
+
+</p>
+
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Information Asset Owner</dt>
+          <dd class="govuk-summary-list__value">
+
+
+<p class="govuk-body">
+    Frudo Baggins
+
+        <br>
+        <a class="govuk-link" href="mailto:anthony.coyne@trade.gov.uk">frudo.baggins@trade.gov.uk</a>
+
+</p>
+
+          </dd>
+        </div>
+      </dl>
+
+
+<h2 class="govuk-heading-l">Contact</h2>
+<p class="govuk-body">
+  Use this contact to ask questions about this data and how to use it.
+</p>
+
+
+<p class="govuk-body">
+    Aragorn Elessar
+
+        <br>
+        <a class="govuk-link" href="mailto:antoine.russegger@digital.trade.gov.uk">aragorn.elessar@digital.trade.gov.uk</a>
+
+</p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

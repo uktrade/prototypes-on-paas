@@ -1,0 +1,21 @@
+.govuk-accordion__open-all {
+@include govuk-font($size: 16);
+position: relative;
+z-index: 1;
+margin: 0;
+padding: 0;
+border-width: 0;
+color: $govuk-link-colour;
+background: none;
+cursor: pointer;
+-webkit-appearance: none;
+
+@include govuk-link-common;
+@include govuk-link-style-default;
+
+// Remove default button focus outline in Firefox
+&::-moz-focus-inner {
+ padding: 0;
+ border: 0;
+}
+}

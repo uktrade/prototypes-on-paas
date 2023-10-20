@@ -1,0 +1,90 @@
+{% extends "layout-dw.html" %}
+{% block pageTitle %}
+ Data Workspace
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader(
+  {
+    serviceName: "Data Workspace",
+    navigation: [
+      {"href": "#", "text": "Home"},
+      {"href": "#", "text": "Tools"},
+      {"href": "#", "text": "About", "active": true},
+      {"href": "#", "text": "Support and feedback"},
+      {"href": "#", "text": "Help centre"}
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">About</h1>
+            <p class="govuk-body-l">
+              Data Workspace is where DIT staff and those at partner organisations can access, analyse and share data that’s relevant to DIT. It will help you develop insight-driven strategy and policy, and to monitor, evaluate and report on DIT’s work and objectives.
+            </p>
+          </div>
+    </div>
+
+    <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            {% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+
+            {{ govukAccordion({
+              id: "accordion-default",
+              items: [
+                {
+                  heading: {
+                    text: "Datasets"
+                  },
+                  content: {
+                    html: "
+                      <p class='govuk-body'>
+                      You can access up-to-date data through a searchable catalogue of <a href='#' class='govuk-link'>datasets</a>.
+                      </p>
+                      <p class='govuk-body'>
+                      Some datasets can be downloaded by everyone, but for others that contain personal or other sensitive information, you’ll need to request access through their Data Workspace page. We aim to provide access within 5 working days.
+                      </p>
+                      "
+                  }
+                },
+                {
+                  heading: {
+                    text: "Data tools"
+                  },
+                  content: {
+                    html:
+                    "
+                    <p class='govuk-body'>Analysis tools available on Data Workspace include JupyterLab, RStudio and pgAdmin. These are powerful and versatile tools aimed at analysts and data scientists. They require some familiarity with Python, R or SQL coding languages. You can also access SPPS/STATA which are used by statisticians.</p>
+                    <p class='govuk-body'>You can request access to these tools using our <a href='#' class='govuk-link'>feedback form</a>.</p>
+                    "
+                  }
+                },
+                  {
+                  heading: {
+                    text: "Improving Data Workspace"
+                  },
+                  content: {
+                    html:
+                    "
+                    <p class='govuk-body'>Data Workspace is still being developed and we are making improvements including:</p>
+                    <ul class='govuk-list govuk-list--bullet'>
+                      <li>adding new datasets</li>
+                      <li>introducing an enhanced user interface to make Data Workspace easier to use</li>
+                      <li>sharing data analysis created by other people using our tools and data</li>
+                    </ul>
+                    <p class='govuk-body'>Your feedback will help us to improve our service. You can use the <a href='#' class='govuk-link'>feedback form</a> to send us your comments.</p>
+                    "
+                  }
+                }
+
+              ]
+            }) }}
+          </div>
+      </div>
+    </div>
+
+
+{% endblock %}

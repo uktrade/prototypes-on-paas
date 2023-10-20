@@ -1,0 +1,686 @@
+{% extends "layout-dw.html" %}
+{% block pageTitle %}
+ Data Workspace
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader(
+  {
+    serviceName: "Data Workspace",
+    navigation:
+      [
+        {"href": "#", "text": "Home", "active": true},
+        {"href": "#", "text": "Tools"},
+        {"href": "#", "text": "About"},
+        {"href": "#", "text": "Our work"},
+        {"href": "#", "text": "Support"},
+        {"href": "#", "text": "Help centre"}
+      ]
+  })
+}}
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="/public/javascripts/app-filter-show-more-v2.js"></script>
+{% endblock %}
+
+{% block content %}
+<form id="live-search-form" action="/datasets/" method="get">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Welcome to Data Workspace</h1>
+          <p class="govuk-body-l">
+            Data Workspace is where DIT staff and partners can access, analyse and securely share data and data visualisations relevant to DIT.
+          </p>
+      </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-hint">
+        Search in data name and description
+      </div>
+
+        <div class="search-field govuk-!-margin-bottom-9">
+          <label class="govuk-label search-field__label" for="search">Enter your search term(s)</label>
+            <div class="search-field-wrapper">
+              <input type="search" name="q" id="search" title="Search" class="govuk-input search-field__item search-field__input js-class-toggle" value aria-controls>
+                <div class="search-field-submit-wrapper search-field__item">
+                <input class="search-field__submit" type="submit" value="Search">
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div id="live-search-wrapper" class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-l">Filters</h2>
+
+      <div class="govuk-form-group">
+        <fieldset id="id_access" class="govuk-fieldset">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading">Access status</h2>
+            </legend>
+
+              <div class="govuk-checkboxes" data-module="filter-show-more" data-show-more-id="id_access">
+                <div class="govuk-checkboxes__item ">
+                  <input class="govuk-checkboxes__input" name="access" type="checkbox" value="yes" id="id_access_0" checked="">
+
+                  <label class="govuk-label govuk-checkboxes__label" for="id_access_0">
+                  You have access (64)
+                  </label>
+                </div>
+
+              </div>
+          </fieldset>
+        </div>
+
+
+    <div class="govuk-form-group">
+      <fieldset id="id_use" class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">Purpose</h2>
+          </legend>
+
+            <span id="id_use-hint" class="govuk-hint">
+              What do you want to do with data?
+            </span>
+
+                <div class="govuk-checkboxes" data-module="filter-show-more" data-show-more-id="id_use">
+
+                  <div class="govuk-checkboxes__item ">
+
+                      <input class="govuk-checkboxes__input" name="use" type="checkbox" value="2" id="id_use_0">
+                      <label class="govuk-label govuk-checkboxes__label" for="id_use_0">
+                        Download (16)
+                      </label>
+                  </div>
+
+                <div class="govuk-checkboxes__item ">
+
+                    <input class="govuk-checkboxes__input" name="use" type="checkbox" value="1" id="id_use_1">
+                    <label class="govuk-label govuk-checkboxes__label" for="id_use_1">
+                      Analyse in tools (22)
+                    </label>
+
+                </div>
+
+
+                <div class="govuk-checkboxes__item ">
+
+                    <input class="govuk-checkboxes__input" name="use" type="checkbox" value="0" id="id_use_2">
+                    <label class="govuk-label govuk-checkboxes__label" for="id_use_2">
+                      Use as reference data (25)
+                    </label>
+
+                </div>
+
+
+                <div class="govuk-checkboxes__item ">
+
+                    <input class="govuk-checkboxes__input" name="use" type="checkbox" value="3" id="id_use_3">
+                    <label class="govuk-label govuk-checkboxes__label" for="id_use_3">
+                      View data visualisation (1)
+                    </label>
+
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+
+
+            <div class="govuk-form-group">
+              <fieldset id="id_access" class="govuk-fieldset">
+
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      <h2 class="govuk-fieldset__heading">Topics</h2>
+                  </legend>
+
+              <div class="govuk-checkboxes" data-module="filter-show-more" data-show-more-id="id_tag">
+
+                <div class="govuk-checkboxes__item ">
+
+                    <input class="govuk-checkboxes__input" name="tags" type="checkbox" value="2" id="id_tag_0">
+                    <label class="govuk-label govuk-checkboxes__label" for="id_topic_0">
+                      Brexit
+                    </label>
+
+              </div>
+
+            <div class="govuk-checkboxes__item ">
+              <input class="govuk-checkboxes__input" name="tags" type="checkbox" value="2" id="id_tag_0">
+
+                <label class="govuk-label govuk-checkboxes__label" for="id_topic_0">
+                  Covid
+                </label>
+            </div>
+
+            <div class="govuk-checkboxes__item ">
+                <input class="govuk-checkboxes__input" name="tags" type="checkbox" value="2" id="id_tag_0">
+
+                <label class="govuk-label govuk-checkboxes__label" for="id_topic_0">
+                  FDI (Foreign Direct Investment)
+                </label>
+            </div>
+
+            <div class="govuk-checkboxes__item ">
+                <input class="govuk-checkboxes__input" name="tags" type="checkbox" value="2" id="id_tag_0">
+
+                <label class="govuk-label govuk-checkboxes__label" for="id_topic_0">
+                  FTA (Free Trade Agreement)
+                </label>
+            </div>
+
+            <div class="govuk-checkboxes__item ">
+                <input class="govuk-checkboxes__input" name="tags" type="checkbox" value="2" id="id_tag_0">
+
+                <label class="govuk-label govuk-checkboxes__label" for="id_topic_0">
+                  UK regional data
+                </label>
+            </div>
+
+            <div class="govuk-checkboxes__item ">
+                <input class="govuk-checkboxes__input" name="tags" type="checkbox" value="2" id="id_tag_0">
+
+                <label class="govuk-label govuk-checkboxes__label" for="id_topic_0">
+                  Trade
+                </label>
+            </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+            <fieldset id="id_source" class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h2 class="govuk-fieldset__heading">Source</h2>
+                </legend>
+
+                <span id="id_source-hint" class="govuk-hint">
+                  Source or publishing organisation
+                </span>
+
+          <div class="govuk-checkboxes" data-module="filter-show-more" data-show-more-id="id_source">
+
+            <div class="govuk-checkboxes__item ">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="53ced718-dde8-4a80-8b41-f0d2326fbf13" id="id_source_0">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_0">
+                Apple (1)
+              </label>
+          </div>
+
+            <div class="govuk-checkboxes__item ">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="2efe2e63-19c2-41fd-be4b-fe2110752c7a" id="id_source_1">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_1">
+                Companies House (1)
+              </label>
+            </div>
+
+
+            <div class="govuk-checkboxes__item ">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="41704f06-e46e-420d-ae05-385fd2fe2e6e" id="id_source_2">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_2">
+                Data Hub (1)
+              </label>
+            </div>
+
+
+            <div class="govuk-checkboxes__item ">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="88db1d9e-8e52-43d0-8dd6-13ad6efd8157" id="id_source_3">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_3">
+                Department for International Trade (17)
+              </label>
+            </div>
+
+
+            <div class="govuk-checkboxes__item ">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="4bb2ddeb-c27c-4ed3-8c82-34a09e6cf76d" id="id_source_4">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_4">
+                European Commission (1)
+              </label>
+            </div>
+
+
+
+            <div class="govuk-checkboxes__item ">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="b821e11d-0dd2-44ed-817d-7a61450e70d6" id="id_source_5">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_5">
+                European Union (1)
+              </label>
+            </div>
+
+
+
+            <div class="govuk-checkboxes__item ">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="eee52a2f-4f54-40dc-a68b-d30658987933" id="id_source_6">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_6">
+                Export Wins (1)
+              </label>
+            </div>
+
+
+
+            <div class="govuk-checkboxes__item ">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="6e7816d6-9fdc-40a5-8326-068ac74fb681" id="id_source_7">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_7">
+                Financial Times (1)
+              </label>
+            </div>
+
+
+
+            <div class="govuk-checkboxes__item ">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="e8f0ea32-7a2d-4795-bfe0-b52320efa1df" id="id_source_8">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_8">
+                Google (1)
+              </label>
+            </div>
+
+
+
+            <div class="govuk-checkboxes__item ">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="06a3597c-202d-4fe8-98f2-3e7504ce8145" id="id_source_9">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_9">
+                Higher Education Statistics Agency (1)
+              </label>
+            </div>
+
+            <button class="govuk-button govuk-button--secondary js-filter-show-more" type="button">Show more sources</button>
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="f58d32ca-b98e-4bf9-8b2e-6ab574cca1d4" id="id_source_10">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_10">
+                HM Revenue and Customs (2)
+              </label>
+            </div>
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="0369302c-0275-43ae-9382-51535a142fdf" id="id_source_11">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_11">
+                Innovate UK (1)
+              </label>
+            </div>
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="37073868-ecdf-4cc1-b164-9d75747a6128" id="id_source_12">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_12">
+                International Trade Centre (1)
+              </label>
+            </div>
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="b42ae3ca-aa14-454b-97ed-70c8b2b65a27" id="id_source_13">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_13">
+                Johns Hopkins University (2)
+              </label>
+            </div>
+
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="68e6f3c7-18e8-46d5-9eca-480c0637d4bd" id="id_source_14">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_14">
+                Office for National Statistics (14)
+              </label>
+            </div>
+
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="b1e7c0cc-88e1-4572-a7a3-f44823348821" id="id_source_15">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_15">
+                Organisation for Economic Co-operation and Development (1)
+              </label>
+            </div>
+
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="62aa84c3-c64b-41f1-adc5-22161617a81a" id="id_source_16">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_16">
+                Oxford University (2)
+              </label>
+            </div>
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="fd61eca4-b79f-4e13-937a-b208fb14d4c5" id="id_source_17">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_17">
+                Public Health England (1)
+              </label>
+            </div>
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="8a9735e0-dbb6-4a3d-ba99-6721b5c58919" id="id_source_18">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_18">
+                UK Research and Innovation (1)
+              </label>
+            </div>
+
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="aa93f6e7-ab76-4d6b-8b32-cde05f9dc6b5" id="id_source_19">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_19">
+                UN Conference on Trade and Development (1)
+              </label>
+            </div>
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="5001a2e5-4d8d-484b-8073-a70420ee9555" id="id_source_20">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_20">
+                World Bank (2)
+              </label>
+            </div>
+
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="b719a8a0-de95-4a40-b3c9-c37f60c9a52f" id="id_source_21">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_21">
+                World Customs Organization (1)
+              </label>
+            </div>
+
+
+            <div class="govuk-checkboxes__item app-js-hidden">
+              <input class="govuk-checkboxes__input" name="source" type="checkbox" value="e78f1e48-2962-4e1c-99e3-3e8cc10b9d44" id="id_source_22">
+
+              <label class="govuk-label govuk-checkboxes__label" for="id_source_22">
+                World Intellectual Property Organization (1)
+              </label>
+            </div>
+
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+    <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body"><span id="search-results-count">64</span> results</p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            <div class="govuk-form-group">
+              <span class="govuk-label">
+                Sort by
+                <select class="govuk-select govuk-!-margin-left-2" name="sort" id="id_sort">
+
+                  <option value="-search_rank,name" selected="">Relevance</option>
+                  <option value="-published_at">Date published: newest</option>
+                  <option value="published_at">Date published: oldest</option>
+                  <option value="name">Alphabetical (A-Z)</option>
+
+              </select>
+          </span>
+    </div>
+
+    <div class="search-result">
+        <h2 class="govuk-heading-m">
+          <a class="govuk-link" href="#">The lord of the rings triology</a>
+        </h2>
+
+          <p class="govuk-body">Movement trends generated from middle earth maps data showing a relative volume of directions requests per country/region, sub-region or city compared to a baseline volume on 13 January 2020.</p>
+          <p class="govuk-body">
+            <span class="govuk-!-font-weight-bold">Purpose:</span> Analyse in tools
+            <br>
+            <span class="govuk-!-font-weight-bold">Source:</span>
+            Apple
+          </p>
+
+          <p class="govuk-visually-hidden">Topics</p>
+
+          <span class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-2">
+            <ul class="app-taglist govuk-body govuk-!-margin-0">
+
+              <li class="app-taglist__item govuk-!-font-weight-bold govuk-!-font-size-16">COVID-19</li>
+
+            </ul>
+        </span>
+
+    </div>
+
+    <div class="search-result">
+      <h2 class="govuk-heading-m">
+        <a class="govuk-link" href="#">Guide to the names in The Lord of the Rings</a>
+      </h2>
+
+      <p class="govuk-body">Average annual salaries for foreign direct investment (FDI) projects by sector.</p>
+      <p class="govuk-body">
+        <span class="govuk-!-font-weight-bold">Purpose:</span> Use as reference data
+        <br>
+        <span class="govuk-!-font-weight-bold">Source:</span>
+
+          Department for International Trade
+
+      </p>
+    </div>
+
+    <div class="search-result">
+      <h2 class="govuk-heading-m">
+        <a class="govuk-link" href="#">The history of middle-earth</a>
+      </h2>
+
+      <p class="govuk-body">This dataset contains details of attendees at DIT events in , taken from Data Hub.</p>
+      <p class="govuk-body">
+        <span class="govuk-!-font-weight-bold">Purpose:</span> Download
+        <br>
+        <span class="govuk-!-font-weight-bold">Source:</span>
+
+          Data Hub
+
+          <p class="govuk-visually-hidden">Topics</p>
+
+          <span class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-2">
+          <ul class="app-taglist govuk-body govuk-!-margin-0">
+
+              <li class="app-taglist__item govuk-!-font-weight-bold govuk-!-font-size-16">UK regional data</li>
+
+          </ul>
+        </span>
+
+
+    </div>
+
+    <div class="search-result">
+      <h2 class="govuk-heading-m">
+        <a class="govuk-link" href="#">Languages spoken in middle earth</a>
+      </h2>
+
+      <p class="govuk-body">Company persons of control details from Companies House.</p>
+      <p class="govuk-body">
+        <span class="govuk-!-font-weight-bold">Purpose:</span> Analyse in tools
+        <br>
+        <span class="govuk-!-font-weight-bold">Source:</span>
+
+          Companies House
+
+      </p>
+    </div>
+
+    <div class="search-result">
+      <h2 class="govuk-heading-m">
+        <a class="govuk-link" href="#">The lord of the rings: The fellowship of the ring</a>
+      </h2>
+
+      <p class="govuk-body">UK government data on COVID-19 prevalence in the UK, including daily updated figures for cases and deaths by various geographical areas.</p>
+      <p class="govuk-body">
+        <span class="govuk-!-font-weight-bold">Purpose:</span> Analyse in tools
+        <br>
+        <span class="govuk-!-font-weight-bold">Source:</span>
+
+          Public Health England
+
+      </p>
+
+      <p class="govuk-visually-hidden">Topics</p>
+
+      <span class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-2">
+      <ul class="app-taglist govuk-body govuk-!-margin-0">
+
+          <li class="app-taglist__item govuk-!-font-weight-bold govuk-!-font-size-16">COVID-19</li>
+
+      </ul>
+    </span>
+
+    </div>
+
+    <div class="search-result">
+      <h2 class="govuk-heading-m">
+        <a class="govuk-link" href="#">The lord of the rings: The two towers</a>
+      </h2>
+
+      <p class="govuk-body">DIT's official list of countries and territories mapped to DIT’s official list of recognised trading blocs.</p>
+      <p class="govuk-body">
+        <span class="govuk-!-font-weight-bold">Purpose:</span> Use as reference data
+        <br>
+        <span class="govuk-!-font-weight-bold">Source:</span>
+
+          Department for International Trade
+
+      </p>
+    </div>
+
+    <div class="search-result">
+      <h2 class="govuk-heading-m">
+        <a class="govuk-link" href="#">The lord of the rings: The return of the king</a>
+      </h2>
+
+      <p class="govuk-body">DIT's official list of countries, territories and overseas regions.</p>
+      <p class="govuk-body">
+        <span class="govuk-!-font-weight-bold">Purpose:</span> Use as reference data
+        <br>
+        <span class="govuk-!-font-weight-bold">Source:</span>
+
+          Department for International Trade
+
+      </p>
+    </div>
+
+    <div class="search-result">
+      <h2 class="govuk-heading-m">
+        <a class="govuk-link" href="#">The children of Hurin</a>
+      </h2>
+
+      <p class="govuk-body">Data underlying the John Hopkins University COVID-19 Dashboard.</p>
+      <p class="govuk-body">
+        <span class="govuk-!-font-weight-bold">Purpose:</span> Analyse in tools
+        <br>
+        <span class="govuk-!-font-weight-bold">Source:</span>
+
+          Johns Hopkins University
+
+      </p>
+
+      <p class="govuk-visually-hidden">Topics</p>
+
+      <span class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-2">
+      <ul class="app-taglist govuk-body govuk-!-margin-0">
+
+          <li class="app-taglist__item govuk-!-font-weight-bold govuk-!-font-size-16">COVID-19</li>
+
+      </ul>
+    </span>
+
+    </div>
+
+    <div class="search-result">
+      <h2 class="govuk-heading-m">
+        <a class="govuk-link" href="#">The Treason of Isengard,</a>
+      </h2>
+
+      <p class="govuk-body">COVID-19 Johns Hopkins University global data with ISO codes and daily values</p>
+      <p class="govuk-body">
+        <span class="govuk-!-font-weight-bold">Purpose:</span> Download
+        <br>
+        <span class="govuk-!-font-weight-bold">Source:</span>
+
+          Johns Hopkins University
+
+      </p>
+    </div>
+
+    <div class="search-result">
+      <h2 class="govuk-heading-m">
+        <a class="govuk-link" href="#">The settlement of shire</a>
+      </h2>
+
+      <p class="govuk-body">DITs official list of Devolved Administrations.</p>
+      <p class="govuk-body">
+        <span class="govuk-!-font-weight-bold">Purpose:</span> Use as reference data
+        <br>
+        <span class="govuk-!-font-weight-bold">Source:</span>
+
+          N/A
+
+      </p>
+    </div>
+
+
+    <nav role="navigation" class="govuk-body">
+
+      Displaying datasets 1–15 of 64
+
+      <ul class="pagination govuk-list">
+
+            <li class="active">1</li>
+            <li><a class="govuk-link" href="#">2</a></li>
+            <li><a class="govuk-link" href="#">3</a></li>
+
+            <li>…</li>
+            <li><a class="govuk-link" href="#">5</a></li>
+            <li><a class="govuk-link" href="#">Next</a></li>
+
+      </ul>
+    </nav>
+
+
+    <div class="govuk-!-margin-top-9">
+      <p class="govuk-body">
+
+          If you haven’t found what you’re looking for, please:
+
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>check the spelling of your keywords</li>
+        <li>use more general keywords</li>
+        <li>select or deselect different filters</li>
+        <li>request data via our <a class="govuk-link" href="#">support and feedback form</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="homepage">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="companies">Companies</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Add interaction for company name</a>
+    </li>
+
+  </ol>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-8">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-l">Add interaction for company name</h1>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-!-padding-top-0">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-inset-text">
+          <p class="govuk-body">Select ‘Trade agreement’ if your interaction was set up to focus on, or contributes to, implementing a trade agreement.</p>
+          <p class="govuk-body">Read more <a href="https://data-services-help.trade.gov.uk/data-hub/how-articles/trade-agreement-activity/recording-trade-agreement-activity/" class="govuk-link">information and guidance</a> (opens in a new window or tab) on this section.</p>
+        </div>
+
+        <form class="form" action="/interaction-details" method="post">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                <h2 class="govuk-fieldset__heading">
+                  What is this regarding?
+                </h2>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-type" name="interaction-type" type="radio" value="export" data-aria-controls="conditional-contact">
+                  <label class="govuk-label govuk-radios__label" for="interaction-type">
+                    Export
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h2 class="govuk-fieldset__heading">
+                          What would you like to record?
+                        </h2>
+                      </legend>
+                      <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="standard-interaction" name="export-type" type="radio" value="standard interaction" data-aria-controls="standard-interaction">
+                          <label class="govuk-label govuk-radios__label" for="standard-interaction">
+                            A standard interaction
+                          </label>
+                          <div id="standard-interaction-hint" class="govuk-hint govuk-radios__hint">
+                            For example, an email, phone call or meeting
+                          </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="service" name="export-type" type="radio" value="service" data-aria-controls="service">
+                          <label class="govuk-label govuk-radios__label" for="service">
+                            A service that you have provided
+                          </label>
+                          <div id="sservice-hint" class="govuk-hint govuk-radios__hint">
+                            For example, a significant assist or an event
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-type-2" name="interaction-type" type="radio" value="investment" data-aria-controls="conditional-contact-2">
+                  <label class="govuk-label govuk-radios__label" for="interaction-type-2">
+                    Investment
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-type-3" name="interaction-type" type="radio" value="trade agreement" data-aria-controls="interaction-type-3">
+                  <label class="govuk-label govuk-radios__label" for="interaction-type-3">
+                    Trade agreement
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interaction-type-4" name="interaction-type" type="radio" value="other" data-aria-controls="conditional-other">
+                  <label class="govuk-label govuk-radios__label" for="interaction-type-4">
+                    Other
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-other">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h2 class="govuk-fieldset__heading">
+                          What would you like to record?
+                        </h2>
+                      </legend>
+                      <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="standard-interaction" name="other-type" type="radio" value="standard interaction" data-aria-controls="standard-interaction">
+                          <label class="govuk-label govuk-radios__label" for="standard-interaction">
+                            A standard interaction
+                          </label>
+                          <div id="standard-interaction-hint" class="govuk-hint govuk-radios__hint">
+                            For example, an email, phone call or meeting
+                          </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="service" name="other-type" type="radio" value="service" data-aria-controls="service">
+                          <label class="govuk-label govuk-radios__label" for="service">
+                            A service that you have provided
+                          </label>
+                          <div id="service-hint" class="govuk-hint govuk-radios__hint">
+                            For example, a significant assist or an event
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+                Continue
+              </button>
+            </fieldset>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

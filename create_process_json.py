@@ -14,18 +14,29 @@ for prototype in os.listdir(prototypes_folder):
         if os.path.isfile(config_file):
             with open(config_file, "r") as file:
                 config = json.load(file)
-                specific_prototype_name = config["serviceName"]
+                specific_prototype_name = config.get("serviceName", prototype)
+
+            # now we'll also disable https redirection and basic authentication
+            # for the prototype
+            config["useAuth"] = False
+            config["useHttps"] = False
+
+            with open(config_file, 'w') as file:
+                json.dump(config, file)
 
             port += 1
 
+            # then we write it to the process.json dictionary
             processes["apps"].append({
                 "name": specific_prototype_name,
                 "cwd": f"./prototypes/{prototype}",
-                "script": "npm run dev",
+                "script": "npm run start",
                 "env": {
                     "PORT": port,
-                    "NODE_ENV": "development"
-                }
+                    "NODE_ENV": "production",
+                    "PASSWORD": "password",
+                },
+                "url_path": prototype,
             })
 
 # writing the completed processes file to JSON

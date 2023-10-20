@@ -1,0 +1,628 @@
+[
+  {"ID": "SAL0001", "Sector": "Advanced engineering", "Salary": 32500},
+  {"ID": "SAL0002", "Sector": "Advanced engineering", "Salary": 32500},
+  {"ID": "SAL0003", "Sector": "Advanced engineering", "Salary": 32500},
+  {"ID": "SAL0004", "Sector": "Advanced engineering", "Salary": 32500},
+  {"ID": "SAL0005", "Sector": "Advanced engineering", "Salary": 32500},
+  {"ID": "SAL0006", "Sector": "Advanced engineering", "Salary": 32500},
+  {"ID": "SAL0007", "Sector": "Advanced engineering", "Salary": 32500},
+  {"ID": "SAL0008", "Sector": "Advanced engineering", "Salary": 32500},
+  {"ID": "SAL0009", "Sector": "Advanced engineering", "Salary": 32500},
+  {"ID": "SAL0010", "Sector": "Advanced engineering", "Salary": 32500},
+  {"ID": "SAL0011", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0012", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0013", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0014", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0015", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0016", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0017", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0018", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0019", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0020", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0021", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0022", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0023", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0024", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0025", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0026", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0027", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0028", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0029", "Sector": "Aerospace", "Salary": 37500},
+  {"ID": "SAL0030", "Sector": "Aerospace", "Salary": 37500},
+  {"ID": "SAL0031", "Sector": "Aerospace", "Salary": 37500},
+  {"ID": "SAL0032", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0033", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0034", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0035", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0036", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0037", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0038", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0039", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0040", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0041", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0042", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0043", "Sector": "Aerospace", "Salary": 22500},
+  {"ID": "SAL0044", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0045", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0046", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0047", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0048", "Sector": "Aerospace", "Salary": 40000},
+  {"ID": "SAL0049", "Sector": "Airports", "Salary": 32500},
+  {"ID": "SAL0050", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0051", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0052", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0053", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0054", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0055", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0056", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0057", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0058", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0059", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0060", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0061", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0062", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0063", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0064", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0065", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0066", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0067", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0068", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0069", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0070", "Sector": "Automotive", "Salary": 40000},
+  {"ID": "SAL0071", "Sector": "Chemicals", "Salary": 37500},
+  {"ID": "SAL0072", "Sector": "Chemicals", "Salary": 37500},
+  {"ID": "SAL0073", "Sector": "Chemicals", "Salary": 37500},
+  {"ID": "SAL0074", "Sector": "Chemicals", "Salary": 37500},
+  {"ID": "SAL0075", "Sector": "Chemicals", "Salary": 37500},
+  {"ID": "SAL0076", "Sector": "Chemicals", "Salary": 37500},
+  {"ID": "SAL0077", "Sector": "Chemicals", "Salary": 37500},
+  {"ID": "SAL0078", "Sector": "Construction", "Salary": 32500},
+  {"ID": "SAL0079", "Sector": "Consumer and retail", "Salary": 22500},
+  {"ID": "SAL0080", "Sector": "Consumer and retail", "Salary": 27500},
+  {"ID": "SAL0081", "Sector": "Consumer and retail", "Salary": 27500},
+  {"ID": "SAL0082", "Sector": "Consumer and retail", "Salary": 27500},
+  {"ID": "SAL0083", "Sector": "Consumer and retail", "Salary": 27500},
+  {"ID": "SAL0084", "Sector": "Consumer and retail", "Salary": 27500},
+  {"ID": "SAL0085", "Sector": "Consumer and retail", "Salary": 27500},
+  {"ID": "SAL0086", "Sector": "Consumer and retail", "Salary": 27500},
+  {"ID": "SAL0087", "Sector": "Consumer and retail", "Salary": 27500},
+  {"ID": "SAL0088", "Sector": "Consumer and retail", "Salary": 27500},
+  {"ID": "SAL0089", "Sector": "Consumer and retail", "Salary": 32500},
+  {"ID": "SAL0090", "Sector": "Consumer and retail", "Salary": 32500},
+  {"ID": "SAL0091", "Sector": "Consumer and retail", "Salary": 32500},
+  {"ID": "SAL0092", "Sector": "Consumer and retail", "Salary": 32500},
+  {"ID": "SAL0093", "Sector": "Consumer and retail", "Salary": 32500},
+  {"ID": "SAL0094", "Sector": "Consumer and retail", "Salary": 32500},
+  {"ID": "SAL0095", "Sector": "Consumer and retail", "Salary": 25000},
+  {"ID": "SAL0096", "Sector": "Consumer and retail", "Salary": 25000},
+  {"ID": "SAL0097", "Sector": "Consumer and retail", "Salary": 25000},
+  {"ID": "SAL0098", "Sector": "Consumer and retail", "Salary": 25000},
+  {"ID": "SAL0099", "Sector": "Consumer and retail", "Salary": 32500},
+  {"ID": "SAL0100", "Sector": "Consumer and retail", "Salary": 32500},
+  {"ID": "SAL0101", "Sector": "Consumer and retail", "Salary": 32500},
+  {"ID": "SAL0102", "Sector": "Consumer and retail", "Salary": 27500},
+  {"ID": "SAL0103", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0104", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0105", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0106", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0107", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0108", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0109", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0110", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0111", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0112", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0113", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0114", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0115", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0116", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0117", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0118", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0119", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0120", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0121", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0122", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0123", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0124", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0125", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0126", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0127", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0128", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0129", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0130", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0131", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0132", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0133", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0134", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0135", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0136", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0137", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0138", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0139", "Sector": "Creative industries", "Salary": 45000},
+  {"ID": "SAL0140", "Sector": "Defence", "Salary": 25000},
+  {"ID": "SAL0141", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0142", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0143", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0144", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0145", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0146", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0147", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0148", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0149", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0150", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0151", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0152", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0153", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0154", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0155", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0156", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0157", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0158", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0159", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0160", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0161", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0162", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0163", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0164", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0165", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0166", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0167", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0168", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0169", "Sector": "Education and training", "Salary": 25000},
+  {"ID": "SAL0170", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0171", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0172", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0173", "Sector": "Energy", "Salary": 47500},
+  {"ID": "SAL0174", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0175", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0176", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0177", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0178", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0179", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0180", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0181", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0182", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0183", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0184", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0185", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0186", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0187", "Sector": "Energy", "Salary": 37500},
+  {"ID": "SAL0188", "Sector": "Environment", "Salary": 37500},
+  {"ID": "SAL0189", "Sector": "Environment", "Salary": 37500},
+  {"ID": "SAL0190", "Sector": "Environment", "Salary": 37500},
+  {"ID": "SAL0191", "Sector": "Environment", "Salary": 37500},
+  {"ID": "SAL0192", "Sector": "Environment", "Salary": 37500},
+  {"ID": "SAL0193", "Sector": "Environment", "Salary": 37500},
+  {"ID": "SAL0194", "Sector": "Environment", "Salary": 37500},
+  {
+    "ID": "SAL0195",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0196",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0197",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0198",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0199",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0200",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0201",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0202",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0203",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0204",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0205",
+    "Sector": "Financial and professional services",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0206",
+    "Sector": "Financial and professional services",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0207",
+    "Sector": "Financial and professional services",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0208",
+    "Sector": "Financial and professional services",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0209",
+    "Sector": "Financial and professional services",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0210",
+    "Sector": "Financial and professional services",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0211",
+    "Sector": "Financial and professional services",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0212",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0213",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0214",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0215",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0216",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0217",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0218",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0219",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0220",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0221",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0222",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0223",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0224",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0225",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0226",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0227",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {
+    "ID": "SAL0228",
+    "Sector": "Financial and professional services",
+    "Salary": 55000
+  },
+  {"ID": "SAL0229", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0230", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0231", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0232", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0233", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0234", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0235", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0236", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0237", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0238", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0239", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0240", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0241", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0242", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0243", "Sector": "Food and drink", "Salary": 27500},
+  {"ID": "SAL0244", "Sector": "Healthcare services", "Salary": 40000},
+  {"ID": "SAL0245", "Sector": "Healthcare services", "Salary": 40000},
+  {"ID": "SAL0246", "Sector": "Healthcare services", "Salary": 40000},
+  {"ID": "SAL0247", "Sector": "Healthcare services", "Salary": 40000},
+  {"ID": "SAL0248", "Sector": "Healthcare services", "Salary": 40000},
+  {"ID": "SAL0249", "Sector": "Healthcare services", "Salary": 40000},
+  {"ID": "SAL0250", "Sector": "Healthcare services", "Salary": 40000},
+  {"ID": "SAL0251", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0252", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0253", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0254", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0255", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0256", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0257", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0258", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0259", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0260", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0261", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0262", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0263", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0264", "Sector": "Maritime", "Salary": 32500},
+  {"ID": "SAL0265", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0266", "Sector": "Maritime", "Salary": 40000},
+  {"ID": "SAL0267", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0268", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0269", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0270", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0271", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0272", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0273", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0274", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0275", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0276", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0277", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0278", "Sector": "Maritime", "Salary": 25000},
+  {"ID": "SAL0279", "Sector": "Maritime", "Salary": 25000},
+  {
+    "ID": "SAL0280",
+    "Sector": "Medical devices and equipment",
+    "Salary": 40000
+  },
+  {
+    "ID": "SAL0281",
+    "Sector": "Medical devices and equipment",
+    "Salary": 40000
+  },
+  {
+    "ID": "SAL0282",
+    "Sector": "Medical devices and equipment",
+    "Salary": 40000
+  },
+  {
+    "ID": "SAL0283",
+    "Sector": "Medical devices and equipment",
+    "Salary": 40000
+  },
+  {
+    "ID": "SAL0284",
+    "Sector": "Medical devices and equipment",
+    "Salary": 40000
+  },
+  {"ID": "SAL0285", "Sector": "Mining", "Salary": 47500},
+  {
+    "ID": "SAL0286",
+    "Sector": "Pharmaceuticals and biotechnology",
+    "Salary": 37500
+  },
+  {
+    "ID": "SAL0287",
+    "Sector": "Pharmaceuticals and biotechnology",
+    "Salary": 37500
+  },
+  {
+    "ID": "SAL0288",
+    "Sector": "Pharmaceuticals and biotechnology",
+    "Salary": 37500
+  },
+  {
+    "ID": "SAL0289",
+    "Sector": "Pharmaceuticals and biotechnology",
+    "Salary": 37500
+  },
+  {
+    "ID": "SAL0290",
+    "Sector": "Pharmaceuticals and biotechnology",
+    "Salary": 37500
+  },
+  {
+    "ID": "SAL0291",
+    "Sector": "Pharmaceuticals and biotechnology",
+    "Salary": 37500
+  },
+  {"ID": "SAL0292", "Sector": "Railways", "Salary": 32500},
+  {"ID": "SAL0293", "Sector": "Security", "Salary": 25000},
+  {"ID": "SAL0294", "Sector": "Security", "Salary": 25000},
+  {"ID": "SAL0295", "Sector": "Space", "Salary": 40000},
+  {"ID": "SAL0296", "Sector": "Space", "Salary": 40000},
+  {"ID": "SAL0297", "Sector": "Space", "Salary": 40000},
+  {"ID": "SAL0298", "Sector": "Space", "Salary": 40000},
+  {"ID": "SAL0299", "Sector": "Space", "Salary": 40000},
+  {"ID": "SAL0300", "Sector": "Space", "Salary": 40000},
+  {"ID": "SAL0301", "Sector": "Space", "Salary": 40000},
+  {"ID": "SAL0302", "Sector": "Space", "Salary": 40000},
+  {"ID": "SAL0303", "Sector": "Space", "Salary": 40000},
+  {"ID": "SAL0304", "Sector": "Space", "Salary": 37500},
+  {"ID": "SAL0305", "Sector": "Space", "Salary": 37500},
+  {"ID": "SAL0306", "Sector": "Space", "Salary": 37500},
+  {"ID": "SAL0307", "Sector": "Space", "Salary": 37500},
+  {"ID": "SAL0308", "Sector": "Space", "Salary": 37500},
+  {"ID": "SAL0309", "Sector": "Space", "Salary": 37500},
+  {"ID": "SAL0310", "Sector": "Space", "Salary": 37500},
+  {"ID": "SAL0311", "Sector": "Sports economy", "Salary": 25000},
+  {"ID": "SAL0312", "Sector": "Sports economy", "Salary": 25000},
+  {"ID": "SAL0313", "Sector": "Sports economy", "Salary": 25000},
+  {"ID": "SAL0314", "Sector": "Sports economy", "Salary": 25000},
+  {"ID": "SAL0315", "Sector": "Sports economy", "Salary": 25000},
+  {"ID": "SAL0316", "Sector": "Sports economy", "Salary": 25000},
+  {"ID": "SAL0317", "Sector": "Sports economy", "Salary": 25000},
+  {
+    "ID": "SAL0318",
+    "Sector": "Technology and smart cities",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0319",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0320",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0321",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0322",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0323",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0324",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0325",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0326",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0327",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0328",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0329",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0330",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0331",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0332",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0333",
+    "Sector": "Technology and smart cities",
+    "Salary": 45000
+  },
+  {
+    "ID": "SAL0334",
+    "Sector": "Technology and smart cities",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0335",
+    "Sector": "Technology and smart cities",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0336",
+    "Sector": "Technology and smart cities",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0337",
+    "Sector": "Technology and smart cities",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0338",
+    "Sector": "Technology and smart cities",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0339",
+    "Sector": "Technology and smart cities",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0340",
+    "Sector": "Technology and smart cities",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0341",
+    "Sector": "Technology and smart cities",
+    "Salary": 25000
+  },
+  {
+    "ID": "SAL0342",
+    "Sector": "Technology and smart cities",
+    "Salary": 25000
+  },
+  {"ID": "SAL0343", "Sector": "Water", "Salary": 37500},
+  {"ID": "SAL0344", "Sector": "Water", "Salary": 37500},
+  {"ID": "SAL0345", "Sector": "Water", "Salary": 37500},
+  {"ID": "SAL0346", "Sector": "Water", "Salary": 37500}
+]

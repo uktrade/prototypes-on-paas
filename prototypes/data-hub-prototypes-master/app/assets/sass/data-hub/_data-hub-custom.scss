@@ -1,0 +1,282 @@
+@import "settings";
+@import "accessible-autocomplete";
+
+* {
+  font-family: $dit-font-stack !important;
+}
+
+.datahub-w-30 {
+  width: 30%;
+}
+
+.datahub-w-50 {
+  width: 50%;
+}
+
+/* Flex */
+
+.datahub-flex {
+  display: flex;
+  -webkit-box-align: baseline;
+  align-items: baseline;
+}
+
+/* Header */
+
+#datahub-header {
+  background-color: rgb(11, 12, 12);
+
+  .header-container {
+    padding: 7px 0px;
+    width: 100%;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+
+    .datahub-logo {
+      display: inline-flex;
+      -webkit-box-align: center;
+      align-items: center;
+      gap: 10px;
+
+      a {
+        font-size: 30px;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        box-shadow: none;
+        outline: none;
+      }
+
+      strong {
+        color: rgb(255, 255, 255);
+        border: none;
+        line-height: 1.25;
+        letter-spacing: 1px;
+        padding: 3px 8px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 700;
+        background-color: rgb(0, 94, 165);
+      }
+    }
+
+    .dataworkspace-link {
+      display: inline-flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+
+      a {
+        -webkit-font-smoothing: antialiased;
+        font-weight: 700;
+        text-decoration: none;
+        display: block;
+        margin-right: 0px;
+        color: rgb(255, 255, 255);
+
+        &:hover {
+          text-decoration: underline 3px;
+          text-underline-offset: 0.1em;
+        }
+      }
+    }
+  }
+}
+
+  .navigation-container {
+    background-color: rgb(222, 224, 226);
+    font-weight: 700;
+
+  #navigation {
+    margin: 0px auto;
+    max-width: 960px;
+    position: relative;
+    list-style: none;
+    box-sizing: content-box;
+    padding: 0px 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: block;
+
+    li {
+      display: inline-block;
+      padding-right: 20px;
+
+      a {
+        display: inline-block;
+        padding: 8px 0px;
+        font-size: 16px;
+        text-decoration: none;
+        line-height: 23px;
+        color: rgb(11, 12, 12);
+        margin: 0px;
+        position: relative;
+
+        &:hover::after {
+          content: "";
+          position: absolute;
+          left: 0px;
+          right: 0px;
+          bottom: 0px;
+          border-bottom: 5px solid rgb(0, 94, 165);
+          border-top-color: rgb(0, 94, 165);
+          border-right-color: rgb(0, 94, 165);
+          border-left-color: rgb(0, 94, 165);
+        }
+
+        &.active {
+          color: rgb(0, 94, 165);
+        }
+      }
+    }
+  }
+}
+
+input.search-small {
+  width: 200px;
+}
+
+.homepage--search-container {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+
+  input.search {
+    width: 100%;
+  }
+
+  button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: 0px;
+    margin: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 12px;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(29, 112, 184);
+  }
+}
+
+.keyline-4 {
+  border-top: 4px solid rgb(191, 193, 195);
+}
+
+.bg-grey {
+  background: rgb(248, 248, 248);
+}
+
+// Badge
+
+.datahub-badge {
+  border: 2px solid rgb(191, 193, 195);
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  color: rgb(11, 12, 12);
+  margin-right: 5px;
+  display: inline-block;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+// Filter scroll
+
+.datahub-filter-scroll {
+  overflow-y: scroll;
+    max-height: 200px;
+    padding-left: 10px;
+    margin-left: -10px;
+}
+
+/* Company page tabs */
+
+.datahub-company-tabs {
+  .govuk-tabs__list-item {
+    padding: 10px;
+  }
+
+  .govuk-tabs__list-item--selected {
+    padding-top: 13px;
+    padding-right: 15px;
+    padding-bottom: 16px;
+    padding-left: 13px;
+  }
+}
+
+.datahub-box {
+  border: 1px solid rgb(177, 180, 182);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Link in table captions */
+
+.govuk-table__caption a {
+  float: right;
+  font-size: 19px;
+}
+
+/* Data Hub secondary tabs */
+
+.datahub-subtab {
+  border-bottom: 1px solid #c6c8c8;
+  margin-bottom: 20px;
+
+  a {
+    color: #005ea5;
+    text-decoration: none;
+    font-size: 19px;
+    line-height: 1.3157894737;
+    display: inline-block;
+    padding-bottom: 7px;
+
+    &.datahub-subtab-active {
+      border-bottom: 7px solid #005ea5;
+    }
+  }
+}
+
+/* Autocomplete */
+
+.autocomplete__selected-option {
+  display: inline-block;
+  margin: 5px 6px 5px 0 !important;
+  background-color: rgb(243, 242, 241);
+  border: none;
+  border-radius: 3px;
+  color: rgb(11, 12, 12);
+  font-size: 0.75em;
+  font-weight: bold;
+  margin-bottom: 0px;
+  padding: 0 5px;
+  position: relative;
+  cursor: pointer;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  button {
+    margin-bottom: 0px;
+    position: relative;
+    font-size: 24px !important;
+    text-decoration: none !important;
+    display: inline-block;
+    vertical-align: middle;
+    color: #0b0c0c !important;
+  }
+}

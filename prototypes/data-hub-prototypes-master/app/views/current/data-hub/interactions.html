@@ -1,0 +1,691 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions", "class": "active"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      Interactions
+    </li>
+  </ol>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-8">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Interactions</h1>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m">Filters</h2>
+
+        <!-- My interactions -->
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                My interactions
+            </legend>
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="organisation" name="my-interactions" type="checkbox" value="hmrc">
+                <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="my-interactions">
+                  My interactions
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- Interaction type -->
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                Interaction type
+            </legend>
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="organisation" name="interaction-type" type="checkbox" value="Interaction">
+                <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="interaction-type">
+                  Interaction
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="organisation" name="my-interactions" type="checkbox" value="Service delivery">
+                <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="interaction-type">
+                  Service delivery
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                  Interaction details
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+              <!-- Earliest start date -->
+
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-size-16" for="subject">
+                  <b>Subject</b>
+                </label>
+                <input class="govuk-input govuk-!-font-size-16" id="subject" name="subject" type="text">
+              </div>
+
+              <!-- Company -->
+
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-size-16" for="company">
+                  <b>Company</b>
+                </label>
+                <select class="govuk-select govuk-!-font-size-16 govuk-!-width-full" id="company" name="company">
+                  <option value="Company" selected>Search company</option>
+                </select>
+              </div>
+
+              <!-- Adviser -->
+
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-size-16" for="adviser">
+                  <b>Adviser</b>
+                </label>
+                <select class="govuk-select govuk-!-font-size-16 govuk-!-width-full" id="adviser" name="adviser">
+                  <option value="Adviser" selected>Search adviser</option>
+                </select>
+              </div>
+
+              <!-- From -->
+
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-size-16" for="from">
+                  <b>From</b>
+                </label>
+                <input class="govuk-input govuk-!-font-size-16" id="from" name="from" type="text" placeholder="dd/mm/yyyy">
+              </div>
+
+              <!-- To -->
+
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-size-16" for="to">
+                  <b>To</b>
+                </label>
+                <input class="govuk-input govuk-!-font-size-16" id="to" name="to" type="text" placeholder="dd/mm/yyyy">
+              </div>
+
+              <!-- Teams -->
+
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-size-16" for="teams">
+                  <b>Teams</b>
+                </label>
+                <select class="govuk-select govuk-!-font-size-16 govuk-!-width-full" id="teams" name="teams">
+                  <option value="Teams" selected>Search teams</option>
+                </select>
+              </div>
+
+              <!-- Sector -->
+
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-size-16" for="sector">
+                  <b>Sector</b>
+                </label>
+                <select class="govuk-select govuk-!-font-size-16 govuk-!-width-full" id="sector" name="sector">
+                  <option value="Adviser" selected>Search sector</option>
+                </select>
+              </div>
+
+              <!-- Business intelligence -->
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                      Business intelligence
+                  </legend>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="organisation" name="business-intelligence" type="checkbox" value="Business intelligence">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="business-intelligence">
+                        Includes business intelligence
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Company one list group tier -->
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                      Company One List group tier
+                  </legend>
+                  <div class="datahub-filter-scroll">
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="one-list-group" name="one-list-group" type="checkbox" value="Tier A - SRM Programme Accounts">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="one-list-group">
+                          Tier A - SRM Programme Accounts
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="organisation-2" name="one-list-group" type="checkbox" value="Tier A - SRM Commercial Partner Accounts">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="one-list-group-2">
+                          Tier A - SRM Commercial Partner Accounts
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="organisation-3" name="one-list-group" type="checkbox" value="Tier B - Sector Team Accounts">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="one-list-group-3">
+                          Tier B - Sector Team Accounts
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="organisation-4" name="one-list-group" type="checkbox" value="Tier B - Capital Investment Team Accounts">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="one-list-group-4">
+                          Tier B - Capital Investment Team Accounts
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="organisation-5" name="one-list-group" type="checkbox" value="Tier C - Investment Services Team Accounts">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="one-list-group-5">
+                          Tier C - Investment Services Team Accounts
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="organisation-6" name="one-list-group" type="checkbox" value="Tier D - Overseas Post Accounts">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="one-list-group-6">
+                          Tier D - Overseas Post Accounts
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="organisation-7" name="one-list-group" type="checkbox" value="Tier D - Local Enterprise Partnership Accounts">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="one-list-group-7">
+                          Tier D - Local Enterprise Partnership Accounts
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="organisation-8" name="one-list-group" type="checkbox" value="Tier D - International Trade Adviser Accounts">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="one-list-group-8">
+                          Tier D - International Trade Adviser Accounts
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                  Service details
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+
+              <!-- Service -->
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                      Service
+                  </legend>
+                  <div class="datahub-filter-scroll">
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="service" name="service" type="checkbox" value="A Specific DIT Export Service or Funding : European Regional Development Fund (ERDF)">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="service">
+                          A Specific DIT Export Service or Funding : European Regional Development Fund (ERDF)
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="service-2" name="service" type="checkbox" value="A Specific DIT Export Service or Funding : Export Academy">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="service-2">
+                          A Specific DIT Export Service or Funding : Export Academy
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="service-3" name="service" type="checkbox" value="Tier B - Sector Team Accounts">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="service-3">
+                          A Specific DIT Export Service or Funding : Export Opportunities
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="service-4" name="service" type="checkbox" value="A Specific DIT Export Service or Funding : Export Support Service – International Markets">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="service-4">
+                          A Specific DIT Export Service or Funding : Export Support Service – International Markets
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="service-5" name="service" type="checkbox" value="A Specific DIT Export Service or Funding : Field Force Phase 2 call">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="service-5">
+                          A Specific DIT Export Service or Funding : Field Force Phase 2 call
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="service-6" name="service" type="checkbox" value="A Specific DIT Export Service or Funding : Global Growth Service: Diagnostic and Output Report Completed by DIT">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="service-6">
+                          A Specific DIT Export Service or Funding : Global Growth Service: Diagnostic and Output Report Completed by DIT
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="service-7" name="service" type="checkbox" value="A Specific DIT Export Service or Funding : Global Growth Service: Engagement Letter Signed by Company">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="service-7">
+                          A Specific DIT Export Service or Funding : Global Growth Service: Engagement Letter Signed by Company
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="service-8" name="service" type="checkbox" value="A Specific DIT Export Service or Funding : Global Growth Service: Project Closed">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="service-8">
+                          A Specific DIT Export Service or Funding : Global Growth Service: Project Closed
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                  Policy details
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+
+              <!-- Policy areas -->
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                      Policy areas
+                  </legend>
+                  <div class="datahub-filter-scroll">
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="policy-areas" name="policy-areas" type="checkbox" value="Access to Finance">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-areas">
+                          Access to Finance
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="policy-areas-2" name="policy-areas" type="checkbox" value="Access to Public Funding (inc. EU funding)">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-areas-2">
+                          Access to Public Funding (inc. EU funding)
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="policy-areas-3" name="policy-areas" type="checkbox" value="Agriculture (Regulation/Support)">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-areas-3">
+                          Agriculture (Regulation/Support)
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="policy-areas-4" name="policy-areas" type="checkbox" value="Announcement Feedback">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-areas-4">
+                          Announcement Feedback
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="policy-areas-5" name="policy-areas" type="checkbox" value="Art, Culture, Sport and Leisure">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-areas-5">
+                          Art, Culture, Sport and Leisure
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="policy-areas-6" name="policy-areas" type="checkbox" value="Migration and Immigration">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-areas-6">
+                          Migration and Immigration
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="policy-areas-7" name="policy-areas" type="checkbox" value="Business Regulation">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-areas-7">
+                          Business Regulation
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="policy-areas-8" name="policy-areas" type="checkbox" value="Company Law and Company Reporting">
+                        <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-areas-8">
+                          Company Law and Company Reporting
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Policy issue type -->
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-size-16">
+                      Policy issue type
+                  </legend>
+                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="policy-issue" name="policy-issue" type="checkbox" value="Domestic">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-issue">
+                        Domestic
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="policy-issue-2" name="policy-issue" type="checkbox" value="EU exit">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-issue-2">
+                        EU exit
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="policy-issue-3" name="policy-issue" type="checkbox" value="Non-EU trade priority">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-issue-3">
+                        Non-EU trade priority
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="policy-issue-4" name="policy-issue" type="checkbox" value="Economic opportunity">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-issue-4">
+                        Economic opportunity
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="policy-issue-5" name="policy-issue" type="checkbox" value="Economic risk">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-issue-5">
+                        Economic risk
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="policy-issue-6" name="policy-issue" type="checkbox" value="International Climate">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-font-size-16" for="policy-issue-6">
+                        International Climate
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+        <p class="gov-body govuk-!-font-size-36"><b>3,743,539</b> <span class="govuk-!-font-size-24">interactions</span></p>
+        <hr></hr>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half govuk-!-padding-top-2">
+            <p class="govuk-body govuk-hint govuk-!-font-size-16">Page 1 of 1000</p>
+          </div>
+          <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+            <div class="govuk-form-group govuk-!-margin-bottom-0">
+              <label class="govuk-label" for="sort">
+                Sort by
+                <select class="govuk-select" id="sort-by" name="sort-by">
+                  <option value="Recently updated" selected>Recently created</option>
+                  <option value="Last name A-Z">Company name A-Z</option>
+                  <option value="Least recently updated">Subject name A-Z</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr></hr>
+        <p class="govuk-body-s govuk-!-margin-bottom-0">Filter to fewer than 5,000 interactions to download</p>
+        <hr></hr>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-!-padding-top-1">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Phone call with Andy</a></h3>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                <div class="datahub-badge">Interaction</div>
+              </div>
+            </div>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Date</span> 25 April 2025</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Contact(s)</span> Joe Bloggs</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Company</span> Official Company PLC</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Adviser(s)</span> Andy Davies, DBT Wales</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-5"><span class="govuk-hint govuk-!-font-size-16">Service</span> Investment - Services</p>
+            <hr></hr>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-!-padding-top-1">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Support with work</a></h3>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                <div class="datahub-badge">Service delivery</div>
+              </div>
+            </div>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Date</span> 25 April 2025</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Contact(s)</span> Joe Bloggs</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Company</span> Official Company PLC</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Adviser(s)</span> Andy Davies, DBT Wales</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-5"><span class="govuk-hint govuk-!-font-size-16">Service</span> A Specific DIT Export Service or Funding : Significant Assistance</p>
+            <hr></hr>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-!-padding-top-1">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Phone call with Andy</a></h3>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                <div class="datahub-badge">Interaction</div>
+              </div>
+            </div>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Date</span> 25 April 2025</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Contact(s)</span> Joe Bloggs</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Company</span> Official Company PLC</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Adviser(s)</span> Andy Davies, DBT Wales</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-5"><span class="govuk-hint govuk-!-font-size-16">Service</span> Investment - Services</p>
+            <hr></hr>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-!-padding-top-1">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Support with work</a></h3>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                <div class="datahub-badge">Service delivery</div>
+              </div>
+            </div>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Date</span> 25 April 2025</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Contact(s)</span> Joe Bloggs</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Company</span> Official Company PLC</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Adviser(s)</span> Andy Davies, DBT Wales</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-5"><span class="govuk-hint govuk-!-font-size-16">Service</span> A Specific DIT Export Service or Funding : Significant Assistance</p>
+            <hr></hr>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-!-padding-top-1">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Phone call with Andy</a></h3>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                <div class="datahub-badge">Interaction</div>
+              </div>
+            </div>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Date</span> 25 April 2025</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Contact(s)</span> Joe Bloggs</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Company</span> Official Company PLC</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Adviser(s)</span> Andy Davies, DBT Wales</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-5"><span class="govuk-hint govuk-!-font-size-16">Service</span> Investment - Services</p>
+            <hr></hr>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-!-padding-top-1">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Support with work</a></h3>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                <div class="datahub-badge">Service delivery</div>
+              </div>
+            </div>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Date</span> 25 April 2025</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Contact(s)</span> Joe Bloggs</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Company</span> Official Company PLC</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Adviser(s)</span> Andy Davies, DBT Wales</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-5"><span class="govuk-hint govuk-!-font-size-16">Service</span> A Specific DIT Export Service or Funding : Significant Assistance</p>
+            <hr></hr>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-!-padding-top-1">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Phone call with Andy</a></h3>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                <div class="datahub-badge">Interaction</div>
+              </div>
+            </div>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Date</span> 25 April 2025</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Contact(s)</span> Joe Bloggs</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Company</span> Official Company PLC</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Adviser(s)</span> Andy Davies, DBT Wales</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-5"><span class="govuk-hint govuk-!-font-size-16">Service</span> Investment - Services</p>
+            <hr></hr>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-!-padding-top-1">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Support with work</a></h3>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                <div class="datahub-badge">Service delivery</div>
+              </div>
+            </div>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Date</span> 25 April 2025</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Contact(s)</span> Joe Bloggs</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Company</span> Official Company PLC</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Adviser(s)</span> Andy Davies, DBT Wales</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-5"><span class="govuk-hint govuk-!-font-size-16">Service</span> A Specific DIT Export Service or Funding : Significant Assistance</p>
+            <hr></hr>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-!-padding-top-1">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Phone call with Andy</a></h3>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                <div class="datahub-badge">Interaction</div>
+              </div>
+            </div>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Date</span> 25 April 2025</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Contact(s)</span> Joe Bloggs</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Company</span> Official Company PLC</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Adviser(s)</span> Andy Davies, DBT Wales</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-5"><span class="govuk-hint govuk-!-font-size-16">Service</span> Investment - Services</p>
+            <hr></hr>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-!-padding-top-1">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link govuk-link--no-underline" href="company-detail">Phone call with Andy</a></h3>
+              </div>
+              <div class="govuk-grid-column-one-half govuk-!-padding-top-1 govuk-!-text-align-right">
+                <div class="datahub-badge">Service delivery</div>
+              </div>
+            </div>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Date</span> 25 April 2025</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Contact(s)</span> Joe Bloggs</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Company</span> Official Company PLC</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-2"><span class="govuk-hint govuk-!-font-size-16">Adviser(s)</span> Andy Davies, DBT Wales</p>
+            <p class="govuk-body-s govuk-!-margin-bottom-5"><span class="govuk-hint govuk-!-font-size-16">Service</span> A Specific DIT Export Service or Funding : Significant Assistance</p>
+            <hr></hr>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-!-padding-top-1">
+            <nav class="govuk-pagination" role="navigation" aria-label="results">
+              <ul class="govuk-pagination__list">
+                <li class="govuk-pagination__item govuk-pagination__item--current">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+                    1
+                  </a>
+                </li>
+                <li class="govuk-pagination__item">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page">
+                    2
+                  </a>
+                </li>
+                <li class="govuk-pagination__item">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                    3
+                  </a>
+                </li>
+              </ul>
+              <div class="govuk-pagination__next">
+                <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                    <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                  </svg></a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+
+
+
+{% endblock %}

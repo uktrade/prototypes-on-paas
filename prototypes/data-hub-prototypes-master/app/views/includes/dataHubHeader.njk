@@ -1,0 +1,34 @@
+{% macro dataHubHeader(params) %}
+
+<header id="datahub-header" role="banner" class="sc-eClPoj kvjsoH {{ params.classes if params.classes }}" {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+  <div class="sc-gwGGKT kEiYED {{ params.containerClasses | default('govuk-width-container') }}">
+    <div class="header-container">
+      <div class="datahub-logo">
+      {% if params.serviceName or params.navigation  %}
+      {% if params.serviceName %}
+        <span class="govuk-visually-hidden">Department for International Trade</span>
+          <a href="{{ params.serviceUrl }}" class="sc-kRvVA bFXmEp">{{ params.serviceName }}</a>
+          <strong>prototype</strong>
+      {% endif %}
+      </div>
+      <div class="dataworkspace-link">
+        <a href="https://data.trade.gov.uk?utm_source=Data%20Hub&amp;utm_medium=referral&amp;utm_campaign=dataflow&amp;utm_content=Switch%20to%20Data%20Workspace" class="sc-ibvwTS jLOMcI">Switch to Data Workspace</a>
+      </div>
+    </div>
+  </div>
+  <div class="sc-kQvLVw cPqYLy">
+    {% if params.navigation %}
+    <nav aria-labelledby="navigation" data-test="primary-navigation" class="navigation-container">
+      <ul id="navigation" aria-label="Top Level Navigation" class="sc-khsrKC eulXib {{ params.navigationClasses if params.navigationClasses }}">
+      {% for item in params.navigation %}
+        {% if item.href and item.text %}
+        <li class="sc-bfCHJM eBoaxL{{ ' govuk-header__navigation-item--active' if item.active }}"><a href="{{ item.href }}"{% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %} class="sc-bdqyNK cuStnJ">{{ item.text }}</a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+    {% endif %}
+  </div>
+</header>
+{% endmacro %}

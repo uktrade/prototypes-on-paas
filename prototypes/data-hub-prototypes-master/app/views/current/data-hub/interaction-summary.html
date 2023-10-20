@@ -1,0 +1,139 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="homepage">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="companies">Companies</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Add interaction for company name</a>
+    </li>
+
+  </ol>
+</div>
+
+<div class="govuk-notification-banner govuk-notification-banner--success govuk-!-margin-top-8" role="alert"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      Interaction added
+    </h3>
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-8">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-l">{{ data['interaction-summary'] }}</h1>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-!-padding-top-0">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+        <table class="govuk-table govuk-!-font-size-16">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Company</th>
+              <td class="govuk-table__cell"><a href="company-detail">Company name</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Contact(s)</th>
+              <td class="govuk-table__cell">{{ data['interaction-contacts'] }}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Service</th>
+              <td class="govuk-table__cell">{{ data['interaction-service'] }}</td>
+            </tr>
+            {%- if data['interaction-notes'] -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Notes</th>
+              <td class="govuk-table__cell">{{ data['interaction-notes'] }}</td>
+            </tr>
+            {%- endif -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date of interaction</th>
+              <td class="govuk-table__cell">{{ data['interaction-date-day'] }}&nbsp;{%- if data['interaction-date-month'] == "01" -%}January{%- elseif data['interaction-date-month'] == "02" -%}February{%- elseif data['interaction-date-month'] == "03" -%}March{%- elseif data['interaction-date-month'] == "4" -%}April{%- elseif data['interaction-date-month'] == "05" -%}May{%- elseif data['interaction-date-month'] == "06" -%}June{%- elseif data['interaction-date-month'] == "7" -%}July{%- elseif data['interaction-date-month'] == "08" -%}August{%- elseif data['interaction-date-month'] == "09" -%}September{%- elseif data['interaction-date-month'] == "10" -%}October{%- elseif data['interaction-date-month'] == "11" -%}November{%- elseif data['interaction-date-month'] == "12" -%}December{%- endif -%}&nbsp;{{ data['interaction-date-year'] }}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Adviser(s)</th>
+              <td class="govuk-table__cell">{{ data['interaction-advisers'] }}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Communication channel</th>
+              <td class="govuk-table__cell">{{ data['interaction-comms'] }}</td>
+            </tr>
+            {%- if (data['interaction-policy-type']) and (data['interaction-business-intel'] == "Yes") -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Policy issue types</th>
+              <td class="govuk-table__cell">{{ data['interaction-policy-type'] }}</td>
+            </tr>
+            {%- endif -%}
+            {%- if (data['interaction-policy-areas']) and (data['interaction-business-intel'] == "Yes") -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Policy areas</th>
+              <td class="govuk-table__cell">{{ data['interaction-policy-areas'] }}</td>
+            </tr>
+            {%- endif -%}
+            {%- if (data['interaction-business-intel-detail']) and (data['interaction-business-intel'] == "Yes") -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Business intelligence</th>
+              <td class="govuk-table__cell">{{ data['interaction-business-intel-detail'] }}</td>
+            </tr>
+            {%- endif -%}
+            {%- if (data['interaction-current-country']) and (data['interaction-countries'] == "Yes") -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Countries currently exporting to</th>
+              <td class="govuk-table__cell">{{ data['interaction-current-country'] }}</td>
+            </tr>
+            {%- endif -%}
+            {%- if (data['interaction-future-country']) and (data['interaction-countries'] == "Yes") -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Future countries of interest</th>
+              <td class="govuk-table__cell">{{ data['interaction-future-country'] }}</td>
+            </tr>
+            {%- endif -%}
+            {%- if (data['interaction-countries-no-interest']) and (data['interaction-countries'] == "Yes") -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Countries not interested in</th>
+              <td class="govuk-table__cell">{{ data['interaction-countries-no-interest'] }}</td>
+            </tr>
+            {%- endif -%}
+            {%- if data['interaction-agreement-detail'] -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Named trade agreement(s)</th>
+              <td class="govuk-table__cell">{{ data['interaction-agreement-detail'] }}</td>
+            </tr>
+            {%- endif -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Helped remove an export barrier</th>
+              <td class="govuk-table__cell">{{ data['interaction-export-barrier'] }}</td>
+            </tr>
+            {%- if data['interaction-export-barrier'] == "Yes" -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Export barrier category</th>
+              <td class="govuk-table__cell">{{ data['interaction-barrier-type'] }}</td>
+            </tr>
+            {%- endif -%}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

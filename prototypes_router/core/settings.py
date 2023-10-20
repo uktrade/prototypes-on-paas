@@ -10,12 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import json
-from pathlib import Path
 import os
+from pathlib import Path
+
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -24,10 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4o&q(avafczc7)m7nfx(mo+-+!3#^f&0tn6myuz1v=cenn5so3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = "DEBUG" in os.environ
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    "localhost",
+    ".london.cloudapps.digital",
+    ".prototypes-on-paas.uktrade.digital",
+    "pop.com"
+]
 
 # Application definition
 
@@ -39,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'revproxy',
+    "django_extensions"
 ]
 
 MIDDLEWARE = [
@@ -71,7 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -81,7 +87,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -101,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -115,19 +119,32 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/pop_static/'
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "core", "static"),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 parent_dir = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
 process_json_file = open(os.path.join(parent_dir, "process.json"), "r")
-prototypes = json.load(process_json_file)
+PROTOTYPES = json.load(process_json_file)
+PROTOTYPES = {each["url_path"]: each for each in PROTOTYPES["apps"]}
 process_json_file.close()
+
+sentry_sdk.init(
+    dsn=os.environ.get("SENTRY_DSN"),
+    environment="prod",
+    integrations=[
+        DjangoIntegration(),
+    ],
+)
+
+HASHED_PASSWORD = os.environ.get("HASHED_PASSWORD")

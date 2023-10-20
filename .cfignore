@@ -5,3 +5,5 @@ README.md
 .gitignore
 logs
 *.log
+node_modules/
+*.pem

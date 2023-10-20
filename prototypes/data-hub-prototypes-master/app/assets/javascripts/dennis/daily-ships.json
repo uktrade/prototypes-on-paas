@@ -1,0 +1,2467 @@
+[
+
+{
+"id": 752,
+"date": "13/03/2021",
+"port": "Belfast",
+"all_ship_visits": 37,
+"cargo_and_tanker_visits": 16
+},
+{
+"id": 753,
+"date": "14/03/2021",
+"port": "Belfast",
+"all_ship_visits": 16,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 754,
+"date": "15/03/2021",
+"port": "Belfast",
+"all_ship_visits": 26,
+"cargo_and_tanker_visits": 13
+},
+{
+"id": 755,
+"date": "16/03/2021",
+"port": "Belfast",
+"all_ship_visits": 70,
+"cargo_and_tanker_visits": 19
+},
+{
+"id": 756,
+"date": "17/03/2021",
+"port": "Belfast",
+"all_ship_visits": 73,
+"cargo_and_tanker_visits": 33
+},
+{
+"id": 757,
+"date": "18/03/2021",
+"port": "Belfast",
+"all_ship_visits": 71,
+"cargo_and_tanker_visits": 37
+},
+{
+"id": 758,
+"date": "19/03/2021",
+"port": "Belfast",
+"all_ship_visits": 14,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 759,
+"date": "20/03/2021",
+"port": "Belfast",
+"all_ship_visits": 73,
+"cargo_and_tanker_visits": 35
+},
+{
+"id": 760,
+"date": "21/03/2021",
+"port": "Belfast",
+"all_ship_visits": 16,
+"cargo_and_tanker_visits": 5
+},
+{
+"id": 761,
+"date": "22/03/2021",
+"port": "Belfast",
+"all_ship_visits": 61,
+"cargo_and_tanker_visits": 23
+},
+{
+"id": 762,
+"date": "23/03/2021",
+"port": "Belfast",
+"all_ship_visits": 63,
+"cargo_and_tanker_visits": 36
+},
+{
+"id": 763,
+"date": "24/03/2021",
+"port": "Belfast",
+"all_ship_visits": 21,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 764,
+"date": "25/03/2021",
+"port": "Belfast",
+"all_ship_visits": 59,
+"cargo_and_tanker_visits": 17
+},
+{
+"id": 765,
+"date": "26/03/2021",
+"port": "Belfast",
+"all_ship_visits": 45,
+"cargo_and_tanker_visits": 30
+},
+{
+"id": 766,
+"date": "27/03/2021",
+"port": "Belfast",
+"all_ship_visits": 58,
+"cargo_and_tanker_visits": 26
+},
+{
+"id": 767,
+"date": "28/03/2021",
+"port": "Belfast",
+"all_ship_visits": 74,
+"cargo_and_tanker_visits": 49
+},
+{
+"id": 768,
+"date": "29/03/2021",
+"port": "Belfast",
+"all_ship_visits": 45,
+"cargo_and_tanker_visits": 30
+},
+{
+"id": 769,
+"date": "30/03/2021",
+"port": "Belfast",
+"all_ship_visits": 45,
+"cargo_and_tanker_visits": 30
+},
+{
+"id": 770,
+"date": "31/03/2021",
+"port": "Belfast",
+"all_ship_visits": 49,
+"cargo_and_tanker_visits": 34
+},
+{
+"id": 771,
+"date": "01/04/2021",
+"port": "Belfast",
+"all_ship_visits": 32,
+"cargo_and_tanker_visits": 22
+},
+{
+"id": 772,
+"date": "02/04/2021",
+"port": "Belfast",
+"all_ship_visits": 37,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 773,
+"date": "03/04/2021",
+"port": "Belfast",
+"all_ship_visits": 40,
+"cargo_and_tanker_visits": 20
+},
+{
+"id": 774,
+"date": "04/04/2021",
+"port": "Belfast",
+"all_ship_visits": 68,
+"cargo_and_tanker_visits": 28
+},
+{
+"id": 775,
+"date": "05/04/2021",
+"port": "Belfast",
+"all_ship_visits": 13,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 776,
+"date": "06/04/2021",
+"port": "Belfast",
+"all_ship_visits": 30,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 777,
+"date": "07/04/2021",
+"port": "Belfast",
+"all_ship_visits": 73,
+"cargo_and_tanker_visits": 53
+},
+{
+"id": 778,
+"date": "08/04/2021",
+"port": "Belfast",
+"all_ship_visits": 22,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 779,
+"date": "09/04/2021",
+"port": "Belfast",
+"all_ship_visits": 17,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 780,
+"date": "10/04/2021",
+"port": "Belfast",
+"all_ship_visits": 47,
+"cargo_and_tanker_visits": 25
+},
+{
+"id": 781,
+"date": "11/04/2021",
+"port": "Belfast",
+"all_ship_visits": 59,
+"cargo_and_tanker_visits": 44
+},
+{
+"id": 782,
+"date": "12/04/2021",
+"port": "Belfast",
+"all_ship_visits": 51,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 783,
+"date": "13/04/2021",
+"port": "Belfast",
+"all_ship_visits": 43,
+"cargo_and_tanker_visits": 16
+},
+{
+"id": 784,
+"date": "13/03/2021",
+"port": "Dover",
+"all_ship_visits": 78,
+"cargo_and_tanker_visits": 35
+},
+{
+"id": 785,
+"date": "14/03/2021",
+"port": "Dover",
+"all_ship_visits": 33,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 786,
+"date": "15/03/2021",
+"port": "Dover",
+"all_ship_visits": 17,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 787,
+"date": "16/03/2021",
+"port": "Dover",
+"all_ship_visits": 42,
+"cargo_and_tanker_visits": 18
+},
+{
+"id": 788,
+"date": "17/03/2021",
+"port": "Dover",
+"all_ship_visits": 73,
+"cargo_and_tanker_visits": 52
+},
+{
+"id": 789,
+"date": "18/03/2021",
+"port": "Dover",
+"all_ship_visits": 48,
+"cargo_and_tanker_visits": 23
+},
+{
+"id": 790,
+"date": "19/03/2021",
+"port": "Dover",
+"all_ship_visits": 7,
+"cargo_and_tanker_visits": 2
+},
+{
+"id": 791,
+"date": "20/03/2021",
+"port": "Dover",
+"all_ship_visits": 80,
+"cargo_and_tanker_visits": 43
+},
+{
+"id": 792,
+"date": "21/03/2021",
+"port": "Dover",
+"all_ship_visits": 85,
+"cargo_and_tanker_visits": 22
+},
+{
+"id": 793,
+"date": "22/03/2021",
+"port": "Dover",
+"all_ship_visits": 15,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 794,
+"date": "23/03/2021",
+"port": "Dover",
+"all_ship_visits": 98,
+"cargo_and_tanker_visits": 48
+},
+{
+"id": 795,
+"date": "24/03/2021",
+"port": "Dover",
+"all_ship_visits": 35,
+"cargo_and_tanker_visits": 17
+},
+{
+"id": 796,
+"date": "25/03/2021",
+"port": "Dover",
+"all_ship_visits": 2,
+"cargo_and_tanker_visits": 1
+},
+{
+"id": 797,
+"date": "26/03/2021",
+"port": "Dover",
+"all_ship_visits": 53,
+"cargo_and_tanker_visits": 16
+},
+{
+"id": 798,
+"date": "27/03/2021",
+"port": "Dover",
+"all_ship_visits": 40,
+"cargo_and_tanker_visits": 19
+},
+{
+"id": 799,
+"date": "28/03/2021",
+"port": "Dover",
+"all_ship_visits": 92,
+"cargo_and_tanker_visits": 65
+},
+{
+"id": 800,
+"date": "29/03/2021",
+"port": "Dover",
+"all_ship_visits": 85,
+"cargo_and_tanker_visits": 35
+},
+{
+"id": 801,
+"date": "30/03/2021",
+"port": "Dover",
+"all_ship_visits": 49,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 802,
+"date": "31/03/2021",
+"port": "Dover",
+"all_ship_visits": 58,
+"cargo_and_tanker_visits": 40
+},
+{
+"id": 803,
+"date": "01/04/2021",
+"port": "Dover",
+"all_ship_visits": 25,
+"cargo_and_tanker_visits": 16
+},
+{
+"id": 804,
+"date": "02/04/2021",
+"port": "Dover",
+"all_ship_visits": 5,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 805,
+"date": "03/04/2021",
+"port": "Dover",
+"all_ship_visits": 89,
+"cargo_and_tanker_visits": 39
+},
+{
+"id": 806,
+"date": "04/04/2021",
+"port": "Dover",
+"all_ship_visits": 25,
+"cargo_and_tanker_visits": 17
+},
+{
+"id": 807,
+"date": "05/04/2021",
+"port": "Dover",
+"all_ship_visits": 41,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 808,
+"date": "06/04/2021",
+"port": "Dover",
+"all_ship_visits": 98,
+"cargo_and_tanker_visits": 43
+},
+{
+"id": 809,
+"date": "07/04/2021",
+"port": "Dover",
+"all_ship_visits": 72,
+"cargo_and_tanker_visits": 48
+},
+{
+"id": 810,
+"date": "08/04/2021",
+"port": "Dover",
+"all_ship_visits": 68,
+"cargo_and_tanker_visits": 25
+},
+{
+"id": 811,
+"date": "09/04/2021",
+"port": "Dover",
+"all_ship_visits": 66,
+"cargo_and_tanker_visits": 32
+},
+{
+"id": 812,
+"date": "10/04/2021",
+"port": "Dover",
+"all_ship_visits": 79,
+"cargo_and_tanker_visits": 54
+},
+{
+"id": 813,
+"date": "11/04/2021",
+"port": "Dover",
+"all_ship_visits": 62,
+"cargo_and_tanker_visits": 33
+},
+{
+"id": 814,
+"date": "12/04/2021",
+"port": "Dover",
+"all_ship_visits": 89,
+"cargo_and_tanker_visits": 66
+},
+{
+"id": 815,
+"date": "13/04/2021",
+"port": "Dover",
+"all_ship_visits": 11,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 816,
+"date": "13/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 17,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 817,
+"date": "14/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 3,
+"cargo_and_tanker_visits": 1
+},
+{
+"id": 818,
+"date": "15/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 33,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 819,
+"date": "16/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 44,
+"cargo_and_tanker_visits": 26
+},
+{
+"id": 820,
+"date": "17/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 15,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 821,
+"date": "18/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 33,
+"cargo_and_tanker_visits": 22
+},
+{
+"id": 822,
+"date": "19/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 39,
+"cargo_and_tanker_visits": 22
+},
+{
+"id": 823,
+"date": "20/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 11,
+"cargo_and_tanker_visits": 5
+},
+{
+"id": 824,
+"date": "21/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 43,
+"cargo_and_tanker_visits": 21
+},
+{
+"id": 825,
+"date": "22/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 826,
+"date": "23/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 28,
+"cargo_and_tanker_visits": 18
+},
+{
+"id": 827,
+"date": "24/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 828,
+"date": "25/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 22,
+"cargo_and_tanker_visits": 13
+},
+{
+"id": 829,
+"date": "26/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 3,
+"cargo_and_tanker_visits": 2
+},
+{
+"id": 830,
+"date": "27/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 0,
+"cargo_and_tanker_visits": 0
+},
+{
+"id": 831,
+"date": "28/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 14,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 832,
+"date": "29/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 45,
+"cargo_and_tanker_visits": 12
+},
+{
+"id": 833,
+"date": "30/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 33,
+"cargo_and_tanker_visits": 17
+},
+{
+"id": 834,
+"date": "31/03/2021",
+"port": "Felixstowe",
+"all_ship_visits": 7,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 835,
+"date": "01/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 0,
+"cargo_and_tanker_visits": 0
+},
+{
+"id": 836,
+"date": "02/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 837,
+"date": "03/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 27,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 838,
+"date": "04/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 40,
+"cargo_and_tanker_visits": 24
+},
+{
+"id": 839,
+"date": "05/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 19,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 840,
+"date": "06/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 0,
+"cargo_and_tanker_visits": 0
+},
+{
+"id": 841,
+"date": "07/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 25,
+"cargo_and_tanker_visits": 12
+},
+{
+"id": 842,
+"date": "08/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 34,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 843,
+"date": "09/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 41,
+"cargo_and_tanker_visits": 23
+},
+{
+"id": 844,
+"date": "10/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 28,
+"cargo_and_tanker_visits": 17
+},
+{
+"id": 845,
+"date": "11/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 23,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 846,
+"date": "12/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 20,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 847,
+"date": "13/04/2021",
+"port": "Felixstowe",
+"all_ship_visits": 27,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 848,
+"date": "13/03/2021",
+"port": "Forth",
+"all_ship_visits": 9,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 849,
+"date": "14/03/2021",
+"port": "Forth",
+"all_ship_visits": 19,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 850,
+"date": "15/03/2021",
+"port": "Forth",
+"all_ship_visits": 13,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 851,
+"date": "16/03/2021",
+"port": "Forth",
+"all_ship_visits": 1,
+"cargo_and_tanker_visits": 1
+},
+{
+"id": 852,
+"date": "17/03/2021",
+"port": "Forth",
+"all_ship_visits": 0,
+"cargo_and_tanker_visits": 0
+},
+{
+"id": 853,
+"date": "18/03/2021",
+"port": "Forth",
+"all_ship_visits": 15,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 854,
+"date": "19/03/2021",
+"port": "Forth",
+"all_ship_visits": 9,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 855,
+"date": "20/03/2021",
+"port": "Forth",
+"all_ship_visits": 10,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 856,
+"date": "21/03/2021",
+"port": "Forth",
+"all_ship_visits": 16,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 857,
+"date": "22/03/2021",
+"port": "Forth",
+"all_ship_visits": 23,
+"cargo_and_tanker_visits": 16
+},
+{
+"id": 858,
+"date": "23/03/2021",
+"port": "Forth",
+"all_ship_visits": 18,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 859,
+"date": "24/03/2021",
+"port": "Forth",
+"all_ship_visits": 9,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 860,
+"date": "25/03/2021",
+"port": "Forth",
+"all_ship_visits": 4,
+"cargo_and_tanker_visits": 1
+},
+{
+"id": 861,
+"date": "26/03/2021",
+"port": "Forth",
+"all_ship_visits": 19,
+"cargo_and_tanker_visits": 5
+},
+{
+"id": 862,
+"date": "27/03/2021",
+"port": "Forth",
+"all_ship_visits": 12,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 863,
+"date": "28/03/2021",
+"port": "Forth",
+"all_ship_visits": 10,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 864,
+"date": "29/03/2021",
+"port": "Forth",
+"all_ship_visits": 22,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 865,
+"date": "30/03/2021",
+"port": "Forth",
+"all_ship_visits": 9,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 866,
+"date": "31/03/2021",
+"port": "Forth",
+"all_ship_visits": 19,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 867,
+"date": "01/04/2021",
+"port": "Forth",
+"all_ship_visits": 11,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 868,
+"date": "02/04/2021",
+"port": "Forth",
+"all_ship_visits": 16,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 869,
+"date": "03/04/2021",
+"port": "Forth",
+"all_ship_visits": 23,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 870,
+"date": "04/04/2021",
+"port": "Forth",
+"all_ship_visits": 22,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 871,
+"date": "05/04/2021",
+"port": "Forth",
+"all_ship_visits": 3,
+"cargo_and_tanker_visits": 2
+},
+{
+"id": 872,
+"date": "06/04/2021",
+"port": "Forth",
+"all_ship_visits": 9,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 873,
+"date": "07/04/2021",
+"port": "Forth",
+"all_ship_visits": 8,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 874,
+"date": "08/04/2021",
+"port": "Forth",
+"all_ship_visits": 20,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 875,
+"date": "09/04/2021",
+"port": "Forth",
+"all_ship_visits": 17,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 876,
+"date": "10/04/2021",
+"port": "Forth",
+"all_ship_visits": 20,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 877,
+"date": "11/04/2021",
+"port": "Forth",
+"all_ship_visits": 16,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 878,
+"date": "12/04/2021",
+"port": "Forth",
+"all_ship_visits": 17,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 879,
+"date": "13/04/2021",
+"port": "Forth",
+"all_ship_visits": 14,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 880,
+"date": "13/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 47,
+"cargo_and_tanker_visits": 12
+},
+{
+"id": 881,
+"date": "14/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 65,
+"cargo_and_tanker_visits": 27
+},
+{
+"id": 882,
+"date": "15/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 21,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 883,
+"date": "16/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 14,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 884,
+"date": "17/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 70,
+"cargo_and_tanker_visits": 40
+},
+{
+"id": 885,
+"date": "18/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 53,
+"cargo_and_tanker_visits": 30
+},
+{
+"id": 886,
+"date": "19/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 12,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 887,
+"date": "20/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 10,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 888,
+"date": "21/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 20,
+"cargo_and_tanker_visits": 12
+},
+{
+"id": 889,
+"date": "22/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 20,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 890,
+"date": "23/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 43,
+"cargo_and_tanker_visits": 23
+},
+{
+"id": 891,
+"date": "24/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 50,
+"cargo_and_tanker_visits": 32
+},
+{
+"id": 892,
+"date": "25/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 28,
+"cargo_and_tanker_visits": 20
+},
+{
+"id": 893,
+"date": "26/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 53,
+"cargo_and_tanker_visits": 32
+},
+{
+"id": 894,
+"date": "27/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 54,
+"cargo_and_tanker_visits": 24
+},
+{
+"id": 895,
+"date": "28/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 15,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 896,
+"date": "29/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 31,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 897,
+"date": "30/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 26,
+"cargo_and_tanker_visits": 19
+},
+{
+"id": 898,
+"date": "31/03/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 27,
+"cargo_and_tanker_visits": 13
+},
+{
+"id": 899,
+"date": "01/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 30,
+"cargo_and_tanker_visits": 21
+},
+{
+"id": 900,
+"date": "02/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 41,
+"cargo_and_tanker_visits": 22
+},
+{
+"id": 901,
+"date": "03/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 13,
+"cargo_and_tanker_visits": 5
+},
+{
+"id": 902,
+"date": "04/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 46,
+"cargo_and_tanker_visits": 30
+},
+{
+"id": 903,
+"date": "05/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 44,
+"cargo_and_tanker_visits": 31
+},
+{
+"id": 904,
+"date": "06/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 40,
+"cargo_and_tanker_visits": 27
+},
+{
+"id": 905,
+"date": "07/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 14,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 906,
+"date": "08/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 46,
+"cargo_and_tanker_visits": 30
+},
+{
+"id": 907,
+"date": "09/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 51,
+"cargo_and_tanker_visits": 28
+},
+{
+"id": 908,
+"date": "10/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 42,
+"cargo_and_tanker_visits": 19
+},
+{
+"id": 909,
+"date": "11/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 34,
+"cargo_and_tanker_visits": 21
+},
+{
+"id": 910,
+"date": "12/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 53,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 911,
+"date": "13/04/2021",
+"port": "Grimsby & Immingham",
+"all_ship_visits": 26,
+"cargo_and_tanker_visits": 12
+},
+{
+"id": 912,
+"date": "13/03/2021",
+"port": "Larne",
+"all_ship_visits": 4,
+"cargo_and_tanker_visits": 1
+},
+{
+"id": 913,
+"date": "14/03/2021",
+"port": "Larne",
+"all_ship_visits": 16,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 914,
+"date": "15/03/2021",
+"port": "Larne",
+"all_ship_visits": 9,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 915,
+"date": "16/03/2021",
+"port": "Larne",
+"all_ship_visits": 8,
+"cargo_and_tanker_visits": 2
+},
+{
+"id": 916,
+"date": "17/03/2021",
+"port": "Larne",
+"all_ship_visits": 17,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 917,
+"date": "18/03/2021",
+"port": "Larne",
+"all_ship_visits": 5,
+"cargo_and_tanker_visits": 2
+},
+{
+"id": 918,
+"date": "19/03/2021",
+"port": "Larne",
+"all_ship_visits": 35,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 919,
+"date": "20/03/2021",
+"port": "Larne",
+"all_ship_visits": 31,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 920,
+"date": "21/03/2021",
+"port": "Larne",
+"all_ship_visits": 25,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 921,
+"date": "22/03/2021",
+"port": "Larne",
+"all_ship_visits": 23,
+"cargo_and_tanker_visits": 13
+},
+{
+"id": 922,
+"date": "23/03/2021",
+"port": "Larne",
+"all_ship_visits": 26,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 923,
+"date": "24/03/2021",
+"port": "Larne",
+"all_ship_visits": 8,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 924,
+"date": "25/03/2021",
+"port": "Larne",
+"all_ship_visits": 2,
+"cargo_and_tanker_visits": 1
+},
+{
+"id": 925,
+"date": "26/03/2021",
+"port": "Larne",
+"all_ship_visits": 20,
+"cargo_and_tanker_visits": 5
+},
+{
+"id": 926,
+"date": "27/03/2021",
+"port": "Larne",
+"all_ship_visits": 29,
+"cargo_and_tanker_visits": 21
+},
+{
+"id": 927,
+"date": "28/03/2021",
+"port": "Larne",
+"all_ship_visits": 23,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 928,
+"date": "29/03/2021",
+"port": "Larne",
+"all_ship_visits": 19,
+"cargo_and_tanker_visits": 13
+},
+{
+"id": 929,
+"date": "30/03/2021",
+"port": "Larne",
+"all_ship_visits": 2,
+"cargo_and_tanker_visits": 1
+},
+{
+"id": 930,
+"date": "31/03/2021",
+"port": "Larne",
+"all_ship_visits": 16,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 931,
+"date": "01/04/2021",
+"port": "Larne",
+"all_ship_visits": 29,
+"cargo_and_tanker_visits": 19
+},
+{
+"id": 932,
+"date": "02/04/2021",
+"port": "Larne",
+"all_ship_visits": 36,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 933,
+"date": "03/04/2021",
+"port": "Larne",
+"all_ship_visits": 19,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 934,
+"date": "04/04/2021",
+"port": "Larne",
+"all_ship_visits": 31,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 935,
+"date": "05/04/2021",
+"port": "Larne",
+"all_ship_visits": 18,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 936,
+"date": "06/04/2021",
+"port": "Larne",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 2
+},
+{
+"id": 937,
+"date": "07/04/2021",
+"port": "Larne",
+"all_ship_visits": 25,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 938,
+"date": "08/04/2021",
+"port": "Larne",
+"all_ship_visits": 30,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 939,
+"date": "09/04/2021",
+"port": "Larne",
+"all_ship_visits": 33,
+"cargo_and_tanker_visits": 23
+},
+{
+"id": 940,
+"date": "10/04/2021",
+"port": "Larne",
+"all_ship_visits": 14,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 941,
+"date": "11/04/2021",
+"port": "Larne",
+"all_ship_visits": 18,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 942,
+"date": "12/04/2021",
+"port": "Larne",
+"all_ship_visits": 37,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 943,
+"date": "13/04/2021",
+"port": "Larne",
+"all_ship_visits": 17,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 944,
+"date": "13/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 40,
+"cargo_and_tanker_visits": 16
+},
+{
+"id": 945,
+"date": "14/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 56,
+"cargo_and_tanker_visits": 34
+},
+{
+"id": 946,
+"date": "15/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 52,
+"cargo_and_tanker_visits": 30
+},
+{
+"id": 947,
+"date": "16/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 5,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 948,
+"date": "17/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 2
+},
+{
+"id": 949,
+"date": "18/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 11,
+"cargo_and_tanker_visits": 5
+},
+{
+"id": 950,
+"date": "19/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 19,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 951,
+"date": "20/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 43,
+"cargo_and_tanker_visits": 16
+},
+{
+"id": 952,
+"date": "21/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 51,
+"cargo_and_tanker_visits": 29
+},
+{
+"id": 953,
+"date": "22/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 954,
+"date": "23/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 5,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 955,
+"date": "24/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 44,
+"cargo_and_tanker_visits": 19
+},
+{
+"id": 956,
+"date": "25/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 40,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 957,
+"date": "26/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 20,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 958,
+"date": "27/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 20,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 959,
+"date": "28/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 16,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 960,
+"date": "29/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 44,
+"cargo_and_tanker_visits": 28
+},
+{
+"id": 961,
+"date": "30/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 28,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 962,
+"date": "31/03/2021",
+"port": "Liverpool",
+"all_ship_visits": 46,
+"cargo_and_tanker_visits": 18
+},
+{
+"id": 963,
+"date": "01/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 52,
+"cargo_and_tanker_visits": 13
+},
+{
+"id": 964,
+"date": "02/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 37,
+"cargo_and_tanker_visits": 13
+},
+{
+"id": 965,
+"date": "03/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 20,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 966,
+"date": "04/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 15,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 967,
+"date": "05/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 16,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 968,
+"date": "06/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 50,
+"cargo_and_tanker_visits": 26
+},
+{
+"id": 969,
+"date": "07/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 21,
+"cargo_and_tanker_visits": 12
+},
+{
+"id": 970,
+"date": "08/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 53,
+"cargo_and_tanker_visits": 24
+},
+{
+"id": 971,
+"date": "09/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 29,
+"cargo_and_tanker_visits": 20
+},
+{
+"id": 972,
+"date": "10/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 19,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 973,
+"date": "11/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 49,
+"cargo_and_tanker_visits": 19
+},
+{
+"id": 974,
+"date": "12/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 7,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 975,
+"date": "13/04/2021",
+"port": "Liverpool",
+"all_ship_visits": 16,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 976,
+"date": "13/03/2021",
+"port": "London",
+"all_ship_visits": 23,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 977,
+"date": "14/03/2021",
+"port": "London",
+"all_ship_visits": 74,
+"cargo_and_tanker_visits": 21
+},
+{
+"id": 978,
+"date": "15/03/2021",
+"port": "London",
+"all_ship_visits": 84,
+"cargo_and_tanker_visits": 45
+},
+{
+"id": 979,
+"date": "16/03/2021",
+"port": "London",
+"all_ship_visits": 27,
+"cargo_and_tanker_visits": 18
+},
+{
+"id": 980,
+"date": "17/03/2021",
+"port": "London",
+"all_ship_visits": 83,
+"cargo_and_tanker_visits": 47
+},
+{
+"id": 981,
+"date": "18/03/2021",
+"port": "London",
+"all_ship_visits": 64,
+"cargo_and_tanker_visits": 27
+},
+{
+"id": 982,
+"date": "19/03/2021",
+"port": "London",
+"all_ship_visits": 77,
+"cargo_and_tanker_visits": 20
+},
+{
+"id": 983,
+"date": "20/03/2021",
+"port": "London",
+"all_ship_visits": 50,
+"cargo_and_tanker_visits": 13
+},
+{
+"id": 984,
+"date": "21/03/2021",
+"port": "London",
+"all_ship_visits": 43,
+"cargo_and_tanker_visits": 24
+},
+{
+"id": 985,
+"date": "22/03/2021",
+"port": "London",
+"all_ship_visits": 82,
+"cargo_and_tanker_visits": 22
+},
+{
+"id": 986,
+"date": "23/03/2021",
+"port": "London",
+"all_ship_visits": 52,
+"cargo_and_tanker_visits": 26
+},
+{
+"id": 987,
+"date": "24/03/2021",
+"port": "London",
+"all_ship_visits": 24,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 988,
+"date": "25/03/2021",
+"port": "London",
+"all_ship_visits": 25,
+"cargo_and_tanker_visits": 16
+},
+{
+"id": 989,
+"date": "26/03/2021",
+"port": "London",
+"all_ship_visits": 53,
+"cargo_and_tanker_visits": 39
+},
+{
+"id": 990,
+"date": "27/03/2021",
+"port": "London",
+"all_ship_visits": 70,
+"cargo_and_tanker_visits": 38
+},
+{
+"id": 991,
+"date": "28/03/2021",
+"port": "London",
+"all_ship_visits": 15,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 992,
+"date": "29/03/2021",
+"port": "London",
+"all_ship_visits": 15,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 993,
+"date": "30/03/2021",
+"port": "London",
+"all_ship_visits": 48,
+"cargo_and_tanker_visits": 35
+},
+{
+"id": 994,
+"date": "31/03/2021",
+"port": "London",
+"all_ship_visits": 46,
+"cargo_and_tanker_visits": 21
+},
+{
+"id": 995,
+"date": "01/04/2021",
+"port": "London",
+"all_ship_visits": 60,
+"cargo_and_tanker_visits": 23
+},
+{
+"id": 996,
+"date": "02/04/2021",
+"port": "London",
+"all_ship_visits": 82,
+"cargo_and_tanker_visits": 40
+},
+{
+"id": 997,
+"date": "03/04/2021",
+"port": "London",
+"all_ship_visits": 82,
+"cargo_and_tanker_visits": 61
+},
+{
+"id": 998,
+"date": "04/04/2021",
+"port": "London",
+"all_ship_visits": 21,
+"cargo_and_tanker_visits": 13
+},
+{
+"id": 999,
+"date": "05/04/2021",
+"port": "London",
+"all_ship_visits": 79,
+"cargo_and_tanker_visits": 47
+},
+{
+"id": 1000,
+"date": "06/04/2021",
+"port": "London",
+"all_ship_visits": 28,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 1001,
+"date": "07/04/2021",
+"port": "London",
+"all_ship_visits": 27,
+"cargo_and_tanker_visits": 18
+},
+{
+"id": 1002,
+"date": "08/04/2021",
+"port": "London",
+"all_ship_visits": 56,
+"cargo_and_tanker_visits": 36
+},
+{
+"id": 1003,
+"date": "09/04/2021",
+"port": "London",
+"all_ship_visits": 33,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 1004,
+"date": "10/04/2021",
+"port": "London",
+"all_ship_visits": 74,
+"cargo_and_tanker_visits": 29
+},
+{
+"id": 1005,
+"date": "11/04/2021",
+"port": "London",
+"all_ship_visits": 34,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 1006,
+"date": "12/04/2021",
+"port": "London",
+"all_ship_visits": 33,
+"cargo_and_tanker_visits": 20
+},
+{
+"id": 1007,
+"date": "13/04/2021",
+"port": "London",
+"all_ship_visits": 87,
+"cargo_and_tanker_visits": 24
+},
+{
+"id": 1008,
+"date": "13/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 30,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 1009,
+"date": "14/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 22,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 1010,
+"date": "15/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 29,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 1011,
+"date": "16/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 9,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 1012,
+"date": "17/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 25,
+"cargo_and_tanker_visits": 12
+},
+{
+"id": 1013,
+"date": "18/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 10,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 1014,
+"date": "19/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 22,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 1015,
+"date": "20/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 5,
+"cargo_and_tanker_visits": 2
+},
+{
+"id": 1016,
+"date": "21/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 1,
+"cargo_and_tanker_visits": 1
+},
+{
+"id": 1017,
+"date": "22/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 4,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 1018,
+"date": "23/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 24,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 1019,
+"date": "24/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 3,
+"cargo_and_tanker_visits": 1
+},
+{
+"id": 1020,
+"date": "25/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 0,
+"cargo_and_tanker_visits": 0
+},
+{
+"id": 1021,
+"date": "26/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 5,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 1022,
+"date": "27/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 13,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 1023,
+"date": "28/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 30,
+"cargo_and_tanker_visits": 18
+},
+{
+"id": 1024,
+"date": "29/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 30,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 1025,
+"date": "30/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 0,
+"cargo_and_tanker_visits": 0
+},
+{
+"id": 1026,
+"date": "31/03/2021",
+"port": "Milford Haven",
+"all_ship_visits": 2,
+"cargo_and_tanker_visits": 1
+},
+{
+"id": 1027,
+"date": "01/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 9,
+"cargo_and_tanker_visits": 6
+},
+{
+"id": 1028,
+"date": "02/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 32,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 1029,
+"date": "03/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 12,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 1030,
+"date": "04/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 13,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 1031,
+"date": "05/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 1032,
+"date": "06/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 11,
+"cargo_and_tanker_visits": 5
+},
+{
+"id": 1033,
+"date": "07/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 8,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 1034,
+"date": "08/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 20,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 1035,
+"date": "09/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 9,
+"cargo_and_tanker_visits": 5
+},
+{
+"id": 1036,
+"date": "10/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 30,
+"cargo_and_tanker_visits": 18
+},
+{
+"id": 1037,
+"date": "11/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 8,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 1038,
+"date": "12/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 1,
+"cargo_and_tanker_visits": 1
+},
+{
+"id": 1039,
+"date": "13/04/2021",
+"port": "Milford Haven",
+"all_ship_visits": 23,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 1040,
+"date": "13/03/2021",
+"port": "Southampton",
+"all_ship_visits": 52,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 1041,
+"date": "14/03/2021",
+"port": "Southampton",
+"all_ship_visits": 13,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 1042,
+"date": "15/03/2021",
+"port": "Southampton",
+"all_ship_visits": 53,
+"cargo_and_tanker_visits": 29
+},
+{
+"id": 1043,
+"date": "16/03/2021",
+"port": "Southampton",
+"all_ship_visits": 28,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 1044,
+"date": "17/03/2021",
+"port": "Southampton",
+"all_ship_visits": 58,
+"cargo_and_tanker_visits": 43
+},
+{
+"id": 1045,
+"date": "18/03/2021",
+"port": "Southampton",
+"all_ship_visits": 23,
+"cargo_and_tanker_visits": 10
+},
+{
+"id": 1046,
+"date": "19/03/2021",
+"port": "Southampton",
+"all_ship_visits": 41,
+"cargo_and_tanker_visits": 27
+},
+{
+"id": 1047,
+"date": "20/03/2021",
+"port": "Southampton",
+"all_ship_visits": 22,
+"cargo_and_tanker_visits": 16
+},
+{
+"id": 1048,
+"date": "21/03/2021",
+"port": "Southampton",
+"all_ship_visits": 24,
+"cargo_and_tanker_visits": 13
+},
+{
+"id": 1049,
+"date": "22/03/2021",
+"port": "Southampton",
+"all_ship_visits": 12,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 1050,
+"date": "23/03/2021",
+"port": "Southampton",
+"all_ship_visits": 17,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 1051,
+"date": "24/03/2021",
+"port": "Southampton",
+"all_ship_visits": 32,
+"cargo_and_tanker_visits": 20
+},
+{
+"id": 1052,
+"date": "25/03/2021",
+"port": "Southampton",
+"all_ship_visits": 46,
+"cargo_and_tanker_visits": 24
+},
+{
+"id": 1053,
+"date": "26/03/2021",
+"port": "Southampton",
+"all_ship_visits": 50,
+"cargo_and_tanker_visits": 32
+},
+{
+"id": 1054,
+"date": "27/03/2021",
+"port": "Southampton",
+"all_ship_visits": 49,
+"cargo_and_tanker_visits": 33
+},
+{
+"id": 1055,
+"date": "28/03/2021",
+"port": "Southampton",
+"all_ship_visits": 32,
+"cargo_and_tanker_visits": 20
+},
+{
+"id": 1056,
+"date": "29/03/2021",
+"port": "Southampton",
+"all_ship_visits": 20,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 1057,
+"date": "30/03/2021",
+"port": "Southampton",
+"all_ship_visits": 45,
+"cargo_and_tanker_visits": 22
+},
+{
+"id": 1058,
+"date": "31/03/2021",
+"port": "Southampton",
+"all_ship_visits": 19,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 1059,
+"date": "01/04/2021",
+"port": "Southampton",
+"all_ship_visits": 14,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 1060,
+"date": "02/04/2021",
+"port": "Southampton",
+"all_ship_visits": 13,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 1061,
+"date": "03/04/2021",
+"port": "Southampton",
+"all_ship_visits": 25,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 1062,
+"date": "04/04/2021",
+"port": "Southampton",
+"all_ship_visits": 53,
+"cargo_and_tanker_visits": 26
+},
+{
+"id": 1063,
+"date": "05/04/2021",
+"port": "Southampton",
+"all_ship_visits": 7,
+"cargo_and_tanker_visits": 2
+},
+{
+"id": 1064,
+"date": "06/04/2021",
+"port": "Southampton",
+"all_ship_visits": 38,
+"cargo_and_tanker_visits": 25
+},
+{
+"id": 1065,
+"date": "07/04/2021",
+"port": "Southampton",
+"all_ship_visits": 40,
+"cargo_and_tanker_visits": 30
+},
+{
+"id": 1066,
+"date": "08/04/2021",
+"port": "Southampton",
+"all_ship_visits": 43,
+"cargo_and_tanker_visits": 17
+},
+{
+"id": 1067,
+"date": "09/04/2021",
+"port": "Southampton",
+"all_ship_visits": 54,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 1068,
+"date": "10/04/2021",
+"port": "Southampton",
+"all_ship_visits": 57,
+"cargo_and_tanker_visits": 30
+},
+{
+"id": 1069,
+"date": "11/04/2021",
+"port": "Southampton",
+"all_ship_visits": 23,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 1070,
+"date": "12/04/2021",
+"port": "Southampton",
+"all_ship_visits": 42,
+"cargo_and_tanker_visits": 28
+},
+{
+"id": 1071,
+"date": "13/04/2021",
+"port": "Southampton",
+"all_ship_visits": 57,
+"cargo_and_tanker_visits": 16
+},
+{
+"id": 1072,
+"date": "13/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 40,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 1073,
+"date": "14/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 15,
+"cargo_and_tanker_visits": 5
+},
+{
+"id": 1074,
+"date": "15/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 18,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 1075,
+"date": "16/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 11,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 1076,
+"date": "17/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 2
+},
+{
+"id": 1077,
+"date": "18/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 12,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 1078,
+"date": "19/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 42,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 1079,
+"date": "20/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 9,
+"cargo_and_tanker_visits": 5
+},
+{
+"id": 1080,
+"date": "21/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 1081,
+"date": "22/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 24,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 1082,
+"date": "23/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 22,
+"cargo_and_tanker_visits": 16
+},
+{
+"id": 1083,
+"date": "24/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 23,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 1084,
+"date": "25/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 30,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 1085,
+"date": "26/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 16,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 1086,
+"date": "27/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 3
+},
+{
+"id": 1087,
+"date": "28/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 40,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 1088,
+"date": "29/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 36,
+"cargo_and_tanker_visits": 19
+},
+{
+"id": 1089,
+"date": "30/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 1090,
+"date": "31/03/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 42,
+"cargo_and_tanker_visits": 14
+},
+{
+"id": 1091,
+"date": "01/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 7,
+"cargo_and_tanker_visits": 4
+},
+{
+"id": 1092,
+"date": "02/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 45,
+"cargo_and_tanker_visits": 23
+},
+{
+"id": 1093,
+"date": "03/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 30,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 1094,
+"date": "04/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 6,
+"cargo_and_tanker_visits": 2
+},
+{
+"id": 1095,
+"date": "05/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 17,
+"cargo_and_tanker_visits": 11
+},
+{
+"id": 1096,
+"date": "06/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 19,
+"cargo_and_tanker_visits": 8
+},
+{
+"id": 1097,
+"date": "07/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 45,
+"cargo_and_tanker_visits": 12
+},
+{
+"id": 1098,
+"date": "08/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 41,
+"cargo_and_tanker_visits": 15
+},
+{
+"id": 1099,
+"date": "09/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 10,
+"cargo_and_tanker_visits": 7
+},
+{
+"id": 1100,
+"date": "10/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 30,
+"cargo_and_tanker_visits": 9
+},
+{
+"id": 1101,
+"date": "11/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 42,
+"cargo_and_tanker_visits": 20
+},
+{
+"id": 1102,
+"date": "12/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 26,
+"cargo_and_tanker_visits": 17
+},
+{
+"id": 1103,
+"date": "13/04/2021",
+"port": "Tees & Hartlepool",
+"all_ship_visits": 5,
+"cargo_and_tanker_visits": 2
+}
+]

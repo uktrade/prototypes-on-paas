@@ -218,3 +218,6 @@ process.json
 /.idea/vcs.xml
 
 node_modules
+/prototypes_router/cert.pem
+
+*.pem

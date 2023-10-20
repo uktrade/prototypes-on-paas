@@ -2,13 +2,6 @@
 applications:
   - name: prototypes-on-paas
     buildpacks:
-      - https://github.com/cloudfoundry/nginx-buildpack.git
       - https://github.com/cloudfoundry/nodejs-buildpack.git
       - https://github.com/cloudfoundry/python-buildpack.git
     memory: 512M
-    env:
-      APP_NAME: prototypes-on-paas
-      ALLOWED_IPS: |
-        allow 1.2.3.4/32;
-        allow 2.3.4.5/32;
-    health-check-type: process

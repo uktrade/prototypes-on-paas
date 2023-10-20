@@ -1,0 +1,39 @@
+
+// ag-grid customisations
+@import "node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin";
+
+
+$dw-grid-highlight-color: #5694ca;
+$dw-grid-header-background-color: #f7f7f7;
+
+
+.ag-theme-alpine {
+  @include ag-theme-alpine(
+                  (
+                          range-selection-border-color: #1d70b8,
+                          font-family: ("Arial", sans-serif),
+                          font-size: 15px,
+                          grid-size: 6px,
+                          borders: true,
+                          borders-critical: true,
+                          borders-secondary: true,
+                          border-color: #b1b4b6,
+                          header-background-color: $dw-grid-header-background-color,
+                          alpine-active-color: $dw-grid-highlight-color,
+                  )
+  );
+
+  .ag-icon-filter {
+
+     /* FontAwesome uses font-weight bold */
+
+     font-weight: medium;
+     font-size: 18px;
+  }
+
+  .ag-cell {
+    font-variant-numeric: tabular-nums;
+  }
+
+}
