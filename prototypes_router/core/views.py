@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.shortcuts import redirect
 from django.template.response import SimpleTemplateResponse
 from django.views.static import serve
 from revproxy.views import ProxyView
@@ -28,7 +29,7 @@ class ReverseProxyRouter(ProxyView):
                     == settings.HASHED_PASSWORD
                 ):
                     request.session["authenticated"] = True
-                    return self.return_index_page(request)
+                    return redirect("/")
                 else:
                     request.session["authenticated"] = False
                     return self.return_index_page(
