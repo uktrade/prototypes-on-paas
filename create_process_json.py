@@ -1,6 +1,5 @@
 import json
 import os
-from glob import glob
 
 processes = {"apps": []}
 port = 9000
@@ -21,23 +20,25 @@ for prototype in os.listdir(prototypes_folder):
             config["useAuth"] = False
             config["useHttps"] = False
 
-            with open(config_file, 'w') as file:
+            with open(config_file, "w") as file:
                 json.dump(config, file)
 
             port += 1
 
             # then we write it to the process.json dictionary
-            processes["apps"].append({
-                "name": specific_prototype_name,
-                "cwd": f"./prototypes/{prototype}",
-                "script": "npm run start",
-                "env": {
-                    "PORT": port,
-                    "NODE_ENV": "production",
-                    "PASSWORD": "password",
-                },
-                "url_path": prototype,
-            })
+            processes["apps"].append(
+                {
+                    "name": specific_prototype_name,
+                    "cwd": f"./prototypes/{prototype}",
+                    "script": "npm run start",
+                    "env": {
+                        "PORT": port,
+                        "NODE_ENV": "production",
+                        "PASSWORD": "password",
+                    },
+                    "url_path": prototype,
+                }
+            )
 
 # writing the completed processes file to JSON
 with open("process.json", "w") as jsonFile:

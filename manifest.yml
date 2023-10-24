@@ -1,7 +1,5 @@
 ---
 applications:
-  - name: prototypes-on-paas
-    buildpacks:
-      - https://github.com/cloudfoundry/nodejs-buildpack.git
-      - https://github.com/cloudfoundry/python-buildpack.git
-    memory: 512M
+  - buildpacks:
+    - https://github.com/cloudfoundry/nodejs-buildpack.git
+    - https://github.com/cloudfoundry/python-buildpack.git

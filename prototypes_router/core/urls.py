@@ -18,6 +18,6 @@ from django.urls import path, re_path
 from .views import ReverseProxyRouter
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    re_path(r'^(?P<path>.*)$', ReverseProxyRouter.as_view()),
+    path("admin/", admin.site.urls),
+    re_path(r"^(?P<path>.*)$", ReverseProxyRouter.as_view()),
 ]

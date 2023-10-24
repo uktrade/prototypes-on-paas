@@ -10,14 +10,11 @@ prototypes = settings.PROTOTYPES
 class ReverseProxyRouter(ProxyView):
     def return_index_page(self, request, extra_context=None):
         context = {
-                "prototypes": prototypes,
-                "authenticated": self.request.session.get("authenticated", False),
-            }
+            "prototypes": prototypes,
+            "authenticated": self.request.session.get("authenticated", False),
+        }
         context.update(extra_context or {})
-        return SimpleTemplateResponse(
-            template="index.html",
-            context=context
-        )
+        return SimpleTemplateResponse(template="index.html", context=context)
 
     def dispatch(self, request, path):
         if path and "pop_static" in path:
@@ -26,12 +23,17 @@ class ReverseProxyRouter(ProxyView):
 
         elif request.POST and "pop_authentication_flag" in request.POST:
             if entered_password := request.POST.get("password", None):
-                if hashlib.sha256(entered_password.encode()).hexdigest() == settings.HASHED_PASSWORD:
+                if (
+                    hashlib.sha256(entered_password.encode()).hexdigest()
+                    == settings.HASHED_PASSWORD
+                ):
                     request.session["authenticated"] = True
                     return self.return_index_page(request)
                 else:
                     request.session["authenticated"] = False
-                    return self.return_index_page(request, extra_context={"failed_authentication": True})
+                    return self.return_index_page(
+                        request, extra_context={"failed_authentication": True}
+                    )
 
         elif not request.session.get("authenticated", False):
             return self.return_index_page(request)
@@ -78,5 +80,5 @@ class ReverseProxyRouter(ProxyView):
             headers=self.request_headers,
             body=request_payload,
             decode_content=False,
-            preload_content=False
+            preload_content=False,
         )
