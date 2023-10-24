@@ -221,3 +221,4 @@ node_modules
 /prototypes_router/cert.pem
 
 *.pem
+*.sqlite3
