@@ -1,0 +1,209 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- START BREADCRUMB TRAIL -->
+    <div class="govuk-breadcrumbs" data-test="breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="homepage">Home</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="companies">Companies</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="company-detail">ROLLS-ROYCE HOLDINGS PLC</a></li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Add export win</li></ol>
+      </div>
+<!-- END BREADCRUMB TRAIL -->
+
+
+    <div id="flash-messages" class="react-slot"><noscript>Please enable JavaScript in your browser to see the content.</noscript></div>
+
+      <div class="govuk-grid-row c-local-header__content">
+        <div class="govuk-grid-column-full">
+          <h1 class="c-local-header__heading">Add export win</h1>
+          <h2 class="govuk-!-font-weight-regular">ROLLS-ROYCE HOLDINGS PLC</h2>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- START CONTAINER -->
+<div class="govuk-width-container">
+  <h2 class="govuk-heading-m">Officer details</h2>
+
+<form method="post" action="/graham/export-wins/credit-for-this-win" id="officer-details" class="govuk-!-width-two-thirds">
+
+  <fieldset class="govuk-fieldset">
+    <div class="govuk-form-group">
+
+<!-- START Owner name -->
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {{ govukInput({
+        label: {
+          text: "Owner name",
+          classes: "govuk-label--s",
+          isPageHeading: false
+        },
+        id: "owner-name-officer",
+        name: "owner-name-officer"
+      }) }}
+
+
+<!-- START Team type -->
+<div class="govuk-form-group">
+      <label class="govuk-label" for="team-type-officer-heading">
+        <strong>Team type</strong>
+      </label>
+
+      <select class="govuk-select govuk-grid-column-full" id="team-type-officer" name="team-type-officer">
+        <option value="unselected">Please choose</option>
+          <option value="Trade (TD or ST)">Trade (TD or ST)</option>
+          <option value="Investment (ITFG or IG)">Investment (ITFG or IG)</option>
+          <option value="DSO">DSO</option>
+          <option value="Other HQ Team">Other HQ Team</option>
+          <option value="International Trade Team">International Trade Team</option>
+          <option value="Overseas Business Network">Overseas Business Network</option>
+          <option value="Overseas Post">Overseas Post</option>
+          <option value="Trade Challenge Partners (TCP)">Trade Challenge Partners (TCP)</option>
+      </select>
+</div>
+
+
+<!-- START HQ team, region or post -->
+<div class="govuk-form-group">
+        <label class="govuk-label" for="hq-team-officer-heading">
+          <strong>HQ team, region or post</strong>
+        </label>
+
+        <select class="govuk-select govuk-grid-column-full" id="hq-team-officer" name="hq-team-officer">
+          <option value="unselected">Please choose</option>
+          <option value="TD - Events - Services">TD - Events - Services</option>
+          <option value="TD - Events - Financial &amp; Professional Business Services">TD - Events - Financial &amp; Professional Business Services</option>
+          <option value="TD - Events - Education">TD - Events - Education</option>
+          <option value="TD - Events - Creative Industries">TD - Events - Creative Industries</option>
+          <option value="TD - Events - Retail">TD - Events - Retail</option>
+          <option value="TD - Events - Large Events Support">TD - Events - Large Events Support</option>
+          <option value="TD - Events - Rapid Response">TD - Events - Rapid Response</option>
+          <option value="TD - Events - Rapid Response">TD - Events - Rapid Response</option>
+          <option value="TD - Events - Venture Capital">TD - Events - Venture Capital</option>
+          <option value="TD - Events - Energy">TD - Events - Energy</option>
+          <option value="TD - Events - Advanced Manufacturing">TD - Events - Advanced Manufacturing</option>
+          <option value="TD - Events - Advanced Engineering">TD - Events - Advanced Engineering</option>
+          <option value="TD - Events - Agrifood">TD - Events - Agrifood</option>
+          <option value="TD - Events - Consumer Goods">TD - Events - Consumer Goods</option>
+          <option value="TD - Events - Marine">TD - Events - Marine</option>
+          <option value="TD - Events - Advanced Manufacturing - Support">TD - Events - Advanced Manufacturing - Support</option>
+          <option value="TD - Events - Planning and Procurement">TD - Events - Planning and Procurement</option>
+          <option value="TD - Finance &amp; Performance">TD - Finance &amp; Performance</option>
+          <option value="TD - Technology, Innovation and Events - Venture Capital Unit">TD - Technology, Innovation and Events - Venture Capital Unit</option>
+          <option value="TD - Technology, Innovation and Events - Science and Innovation">TD - Technology, Innovation and Events - Science and Innovation</option>
+          <option value="TD - Technology, Innovation and Events - Technology Partnerships">TD - Technology, Innovation and Events - Technology Partnerships</option>
+          <option value="TD - Technology, Innovation and Events - Open to Export">TD - Technology, Innovation and Events - Open to Export</option>
+          <option value="TD - Technology, Innovation and Events">TD - Technology, Innovation and Events</option>
+          <option value="TD - Events Delivery &amp; Performance">TD - Events Delivery &amp; Performance</option>
+          <option value="TD - Events - BDV">TD - Events - BDV</option>
+          <option value="TD - Events - Markets">TD - Events - Markets</option>
+          <option value="TD - TAP Team">TD - TAP Team</option>
+          <option value="TD - Business Development">TD - Business Development</option>
+          <option value="TD - Events - Sport">TD - Events - Sport</option>
+          <option value="TD - Events - Infrastructure &amp; Life Sciences">TD - Events - Infrastructure &amp; Life Sciences</option>
+          <option value="TD - Events - Infrastructure">TD - Events - Infrastructure</option>
+          <option value="TD - Infrastructure &amp; Life Sciences">TD - Infrastructure &amp; Life Sciences</option>
+          <option value="TD - Events - ICT">TD - Events - ICT</option>
+          <option value="TD - Events - Transport">TD - Events - Transport</option>
+          <option value="TD - Events - Healthcare">TD - Events - Healthcare</option>
+          <option value="TD - Events - Construction">TD - Events - Construction</option>
+          <option value="TD - Events - Open to Export">TD - Events - Open to Export</option>
+          <option value="ST - Managing Director and PA">ST - Managing Director and PA</option>
+          <option value="ST - Infrastructure and Life Science - Healthcare Pharma and Bio">ST - Infrastructure and Life Science - Healthcare Pharma and Bio</option>
+          <option value="ST - Infrastructure &amp; Life Science - Construction/Mass Transport">ST - Infrastructure &amp; Life Science - Construction/Mass Transport</option>
+          <option value="ST - Infrastructure and Life Science - Low Carbon Env Water">ST - Infrastructure and Life Science - Low Carbon Env Water</option>
+          <option value="ST - Infrastructure and Life Science - High Value Opportunities">ST - Infrastructure and Life Science - High Value Opportunities</option>
+          <option value="ST - Infrastructure and Life Science - Support Team">ST - Infrastructure and Life Science - Support Team</option>
+          <option value="ST - Infrastructure and Life Science - Sport">ST - Infrastructure and Life Science - Sport</option>
+          <option value="ST - High Value Opportunities Activities">ST - High Value Opportunities Activities</option>
+          <option value="ST - Service Industries - Education and Experience Economy">ST - Service Industries - Education and Experience Economy</option>
+          <option value="ST - Service Industries - Financial Professional and Business">ST - Service Industries - Financial Professional and Business</option>
+          <option value="ST - Service Industries - Retail and Lifestyle">ST - Service Industries - Retail and Lifestyle</option>
+          <option value="ST - Service Industries - Agri-Food Drink &amp; Aid Funded Business">ST - Service Industries - Agri-Food Drink &amp; Aid Funded Business</option>
+          <option value="ST - Director - Service Industries">ST - Director - Service Industries</option>
+          <option value="ST - Service Industries - Support Team">ST - Service Industries - Support Team</option>
+          <option value="ST - Service Industries - Creative Industries">ST - Service Industries - Creative Industries</option>
+          <option value="ST - Advanced Manufacturing - Support Team">ST - Advanced Manufacturing - Support Team</option>
+          <option value="ST - Advanced Manufacturing - Advanced Engineering">ST - Advanced Manufacturing - Advanced Engineering</option>
+          <option value="ST - Advanced Manufacturing - ICT">ST - Advanced Manufacturing - ICT</option>
+          <option value="ST - Advanced Manufacturing - Energy">ST - Advanced Manufacturing - Energy</option>
+          <option value="ST - Advanced Manufacturing - Energy">ST - Advanced Manufacturing - Energy</option>
+          <option value="ST - Central and Latin America">ST - Central and Latin America</option>
+          <option value="ST - Central and Latin America">ST - Central and Latin America</option>
+          <option value="ST - Africa">ST - Africa</option>
+          <option value="ST - Dir - Emerging Markets - China - Southern Asia">ST - Dir - Emerging Markets - China - Southern Asia</option>
+          <option value="ST - Emerging Markets - China - Southern Asia - Support">ST - Emerging Markets - China - Southern Asia - Support</option>
+          <option value="ST - Emerging Markets">ST - Emerging Markets</option>
+          <option value="ST - China">ST - China</option>
+          <option value="ST - South Asia">ST - South Asia</option>
+          <option value="ST - South East Asia">ST - South East Asia</option>
+          <option value="ST - Dir - Developed Markets">ST - Dir - Developed Markets</option>
+          <option value="ST - Developed Markets - Support Team">ST - Developed Markets - Support Team</option>
+          <option value="ST - North America - East Asia - Australasia - Caribbean">ST - North America - East Asia - Australasia - Caribbean</option>
+          <option value="ST - Europe">ST - Europe</option>
+          <option value="ST - Group Resources - Support Team">ST - Group Resources - Support Team</option>
+          <option value="ST - E-Exporting Programme">ST - E-Exporting Programme</option>
+          <option value="ST - Marine">ST - Marine</option>
+</select>
+</div>
+
+
+<!-- START Owner email address -->
+<div class="govuk-form-group">
+<label class="govuk-label" for="owner-email-address-heading">
+  <strong>Owner email address (optional)</strong>
+</label>
+<div id="interaction-notes-hint" class="govuk-hint">
+  You only need to add this if you are completing the form on behalf of the owner.
+</div>
+
+<input class="govuk-input" id="owner-email-address" name="owner-email-address" type="text">
+</div>
+
+
+
+<!-- START Additional contact email -->
+<div class="govuk-form-group">
+  <label class="govuk-label" for="additional-email-address-heading">
+    <strong>Additional contact email (optional)</strong>
+  </label>
+  <div id="interaction-notes-hint" class="govuk-hint">
+    Add if another member of your team needs to be updated on this win.
+  </div>
+
+  <input class="govuk-input" id="additional-email-address" name="additional-email-address" type="text">
+</div>
+
+
+<!-- START Buttons -->
+<div class="govuk-button-group">
+  <button class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+  <a class="govuk-link" href="company-detail">Cancel</a>
+</div>
+
+
+</form>
+
+  </div>
+</div>
+<!-- END CONTAINER -->
+
+
+{% endblock %}

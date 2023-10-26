@@ -1,0 +1,368 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- START BREADCRUMB TRAIL -->
+    <div class="govuk-breadcrumbs" data-test="breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="homepage">Home</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="companies">Companies</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="company-detail">ROLLS-ROYCE HOLDINGS PLC</a></li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Add export win</li></ol>
+      </div>
+<!-- END BREADCRUMB TRAIL -->
+
+
+    <div id="flash-messages" class="react-slot"><noscript>Please enable JavaScript in your browser to see the content.</noscript></div>
+
+      <div class="govuk-grid-row c-local-header__content">
+        <div class="govuk-grid-column-full">
+          <h1 class="c-local-header__heading">Add export win</h1>
+          <h2 class="govuk-!-font-weight-regular">ROLLS-ROYCE HOLDINGS PLC</h2>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- START CONTAINER -->
+<div class="govuk-width-container">
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Support given</h2>
+  <div class="govuk-hint">
+    Did any of these help the customer achieve this win?
+  </div>
+
+<form method="post" action="check-before-sending" id="support-given">
+
+<!-- HVC code (optional) -->
+<div class="govuk-form-group">
+<label class="govuk-label" for="hvc-code-heading">
+  <strong>High Value Campaign (HVC) code (optional)</strong>
+</label>
+
+<select class="govuk-select govuk-!-width-two-thirds" id="hvc-code" name="hvc-code">
+  <option value="" selected="">Please choose...</option>
+  <option value="ANZ Infrastructure: E273">ANZ Infrastructure: E273</option>
+  <option value="APAC Infrastructure: E274">APAC Infrastructure: E274</option>
+  <option value="Africa Agritech: E153">Africa Agritech: E153</option>
+  <option value="EAfrica Defence &amp; Security: E145">Africa Defence &amp; Security: E145</option>
+  <option value="Africa Infrastructure: E272">Africa Infrastructure: E272</option>
+  <option value="Africa North Defence &amp; Security: E209">Africa North Defence &amp; Security: E209</option>
+  <option value="Africa Oil &amp; Gas: E042">Africa Oil &amp; Gas: E042</option>
+  <option value="Africa Oil &amp; Gas: E242">Africa Oil &amp; Gas: E242</option>
+  <option value="Africa Renewables: E043">Africa Renewables: E043</option>
+  <option value="Asia-Pacific ANZ Defence &amp; Security: E002">Asia-Pacific ANZ Defence &amp; Security: E002</option>
+  <option value="Asia-Pacific ANZ Financial &amp; Professional Services: E006">Asia-Pacific ANZ Financial &amp; Professional Services: E006</option>
+  <option value="Asia-Pacific ANZ Technology: E005">Asia-Pacific ANZ Technology: E005</option>
+  <option value="Asia-Pacific North East Asia Life Sciences: E089">Asia-Pacific North East Asia Life Sciences: E089</option>
+  <option value="Asia-Pacific South East Asia Education: E146">Asia-Pacific South East Asia Education: E146</option>
+  <option value="Asia-Pacific South East Asia Financial &amp; Professional Services: E236">Asia-Pacific South East Asia Financial &amp; Professional Services: E236</option>
+  <option value="Asia-Pacific South East Asia Healthcare: E258">Asia-Pacific South East Asia Healthcare: E258</option>
+  <option value="Asia-Pacific South East Asia Marine: E251">Asia-Pacific South East Asia Marine: E251</option>
+  <option value="Austria Defence &amp; Security: E218">Austria Defence &amp; Security: E218</option>
+  <option value="Azerbaijan Oil &amp; Gas: E007">Azerbaijan Oil &amp; Gas: E007</option>
+  <option value="Bahrain Defence &amp; Security: E008">Bahrain Defence &amp; Security: E008</option>
+  <option value="Belgium Defence &amp; Security: E011">Belgium Defence &amp; Security: E011</option>
+  <option value="Brazil Marine: E012">Brazil Marine: E012</option>
+  <option value="Brazil Oil &amp; Gas: E014">Brazil Oil &amp; Gas: E014</option>
+  <option value="Canada Defence &amp; Security: E015">Canada Defence &amp; Security: E015</option>
+  <option value="China &amp; Hong Kong Education: E028">China &amp; Hong Kong Education: E028</option>
+  <option value="China &amp; Hong Kong Financial &amp; Professional Services: E031">China &amp; Hong Kong Financial &amp; Professional Services: E031</option>
+  <option value="China &amp; Hong Kong Healthcare: E033">China &amp; Hong Kong Healthcare: E033</option>
+  <option value="China &amp; Hong Kong Life Sciences: E038">China &amp; Hong Kong Life Sciences: E038</option>
+  <option value="China AESC: E269">China AESC: E269</option>
+  <option value="China Aerospace: E023">China Aerospace: E023</option>
+  <option value="China Automotive: E024">China Automotive: E024</option>
+  <option value="China Consumer &amp; Retail: E025">China Consumer &amp; Retail: E025</option>
+  <option value="China Creative: E026">China Creative: E026</option>
+  <option value="China Food &amp; Drink: E032">China Food &amp; Drink: E032</option>
+  <option value="China Infrastructure: E281">China Infrastructure: E281</option>
+  <option value="China Marine: E022">China Marine: E022</option>
+  <option value="China Nuclear: E029">China Nuclear: E029</option>
+  <option value="China Technology: E027">China Technology: E027</option>
+  <option value="Defence &amp; Security: E244">Defence &amp; Security: E244</option>
+  <option value="Defence &amp; Security: E248">Defence &amp; Security: E248</option>
+  <option value="EECA Infrastructure: E276">EECA Infrastructure: E276</option>
+  <option value="Europe Central Automotive: E017">Europe Central Automotive: E017</option>
+  <option value="Europe Central Consumer &amp; Retail: E219">Europe Central Consumer &amp; Retail: E219</option>
+  <option value="Europe Central Defence &amp; Security: E018">Europe Central Defence &amp; Security: E018</option>
+  <option value="Europe Central Financial &amp; Professional Services: E019">Europe Central Financial &amp; Professional Services: E019</option>
+  <option value="Europe Central Healthcare: E220">Europe Central Healthcare: E220</option>
+  <option value="Europe Central Nuclear: E020">Europe Central Nuclear: E020</option>
+  <option value="Europe Infrastructure: E277">Europe Infrastructure: E277</option>
+  <option value="Europe Med Financial &amp; Professional Services: E270">Europe Med Financial &amp; Professional Services: E270</option>
+  <option value="Europe North Defence &amp; Security: E159">Europe North Defence &amp; Security: E159</option>
+  <option value="Europe North Food &amp; Drink: E233">Europe North Food &amp; Drink: E233</option>
+  <option value="Europe South Defence &amp; Security: E105">Europe South Defence &amp; Security: E105</option>
+  <option value="Europe South Life Sciences: E106">Europe South Life Sciences: E106</option>
+  <option value="Europe Technology: E271">Europe Technology: E271</option>
+  <option value="Europe West Agritech: E237">Europe West Agritech: E237</option>
+  <option value="Europe West Chemicals: E050">Europe West Chemicals: E050</option>
+  <option value="Europe West Financial &amp; Professional Services: E239">Europe West Financial &amp; Professional Services: E239</option>
+  <option value="Europe West Food &amp; Drink: E054">Europe West Food &amp; Drink: E054</option>
+  <option value="Europe West Nuclear: E053">Europe West Nuclear: E053</option>
+  <option value="Europe West Renewables: E119">Europe West Renewables: E119</option>
+  <option value="France Aerospace: E045">France Aerospace: E045</option>
+  <option value="France Defence &amp; Security: E046">France Defence &amp; Security: E046</option>
+  <option value="France Nuclear: E047">France Nuclear: E047</option>
+  <option value="Germany Automotive: E049">Germany Automotive: E049</option>
+  <option value="Germany Consumer &amp; Retail: E051">Germany Consumer &amp; Retail: E051</option>
+  <option value="Germany Defence &amp; Security: E052">Germany Defence &amp; Security: E052</option>
+  <option value="Global Aerospace: E224">Global Aerospace: E224</option>
+  <option value="EGlobal Sports Economy: E225">Global Sports Economy: E225</option>
+  <option value="Global Sports Economy: E226">Global Sports Economy: E226</option>
+  <option value="Hong Kong Creative: E058">Hong Kong Creative: E058</option>
+  <option value="India AESC Automotive: E227">India AESC Automotive: E227</option>
+  <option value="India Agritech: E064">India Agritech: E064</option>
+  <option value="India Chemicals: E065">India Chemicals: E065</option>
+  <option value="India Creative: E067">India Creative: E067</option>
+  <option value="India Defence &amp; Security: E068">India Defence &amp; Security: E068</option>
+  <option value="India Financial &amp; Professional Services: E072">India Financial &amp; Professional Services: E072</option>
+  <option value="India Food &amp; Drink: E073">India Food &amp; Drink: E073</option>
+  <option value="India Healthcare Life Sciences: E074">India Healthcare Life Sciences: E074</option>
+  <option value="India Oil &amp; Gas: E070">India Oil &amp; Gas: E070</option>
+  <option value="India Space: E250">India Space: E250</option>
+  <option value="India Technology: E069">India Technology: E069</option>
+  <option value="Indonesia Defence &amp; Security: E079">Indonesia Defence &amp; Security: E079</option>
+  <option value="Indonesia Renewables: E228">Indonesia Renewables: E228</option>
+  <option value="Iran Consumer &amp; Retail: E229">Iran Consumer &amp; Retail: E229</option>
+  <option value="Iraq Oil &amp; Gas: E081">Iraq Oil &amp; Gas: E081</option>
+  <option value="Italy Consumer &amp; Retail: E083">Italy Consumer &amp; Retail: E083</option>
+  <option value="Japan Defence &amp; Security: E085">Japan Defence &amp; Security: E085</option>
+  <option value="Japan Nuclear: E087">Japan Nuclear: E087</option>
+  <option value="Japan Technology: E086">Japan Technology: E086</option>
+  <option value="Kazakhstan Oil &amp; Gas: E091">Kazakhstan Oil &amp; Gas: E091</option>
+  <option value="Kuwait Defence &amp; Security: E092">Kuwait Defence &amp; Security: E092</option>
+  <option value="LATAC AESC Automotive: E107">LATAC AESC Automotive: E107</option>
+  <option value="LATAC Defence &amp; Security: E223">LATAC Defence &amp; Security: E223</option>
+  <option value="LATAC Education: E094">LATAC Education: E094</option>
+  <option value="LATAC Financial &amp; Professional Services: E095">LATAC Financial &amp; Professional Services: E095</option>
+  <option value="LATAC Food &amp; Drink: E096">LATAC Food &amp; Drink: E096</option>
+  <option value="LATAC Life Sciences: E230">LATAC Life Sciences: E230</option>
+  <option value="LATAC Renewables: E247">LATAC Renewables: E247</option>
+  <option value="LATAC Infrastructure: E280">LATAC Infrastructure: E280</option>
+  <option value="MEAP Infrastructure: E278">MEAP Infrastructure: E278</option>
+  <option value="Malaysia Defence &amp; Security: E103">Malaysia Defence &amp; Security: E103</option>
+  <option value="Malaysia Technology: E104">Malaysia Technology: E104</option>
+  <option value="Mexico Oil &amp; Gas: E099">Mexico Oil &amp; Gas: E099</option>
+  <option value="Middle East Creative: E174">Middle East Creative: E174</option>
+  <option value="Middle East Education: E111">Middle East Education: E111</option>
+  <option value="Middle East Healthcare: E232">Middle East Healthcare: E232</option>
+  <option value="Middle East Life Sciences: E256">Middle East Life Sciences: E256</option>
+  <option value="Middle East Nuclear: E112">Middle East Nuclear: E112</option>
+  <option value="Middle East Technology: E257">Middle East Technology: E257</option>
+  <option value="Nigeria Oil &amp; Gas: E117">Nigeria Oil &amp; Gas: E117</option>
+  <option value="North America Creative: E187">North America Creative: E187</option>
+  <option value="North America Financial &amp; Professional Services: E191">North America Financial &amp; Professional Services: E191</option>
+  <option value="North America Food &amp; Drink: E118">North America Food &amp; Drink: E118</option>
+  <option value="North America Infrastructure: E279">North America Infrastructure: E279</option>
+  <option value="Oman Defence &amp; Security: E122">Oman Defence &amp; Security: E122</option>
+  <option value="Oman Oil &amp; Gas: E123">Oman Oil &amp; Gas: E123</option>
+  <option value="Phillipines Defence &amp; Security: E243">Phillipines Defence &amp; Security: E243</option>
+  <option value="Phillipines Technology: E125">Phillipines Technology: E125</option>
+  <option value="Qatar Defence &amp; Security: E129">Qatar Defence &amp; Security: E129</option>
+  <option value="Saudi Arabia Consumer &amp; Retail: E132">Saudi Arabia Consumer &amp; Retail: E132</option>
+  <option value="Saudi Arabia Defence &amp; Security: E133">Saudi Arabia Defence &amp; Security: E133</option>
+  <option value="Saudi Arabia Oil &amp; Gas: E135">Saudi Arabia Oil &amp; Gas: E135</option>
+  <option value="Singapore Defence &amp; Security: E140">Singapore Defence &amp; Security: E140</option>
+  <option value="Singapore Technology: E141">Singapore Technology: E141</option>
+  <option value="South Asia Infrastructure: E275">South Asia Infrastructure: E275</option>
+  <option value="South Korea Consumer &amp; Retail: E149">South Korea Consumer &amp; Retail: E149</option>
+  <option value="South Korea Defence &amp; Security: E150">South Korea Defence &amp; Security: E150</option>
+  <option value="South Korea Marine: E148">South Korea Marine: E148</option>
+  <option value="South Korea and Taiwan Technology: E151">South Korea and Taiwan Technology: E151</option>
+  <option value="Spain Chemicals: E155">Spain Chemicals: E155</option>
+  <option value="Spain Consumer &amp; Retail: E156">Spain Consumer &amp; Retail: E156</option>
+  <option value="Sweden Consumer &amp; Retail: E158">Sweden Consumer &amp; Retail: E158</option>
+  <option value="Switzerland Defence &amp; Security: E238">Switzerland Defence &amp; Security: E238</option>
+  <option value="Taiwan Renewables: E212">Taiwan Renewables: E212</option>
+  <option value="Thailand Agritech: E255">Thailand Agritech: E255</option>
+  <option value="Thailand Defence &amp; Security: E163">Thailand Defence &amp; Security: E163</option>
+  <option value="Turkey Defence &amp; Security: E165">Turkey Defence &amp; Security: E165</option>
+  <option value="UAE Defence &amp; Security: E175">UAE Defence &amp; Security: E175</option>
+  <option value="UAE Food &amp; Drink: E263">UAE Food &amp; Drink: E263</option>
+  <option value="SA Aerospace: E182">USA Aerospace: E182</option>
+  <option value="USA Automotive: E184">USA Automotive: E184</option>
+  <option value="USA Consumer &amp; Retail: E186">USA Consumer &amp; Retail: E186</option>
+  <option value="USA Defence &amp; Security: E188">USA Defence &amp; Security: E188</option>
+  <option value="USA Life Sciences: E194">USA Life Sciences: E194</option>
+  <option value="USA Space: E245">USA Space: E245</option>
+  <option value="USA Technology: E189">USA Technology: E189</option>
+  <option value="Ukraine Agritech: E171">Ukraine Agritech: E171</option>
+</select>
+</div>
+
+
+<!-- What type of support was given? -->
+<div class="govuk-form-group">
+  <label class="govuk-label" for="type-of-support-heading">
+    <strong>What type of support was given?</strong>
+  </label>
+
+  <select class="govuk-select govuk-!-width-two-thirds" id="type-of-support" name="type-of-support">
+      <option value="" selected="">Please choose...</option>
+      <option value="Market entry advice and support – DIT/FCO in UK">Market entry advice and support – DIT/FCO in UK</option>
+      <option value="Missions, tradeshows and events (DIT/FCO)">Missions, tradeshows and events (DIT/FCO)</option>
+      <option value="Advice, access and contacts – DIT/FCO Overseas">Advice, access and contacts – DIT/FCO Overseas</option>
+      <option value="Political and economic briefing">Political and economic briefing</option>
+      <option value="Lobbying to overcome a problem – DIT/FCO">Lobbying to overcome a problem – DIT/FCO</option>
+      <option value="Building positive reputation – DIT/FCO">Building positive reputation – DIT/FCO</option>
+      <option value="Business Successes : Outward Direct Investment – FCO">Business Successes : Outward Direct Investment – FCO</option>
+      <option value="Business Successes : Reduced tax burdens – FCO">Business Successes : Reduced tax burdens – FCO</option>
+      <option value="Business Successes : New Business in UK/3rd market – FCO">Business Successes : New Business in UK/3rd market – FCO</option>
+      <option value="Business Successes : Overseas Export Wins">Business Successes : Overseas Export Wins</option>
+      <option value="Business Successes : Export Successes">Business Successes : Export Successes</option>
+      <option value="Business Successes : Subsidiaries">Business Successes : Subsidiaries</option>
+      <option value="Business Successes : Assets Under Management">Business Successes : Assets Under Management</option>
+      <option value="Business Successes : Listing">Business Successes : Listing</option>
+      <option value="Business Successes : Other – FCO">Business Successes : Other – FCO</option>
+    </select>
+  </select>
+
+  <div class="govuk-button-group">
+    <button class="govuk-button govuk-!-margin-top-2 govuk-button--secondary" data-module="govuk-button">
+      Add a support type
+    </button>
+  </div>
+</div>
+
+
+<!-- Was there a DBT campaign or event that contributed to this win? -->
+<div class="govuk-form-group">
+<label class="govuk-label" for="dbt-campaign-heading">
+  <strong>Was there a DBT campaign or event that contributed to this win?</strong>
+</label>
+
+<select class="govuk-select govuk-!-width-two-thirds" id="dbt-campaign" name="dbt-campaign">
+  <option value="" selected="">Please choose...</option>
+  <option value="Afterburner">Afterburner</option>
+    <option value="Aid Funded Business Service (AFBS)">Aid Funded Business Service (AFBS)</option>
+    <option value="Asia-Pacific Energy &amp; Clean Growth">Asia-Pacific Energy &amp; Clean Growth</option>
+    <option value="British Business Network">British Business Network</option>
+    <option value="British Defence Staff - US">British Defence Staff - US</option>
+    <option value="Business Win FCO Involvement">Business Win FCO Involvement</option>
+    <option value="CEN Adv Manufacturing">CEN Adv Manufacturing</option>
+    <option value="CEN Defence &amp; Security">CEN Defence &amp; Security</option>
+    <option value="CEN Health &amp; Life Science">CEN Health &amp; Life Science</option>
+    <option value="CEN Infrastructure">CEN Infrastructure</option>
+    <option value="CEN Security">CEN Security</option>
+    <option value="CEN Services">CEN Services</option>
+    <option value="Clean Growth Programme">Clean Growth Programme</option>
+    <option value="Commonwealth Games">Commonwealth Games</option>
+    <option value="Communication and Marketing">Communication and Marketing</option>
+    <option value="Design our future">Design our future</option>
+    <option value="Digital Trade Advisor">Digital Trade Advisor</option>
+    <option value="DIT Middle East &amp; Pakistan Comms &amp; Marketing campaigns">DIT Middle East &amp; Pakistan Comms &amp; Marketing campaigns</option>
+    <option value="Dubai Expo 2020">Dubai Expo 2020</option>
+    <option value="E-Exporting">E-Exporting</option>
+    <option value="EiG Referral">EiG Referral</option>
+    <option value="Emerging Markets Contract (Gulf)">Emerging Markets Contract (Gulf)</option>
+    <option value="Emerging Markets Contract (LA)">Emerging Markets Contract (LA)</option>
+    <option value="ESIF">ESIF</option>
+    <option value="Events Alliance">Events Alliance</option>
+    <option value="Expo 2019 Beijing">Expo 2019 Beijing</option>
+    <option value="Export Academy">Export Academy</option>
+    <option value="Export Communication Review Scheme (ECR)">Export Communication Review Scheme (ECR)</option>
+    <option value="Export Growth Service">Export Growth Service</option>
+    <option value="Export Opportunities">Export Opportunities</option>
+    <option value="Export Oriented FDI">Export Oriented FDI</option>
+    <option value="Exporting is GREAT (EiG)">Exporting is GREAT (EiG)</option>
+    <option value="FinTech">FinTech</option>
+    <option value="First Time Exporters Programme">First Time Exporters Programme</option>
+    <option value="Free Trade Agreements">Free Trade Agreements</option>
+    <option value="G2G Agreed Priority Project">G2G Agreed Priority Project</option>
+    <option value="GCP - RBS">GCP - RBS</option>
+    <option value="GCP - Santander">GCP - Santander</option>
+    <option value="Global Entrepreneur Programme (GEP)">Global Entrepreneur Programme (GEP)</option>
+    <option value="Global Growth Pilot">Global Growth Pilot</option>
+    <option value="Great British Food Programme">Great British Food Programme</option>
+    <option value="GREAT Challenge Fund">GREAT Challenge Fund</option>
+    <option value="GREAT Festival of Innovation (GFEST)">GREAT Festival of Innovation (GFEST)</option>
+    <option value="GREAT Food is GREAT">GREAT Food is GREAT</option>
+    <option value="GREAT Funded Activity">GREAT Funded Activity</option>
+    <option value="GREAT International Trade Campaign">GREAT International Trade Campaign</option>
+    <option value="GREAT - Unicorn Kingdom Campaign - North America (2023)">GREAT - Unicorn Kingdom Campaign - North America (2023)</option>
+    <option value="Grown in Britain Global Business Programme">Grown in Britain Global Business Programme</option>
+    <option value="HAIC - Healthcare Artificial Intelligence Catalyst">HAIC - Healthcare Artificial Intelligence Catalyst</option>
+    <option value="Innovation Programme">Innovation Programme</option>
+    <option value="International Festival for Business">International Festival for Business</option>
+    <option value="International Trade Show">International Trade Show</option>
+    <option value="Investment Promotion Programme (IPP)">Investment Promotion Programme (IPP)</option>
+    <option value="5JETCO">JETCO</option>
+    <option value="Levelling Up">Levelling Up</option>
+    <option value="Luxury Retail">Luxury Retail</option>
+    <option value="Made in the UK">Made in the UK</option>
+    <option value="Midlands Engine">Midlands Engine</option>
+    <option value="MSB Programme">MSB Programme</option>
+    <option value="National Partner Referral">National Partner Referral</option>
+    <option value="Northern Powerhouse (NPH)">Northern Powerhouse (NPH)</option>
+    <option value="Offshore Wind Investment Organisation">Offshore Wind Investment Organisation</option>
+    <option value="Overseas Market Introduction Service (OMIS)">Overseas Market Introduction Service (OMIS)</option>
+    <option value="Passport to Export (P2E)">Passport to Export (P2E)</option>
+    <option value="PM Trade Envoy">PM Trade Envoy</option>
+    <option value="PreCOP26">PreCOP26</option>
+    <option value="Prosperity Fund">Prosperity Fund</option>
+    <option value="Science Superpower">Science Superpower</option>
+    <option value="Shakespeare Lives">Shakespeare Lives</option>
+    <option value="South by South West (SXSW)">South by South West (SXSW)</option>
+    <option value="Specialist Support">Specialist Support</option>
+    <option value="Stakeholder Engagement">Stakeholder Engagement</option>
+    <option value="TCC - Third Country Collaboration">TCC - Third Country Collaboration</option>
+    <option value="Tradeshow Access Programme">Tradeshow Access Programme</option>
+    <option value="UK's Finest">UK's Finest</option>
+    <option value="Web-based Exporting Programme">Web-based Exporting Programme</option>
+</select>
+
+<div class="govuk-button-group">
+  <button class="govuk-button govuk-!-margin-top-2 govuk-button--secondary" data-module="govuk-button">
+    Add DBT campaign
+  </button>
+</div>
+</div>
+
+<!-- Line manager approval -->
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="confirm" type="checkbox" value="confirm">
+        <label class="govuk-label govuk-checkboxes__label" for="confirm">
+        <strong>I confirm that this information is complete and accurate.</strong>
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="line-manager" name="line-manager" type="checkbox" value="line-manager">
+        <label class="govuk-label govuk-checkboxes__label" for="line-manager">
+          <strong>My line manager has agreed that this win should be recorded.</strong>
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+<!-- START Buttons -->
+<div class="govuk-button-group">
+  <button class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+  <a class="govuk-link" href="win-details">Cancel</a>
+</div>
+
+</form>
+
+
+  </div>
+</div>
+<!-- END CONTAINER -->
+
+{% endblock %}

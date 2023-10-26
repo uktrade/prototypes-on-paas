@@ -1,0 +1,1020 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+      <!-- START BREADCRUMB TRAIL -->
+      <div class="govuk-breadcrumbs" data-test="breadcrumbs">
+        <ol class="govuk-breadcrumbs__list">
+          <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="homepage">Home</a></li>
+          <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="companies">Companies</a></li>
+          <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="company-detail">ROLLS-ROYCE HOLDINGS PLC</a></li>
+          <li class="govuk-breadcrumbs__list-item" aria-current="page">Add export win</li></ol>
+        </div>
+  <!-- END BREADCRUMB TRAIL -->
+
+
+      <div id="flash-messages" class="react-slot"><noscript>Please enable JavaScript in your browser to see the content.</noscript></div>
+
+        <div class="govuk-grid-row c-local-header__content">
+          <div class="govuk-grid-column-full">
+            <h1 class="c-local-header__heading">Add export win</h1>
+            <h2 class="govuk-!-font-weight-regular">ROLLS-ROYCE HOLDINGS PLC</h2>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- START CONTAINER -->
+
+
+<div class="govuk-width-container">
+  <h2 class="govuk-heading-m govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Win details</h2>
+  <h3 class="govuk-hint govuk-!-padding-top-0 govuk-!-margin-top-0">The customer will be asked to confirm this information</h3>
+
+<form method="post" action="support-provided" id="win-details" class="govuk-!-width-two-thirds">
+
+
+<!-- START DESTINATION -->
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="destination-heading">
+        <strong>Destination</strong>
+      </label>
+
+      <select class="govuk-select" id="destination" name="destination">
+        <option value="" selected="">Please choose...</option>
+        <option value="Afghanistan">Afghanistan</option>
+        <option value="Åland Islands">Åland Islands</option>
+        <option value="Albania">Albania</option>
+        <option value="Algeria">Algeria</option>
+        <option value="American Samoa">American Samoa</option>
+        <option value="Andorra">Andorra</option>
+        <option value="Angola">Angola</option>
+        <option value="Anguilla">Anguilla</option>
+        <option value="Antarctica">Antarctica</option>
+        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Armenia">Armenia</option>
+        <option value="Aruba">Aruba</option>
+        <option value="Australia">Australia</option>
+        <option value="Austria">Austria</option>
+        <option value="Azerbaijan">Azerbaijan</option>
+        <option value="Bahrain">Bahrain</option>
+        <option value="Bangladesh">Bangladesh</option>
+        <option value="Barbados">Barbados</option>
+        <option value="Belarus">Belarus</option>
+        <option value="Belgium">Belgium</option>
+        <option value="Belize">Belize</option>
+        <option value="Benin">Benin</option>
+        <option value="Bermuda">Bermuda</option>
+        <option value="Bhutan">Bhutan</option>
+        <option value="Bolivia">Bolivia</option>
+        <option value="Bonaire">Bonaire</option>
+        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+        <option value="Botswana">Botswana</option>
+        <option value="Bouvet Island">Bouvet Island</option>
+        <option value="Brazil">Brazil</option>
+        <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+        <option value="British Virgin Islands">British Virgin Islands</option>
+        <option value="Brunei">Brunei</option>
+        <option value="Bulgaria">Bulgaria</option>
+        <option value="Burkina Faso">Burkina Faso</option>
+        <option value="Burundi">Burundi</option>
+        <option value="Cambodia">Cambodia</option>
+        <option value="Cameroon">Cameroon</option>
+        <option value="Canada">Canada</option>
+        <option value="Cape Verde">Cape Verde</option>
+        <option value="Cayman Islands">Cayman Islands</option>
+        <option value="Central African Republic">Central African Republic</option>
+        <option value="Chad">Chad</option>
+        <option value="Chile">Chile</option>
+        <option value="China">China</option>
+        <option value="Christmas Island">Christmas Island</option>
+        <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+        <option value="Colombia">Colombia</option>
+        <option value="Comoros">Comoros</option>
+        <option value="Congo">Congo</option>
+        <option value="Congo (Democratic Republic)">Congo (Democratic Republic)</option>
+        <option value="Cook Islands">Cook Islands</option>
+        <option value="Costa Rica">Costa Rica</option>
+        <option value="Croatia">Croatia</option>
+        <option value="Cuba">Cuba</option>
+        <option value="Curaçao">Curaçao</option>
+        <option value="Cyprus">Cyprus</option>
+        <option value="Czechia">Czechia</option>
+        <option value="Denmark">Denmark</option>
+        <option value="Djibouti">Djibouti</option>
+        <option value="Dominica">Dominica</option>
+        <option value="Dominican Republic">Dominican Republic</option>
+        <option value="East Timor">East Timor</option>
+        <option value="Ecuador">Ecuador</option>
+        <option value="Egypt">Egypt</option>
+        <option value="El Salvador">El Salvador</option>
+        <option value="Equatorial Guinea">Equatorial Guinea</option>
+        <option value="Eritrea">Eritrea</option>
+        <option value="Estonia">Estonia</option>
+        <option value="Eswatini">Eswatini</option>
+        <option value="Ethiopia">Ethiopia</option>
+        <option value="Falkland Islands">Falkland Islands</option>
+        <option value="Faroe Islands">Faroe Islands</option>
+        <option value="Fiji">Fiji</option>
+        <option value="Finland">Finland</option>
+        <option value="France">France</option>
+        <option value="French Guiana">French Guiana</option>
+        <option value="French Polynesia">French Polynesia</option>
+        <option value="French Southern Territories">French Southern Territories</option>
+        <option value="Gabon">Gabon</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Germany">Germany</option>
+        <option value="Ghana">Ghana</option>
+        <option value="Gibraltar">Gibraltar</option>
+        <option value="Greece">Greece</option>
+        <option value="Greenland">Greenland</option>
+        <option value="Grenada">Grenada</option>
+        <option value="Guadeloupe">Guadeloupe</option>
+        <option value="Guam<">Guam</option>
+        <option value="Guatemala">Guatemala</option>
+        <option value="Guernsey">Guernsey</option>
+        <option value="Guinea<">Guinea</option>
+        <option value="Guinea-Bissau">Guinea-Bissau</option>
+        <option value="Guyana">Guyana</option>
+        <option value="Haiti">Haiti</option>
+        <option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option>
+        <option value="Honduras">Honduras</option>
+        <option value="Hong Kong">Hong Kong</option>
+        <option value="Hungary">Hungary</option>
+        <option value="Iceland">Iceland</option>
+        <option value="India">India</option>
+        <option value="Indonesia">Indonesia</option>
+        <option value="Iran">Iran</option>
+        <option value="Iraq">Iraq</option>
+        <option value="Ireland">Ireland</option>
+        <option value="Isle of Man">Isle of Man</option>
+        <option value="Israel">Israel</option>
+        <option value="Italy">Italy</option>
+        <option value="Ivory Coast">Ivory Coast</option>
+        <option value="Jamaica">Jamaica</option>
+        <option value="Japan">Japan</option>
+        <option value="Jersey">Jersey</option>
+        <option value="Jordan">Jordan</option>
+        <option value="Kazakhstan">Kazakhstan</option>
+        <option value="Kenya">Kenya</option>
+        <option value="Kiribati">Kiribati</option>
+        <option value="Kosovo">Kosovo</option>
+        <option value="Kuwait">Kuwait</option>
+        <option value="Kyrgyzstan">Kyrgyzstan</option>
+        <option value="Laos">Laos</option>
+        <option value="Latvia">Latvia</option>
+        <option value="Lebanon">Lebanon</option>
+        <option value="Lesotho">Lesotho</option>
+        <option value="Liberia">Liberia</option>
+        <option value="Libya">Libya</option>
+        <option value="Liechtenstein">Liechtenstein</option>
+        <option value="Lithuania">Lithuania</option>
+        <option value="Luxembourg">Luxembourg</option>
+        <option value="Macao">Macao</option>
+        <option value="Madagascar">Madagascar</option>
+        <option value="Malawi">Malawi</option>
+        <option value="Malaysia">Malaysia</option>
+        <option value="Maldives">Maldives</option>
+        <option value="Mali">Mali</option>
+        <option value="Malta">Malta</option>
+        <option value="Marshall Islands">Marshall Islands</option>
+        <option value="Martinique">Martinique</option>
+        <option value="Mauritania">Mauritania</option>
+        <option value="Mauritius">Mauritius</option>
+        <option value="Mayotte">Mayotte</option>
+        <option value="Mexico">Mexico</option>
+        <option value="Micronesia">Micronesia</option>
+        <option value="Moldova">Moldova</option>
+        <option value="Monaco">Monaco</option>
+        <option value="Mongolia">Mongolia</option>
+        <option value="Montenegro">Montenegro</option>
+        <option value="Montserrat">Montserrat</option>
+        <option value="Morocco">Morocco</option>
+        <option value="Mozambique">Mozambique</option>
+        <option value="Myanmar (Burma)">Myanmar (Burma)</option>
+        <option value="Namibia">Namibia</option>
+        <option value="Nauru">Nauru</option>
+        <option value="Nepal">Nepal</option>
+        <option value="Netherlands">Netherlands</option>
+        <option value="New Caledonia">New Caledonia</option>
+        <option value="New Zealand">New Zealand</option>
+        <option value="Nicaragua">Nicaragua</option>
+        <option value="Niger">Niger</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Niue">Niue</option>
+        <option value="Norfolk Island">Norfolk Island</option>
+        <option value="North Korea">North Korea</option>
+        <option value="North Macedonia">North Macedonia</option>
+        <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+        <option value="Norway">Norway</option>
+        <option value="Occupied Palestinian Territories">Occupied Palestinian Territories</option>
+        <option value="Oman">Oman</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="Palau">Palau</option>
+        <option value="Palmyra Atoll">Palmyra Atoll</option>
+        <option value="Panama">Panama</option>
+        <option value="Papua New Guinea">Papua New Guinea</option>
+        <option value="Paraguay">Paraguay</option>
+        <option value="Peru">Peru</option>
+        <option value="Philippines">Philippines</option>
+        <option value="Pitcairn, Henderson, Ducie and Oeno Islands">Pitcairn, Henderson, Ducie and Oeno Islands</option>
+        <option value="Poland">Poland</option>
+        <option value="Portugal">Portugal</option>
+        <option value="Puerto Rico">Puerto Rico</option>
+        <option value="Qatar">Qatar</option>
+        <option value="Réunion">Réunion</option>
+        <option value="Romania">Romania</option>
+        <option value="Russia">Russia</option>
+        <option value="Rwanda">Rwanda</option>
+        <option value="Saint Barthélemy">Saint Barthélemy</option>
+        <option value="Saint Helena">Saint Helena</option>
+        <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+        <option value="Saint-Martin (French part)">Saint-Martin (French part)</option>
+        <option value="Samoa">Samoa</option>
+        <option value="San Marino">San Marino</option>
+        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+        <option value="Saudi Arabia">Saudi Arabia</option>
+        <option value="Senegal">Senegal</option>
+        <option value="Serbia">Serbia</option>
+        <option value="Seychelles">Seychelles</option>
+        <option value="Sierra Leone">Sierra Leone</option>
+        <option value="Singapore">Singapore</option>
+        <option value="Sint Maarten (Dutch part)">Sint Maarten (Dutch part)</option>
+        <option value="Slovakia">Slovakia</option>
+        <option value="Slovenia">Slovenia</option>
+        <option value="Solomon Islands">Solomon Islands</option>
+        <option value="Somalia">Somalia</option>
+        <option value="South Africa">South Africa</option>
+        <option value="South Georgia and South Sandwich Islands">South Georgia and South Sandwich Islands</option>
+        <option value="South Korea">South Korea</option>
+        <option value="South Sudan">South Sudan</option>
+        <option value="Spain">Spain</option>
+        <option value="Sri Lanka">Sri Lanka</option>
+        <option value="St Kitts and Nevis">St Kitts and Nevis</option>
+        <option value="St Lucia">St Lucia</option>
+        <option value="St Vincent">St Vincent</option>
+        <option value="Sudan">Sudan</option>
+        <option value="Suriname">Suriname</option>
+        <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+        <option value="Sweden">Sweden</option>
+        <option value="Switzerland">Switzerland</option>
+        <option value="Syria">Syria</option>
+        <option value="Taiwan">Taiwan</option>
+        <option value="Tajikistan">Tajikistan</option>
+        <option value="Tanzania">Tanzania</option>
+        <option value="Thailand">Thailand</option>
+        <option value="The Bahamas">The Bahamas</option>
+        <option value="The Gambia">The Gambia</option>
+        <option value="Togo">Togo</option>
+        <option value="Tokelau">Tokelau</option>
+        <option value="Tonga">Tonga</option>
+        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+        <option value="Tunisia">Tunisia</option>
+        <option value="Turkey">Turkey</option>
+        <option value="Turkmenistan">Turkmenistan</option>
+        <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+        <option value="Tuvalu">Tuvalu</option>
+        <option value="Uganda">Uganda</option>
+        <option value="Ukraine">Ukraine</option>
+        <option value="United Arab Emirates">United Arab Emirates</option>
+        <option value="United States">United States</option>
+        <option value="United States Virgin Islands">United States Virgin Islands</option>
+        <option value="Uruguay">Uruguay</option>
+        <option value="Uzbekistan">Uzbekistan</option>
+        <option value="Vanuatu">Vanuatu</option>
+        <option value="Vatican City">Vatican City</option>
+        <option value="Venezuela">Venezuela</option>
+        <option value="Vietnam">Vietnam</option>
+        <option value="Wallis and Futuna">Wallis and Futuna</option>
+        <option value="Western Sahara">Western Sahara</option>
+        <option value="Yemen">Yemen</option>
+        <option value="Zambia">Zambia</option>
+        <option value="Zimbabwe">Zimbabwe</option>
+      </select>
+</div>
+
+<!-- START DATE WON -->
+<div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group">
+          <label class="govuk-label" for="date-won">
+            <strong>Date won (within 2023/24 financial year)</strong>
+          </label>
+          <div class="govuk-hint">
+            Enter month and year in the format MM/YY
+          </div>
+          <div class="govuk-date-input" id="date-won">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-won-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-won-month" name="date-won-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-won-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-won-year" name="date-won-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+</div>
+
+
+<!-- START SUMMARY -->
+{{ govukTextarea({
+  name: "summarise-support",
+  id: "summarise-support",
+  label: {
+    text: "Summary of the support given",
+    classes: "govuk-label--s",
+    isPageHeading: false
+  },
+  hint: {
+    text: "Outline what had the most impact or would be memorable to the customer in less than 100 words."
+  }
+}) }}
+
+
+<!-- START Overseas customer -->
+{{ govukInput({
+  label: {
+    text: "Overseas customer",
+    classes: "govuk-label--s",
+    isPageHeading: false
+  },
+  hint: {
+    text: "Write 'confidential' if your customer has asked for this not to be public."
+  },
+  id: "overseas-customer",
+  name: "overseas-customer"
+}) }}
+
+
+<!-- START Type of business deal -->
+{{ govukInput({
+  label: {
+    text: "Type of business deal",
+    classes: "govuk-label--s",
+    isPageHeading: false
+  },
+  hint: {
+    text: "For example: export sales, contract, order, distributor, tender / competition win, joint venture, outward investment."
+  },
+  id: "type-of-business-deal",
+  name: "type-of-business-deal"
+}) }}
+
+
+
+<!-- START Type of win -->
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      Type of win
+    </legend>
+    <div id="contact-hint" class="govuk-hint">
+      Select all options that are relevant to you.
+    </div>
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+      <!-- START Type of win > Export -->
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="type-of-win-export" name="type-of-win" type="checkbox" value="Export" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-checkboxes__label" for="type-of-win-export">
+          Export
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+
+              <!-- START Export value -->
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="export-value-heading">
+                  <strong>Export value over the next 5 years</strong>
+                  <div class="govuk-hint">round to the nearest £</div>
+                </label>
+
+                <div class="govuk-form-group datahub-width-one-fifth">
+                  <h3 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="date-won-year-23">
+                      2023/24
+                    </label>
+                  </h3>
+                  <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="export-won-year-23" name="export-won-year-23" type="text" spellcheck="false">
+                  </div>
+                </div><div class="govuk-form-group datahub-width-one-fifth">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="export-won-year-24">
+                      2024/25
+                    </label>
+                  </h1>
+                  <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="export-won-year-24" name="export-won-year-24" type="text" spellcheck="false">
+                  </div>
+                </div><div class="govuk-form-group datahub-width-one-fifth">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="export-won-year-25">
+                      2025/26
+                    </label>
+                  </h1>
+                  <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="export-won-year-25" name="export-won-year-25" type="text" spellcheck="false">
+                  </div>
+                </div><div class="govuk-form-group datahub-width-one-fifth">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="export-won-year-26">
+                      2026/27
+                    </label>
+                  </h1>
+                  <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="export-won-year-26" name="export-won-year-26" type="text" spellcheck="false">
+                  </div>
+                </div><div class="govuk-form-group datahub-width-one-fifth">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="export-won-year-27">
+                      2027/28
+                    </label>
+                  </h1>
+                  <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="export-won-year-27" name="export-won-year-27" type="text" spellcheck="false">
+                  </div>
+                </div>
+                </div>
+              <!-- END Export value -->
+</div>
+
+      <!-- START Type of win > Business success -->
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="type-of-win-business-success" name="type-of-win" type="checkbox" value="Business success" data-aria-controls="conditional-contact-2">
+          <label class="govuk-label govuk-checkboxes__label" for="type-of-win-business-success">
+            Business success<br>
+            <div class="govuk-hint govuk-!-margin-bottom-0">A success that has brought money back into the UK benefiting the UK economy or successful lobbying which reduced the tax burden on a customer.</div>
+          </label>
+        </div>
+        <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact-2">
+
+            <!-- START Export value -->
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="export-value-heading">
+                <strong>Business success over the next 5 years</strong>
+                <div class="govuk-hint">round to the nearest £</div>
+              </label>
+
+              <div class="govuk-form-group datahub-width-one-fifth">
+                <h3 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--s" for="date-won-year-23">
+                    2023/24
+                  </label>
+                </h3>
+                <div class="govuk-input__wrapper">
+                  <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                  <input class="govuk-input govuk-input--width-5" id="business-won-year-23" name="business-won-year-23" type="text" spellcheck="false">
+                </div>
+              </div><div class="govuk-form-group datahub-width-one-fifth">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--s" for="date-won-year-24">
+                    2024/25
+                  </label>
+                </h1>
+                <div class="govuk-input__wrapper">
+                  <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                  <input class="govuk-input govuk-input--width-5" id="business-won-year-24" name="business-won-year-24" type="text" spellcheck="false">
+                </div>
+              </div><div class="govuk-form-group datahub-width-one-fifth">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--s" for="date-won-year-25">
+                    2025/26
+                  </label>
+                </h1>
+                <div class="govuk-input__wrapper">
+                  <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                  <input class="govuk-input govuk-input--width-5" id="business-won-year-25" name="business-won-year-25" type="text" spellcheck="false">
+                </div>
+              </div><div class="govuk-form-group datahub-width-one-fifth">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--s" for="date-won-year-26">
+                    2026/27
+                  </label>
+                </h1>
+                <div class="govuk-input__wrapper">
+                  <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                  <input class="govuk-input govuk-input--width-5" id="business-won-year-26" name="business-won-year-26" type="text" spellcheck="false">
+                </div>
+              </div><div class="govuk-form-group datahub-width-one-fifth">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--s" for="date-won-year-27">
+                    2027/28
+                  </label>
+                </h1>
+                <div class="govuk-input__wrapper">
+                  <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                  <input class="govuk-input govuk-input--width-5" id="business-won-year-27" name="business-won-year-27" type="text" spellcheck="false">
+                </div>
+              </div>
+              </div>
+              <!-- END Export value -->
+</div>
+
+
+<!-- START Type of win > Outward Direct Investment -->
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="type-of-win" name="type-of-win" type="checkbox" value="Outward Direct Investment" data-aria-controls="conditional-contact-3">
+        <label class="govuk-label govuk-checkboxes__label" for="type-of-win-odi">
+          Outward Direct Investment<br>
+          <div class="govuk-hint govuk-!-margin-bottom-0">A cross-border investment from the UK into another country, which will bring funds to the UK.</div>
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact-3">
+
+              <!-- START Export value -->
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="export-value-heading">
+                  <strong>Outward Direct Investment value over the next 5 years</strong>
+                  <div class="govuk-hint">round to the nearest £</div>
+                </label>
+
+                <div class="govuk-form-group datahub-width-one-fifth">
+                  <h3 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="odi-won-year-23">
+                      2023/24
+                    </label>
+                  </h3>
+                  <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="odi-won-year-23" name="odi-won-year-23" type="text" spellcheck="false">
+                  </div>
+                </div><div class="govuk-form-group datahub-width-one-fifth">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="odi-won-year-24">
+                      2024/25
+                    </label>
+                  </h1>
+                  <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="odi-won-year-24" name="odi-won-year-24" type="text" spellcheck="false">
+                  </div>
+                </div><div class="govuk-form-group datahub-width-one-fifth">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="odi-won-year-25">
+                      2025/26
+                    </label>
+                  </h1>
+                  <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="odi-won-year-25" name="odi-won-year-25" type="text" spellcheck="false">
+                  </div>
+                </div><div class="govuk-form-group datahub-width-one-fifth">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="odiwon-year-26">
+                      2026/27
+                    </label>
+                  </h1>
+                  <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="odi-won-year-26" name="odi-won-year-26" type="text" spellcheck="false">
+                  </div>
+                </div><div class="govuk-form-group datahub-width-one-fifth">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="odi-won-year-27">
+                      2027/28
+                    </label>
+                  </h1>
+                  <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="odi-won-year-27" name="odi-won-year-27" type="text" spellcheck="false">
+                  </div>
+                </div>
+                </div>
+              <!-- END Export value -->
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+
+<!-- START What does the value relate to? -->
+<div class="govuk-form-group">
+<label class="govuk-label" for="good-services-value-heading">
+  <strong>What does the value relate to?</strong>
+  <div class="govuk-hint">Select all that apply.</div>
+</label>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="goods-and-services" name="goods-and-services" type="checkbox" value="Goods">
+        <label class="govuk-label govuk-checkboxes__label" for="Goods">
+        Goods
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="goods-and-services" name="goods-and-services" type="checkbox" value="Services">
+        <label class="govuk-label govuk-checkboxes__label" for="Services">
+          Services<br>
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+</div>
+
+
+<!-- START Type of goods or services -->
+<div class="govuk-form-group">
+<label class="govuk-label" for="type-of-goods-heading">
+  <strong>Type of goods or services</strong>
+</label>
+
+<input class="govuk-input govuk-!-width-two-thirds" id="type-of-goods" name="type-of-goods" type="text">
+</div>
+
+
+<!-- START Sector -->
+<div class="govuk-form-group">
+<label class="govuk-label" for="sector-heading">
+  <strong>Sector</strong>
+</label>
+
+<select class="govuk-select govuk-!-width-two-thirds" id="sector" name="sector">
+  <option value="" selected="">Please choose...</option>
+
+  <option value="Advanced engineering">Advanced engineering</option>
+  <option value="Advanced engineering : Mechanical, electrical and process engineering">Advanced engineering : Mechanical, electrical and process engineering</option>
+  <option value="Advanced engineering : Metallurgical process plant">Advanced engineering : Metallurgical process plant</option>
+  <option value="Advanced engineering : Metals, minerals and materials">Advanced engineering : Metals, minerals and materials</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Ceramics">Advanced engineering : Metals, minerals and materials : Ceramics</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Composite materials">Advanced engineering : Metals, minerals and materials : Composite materials</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Elastomers and rubbers">Advanced engineering : Metals, minerals and materials : Elastomers and rubbers</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Metals">Advanced engineering : Metals, minerals and materials : Metals</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Minerals">Advanced engineering : Metals, minerals and materials : Minerals</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Plastics">Advanced engineering : Metals, minerals and materials : Plastics</option>
+  <option value="Aerospace">Aerospace</option>
+  <option value="Aerospace : Aircraft design">Aerospace : Aircraft design</option>
+  <option value="Aerospace : Component manufacturing">Aerospace : Component manufacturing</option>
+  <option value="Aerospace : Component manufacturing : Engines">Aerospace : Component manufacturing : Engines</option>
+  <option value="Aerospace : Maintenance">Aerospace : Maintenance</option>
+  <option value="Aerospace : Manufacturing and assembly">Aerospace : Manufacturing and assembly</option>
+  <option value="Aerospace : Manufacturing and assembly : Aircraft">Aerospace : Manufacturing and assembly : Aircraft</option>
+  <option value="Aerospace : Manufacturing and assembly : Unmanned aerial vehicles">Aerospace : Manufacturing and assembly : Unmanned aerial vehicles</option>
+  <option value="Agriculture, horticulture, fisheries and pets">Agriculture, horticulture, fisheries and pets</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Advisory services">Agriculture, horticulture, fisheries and pets : Advisory services</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Arable crops">Agriculture, horticulture, fisheries and pets : Arable crops</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Arable crops : Fertilisers and pesticides">Agriculture, horticulture, fisheries and pets : Arable crops : Fertilisers and pesticides</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Arable crops : Seeds and plant varieties">Agriculture, horticulture, fisheries and pets : Arable crops : Seeds and plant varieties</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Arable crops : Soil management systems">Agriculture, horticulture, fisheries and pets : Arable crops : Soil management systems</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Engineering and precision farming">Agriculture, horticulture, fisheries and pets : Engineering and precision farming</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Machinery">Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Machinery</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Technology">Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Technology</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Fisheries and aquaculture">Agriculture, horticulture, fisheries and pets : Fisheries and aquaculture</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Forestry and logging">Agriculture, horticulture, fisheries and pets : Forestry and logging</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Horticulture">Agriculture, horticulture, fisheries and pets : Horticulture</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Horticulture : Fruit and vegetable production">Agriculture, horticulture, fisheries and pets : Horticulture : Fruit and vegetable production</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Infrastructure">Agriculture, horticulture, fisheries and pets : Infrastructure</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses">Agriculture, horticulture, fisheries and pets : Livestock, pets and horses</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Breeding stock and genetics">Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Breeding stock and genetics</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Health, welfare and veterinary services">Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Health, welfare and veterinary services</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Livestock feed and nutrition">Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Livestock feed and nutrition</option>
+  <option value="Airports">Airports</option>
+  <option value="Airports : Air freight and cargo services">Airports : Air freight and cargo services</option>
+  <option value="Airports : Air traffic control and airspace management">Airports : Air traffic control and airspace management</option>
+  <option value="Airports : Airport design, engineering, management and build">Airports : Airport design, engineering, management and build</option>
+  <option value="Airports : Airport management, flight and passenger operations">Airports : Airport management, flight and passenger operations</option>
+  <option value="Airports : Airport security and equipment">Airports : Airport security and equipment</option>
+  <option value="Airports : Specialised airport vehicles and equipment">Airports : Specialised airport vehicles and equipment</option>
+  <option value="Automotive">Automotive</option>
+  <option value="Automotive : Component manufacturing">Automotive : Component manufacturing</option>
+  <option value="Automotive : Component manufacturing : Bodies and coachwork">Automotive : Component manufacturing : Bodies and coachwork</option>
+  <option value="Automotive : Component manufacturing : Connectivity and automation">Automotive : Component manufacturing : Connectivity and automation</option>
+  <option value="Automotive : Component manufacturing : Electric vehicle components">Automotive : Component manufacturing : Electric vehicle components</option>
+  <option value="Automotive : Component manufacturing : Electronic components">Automotive : Component manufacturing : Electronic components</option>
+  <option value="Automotive : Component manufacturing : Engines and transmission">Automotive : Component manufacturing : Engines and transmission</option>
+  <option value="Automotive : Component manufacturing : Tyres">Automotive : Component manufacturing : Tyres</option>
+  <option value="Automotive : Design engineering">Automotive : Design engineering</option>
+  <option value="Automotive : Maintenance">Automotive : Maintenance</option>
+  <option value="Automotive : Manufacturing and assembly">Automotive : Manufacturing and assembly</option>
+  <option value="Automotive : Manufacturing and assembly : Agricultural machinery">Automotive : Manufacturing and assembly : Agricultural machinery</option>
+  <option value="Automotive : Manufacturing and assembly : Bicycles">Automotive : Manufacturing and assembly : Bicycles</option>
+  <option value="Automotive : Manufacturing and assembly : Buses">Automotive : Manufacturing and assembly : Buses</option>
+  <option value="Automotive : Manufacturing and assembly : Caravans">Automotive : Manufacturing and assembly : Caravans</option>
+  <option value="Automotive : Manufacturing and assembly : Cars">Automotive : Manufacturing and assembly : Cars</option>
+  <option value="Automotive : Manufacturing and assembly : Lorries">Automotive : Manufacturing and assembly : Lorries</option>
+  <option value="Automotive : Manufacturing and assembly : Motorcycles">Automotive : Manufacturing and assembly : Motorcycles</option>
+  <option value="Automotive : Manufacturing and assembly : Trailers">Automotive : Manufacturing and assembly : Trailers</option>
+  <option value="Automotive : Motorsport">Automotive : Motorsport</option>
+  <option value="Automotive : Retail">Automotive : Retail</option>
+  <option value="Chemicals">Chemicals</option>
+  <option value="Chemicals : Agricultural chemicals">Chemicals : Agricultural chemicals</option>
+  <option value="Chemicals : Basic chemicals">Chemicals : Basic chemicals</option>
+  <option value="Chemicals : Cleaning preparations">Chemicals : Cleaning preparations</option>
+  <option value="Chemicals : Miscellaneous chemicals">Chemicals : Miscellaneous chemicals</option>
+  <option value="Chemicals : Paint, coating and adhesive products">Chemicals : Paint, coating and adhesive products</option>
+  <option value="Chemicals : Speciality and fine chemical ingredients">Chemicals : Speciality and fine chemical ingredients</option>
+  <option value="Chemicals : Synthetic materials">Chemicals : Synthetic materials</option>
+  <option value="Construction">Construction</option>
+  <option value="Construction : Construction materials, equipment and tools">Construction : Construction materials, equipment and tools</option>
+  <option value="Construction : Design, engineering, management and build">Construction : Design, engineering, management and build</option>
+  <option value="Construction : New materials and technologies">Construction : New materials and technologies</option>
+  <option value="Construction : Pre-cast structural, fit-out and components">Construction : Pre-cast structural, fit-out and components</option>
+  <option value="Construction : Specialised construction vehicles">Construction : Specialised construction vehicles</option>
+  <option value="Consumer and retail">Consumer and retail</option>
+  <option value="Consumer and retail : Books, printed media and stationery">Consumer and retail : Books, printed media and stationery</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion">Consumer and retail : Clothing, footwear and fashion</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Accessories, bags and luggage">Consumer and retail : Clothing, footwear and fashion : Accessories, bags and luggage</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Children's apparel">Consumer and retail : Clothing, footwear and fashion : Children's apparel</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Footwear">Consumer and retail : Clothing, footwear and fashion : Footwear</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Men's apparel">Consumer and retail : Clothing, footwear and fashion : Men's apparel</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Sports and leisurewear">Consumer and retail : Clothing, footwear and fashion : Sports and leisurewear</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Women's apparel">Consumer and retail : Clothing, footwear and fashion : Women's apparel</option>
+  <option value="Consumer and retail : Cosmetics and beauty">Consumer and retail : Cosmetics and beauty</option>
+  <option value="Consumer and retail : Electronic consumer products">Consumer and retail : Electronic consumer products</option>
+  <option value="Consumer and retail : Furniture and furnishings">Consumer and retail : Furniture and furnishings</option>
+  <option value="Consumer and retail : Giftware">Consumer and retail : Giftware</option>
+  <option value="Consumer and retail : Household goods">Consumer and retail : Household goods</option>
+  <option value="Consumer and retail : Jewellery">Consumer and retail : Jewellery</option>
+  <option value="Consumer and retail : Leisure and tourism">Consumer and retail : Leisure and tourism</option>
+  <option value="Consumer and retail : Leisure and tourism : Hotels and hospitality">Consumer and retail : Leisure and tourism : Hotels and hospitality</option>
+  <option value="Consumer and retail : Leisure and tourism : Travel">Consumer and retail : Leisure and tourism : Travel</option>
+  <option value="Consumer and retail : Luxury">Consumer and retail : Luxury</option>
+  <option value="Consumer and retail : Musical instruments">Consumer and retail : Musical instruments</option>
+  <option value="Consumer and retail : Supermarkets">Consumer and retail : Supermarkets</option>
+  <option value="Consumer and retail : Tableware">Consumer and retail : Tableware</option>
+  <option value="Consumer and retail : Textiles, interior textiles and carpets">Consumer and retail : Textiles, interior textiles and carpets</option>
+  <option value="Consumer and retail : Toys">Consumer and retail : Toys</option>
+  <option value="Consumer and retail : eCommerce">Consumer and retail : eCommerce</option>
+  <option value="Creative industries">Creative industries</option>
+  <option value="Creative industries : Advertising">Creative industries : Advertising</option>
+  <option value="Creative industries : Animation">Creative industries : Animation</option>
+  <option value="Creative industries : Antiques and antiquities">Creative industries : Antiques and antiquities</option>
+  <option value="Creative industries : Art">Creative industries : Art</option>
+  <option value="Creative industries : Design">Creative industries : Design</option>
+  <option value="Creative industries : Design : Industrial design">Creative industries : Design : Industrial design</option>
+  <option value="Creative industries : Design : Interior design">Creative industries : Design : Interior design</option>
+  <option value="Creative industries : Digital services">Creative industries : Digital services</option>
+  <option value="Creative industries : Digital services : Agencies">Creative industries : Digital services : Agencies</option>
+  <option value="Creative industries : Digital services : Social media platforms">Creative industries : Digital services : Social media platforms</option>
+  <option value="Creative industries : Equipment">Creative industries : Equipment</option>
+  <option value="Creative industries : Equipment : Photo and cinema">Creative industries : Equipment : Photo and cinema</option>
+  <option value="Creative industries : Experience economy">Creative industries : Experience economy</option>
+  <option value="Creative industries : Experience economy : Attractions">Creative industries : Experience economy : Attractions</option>
+  <option value="Creative industries : Film and TV">Creative industries : Film and TV</option>
+  <option value="Creative industries : Film and TV : Hardware">Creative industries : Film and TV : Hardware</option>
+  <option value="Creative industries : Film and TV : Production and finance">Creative industries : Film and TV : Production and finance</option>
+  <option value="Creative industries : Film and TV : Sales and distribution">Creative industries : Film and TV : Sales and distribution</option>
+  <option value="Creative industries : Film and TV : Visual effects (VFX) and motion graphics">Creative industries : Film and TV : Visual effects (VFX) and motion graphics</option>
+  <option value="Creative industries : Games">Creative industries : Games</option>
+  <option value="Creative industries : Games : Development">Creative industries : Games : Development</option>
+  <option value="Creative industries : Games : Esports">Creative industries : Games : Esports</option>
+  <option value="Creative industries : Immersive technology">Creative industries : Immersive technology</option>
+  <option value="Creative industries : Music">Creative industries : Music</option>
+  <option value="Creative industries : Performing arts">Creative industries : Performing arts</option>
+  <option value="Creative industries : Publishing">Creative industries : Publishing</option>
+  <option value="Defence">Defence</option>
+  <option value="Defence : Air">Defence : Air</option>
+  <option value="Defence : Air : Air electronic warfare">Defence : Air : Air electronic warfare</option>
+  <option value="Defence : Air : Aircrew training">Defence : Air : Aircrew training</option>
+  <option value="Defence : Air : Battlespace management">Defence : Air : Battlespace management</option>
+  <option value="Defence : Air : Complex weapons">Defence : Air : Complex weapons</option>
+  <option value="Defence : Air : Fast jet">Defence : Air : Fast jet</option>
+  <option value="Defence : Air : Ground based air defence (GBAD)">Defence : Air : Ground based air defence (GBAD)</option>
+  <option value="Defence : Air : Intelligence surveillance target acquisition and reconnaissance (ISTAR)">Defence : Air : Intelligence surveillance target acquisition and reconnaissance (ISTAR)</option>
+  <option value="Defence : Air : Large aircraft">Defence : Air : Large aircraft</option>
+  <option value="Defence : Air : Platform protection">Defence : Air : Platform protection</option>
+  <option value="Defence : Air : Support and maintenance">Defence : Air : Support and maintenance</option>
+  <option value="Defence : Air : Unmanned air systems (UAS)">Defence : Air : Unmanned air systems (UAS)</option>
+  <option value="Defence : Land">Defence : Land</option>
+  <option value="Defence : Land : Chemical, biological, radiological and nuclear (CBRN)">Defence : Land : Chemical, biological, radiological and nuclear (CBRN)</option>
+  <option value="Defence : Land : Combat">Defence : Land : Combat</option>
+  <option value="Defence : Land : Combat support">Defence : Land : Combat support</option>
+  <option value="Defence : Land : Counter explosive ordnance (C-EO)">Defence : Land : Counter explosive ordnance (C-EO)</option>
+  <option value="Defence : Land : Cyber">Defence : Land : Cyber</option>
+  <option value="Defence : Maritime">Defence : Maritime</option>
+  <option value="Defence : Maritime : Maritime aviation">Defence : Maritime : Maritime aviation</option>
+  <option value="Defence : Maritime : Non-traditional and development">Defence : Maritime : Non-traditional and development</option>
+  <option value="Defence : Maritime : Sub-surface">Defence : Maritime : Sub-surface</option>
+  <option value="Defence : Maritime : Support and infrastructure">Defence : Maritime : Support and infrastructure</option>
+  <option value="Defence : Maritime : Surface">Defence : Maritime : Surface</option>
+  <option value="ducation and training">Education and training</option>
+  <option value="Education and training : Curriculum, qualifications, assessment, inspection and quality assurance">Education and training : Curriculum, qualifications, assessment, inspection and quality assurance</option>
+  <option value="Education and training : Early years">Education and training : Early years</option>
+  <option value="Education and training : Educational technology">Education and training : Educational technology</option>
+  <option value="Education and training : English language training">Education and training : English language training</option>
+  <option value="Education and training : Higher education">Education and training : Higher education</option>
+  <option value="Education and training : Higher education : Universities">Education and training : Higher education : Universities</option>
+  <option value="Education and training : Schools">Education and training : Schools</option>
+  <option value="Education and training : Special educational needs and disabilities">Education and training : Special educational needs and disabilities</option>
+  <option value="Education and training : Support services">Education and training : Support services</option>
+  <option value="Education and training : Support services : Consultancy and professional services">Education and training : Support services : Consultancy and professional services</option>
+  <option value="Education and training : Support services : Equipment and supplies">Education and training : Support services : Equipment and supplies</option>
+  <option value="Education and training : Technical and vocational education and training">Education and training : Technical and vocational education and training</option>
+  <option value="Education and training : Technical and vocational education and training : Colleges and further education">Education and training : Technical and vocational education and training : Colleges and further education</option>
+  <option value="Energy">Energy</option>
+  <option value="Energy : Civil nuclear">Energy : Civil nuclear</option>
+  <option value="Energy : Civil nuclear : Advanced technologies and small modular reactors">Energy : Civil nuclear : Advanced technologies and small modular reactors</option>
+  <option value="Energy : Civil nuclear : Decommissioning">Energy : Civil nuclear : Decommissioning</option>
+  <option value="Energy : Civil nuclear : Waste management">Energy : Civil nuclear : Waste management</option>
+  <option value="Energy : Oil and gas">Energy : Oil and gas</option>
+  <option value="Energy : Oil and gas : Carbon capture technology and storage">Energy : Oil and gas : Carbon capture technology and storage</option>
+  <option value="Energy : Oil and gas : Decommissioning">Energy : Oil and gas : Decommissioning</option>
+  <option value="Energy : Renewable energy">Energy : Renewable energy</option>
+  <option value="Energy : Renewable energy : Biomass">Energy : Renewable energy : Biomass</option>
+  <option value="Energy : Renewable energy : Electrical networks">Energy : Renewable energy : Electrical networks</option>
+  <option value="Energy : Renewable energy : Energy storage">Energy : Renewable energy : Energy storage</option>
+  <option value="Energy : Renewable energy : Fixed-bottom offshore wind">Energy : Renewable energy : Fixed-bottom offshore wind</option>
+  <option value="Energy : Renewable energy : Fixed-bottom offshore wind">Energy : Renewable energy : Fixed-bottom offshore wind</option>
+  <option value="Energy : Renewable energy : Geothermal">Energy : Renewable energy : Geothermal</option>
+  <option value="Energy : Renewable energy : Hydro">Energy : Renewable energy : Hydro</option>
+  <option value="Energy : Renewable energy : Hydrogen">Energy : Renewable energy : Hydrogen</option>
+  <option value="Energy : Renewable energy : Industrial decarbonisation">Energy : Renewable energy : Industrial decarbonisation</option>
+  <option value="Energy : Renewable energy : Low carbon heating">Energy : Renewable energy : Low carbon heating</option>
+  <option value="Energy : Renewable energy : Marine and tidal">Energy : Renewable energy : Marine and tidal</option>
+  <option value="Energy : Renewable energy : Onshore wind">Energy : Renewable energy : Onshore wind</option>
+  <option value="Energy : Renewable energy : Solar">Energy : Renewable energy : Solar</option>
+  <option value="Energy : Renewable energy : Waste to value">Energy : Renewable energy : Waste to value</option>
+  <option value="Energy : Renewable energy : Wave">Energy : Renewable energy : Wave</option>
+  <option value="Environment">Environment</option>
+  <option value="Environment : Air pollution and noise control">Environment : Air pollution and noise control</option>
+  <option value="Environment : Clean growth services">Environment : Clean growth services</option>
+  <option value="Environment : Environmental monitoring">Environment : Environmental monitoring</option>
+  <option value="Environment : Marine pollution control">Environment : Marine pollution control</option>
+  <option value="Environment : Sanitation and remediation">Environment : Sanitation and remediation</option>
+  <option value="Environment : Waste management and recycling">Environment : Waste management and recycling</option>
+  <option value="Financial and professional services">Financial and professional services</option>
+  <option value="Financial and professional services : Accountancy services">Financial and professional services : Accountancy services</option>
+  <option value="Financial and professional services : Asset management">Financial and professional services : Asset management</option>
+  <option value="Financial and professional services : Banking">Financial and professional services : Banking</option>
+  <option value="Financial and professional services : Banking : Commercial banking">Financial and professional services : Banking : Commercial banking</option>
+  <option value="Financial and professional services : Banking : Digital banking">Financial and professional services : Banking : Digital banking</option>
+  <option value="Financial and professional services : Banking : Investment banking">Financial and professional services : Banking : Investment banking</option>
+  <option value="Financial and professional services : Banking : Private banking">Financial and professional services : Banking : Private banking</option>
+  <option value="Financial and professional services : Banking : Retail banking">Financial and professional services : Banking : Retail banking</option>
+  <option value="Financial and professional services : Business and consumer services">Financial and professional services : Business and consumer services</option>
+  <option value="Financial and professional services : Business and consumer services : Commercial real estate services">Financial and professional services : Business and consumer services : Commercial real estate services</option>
+  <option value="Financial and professional services : Business and consumer services : Contact centres">Financial and professional services : Business and consumer services : Contact centres</option>
+  <option value="Financial and professional services : Business and consumer services : HR services">Financial and professional services : Business and consumer services : HR services</option>
+  <option value="Financial and professional services : Business and consumer services : Market research">Financial and professional services : Business and consumer services : Market research</option>
+  <option value="Financial and professional services : Business and consumer services : Marketing services">Financial and professional services : Business and consumer services : Marketing services</option>
+  <option value="Financial and professional services : Business and consumer services : Shared service centres">Financial and professional services : Business and consumer services : Shared service centres</option>
+  <option value="Financial and professional services : Capital markets">Financial and professional services : Capital markets</option>
+  <option value="Financial and professional services : Capital markets : Hedge funds">Financial and professional services : Capital markets : Hedge funds</option>
+  <option value="Financial and professional services : Capital markets : Private equity">Financial and professional services : Capital markets : Private equity</option>
+  <option value="Financial and professional services : Capital markets : Venture capital">Financial and professional services : Capital markets : Venture capital</option>
+  <option value="Financial and professional services : Financial technology">Financial and professional services : Financial technology</option>
+  <option value="Financial and professional services : Financial technology : Blockchain and digital currencies">Financial and professional services : Financial technology : Blockchain and digital currencies</option>
+  <option value="Financial and professional services : Financial technology : Insurance technology">Financial and professional services : Financial technology : Insurance technology</option>
+  <option value="Financial and professional services : Financial technology : Legal technology">Financial and professional services : Financial technology : Legal technology</option>
+  <option value="Financial and professional services : Financial technology : Property technology">Financial and professional services : Financial technology : Property technology</option>
+  <option value="Financial and professional services : Financial technology : Regulatory technology">Financial and professional services : Financial technology : Regulatory technology</option>
+  <option value="Financial and professional services : Financial technology : Wealth technology">Financial and professional services : Financial technology : Wealth technology</option>
+  <option value="Financial and professional services : Foreign exchange">Financial and professional services : Foreign exchange</option>
+  <option value="Financial and professional services : Insurance">Financial and professional services : Insurance</option>
+  <option value="Financial and professional services : Insurance : Commercial insurance">Financial and professional services : Insurance : Commercial insurance</option>
+  <option value="Financial and professional services : Insurance : Life insurance">Financial and professional services : Insurance : Life insurance</option>
+  <option value="Financial and professional services : Insurance : Motor insurance">Financial and professional services : Insurance : Motor insurance</option>
+  <option value="Financial and professional services : Insurance : Travel insurance">Financial and professional services : Insurance : Travel insurance</option>
+  <option value="Financial and professional services : Legal services">Financial and professional services : Legal services</option>
+  <option value="Financial and professional services : Legal services : Commercial legal services">Financial and professional services : Legal services : Commercial legal services</option>
+  <option value="Financial and professional services : Listings">Financial and professional services : Listings</option>
+  <option value="Financial and professional services : Management consultancy">Financial and professional services : Management consultancy</option>
+  <option value="Food and drink">Food and drink</option>
+  <option value="Food and drink : Alcoholic drinks">Food and drink : Alcoholic drinks</option>
+  <option value="Food and drink : Bakery products">Food and drink : Bakery products</option>
+  <option value="Food and drink : Brewing">Food and drink : Brewing</option>
+  <option value="Food and drink : Casual dining">Food and drink : Casual dining</option>
+  <option value="1Food and drink : Dairy products">Food and drink : Dairy products</option>
+  <option value="Food and drink : Food and drink manufacturing">Food and drink : Food and drink manufacturing</option>
+  <option value="Food and drink : Free from">Food and drink : Free from</option>
+  <option value="Food and drink : Frozen and chilled foods">Food and drink : Frozen and chilled foods</option>
+  <option value="Food and drink : Fruit and vegetables">Food and drink : Fruit and vegetables</option>
+  <option value="Food and drink : Meat products">Food and drink : Meat products</option>
+  <option value="Food and drink : Non-alcoholic drinks">Food and drink : Non-alcoholic drinks</option>
+  <option value="Food and drink : Organic">Food and drink : Organic</option>
+  <option value="Food and drink : Pet food">Food and drink : Pet food</option>
+  <option value="Food and drink : Ready meals">Food and drink : Ready meals</option>
+  <option value="Food and drink : Secondary food processing">Food and drink : Secondary food processing</option>
+  <option value="Healthcare services">Healthcare services</option>
+  <option value="Healthcare services : Digital and data">Healthcare services : Digital and data</option>
+  <option value="Healthcare services : Education and training">Healthcare services : Education and training</option>
+  <option value="Healthcare services : Health systems management">Healthcare services : Health systems management</option>
+  <option value="Healthcare services : Infrastructure">Healthcare services : Infrastructure</option>
+  <option value="Healthcare services : Lab services">Healthcare services : Lab services</option>
+  <option value="Healthcare services : Social care">Healthcare services : Social care</option>
+  <option value="Logistics">Logistics</option>
+  <option value="Maritime">Maritime</option>
+  <option value="Maritime : Marine engineering">Maritime : Marine engineering</option>
+  <option value="Maritime : Marine engineering : Ports and terminals">Maritime : Marine engineering : Ports and terminals</option>
+  <option value="Maritime : Maritime services">Maritime : Maritime services</option>
+  <option value="Medical devices and equipment">Medical devices and equipment</option>
+  <option value="Medical devices and equipment : Devices">Medical devices and equipment : Devices</option>
+  <option value="Medical devices and equipment : Diagnostics">Medical devices and equipment : Diagnostics</option>
+  <option value="Medical devices and equipment : Digital and data">Medical devices and equipment : Digital and data</option>
+  <option value="Medical devices and equipment : Medical supplies and equipment">Medical devices and equipment : Medical supplies and equipment</option>
+  <option value="Mining">Mining</option>
+  <option value="Mining : Environmental monitoring and mine safety">Mining : Environmental monitoring and mine safety</option>
+  <option value="Mining : Exploration, research, finance and innovation">Mining : Exploration, research, finance and innovation</option>
+  <option value="Mining : Mine infrastructure and energy supply">Mining : Mine infrastructure and energy supply</option>
+  <option value="Mining : Mine operations and processing">Mining : Mine operations and processing</option>
+  <option value="Mining : Mine waste management">Mining : Mine waste management</option>
+  <option value="Mining : Mining vehicles, transport and equipment">Mining : Mining vehicles, transport and equipment</option>
+  <option value="Pharmaceuticals and biotechnology">Pharmaceuticals and biotechnology</option>
+  <option value="Pharmaceuticals and biotechnology : Digital and data">Pharmaceuticals and biotechnology : Digital and data</option>
+  <option value="Pharmaceuticals and biotechnology : Manufacturing">Pharmaceuticals and biotechnology : Manufacturing</option>
+  <option value="Pharmaceuticals and biotechnology : Marketing and sales">Pharmaceuticals and biotechnology : Marketing and sales</option>
+  <option value="Pharmaceuticals and biotechnology : Professional services">Pharmaceuticals and biotechnology : Professional services</option>
+  <option value="Pharmaceuticals and biotechnology : Research and development">Pharmaceuticals and biotechnology : Research and development</option>
+  <option value="Railways">Railways</option>
+  <option value="Railways : Construction, fabrication and installation">Railways : Construction, fabrication and installation</option>
+  <option value="Railways : Operations and maintenance">Railways : Operations and maintenance</option>
+  <option value="Railways : Planning, design and project delivery">Railways : Planning, design and project delivery</option>
+  <option value="Railways : Strategic rail consultancy and advice">Railways : Strategic rail consultancy and advice</option>
+  <option value="Railways : Systems, rolling stock, equipment, plant and parts">Railways : Systems, rolling stock, equipment, plant and parts</option>
+  <option value="Security">Security</option>
+  <option value="Security : Cyber security">Security : Cyber security</option>
+  <option value="Security : Cyber security : Cyber professional services">Security : Cyber security : Cyber professional services</option>
+  <option value="Security : Cyber security : Endpoint security">Security : Cyber security : Endpoint security</option>
+  <option value="Security : Cyber security : Identification, authentication and access control">Security : Cyber security : Identification, authentication and access control</option>
+  <option value="Security : Cyber security : Internet of things (IoT) security">Security : Cyber security : Internet of things (IoT) security</option>
+  <option value="Security : Cyber security : Network security">Security : Cyber security : Network security</option>
+  <option value="Security : Cyber security : Supervisory control and data acquisition (SCADA) and industrial control systems (ICS)">Security : Cyber security : Supervisory control and data acquisition (SCADA) and industrial control systems (ICS)</option>
+  <option value="Security : Cyber security : Threat intelligence, monitoring, detection and analysis">Security : Cyber security : Threat intelligence, monitoring, detection and analysis</option>
+  <option value="Security : Physical security">Security : Physical security</option>
+  <option value="Security : Physical security : Border security">Security : Physical security : Border security</option>
+  <option value="Security : Physical security : First responders">Security : Physical security : First responders</option>
+  <option value="Security : Physical security : Infrastructure">Security : Physical security : Infrastructure</option>
+  <option value="Security : Physical security : Major events security">Security : Physical security : Major events security</option>
+  <option value="Space">Space</option>
+  <option value="Space : Component manufacturing">Space : Component manufacturing</option>
+  <option value="Space : Services">Space : Services</option>
+  <option value="Sports economy">Sports economy</option>
+  <option value="Sports economy : Major sports events">Sports economy : Major sports events</option>
+  <option value="Sports economy : Sports infrastructure">Sports economy : Sports infrastructure</option>
+  <option value="Technology and smart cities">Technology and smart cities</option>
+  <option value="Technology and smart cities : Communications">Technology and smart cities : Communications</option>
+  <option value="Technology and smart cities : Communications : Convergent">Technology and smart cities : Communications : Convergent</option>
+  <option value="Technology and smart cities : Communications : Fixed line">Technology and smart cities : Communications : Fixed line</option>
+  <option value="Technology and smart cities : Communications : Mobile">Technology and smart cities : Communications : Mobile</option>
+  <option value="Technology and smart cities : Communications : Wireless">Technology and smart cities : Communications : Wireless</option>
+  <option value="Technology and smart cities : Communications : Wireless internet of things">Technology and smart cities : Communications : Wireless internet of things</option>
+  <option value="Technology and smart cities : Hardware">Technology and smart cities : Hardware</option>
+  <option value="Technology and smart cities : Hardware : Data centres">Technology and smart cities : Hardware : Data centres</option>
+  <option value="Technology and smart cities : Hardware : Internet of things">Technology and smart cities : Hardware : Internet of things</option>
+  <option value="Technology and smart cities : Hardware : Photonics">Technology and smart cities : Hardware : Photonics</option>
+  <option value="Technology and smart cities : Hardware : Robotics">Technology and smart cities : Hardware : Robotics</option>
+  <option value="Technology and smart cities : Hardware : Semiconductors">Technology and smart cities : Hardware : Semiconductors</option>
+  <option value="Technology and smart cities : Hardware : Sensors">Technology and smart cities : Hardware : Sensors</option>
+  <option value="Technology and smart cities : Hardware : Telecommunications and electronics systems">Technology and smart cities : Hardware : Telecommunications and electronics systems</option>
+  <option value="Technology and smart cities : Software">Technology and smart cities : Software</option>
+  <option value="Technology and smart cities : Software : Artificial intelligence">Technology and smart cities : Software : Artificial intelligence</option>
+  <option value="Technology and smart cities : Software : Blockchain">Technology and smart cities : Software : Blockchain</option>
+  <option value="Technology and smart cities : Software : Cloud services">Technology and smart cities : Software : Cloud services</option>
+  <option value="Technology and smart cities : Software : Data analytics">Technology and smart cities : Software : Data analytics</option>
+  <option value="Technology and smart cities : Software : Internet of things">Technology and smart cities : Software : Internet of things</option>
+  <option value="Technology and smart cities : Software : Sensors">Technology and smart cities : Software : Sensors</option>
+  <option value="Technology and smart cities : Software : Software as a service">Technology and smart cities : Software : Software as a service</option>
+  <option value="Water">Water</option>
+  <option value="Water : Digital water">Water : Digital water</option>
+  <option value="Water : Flood resilience">Water : Flood resilience</option>
+  <option value="Water : Sewage management">Water : Sewage management</option>
+  <option value="Water : Wastewater management">Water : Wastewater management</option>
+  <option value="Water : Water management">Water : Water management</option>
+</select>
+</div>
+
+<!-- START Buttons -->
+<div class="govuk-button-group">
+  <button class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+  <a class="govuk-link" href="customer-details">Cancel</a>
+</div>
+
+</form>
+
+
+  </div>
+</div>
+<!-- END CONTAINER -->
+
+{% endblock %}

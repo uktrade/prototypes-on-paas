@@ -1,0 +1,553 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- START BREADCRUMB TRAIL -->
+    <div class="govuk-breadcrumbs" data-test="breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="homepage">Home</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="companies">Companies</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="company-detail">ROLLS-ROYCE HOLDINGS PLC</a></li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Edit export win</li></ol>
+      </div>
+<!-- END BREADCRUMB TRAIL -->
+
+
+    <div id="flash-messages" class="react-slot"><noscript>Please enable JavaScript in your browser to see the content.</noscript></div>
+
+      <div class="govuk-grid-row c-local-header__content">
+        <div class="govuk-grid-column-full">
+          <h1 class="c-local-header__heading">Edit export win</h1>
+          <h2 class="govuk-!-font-weight-regular">ROLLS-ROYCE HOLDINGS PLC</h2>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- START CONTAINER -->
+<div class="govuk-width-container">
+
+
+<!-- STARTS 1. Officer details -->
+<h2>1. Officer details</h2>
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+    </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Owner name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['owner-name-officer'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="officer-details">Change</a>
+            </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Team type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['team-type-officer'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="officer-details">Change</a>
+            </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            HQ team, region or post
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hq-team-officer'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="officer-details">Change</a>
+            </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Owner email address (optional)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['owner-email-address'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="officer-details">Change</a>
+            </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Additional contact email (optional)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['additional-email-address'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="officer-details">Change</a>
+            </dd>
+        </div>
+  </dl><!-- ENDS -->
+
+
+  <div class="govuk-!-padding-top-5"></div>
+
+
+<!-- STARTS 2. Credit for this win -->
+<h2>2. Credit for this win</h2>
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+    </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Did any other teams help with this win?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['otherTeams'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="credit-for-this-win">Change</a>
+            </dd>
+        </div>
+        {%- if data['otherTeams'] == "Yes" -%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contributing officer
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['contributing-officer'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="credit-for-this-win">Change</a>
+            </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Team type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['team-type-credit'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="credit-for-this-win">Change</a>
+            </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            HQ team, region or post
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hq-team-credit'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="credit-for-this-win">Change</a>
+            </dd>
+        </div>
+        {%- endif -%}
+
+  </dl><!-- ENDS -->
+
+
+  <div class="govuk-!-padding-top-5"></div>
+
+
+<!-- STARTS 3. Customer details  -->
+<h2>3. Customer details </h2>
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+    </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation or company name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['organisation'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="customer-details">Change</a>
+            </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Data Hub (Companies House) or CDMS reference number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['companies-house'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="customer-details">Change</a>
+            </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['contact-name'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="customer-details">Change</a>
+            </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact email
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['contact-email'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="customer-details">Change</a>
+            </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Job title
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['job-title'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="customer-details">Change</a>
+            </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            HQ location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hq-location'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="customer-details">Change</a>
+            </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Medium sized and high potential companies
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['export-potential'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="customer-details">Change</a>
+            </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Export experience
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['export-experience'] }}
+          </dd>
+            <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+              <a class="govuk-link" href="customer-details">Change</a>
+            </dd>
+        </div>
+
+  </dl><!-- ENDS -->
+
+
+  <div class="govuk-!-padding-top-5"></div>
+
+
+  <!-- STARTS 4. Win details   -->
+<h2>4. Win details</h2>
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+  </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Destination
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['destination'] }}
+        </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date won (within 2023/2024 financial year)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['date-won-month'] }}
+          {{ data['date-won-year'] }}
+        </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Summary of support
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['summarise-support'] }}
+                </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Overseas customer
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['overseas-customer'] }}
+        </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of business deal
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['type-of-business-deal'] }}
+        </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div>
+
+
+      <!-- <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of win
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Export
+        </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div> -->
+
+      {% if "Export" in data['type-of-win'] %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Export value over the next 5 years
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% set items = [data['export-won-year-23'] | int, data['export-won-year-24'] | int, data['export-won-year-25'] | int,data['export-won-year-26'] | int, data['export-won-year-27'] | int]%}
+          £{{ items | sum }}
+        </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div>
+
+      {%- endif -%}
+
+      {% if "Business success" in data['type-of-win'] %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Business success value over the next 5 years
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% set items = [data['business-won-year-23'] | int, data['business-won-year-24'] | int, data['business-won-year-25'] | int,data['business-won-year-26'] | int, data['business-won-year-27'] | int]%}
+          £{{ items | sum }}
+        </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div>
+
+      {%- endif -%}
+
+      {% if "Outward Direct Investment" in data['type-of-win'] %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Outward Direct Investment value over the next 5 years
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% set items = [data['odi-won-year-23'] | int, data['odi-won-year-24'] | int, data['odi-won-year-25'] | int,data['odi-won-year-26'] | int, data['odi-won-year-27'] | int]%}
+          £{{ items | sum }}
+        </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div>
+
+      {%- endif -%}
+
+
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What does the value relate to?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['goods-and-services'] }}
+        </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of goods or services
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['type-of-goods'] }}
+        </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Sector
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['sector'] }}
+        </dd>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="win-details">Change</a>
+          </dd>
+      </div>
+
+</dl><!-- ENDS -->
+
+
+<div class="govuk-!-padding-top-5"></div>
+
+
+ <!-- STARTS 5. Support given -->
+ <h2>5. Support given</h2>
+ <dl class="govuk-summary-list">
+   <div class="govuk-summary-list__row">
+   </div>
+
+
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          HVC code
+         </dt>
+         <dd class="govuk-summary-list__value">
+          {{ data['hvc-code'] }}
+         </dd>
+           <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+             <a class="govuk-link" href="support-provided">Change</a>
+           </dd>
+       </div>
+
+
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What type of support was given?
+         </dt>
+         <dd class="govuk-summary-list__value">
+          {{ data['type-of-support'] }}
+         </dd>
+           <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="support-provided">Change</a>
+          </dd>
+       </div>
+
+
+       <div class="govuk-summary-list__row">
+         <dt class="govuk-summary-list__key">
+          Was there a DBT campaign or event that contributed to this win?
+         </dt>
+         <dd class="govuk-summary-list__value">
+          {{ data['dbt-campaign'] }}
+         </dd>
+           <dd class="govuk-summary-list__actions govuk-!-text-align-right">
+            <a class="govuk-link" href="support-provided">Change</a>
+          </dd>
+       </div>
+
+
+ </dl><!-- ENDS -->
+
+
+ <div class="govuk-!-padding-top-5"></div>
+
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    This information will be sent to howard.kendall@rolls-roycemotorcars.com so they can confirm the export win
+  </strong>
+</div>
+
+
+<div class="govuk-button-group">
+  <a href="sent-thank-you" class="govuk-button" data-module="govuk-button">
+    Confirm and send to customer
+  </a>
+  <a class="govuk-link" href="support-provided">Back</a>
+</div>
+
+  <div class="govuk-!-padding-top-5"></div>
+
+
+  </div>
+</div>
+<!-- END CONTAINER -->
+
+
+
+
+
+{% endblock %}

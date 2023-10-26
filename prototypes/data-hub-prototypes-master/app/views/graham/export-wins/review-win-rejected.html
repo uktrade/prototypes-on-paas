@@ -1,0 +1,147 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="homepage">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="export-wins">Export wins</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      Rolls Royce cars to United Arab Emirates
+    </li>
+  </ol>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-8">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      Rolls Royce cars to United Arab Emirates
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ govukTable({
+            firstCellIsHeader: true,
+            classes: "govuk-!-font-size-16",
+            rows: [
+              [
+                {
+                  text: "UK Company"
+                },
+                {
+                  html: "<a class='govuk-link' href='company-detail'>ROLLS-ROYCE HOLDINGS PLC</a>"
+                }
+              ],
+              [
+                {
+                  text: "Contact"
+                },
+                {
+                  html: "<a class='govuk-link' href='#'>Howard Kendall</a>"
+                }
+              ],
+              [
+                {
+                  text: "Goods or services"
+                },
+                {
+                  text: "Rolls Royce cars"
+                }
+              ],
+              [
+                {
+                  text: "Destination"
+                },
+                {
+                  text: "United Arab Emirates"
+                }
+              ],
+              [
+                {
+                  text: "Export amount"
+                },
+                {
+                  text: "£15,000,000"
+                }
+              ],
+              [
+                {
+                  text: "Date won"
+                },
+                {
+                  text: "Oct 2023"
+                }
+              ],
+              [
+                {
+                  text: "Last modified"
+                },
+                {
+                  text: "4 Jul 2023"
+                }
+              ],
+              [
+                {
+                  text: "Notes"
+                },
+                {
+                  text: "I don't feel that the International Trade Adviser provided me with sufficient help for this export project to be officially recorded as an export win. I would like this record revised."
+                }
+              ],
+              [
+                {
+                  text: "Export win confirmed"
+                },
+                {
+                  text: "Yes"
+                }
+              ],
+              [
+                {
+                  text: "Date of feedback"
+                },
+                {
+                  text: "Oct 2023"
+                }
+              ],
+              [
+                {
+                  text: "Adviser(s)"
+                },
+                {
+                  text: "Graham Sanders"
+                }
+              ]
+            ]
+          }) }}
+
+          <div class="govuk-button-group">
+            <a href="resend-export-win" class="govuk-button" data-module="govuk-button">
+              Edit export win
+            </a>
+            <a class="govuk-link" href="export-wins">Back</a>
+          </div>
+          
+    </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

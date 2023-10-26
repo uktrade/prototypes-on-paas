@@ -1,0 +1,442 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="homepage">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      Export wins
+    </li>
+  </ol>
+</div>
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row govuk-!-margin-top-0">
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">Export wins</h1>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-tabs" data-module="govuk-tabs">
+          <h2 class="govuk-tabs__title">
+            Contents
+          </h2>
+          <ul class="govuk-tabs__list datahub-company-tabs">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+              <a class="govuk-tabs__tab" href="#unconfirmed">
+                Unconfirmed
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#confirmed">
+                Confirmed
+              </a>
+            </li>
+          </ul>
+          <div class="govuk-tabs__panel" id="unconfirmed">
+            <div class="govuk-grid-row">
+
+              <div class="govuk-grid-column-full">
+                <h2 class="govuk-heading-m">Rejected <span class="govuk-!-font-size-19">(1)</span></h2>
+              </div>
+
+              <div class="govuk-grid-column-full">
+                <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16"><a href="company-detail">PETS PARADISE</a></span><br />
+                <span class="govuk-hint govuk-!-font-size-16">Destination:</span> Switzerland<br />
+                <span class="govuk-hint govuk-!-font-size-16">Contact name:</span> <a href="#">Alan Harper</a><br />
+                <span class="govuk-hint govuk-!-font-size-16">Export amount:</span> £6,000,000<br />
+                <span class="govuk-hint govuk-!-font-size-16">Date won:</span> Oct 2023<br />
+                <span class="govuk-hint govuk-!-font-size-16">Date modified:</span> 4 Jul 2023</p>
+              </div>
+
+              <div class="govuk-grid-column-full">
+                <a href="review-win-rejected" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-3" data-module="govuk-button">
+                  Review export win
+                </a>
+                <a href="resend-export-win" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-3" data-module="govuk-button">
+                  Edit export win
+                </a>
+
+                <hr class="govuk-!-margin-bottom-3">
+              </div>
+
+
+              <div class="govuk-grid-column-full">
+                <h2 class="govuk-heading-m">Sent <span class="govuk-!-font-size-19">(3)</span></h2>
+              </div>
+
+              <div class="govuk-grid-column-full">
+                <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16"><a href="company-detail">NICK's COMPANY</a></span><br />
+                <span class="govuk-hint govuk-!-font-size-16">Destination:</span> Singapore<br />
+                <span class="govuk-hint govuk-!-font-size-16">Contact name:</span> <a href="#">Peter Reid</a><br />
+                <span class="govuk-hint govuk-!-font-size-16">Export amount:</span> £12,000,000<br />
+                <span class="govuk-hint govuk-!-font-size-16">Date won:</span> May 2023<br />
+                <span class="govuk-hint govuk-!-font-size-16">First sent:</span> 4 Jul 2023<br />
+                <span class="govuk-hint govuk-!-font-size-16">Last sent:</span> 4 Jul 2023<br />
+              </div>
+
+              <div class="govuk-grid-column-full">
+                <a href="review-win-accepted" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-3" data-module="govuk-button">
+                  Review export win
+                </a>
+                <a href="resend-export-win" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-3" data-module="govuk-button">
+                  Edit export win
+                </a>
+
+                <hr class="govuk-!-margin-bottom-3">
+              </div>
+
+              <div class="govuk-grid-column-full">
+                <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16"><a href="company-detail">BURREN BALSAMICS LTD</a></span><br />
+                <span class="govuk-hint govuk-!-font-size-16">Destination:</span> Singapore<br />
+                <span class="govuk-hint govuk-!-font-size-16">Contact name:</span> <a href="#">Luis Saha</a><br />
+                <span class="govuk-hint govuk-!-font-size-16">Export amount:</span> £3,000,000<br />
+                <span class="govuk-hint govuk-!-font-size-16">Date won:</span> May 2023<br />
+                <span class="govuk-hint govuk-!-font-size-16">First sent:</span> 4 Jul 2023<br />
+                <span class="govuk-hint govuk-!-font-size-16">Last sent:</span> 4 Jul 2023<br />
+              </div>
+  
+                <div class="govuk-grid-column-full">
+                  <a href="review-win-accepted" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-3" data-module="govuk-button">
+                    Review export win
+                  </a>
+                  <a href="resend-export-win" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-3" data-module="govuk-button">
+                    Edit export win
+                  </a>
+
+                  <hr class="govuk-!-margin-bottom-3">
+                </div>
+
+                <div class="govuk-grid-column-full">
+                  <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16"><a href="company-detail">BIG AYE SKATEBOARDS LTD</a></span><br />
+                  <span class="govuk-hint govuk-!-font-size-16">Destination:</span> Italy<br />
+                  <span class="govuk-hint govuk-!-font-size-16">Contact name:</span> <a href="#">Kevin Ratcliffe</a><br />
+                  <span class="govuk-hint govuk-!-font-size-16">Export amount:</span> £210,000,000<br />
+                  <span class="govuk-hint govuk-!-font-size-16">Date won:</span> Jan 2023<br />
+                  <span class="govuk-hint govuk-!-font-size-16">First sent:</span> 2 Feb 2023<br />
+                  <span class="govuk-hint govuk-!-font-size-16">Last sent:</span> 2 Feb 2023<br />
+                </div>
+  
+                <div class="govuk-grid-column-full">
+                  <a href="review-win-accepted" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-3" data-module="govuk-button">
+                    Review export win
+                  </a>
+                  <a href="resend-export-win" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-3" data-module="govuk-button">
+                    Edit export win
+                  </a>
+
+                  <hr class="govuk-!-margin-bottom-3">
+                </div>
+
+                <div class="govuk-grid-column-full">
+                  <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16"><a href="company-detail">SMOOTHIES LIMITED</a></span><br />
+                  <span class="govuk-hint govuk-!-font-size-16">Destination:</span> India<br />
+                  <span class="govuk-hint govuk-!-font-size-16">Contact name:</span> <a href="#">£3,000,000</a><br />
+                  <span class="govuk-hint govuk-!-font-size-16">Export amount:</span> £210,000,000<br />
+                  <span class="govuk-hint govuk-!-font-size-16">Date won:</span> Jan 2023<br />
+                  <span class="govuk-hint govuk-!-font-size-16">First sent:</span> 3 Feb 2023<br />
+                  <span class="govuk-hint govuk-!-font-size-16">Last sent:</span> 3 Feb 2023<br />
+                </div>
+  
+                <div class="govuk-grid-column-full">
+                  <a href="review-win-accepted" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-3" data-module="govuk-button">
+                    Review export win
+                  </a>
+                  <a href="resend-export-win" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-3" data-module="govuk-button">
+                    Edit export win
+                  </a>
+
+                  <hr class="govuk-!-margin-bottom-3">
+                </div>
+
+            </div>
+
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="confirmed">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <h2 class="govuk-heading-m">Confirmed wins <span class="govuk-!-font-size-19">(34)</span></h2>
+              </div>
+
+              <div class="govuk-grid-column-full">
+                {{ govukTable({
+                  classes: "govuk-!-font-size-16",
+                  caption: "Unconfirmed wins (34)",
+                  captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+                  firstCellIsHeader: false,
+                  head: [
+                    {
+                      text: "UK company"
+                    },
+                    {
+                      text: "Destination"
+                    },
+                    {
+                      text: "Goods and services"
+                    },
+                    {
+                      text: "Export amount"
+                    },
+                    {
+                      text: "Date won"
+                    },
+                    {
+                      text: "Date responded"
+                    }
+                  ],
+                  rows: [
+                    [
+                      {
+                        html: "<a class='govuk-link' href='company-detail'>ROLLS-ROYCE HOLDINGS PLC</a>"
+                      },
+                      {
+                        text: "Ireland"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
+                      },
+                      {
+                        text: "£2,030,000"
+                      },
+                      {
+                        text: "Oct 2023"
+                      },
+                      {
+                        text: "4 July 2023"
+                      }
+                    ],
+                    [
+                      {
+                        html: "<a class='govuk-link' href='company-detail'>BUTTER & BREAD LTD</a>"
+                      },
+                      {
+                        text: "USA"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
+                      },
+                      {
+                        text: "£4,000,000"
+                      },
+                      {
+                        text: "Oct 2023"
+                      },
+                      {
+                        text: "4 July 2023"
+                      }
+                    ],
+                    [
+                      {
+                        html: "<a class='govuk-link' href='company-detail'>D&J</a>"
+                      },
+                      {
+                        text: "Germany"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
+                      },
+                      {
+                        text: "£6,000,000"
+                      },
+                      {
+                        text: "Oct 2023"
+                      },
+                      {
+                        text: "4 July 2023"
+                      }
+                    ],
+                    [
+                      {
+                        html: "<a class='govuk-link' href='company-detail'>SUNDAY ROAST LTD</a>"
+                      },
+                      {
+                        text: "USA"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
+                      },
+                      {
+                        text: "£15,000,000"
+                      },
+                      {
+                        text: "Oct 2023"
+                      },
+                      {
+                        text: "4 July 2023"
+                      }
+                    ],
+                    [
+                      {
+                        html: "<a class='govuk-link' href='company-detail'>GEO MITCHELL LTD</a>"
+                      },
+                      {
+                        text: "USA"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
+                      },
+                      {
+                        text: "£12,400,000"
+                      },
+                      {
+                        text: "Oct 2023"
+                      },
+                      {
+                        text: "4 July 2023"
+                      }
+                    ],
+
+                    [
+                      {
+                        html: "<a class='govuk-link' href='company-detail'>AYE-AYE DESIGN</a>"
+                      },
+                      {
+                        text: "Italy"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
+                      },
+                      {
+                        text: "£5,000,000"
+                      },
+                      {
+                        text: "Oct 2023"
+                      },
+                      {
+                        text: "4 July 2023"
+                      }
+                    ],
+                    [
+                      {
+                        html: "<a class='govuk-link' href='company-detail'>GOUDA INDUSTRY LIMITED</a>"
+                      },
+                      {
+                        text: "Denmark"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
+                      },
+                      {
+                        text: "£3,000,000"
+                      },
+                      {
+                        text: "Oct 2023"
+                      },
+                      {
+                        text: "4 July 2023"
+                      }
+                    ],
+                    [
+                      {
+                        html: "<a class='govuk-link' href='company-detail'>THE BRUNCH BOX SANDWICH COMPANY LIMITED</a>"
+                      },
+                      {
+                        text: "France"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
+                      },
+                      {
+                        text: "£3,300,000"
+                      },
+                      {
+                        text: "Oct 2023"
+                      },
+                      {
+                        text: "4 July 2023"
+                      }
+                    ],
+                    [
+                      {
+                        html: "<a class='govuk-link' href='company-detail'>KATE + CO LIMITED</a>"
+                      },
+                      {
+                        text: "France"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
+                      },
+                      {
+                        text: "£233,000,000"
+                      },
+                      {
+                        text: "Oct 2023"
+                      },
+                      {
+                        text: "4 July 2023"
+                      }
+                    ],
+                    [
+                      {
+                        html: "<a class='govuk-link' href='company-detail'>PALMER LIMITED</a>"
+                      },
+                      {
+                        text: "Belgium"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
+                      },
+                      {
+                        text: "£1,350,000"
+                      },
+                      {
+                        text: "Oct 2023"
+                      },
+                      {
+                        text: "4 July 2023"
+                      }
+                    ]
+                  ]
+                }) }}
+
+                {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+                {{ govukPagination({
+                  classes: "govuk-!-margin-bottom-0",
+                  next: {
+                    href: "#"
+                  },
+                  items: [
+                    {
+                      number: 1,
+                      current: true,
+                      href: "#"
+                    },
+                    {
+                      number: 2,
+                      href: "#"
+                    },
+                    {
+                      number: 3,
+                      href: "#"
+                    }
+                  ]
+                }) }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+
+
+{% endblock %}
