@@ -280,3 +280,46 @@ input.search-small {
     color: #0b0c0c !important;
   }
 }
+
+/* New Data Hub homepage */
+
+.datahub-homepage {
+  overflow-x: hidden;
+
+  > .govuk-width-container:first-of-type {
+    max-width: 1180px;
+
+    .govuk-main-wrapper > .govuk-grid-row:first-of-type {
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -50%;
+        background: rgb(29, 112, 184);
+        width: 200%;
+      }
+
+      > .govuk-grid-column-full {
+        background: rgb(29, 112, 184);
+        padding: 20px 0;
+      }
+    }
+  }
+
+  .homepage--search-container {
+    max-width: 960px;
+    display: inline-block;
+    margin: 0;
+  }
+
+}
+
+.datahub-width-one-fifth {
+  width: 20%;
+  display: inline-block;
+  padding-right: 10px;
+  box-sizing: border-box;
+}

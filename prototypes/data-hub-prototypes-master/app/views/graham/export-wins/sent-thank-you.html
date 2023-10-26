@@ -1,0 +1,55 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- START BREADCRUMB TRAIL -->
+    <div class="govuk-breadcrumbs" data-test="breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="homepage">Home</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="companies">Companies</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="company-detail">ROLLS-ROYCE HOLDINGS PLC</a></li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Add export win</li></ol>
+      </div>
+<!-- END BREADCRUMB TRAIL -->
+
+
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading govuk-!-padding-bottom-0 govuk-!-margin-bottom-0" style="max-width: max-content;">
+      The export win Rolls Royce cars to United Arab Emirates has been sent to howard.kendall@rolls-roycemotorcars.com for review and confirmation.
+    </h3>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<!-- START CONTAINER -->
+<div class="govuk-width-container">
+  <h2 class="govuk-heading-m govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">What happens next?</h2>
+  <p>The customer will review the export win and have the option to provide feedback.</p>
+  <p>You will be sent an email once the customer has responded.</p>
+
+  <p><a href="export-wins">Export wins</a></p>
+
+  <div class="govuk-!-padding-top-5"></div>
+</div>
+</div>
+<!-- END CONTAINER -->
+
+{% endblock %}

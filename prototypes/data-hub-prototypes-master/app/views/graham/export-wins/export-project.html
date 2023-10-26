@@ -1,0 +1,159 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="homepage">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      Rolls Royce cars to United Arab Emirates
+    </li>
+  </ol>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-8">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-m"><a href="company-detail" class="govuk-link">ROLLS-ROYCE HOLDINGS PLC</a></span>
+      Rolls Royce cars to United Arab Emirates
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ govukTable({
+            firstCellIsHeader: true,
+            classes: "govuk-!-font-size-16",
+            rows: [
+              [
+                {
+                  text: "Export title"
+                },
+                {
+                  text: "Rolls Royce cars"
+                }
+              ],
+              [
+                {
+                  text: "Owner"
+                },
+                {
+                  text: "Graham Sanders"
+                }
+              ],
+              [
+                {
+                  text: "Team members"
+                },
+                {
+                  text: "Rachael Robinson"
+                }
+              ],
+              [
+                {
+                  text: "Total estimated export value"
+                },
+                {
+                  text: "5 years / £15,000,000"
+                }
+              ],
+              [
+                {
+                  text: "Estimated date for Win"
+                },
+                {
+                  text: "October 2023"
+                }
+              ],
+              [
+                {
+                  text: "Status"
+                },
+                {
+                  text: "Active"
+                }
+              ],
+              [
+                {
+                  text: "Export potential"
+                },
+                {
+                  text: "High"
+                }
+              ],
+              [
+                {
+                  text: "Destination"
+                },
+                {
+                  text: "United Arab Emirates"
+                }
+              ],
+              [
+                {
+                  text: "Main sector"
+                },
+                {
+                  text: "Automotive"
+                }
+              ],
+              [
+                {
+                  text: "Company contacts"
+                },
+                {
+                  text: "Neville Southall"
+                }
+              ],
+              [
+                {
+                  text: "Exporter experience"
+                },
+                {
+                  text: "Exported before, but no exports in the last 12 months"
+                }
+              ],
+              [
+                {
+                  text: "Notes"
+                },
+                {
+                  text: "Not set"
+                }
+              ]
+            ]
+          }) }}
+
+          
+          <div class="govuk-button-group">
+            <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button govuk-button--secondary">
+              Edit
+            </a>
+            <a href="officer-details.html" class="govuk-button" data-module="govuk-button">
+              Convert to export win
+            </a>
+            <a class="govuk-link" href="homepage">Cancel</a>
+          </div>
+          
+
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+{% endblock %}

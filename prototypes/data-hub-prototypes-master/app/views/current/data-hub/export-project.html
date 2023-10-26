@@ -1,0 +1,171 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="homepage">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="companies">Companies</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Company name</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      Overview
+    </li>
+  </ol>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-8">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l"><a href="" class="govuk-link">Company name</a></span>
+      Export project name
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {{ govukTable({
+            firstCellIsHeader: true,
+            classes: "govuk-!-font-size-16",
+            rows: [
+              [
+                {
+                  text: "Export title"
+                },
+                {
+                  text: "Test"
+                }
+              ],
+              [
+                {
+                  text: "Owner"
+                },
+                {
+                  text: "Andy Davies"
+                }
+              ],
+              [
+                {
+                  text: "Team members"
+                },
+                {
+                  text: "Not set"
+                }
+              ],
+              [
+                {
+                  text: "Total estimated export value"
+                },
+                {
+                  text: "2 years / £9,000"
+                }
+              ],
+              [
+                {
+                  text: "Estimated date for Win"
+                },
+                {
+                  text: "	September 2023"
+                }
+              ],
+              [
+                {
+                  text: "Status"
+                },
+                {
+                  text: "Won"
+                }
+              ],
+              [
+                {
+                  text: "Export potential"
+                },
+                {
+                  text: "High"
+                }
+              ],
+              [
+                {
+                  text: "Destination"
+                },
+                {
+                  text: "Afghanistan"
+                }
+              ],
+              [
+                {
+                  text: "Main sector"
+                },
+                {
+                  text: "Aerospace : Aircraft Design"
+                }
+              ],
+              [
+                {
+                  text: "Company contacts"
+                },
+                {
+                  text: "Jane Smithson"
+                }
+              ],
+              [
+                {
+                  text: "Exporter experience"
+                },
+                {
+                  text: "Exported before, but no exports in the last 12 months"
+                }
+              ],
+              [
+                {
+                  text: "Notes"
+                },
+                {
+                  text: "Not set"
+                }
+              ]
+            ]
+          }) }}
+
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Edit",
+              classes: "govuk-button--secondary"
+            }) }}
+
+            <a class="govuk-link" href="#">Cancel</a>
+          </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

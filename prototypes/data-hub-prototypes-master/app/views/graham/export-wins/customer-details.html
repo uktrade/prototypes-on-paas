@@ -1,0 +1,233 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- START BREADCRUMB TRAIL -->
+    <div class="govuk-breadcrumbs" data-test="breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="homepage">Home</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="companies">Companies</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="company-detail">ROLLS-ROYCE HOLDINGS PLC</a></li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Add export win</li></ol>
+      </div>
+<!-- END BREADCRUMB TRAIL -->
+
+
+    <div id="flash-messages" class="react-slot"><noscript>Please enable JavaScript in your browser to see the content.</noscript></div>
+
+      <div class="govuk-grid-row c-local-header__content">
+        <div class="govuk-grid-column-full">
+          <h1 class="c-local-header__heading">Add export win</h1>
+          <h2 class="govuk-!-font-weight-regular">ROLLS-ROYCE HOLDINGS PLC</h2>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- START CONTAINER -->
+<div class="govuk-width-container">
+  <h2 class="govuk-heading-m govuk-!-padding-bottom-0">Customer details</h2>
+
+<form method="post" action="win-details" id="customer-details">
+
+
+<!-- START Organisation or company name -->
+<div class="govuk-form-group">
+  <label class="govuk-label" for="organisation-heading">
+    <strong>Organisation or company name</strong>
+  </label>
+
+  <input class="govuk-input govuk-!-width-two-thirds" id="organisation" name="organisation" type="text">
+</div>
+
+
+<!-- START Data Hub (Companies House) or CDMS reference number -->
+<div class="govuk-form-group">
+  <label class="govuk-label" for="companies-house-heading">
+    <strong>Data Hub (Companies House) or CDMS reference number</strong>
+  </label>
+
+  <input class="govuk-input govuk-!-width-two-thirds" id="companies-house" name="companies-house" type="text">
+</div>
+
+
+<!-- START Contact name -->
+<div class="govuk-form-group">
+<label class="govuk-label" for="contact-name-heading">
+  <strong>Contact name</strong>
+</label>
+
+<input class="govuk-input govuk-!-width-two-thirds" id="contact-name" name="contact-name" type="text">
+</div>
+
+
+  <!-- START Contact email -->
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="contact-email-heading">
+      <strong>Contact email</strong>
+    </label>
+    <div class="govuk-hint">We will send the customer form to this address to enable them to confirm the win details.</div>
+
+    <input class="govuk-input govuk-!-width-two-thirds" id="contact-email" name="contact-email" type="text">
+</div>
+
+
+<!-- START Job title -->
+<div class="govuk-form-group">
+  <label class="govuk-label" for="job-title-heading">
+    <strong>Job title</strong>
+  </label>
+
+  <input class="govuk-input govuk-!-width-two-thirds" id="job-title" name="job-title" type="text">
+</div>
+
+
+<!-- START HQ location -->
+<div class="govuk-form-group">
+<div class="restrict-width-sm">
+  <label class="govuk-label" for="hq-location-heading">
+      <strong>HQ location</strong>
+    </label>
+
+    <select class="govuk-select govuk-!-width-two-thirds" id="hq-location" name="hq-location">
+      <option value="" selected="">Please choose...</option>
+      <option value="East Midlands">East Midlands</option>
+      <option value="East of England">East of England</option>
+      <option value="London">London</option>
+      <option value="North East">North East</option>
+      <option value="North West">North West</option>
+      <option value="Northern Ireland">Northern Ireland</option>
+      <option value="Scotland">Scotland</option>
+      <option value="South East">South East</option>
+      <option value="South West">South West</option>
+      <option value="Wales">Wales</option>
+      <option value="West Midlands">West Midlands</option>
+      <option value="Yorkshire and The Humber">Yorkshire and The Humber</option>
+      <option value="Overseas">Overseas</option>
+    </select>
+</div>
+</div>
+
+<!-- START Export Potential radio buttons -->
+    <div class="govuk-form-group" id="export-potential">
+      <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h3 class="govuk-fieldset__heading">Medium sized and high potential companies</h3>
+          <div class="govuk-hint" style="margin-bottom: 0px !important;">Only for ITA and UK region use</div>
+        </legend>
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="export-potential" name="export-potential" type="radio" value="An exporter with high export value">
+                <label class="govuk-label govuk-radios__label" for="export-potential">
+                  An exporter with high export value
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  A company with a turnover of £500k or more, with a product or service suitable for export
+                </div>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="export-potential-2" name="export-potential" type="radio" value="Medium sized business">
+                <label class="govuk-label govuk-radios__label" for="export-potential">
+                  Medium sized business
+                </label>
+                <div id="signIn-2-item-hint" class="govuk-hint govuk-radios__hint">
+                  A company with a turnover of between £5m and £50m or with 50 to 250 employees
+                </div>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="exportPotential-3" name="export-potential" type="radio" value="Not an exporter with high export potential or a medium sized business">
+                <label class="govuk-label govuk-radios__label" for="export-potential">
+                  Not an exporter with high export potential or a medium sized business
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+
+<!-- START Export Experience radio buttons -->
+<div class="govuk-form-group" id="export-experience">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h3 class="govuk-fieldset__heading">Export experience</h3>
+      <div class="govuk-hint" style="margin-bottom: 0px !important;">Your customer will be asked to confirm this information</div>
+    </legend>
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="export-experience" name="export-experience" type="radio" value="Never exported">
+            <label class="govuk-label govuk-radios__label" for="export-experience">
+              Never exported
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="export-experience-2" name="export-experience" type="radio" value="Exported before, but no exports in the last 12 months">
+            <label class="govuk-label govuk-radios__label" for="export-experience">
+              Exported before, but no exports in the last 12 months
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="export-experience-3" name="export-experience" type="radio" value="Exported in the last 12 months, but has not won an export order by having an export plan">
+            <label class="govuk-label govuk-radios__label" for="export-experience">
+              Exported in the last 12 months, but has not won an export order by having an export plan
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="export-experience-4" name="export-experience" type="radio" value="An exporter with a new export win, but has not exported to this country within the last 3 years">
+            <label class="govuk-label govuk-radios__label" for="export-experience">
+              An exporter with a new export win, but has not exported to this country within the last 3 years
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="export-experience-5" name="export-experience" type="radio" value="An exporter that DBT are helping maintain and grow their exports">
+            <label class="govuk-label govuk-radios__label" for="export-experience-5">
+              An exporter that DBT are helping maintain and grow their exports
+            </label>
+          </div>
+
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
+
+  <!-- START Buttons -->
+<div class="govuk-button-group">
+  <button class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+  <a class="govuk-link" href="credit-for-this-win">Cancel</a>
+</div>
+</form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

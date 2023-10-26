@@ -1,0 +1,140 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- START BREADCRUMB TRAIL -->
+    <div class="govuk-breadcrumbs" data-test="breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="homepage">Home</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="companies">Companies</a></li>
+        <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="company-detail">ROLLS-ROYCE HOLDINGS PLC</a></li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Add export win</li></ol>
+      </div>
+<!-- END BREADCRUMB TRAIL -->
+
+
+    <div id="flash-messages" class="react-slot"><noscript>Please enable JavaScript in your browser to see the content.</noscript></div>
+
+      <div class="govuk-grid-row c-local-header__content">
+        <div class="govuk-grid-column-full">
+          <h1 class="c-local-header__heading">Add export win</h1>
+          <h2 class="govuk-!-font-weight-regular">ROLLS-ROYCE HOLDINGS PLC</h2>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- START CONTAINER -->
+<div class="govuk-width-container">
+
+  <h2 class="govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">Credit for this win</h2>
+  <p class="govuk-hint">Did any other teams help with this win?</p>
+
+<form class="form" action="customer-details" method="post">
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="otherTeams" name="otherTeams" type="radio" value="No" data-aria-controls="conditional-otherTeams">
+          <label class="govuk-label govuk-radios__label" for="team-no">
+            No
+          </label>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="otherTeams" name="otherTeams" type="radio" value="Yes" data-aria-controls="conditional-otherTeams-2">
+          <label class="govuk-label govuk-radios__label" for="team-yes">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-otherTeams-2">
+
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h3 class="govuk-!-margin-bottom-0">Contributing teams and advisers</h3>
+              <p class="govuk-hint">
+                Up to 5 teams and advisers can be added.
+              </p>
+            </legend>
+
+            <label class="govuk-label" for="contributing-officer-heading">
+              <strong>Contributing officer</strong>
+            </label>
+
+            <input class="govuk-input govuk-!-width-two-thirds" id="contributing-officer" name="contributing-officer" type="text">
+
+            <div class="govuk-!-padding-top-5"></div>
+
+            <label class="govuk-label" for="team-type-credit-heading">
+              <strong>Team type</strong>
+            </label>
+
+            <select class="govuk-select govuk-!-width-two-thirds" id="team-type-credit" name="team-type-credit">
+                <option value="unselected">Please choose</option>
+                <option value="team">Trade (TD or ST)</option>
+                <option value="investment">Investment (ITFG or IG)</option>
+                <option value="dso">DSO</option>
+                <option value="other">Other HQ Team</option>
+                <option value="itt">International Trade Team</option>
+                <option value="obn">Overseas Business Network</option>
+                <option value="post">Overseas Post</option>
+                <option value="tcp">Trade Challenge Partners (TCP)</option>
+            </select>
+
+            <div class="govuk-!-padding-top-5"></div>
+
+            <label class="govuk-label" for="hq-team-credit-heading">
+              <strong>HQ team, region or post</strong>
+            </label>
+
+            <select class="govuk-select govuk-!-width-two-thirds" id="hq-team-credit" name="hq-team-credit">
+                <option value="unselected">Please choose</option>
+                <option value="team">Trade (TD or ST)</option>
+                <option value="investment">Investment (ITFG or IG)</option>
+                <option value="dso">DSO</option>
+                <option value="other">Other HQ Team</option>
+                <option value="itt">International Trade Team</option>
+                <option value="obn">Overseas Business Network</option>
+                <option value="post">Overseas Post</option>
+                <option value="tcp">Trade Challenge Partners (TCP)</option>
+            </select>
+
+            <div class="govuk-button-group">
+              <button class="govuk-button govuk-!-margin-top-6 govuk-button--secondary" data-module="govuk-button">
+                Add another contributor
+              </button>
+              </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+<!-- START Buttons -->
+<div class="govuk-button-group">
+  <button class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+  <a class="govuk-link" href="officer-details">Cancel</a>
+</div>
+
+</form>
+
+
+  </div>
+</div>
+<!-- END CONTAINER -->
+
+
+{% endblock %}
