@@ -41,55 +41,75 @@
 <form method="post" action="win-details" id="customer-details">
 
 
-<!-- START Organisation or company name -->
-<div class="govuk-form-group">
+<!-- HIDDEN START Organisation or company name -->
+<!-- <div class="govuk-form-group">
   <label class="govuk-label" for="organisation-heading">
     <strong>Organisation or company name</strong>
   </label>
 
   <input class="govuk-input govuk-!-width-two-thirds" id="organisation" name="organisation" type="text">
-</div>
+</div> -->
 
 
-<!-- START Data Hub (Companies House) or CDMS reference number -->
-<div class="govuk-form-group">
+<!-- HIDDEN START Data Hub (Companies House) or CDMS reference number -->
+<!-- <div class="govuk-form-group">
   <label class="govuk-label" for="companies-house-heading">
     <strong>Data Hub (Companies House) or CDMS reference number</strong>
   </label>
 
   <input class="govuk-input govuk-!-width-two-thirds" id="companies-house" name="companies-house" type="text">
-</div>
+</div> -->
 
 
 <!-- START Contact name -->
 <div class="govuk-form-group">
 <label class="govuk-label" for="contact-name-heading">
   <strong>Contact name</strong>
+  <div class="govuk-hint">If your contact is not listed <a href="#">add a new contact.</a> You will leave this page to enter <br>details, once added you will return here. The information you added will have <br>been saved.</div>
 </label>
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Information needed to add a new contact
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    You need:
+    <ul>
+      <li>full name</li>
+      <li>job title</li>
+      <li>email address</li>
+      <li>phone number</li>
+      <li>work address if different to the company address</li>
+    </ul>
+    </div>
+</details>
+
 
 <input class="govuk-input govuk-!-width-two-thirds" id="contact-name" name="contact-name" type="text">
 </div>
 
 
   <!-- START Contact email -->
-  <div class="govuk-form-group">
+  <!-- <div class="govuk-form-group">
     <label class="govuk-label" for="contact-email-heading">
       <strong>Contact email</strong>
     </label>
     <div class="govuk-hint">We will send the customer form to this address to enable them to confirm the win details.</div>
 
     <input class="govuk-input govuk-!-width-two-thirds" id="contact-email" name="contact-email" type="text">
-</div>
+</div> -->
 
 
 <!-- START Job title -->
-<div class="govuk-form-group">
+<!-- <div class="govuk-form-group">
   <label class="govuk-label" for="job-title-heading">
     <strong>Job title</strong>
   </label>
 
   <input class="govuk-input govuk-!-width-two-thirds" id="job-title" name="job-title" type="text">
-</div>
+</div> -->
 
 
 <!-- START HQ location -->
@@ -220,7 +240,7 @@
   <button class="govuk-button" data-module="govuk-button">
     Continue
   </button>
-  <a class="govuk-link" href="credit-for-this-win">Cancel</a>
+  <a class="govuk-link" href="credit-for-this-win">Back</a>
 </div>
 </form>
 
