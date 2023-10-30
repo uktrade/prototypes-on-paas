@@ -19,7 +19,7 @@
       <a class="govuk-breadcrumbs__link" href="export-wins">Export wins</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      Rolls Royce cars to United Arab Emirates
+      {{ data['type-of-goods'] }} to {{ data['destination'] }}
     </li>
   </ol>
 </div>
@@ -27,7 +27,7 @@
 <div class="govuk-grid-row govuk-!-margin-top-8">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-l">
-      Rolls Royce cars to United Arab Emirates
+      {{ data['type-of-goods'] }} to {{ data['destination'] }}
     </h1>
   </div>
 </div>
@@ -36,6 +36,11 @@
   <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
+        {% if data['type-of-win'] %}
+        {% if "Export" in data['type-of-win'] %}
+        {% set items = [data['export-won-year-23'] | int, data['export-won-year-24'] | int, data['export-won-year-25'] | int,data['export-won-year-26'] | int, data['export-won-year-27'] | int]%}
+        {%- endif -%}
+        {%- endif -%}
         {{ govukTable({
             firstCellIsHeader: true,
             classes: "govuk-!-font-size-16",
@@ -53,7 +58,7 @@
                   text: "Contact"
                 },
                 {
-                  html: "<a class='govuk-link' href='#'>Howard Kendall</a>"
+                  html: "<a class='govuk-link' href='#'>" + data['contact-name'] + "</a>"
                 }
               ],
               [
@@ -61,7 +66,7 @@
                   text: "Goods or services"
                 },
                 {
-                  text: "Rolls Royce cars"
+                  text: data['type-of-goods']
                 }
               ],
               [
@@ -69,7 +74,7 @@
                   text: "Destination"
                 },
                 {
-                  text: "United Arab Emirates"
+                  text: data['destination']
                 }
               ],
               [
@@ -77,7 +82,7 @@
                   text: "Export amount"
                 },
                 {
-                  text: "£15,000,000"
+                  text: "£" + items | sum
                 }
               ],
               [
@@ -93,15 +98,15 @@
                   text: "Last modified"
                 },
                 {
-                  text: "4 Jul 2023"
+                  text: "31 Oct 2023"
                 }
               ],
               [
                 {
-                  text: "Notes"
+                  text: "Customer feedback"
                 },
                 {
-                  text: "I don't feel that the International Trade Adviser provided me with sufficient help for this export project to be officially recorded as an export win. I would like this record revised."
+                  text: "I don't feel the type of goods or services is accurate and needs to be revised to show that the win was related to aircraft engines."
                 }
               ],
               [
@@ -109,7 +114,7 @@
                   text: "Export win confirmed"
                 },
                 {
-                  text: "Yes"
+                  text: "No"
                 }
               ],
               [
@@ -125,19 +130,19 @@
                   text: "Adviser(s)"
                 },
                 {
-                  text: "Graham Sanders"
+                  text: "Data Hub user"
                 }
               ]
             ]
           }) }}
 
           <div class="govuk-button-group">
-            <a href="resend-export-win" class="govuk-button" data-module="govuk-button">
+            <a href="check-before-sending" class="govuk-button" data-module="govuk-button">
               Edit export win
             </a>
             <a class="govuk-link" href="export-wins">Back</a>
           </div>
-          
+
     </div>
     </div>
   </main>

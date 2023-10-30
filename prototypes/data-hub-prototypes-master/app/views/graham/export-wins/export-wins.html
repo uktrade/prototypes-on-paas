@@ -50,29 +50,68 @@
           <div class="govuk-tabs__panel" id="unconfirmed">
             <div class="govuk-grid-row">
 
-              <div class="govuk-grid-column-full">
-                <h2 class="govuk-heading-m">Rejected <span class="govuk-!-font-size-19">(1)</span></h2>
-              </div>
-
-              <div class="govuk-grid-column-full">
+              <!-- <div class="govuk-grid-column-full">
                 <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16"><a href="company-detail">PETS PARADISE</a></span><br />
                 <span class="govuk-hint govuk-!-font-size-16">Destination:</span> Switzerland<br />
                 <span class="govuk-hint govuk-!-font-size-16">Contact name:</span> <a href="#">Alan Harper</a><br />
                 <span class="govuk-hint govuk-!-font-size-16">Export amount:</span> £6,000,000<br />
                 <span class="govuk-hint govuk-!-font-size-16">Date won:</span> Oct 2023<br />
                 <span class="govuk-hint govuk-!-font-size-16">Date modified:</span> 4 Jul 2023</p>
+              </div> -->
+
+              {% if data['contact-name'] %}
+
+              <div class="govuk-grid-column-full">
+                <h2 class="govuk-heading-m">Rejected <span class="govuk-!-font-size-19">(1)</span></h2>
+              </div>
+
+              <div class="govuk-grid-column-full">
+                <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16"><a href="company-detail">ROLLS-ROYCE HOLDINGS PLC</a></span><br />
+                <span class="govuk-hint govuk-!-font-size-16">Destination:</span> {{ data['destination'] }}<br />
+                <span class="govuk-hint govuk-!-font-size-16">Contact name:</span> <a href="#">{{ data['contact-name'] }}</a><br />
+                {% if data['type-of-win'] %}
+                {% if "Export" in data['type-of-win'] %}
+                <span class="govuk-hint govuk-!-font-size-16">Export value:</span> {% set items = [data['export-won-year-23'] | int, data['export-won-year-24'] | int, data['export-won-year-25'] | int,data['export-won-year-26'] | int, data['export-won-year-27'] | int]%}
+                £{{ items | sum }}<br />
+                {%- endif -%}
+                {%- endif -%}
+
+                {% if data['type-of-win'] %}
+                {% if "Business success" in data['type-of-win'] %}
+                <span class="govuk-hint govuk-!-font-size-16">Business success value:</span> {% set items = [data['business-won-year-23'] | int, data['business-won-year-24'] | int, data['business-won-year-25'] | int,data['business-won-year-26'] | int, data['business-won-year-27'] | int]%}
+                £{{ items | sum }}<br />
+                {%- endif -%}
+                {%- endif -%}
+
+                {% if data['type-of-win'] %}
+                {% if "Outward Direct Investment" in data['type-of-win'] %}
+                <span class="govuk-hint govuk-!-font-size-16">Outward Direct Investment value:</span> {% set items = [data['odi-won-year-23'] | int, data['odi-won-year-24'] | int, data['odi-won-year-25'] | int,data['odi-won-year-26'] | int, data['odi-won-year-27'] | int]%}
+                £{{ items | sum }}<br />
+                {%- endif -%}
+                {%- endif -%}
+
+                <span class="govuk-hint govuk-!-font-size-16">Date won:</span> {{ data['date-won-month'] }}/{{ data['date-won-year'] }}<br />
+                <span class="govuk-hint govuk-!-font-size-16">Date modified:</span> <span id="modified-date"></span></p>
               </div>
 
               <div class="govuk-grid-column-full">
                 <a href="review-win-rejected" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-3" data-module="govuk-button">
                   Review export win
                 </a>
-                <a href="resend-export-win" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-3" data-module="govuk-button">
+                <a href="check-before-sending" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-3" data-module="govuk-button">
                   Edit export win
                 </a>
 
                 <hr class="govuk-!-margin-bottom-3">
               </div>
+
+              {% else %}
+
+              <div class="govuk-grid-column-full">
+                <h2 class="govuk-heading-m">Rejected <span class="govuk-!-font-size-19">(0)</span></h2>
+              </div>
+
+              {%- endif -%}
 
 
               <div class="govuk-grid-column-full">
@@ -109,7 +148,7 @@
                 <span class="govuk-hint govuk-!-font-size-16">First sent:</span> 4 Jul 2023<br />
                 <span class="govuk-hint govuk-!-font-size-16">Last sent:</span> 4 Jul 2023<br />
               </div>
-  
+
                 <div class="govuk-grid-column-full">
                   <a href="review-win-accepted" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-3" data-module="govuk-button">
                     Review export win
@@ -130,7 +169,7 @@
                   <span class="govuk-hint govuk-!-font-size-16">First sent:</span> 2 Feb 2023<br />
                   <span class="govuk-hint govuk-!-font-size-16">Last sent:</span> 2 Feb 2023<br />
                 </div>
-  
+
                 <div class="govuk-grid-column-full">
                   <a href="review-win-accepted" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-3" data-module="govuk-button">
                     Review export win
@@ -151,7 +190,7 @@
                   <span class="govuk-hint govuk-!-font-size-16">First sent:</span> 3 Feb 2023<br />
                   <span class="govuk-hint govuk-!-font-size-16">Last sent:</span> 3 Feb 2023<br />
                 </div>
-  
+
                 <div class="govuk-grid-column-full">
                   <a href="review-win-accepted" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-3" data-module="govuk-button">
                     Review export win
@@ -186,9 +225,6 @@
                       text: "Destination"
                     },
                     {
-                      text: "Goods and services"
-                    },
-                    {
                       text: "Export amount"
                     },
                     {
@@ -196,6 +232,9 @@
                     },
                     {
                       text: "Date responded"
+                    },
+                    {
+                      text: "Details"
                     }
                   ],
                   rows: [
@@ -207,9 +246,6 @@
                         text: "Ireland"
                       },
                       {
-                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
-                      },
-                      {
                         text: "£2,030,000"
                       },
                       {
@@ -217,6 +253,9 @@
                       },
                       {
                         text: "4 July 2023"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted'>View details</a>"
                       }
                     ],
                     [
@@ -227,9 +266,6 @@
                         text: "USA"
                       },
                       {
-                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
-                      },
-                      {
                         text: "£4,000,000"
                       },
                       {
@@ -237,6 +273,9 @@
                       },
                       {
                         text: "4 July 2023"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted'>View details</a>"
                       }
                     ],
                     [
@@ -247,9 +286,6 @@
                         text: "Germany"
                       },
                       {
-                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
-                      },
-                      {
                         text: "£6,000,000"
                       },
                       {
@@ -257,6 +293,9 @@
                       },
                       {
                         text: "4 July 2023"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted'>View details</a>"
                       }
                     ],
                     [
@@ -267,9 +306,6 @@
                         text: "USA"
                       },
                       {
-                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
-                      },
-                      {
                         text: "£15,000,000"
                       },
                       {
@@ -277,6 +313,9 @@
                       },
                       {
                         text: "4 July 2023"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted'>View details</a>"
                       }
                     ],
                     [
@@ -287,9 +326,6 @@
                         text: "USA"
                       },
                       {
-                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
-                      },
-                      {
                         text: "£12,400,000"
                       },
                       {
@@ -297,6 +333,9 @@
                       },
                       {
                         text: "4 July 2023"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted'>View details</a>"
                       }
                     ],
 
@@ -308,9 +347,6 @@
                         text: "Italy"
                       },
                       {
-                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
-                      },
-                      {
                         text: "£5,000,000"
                       },
                       {
@@ -318,6 +354,9 @@
                       },
                       {
                         text: "4 July 2023"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted'>View details</a>"
                       }
                     ],
                     [
@@ -328,9 +367,6 @@
                         text: "Denmark"
                       },
                       {
-                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
-                      },
-                      {
                         text: "£3,000,000"
                       },
                       {
@@ -338,17 +374,17 @@
                       },
                       {
                         text: "4 July 2023"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted'>View details</a>"
                       }
                     ],
                     [
                       {
-                        html: "<a class='govuk-link' href='company-detail'>THE BRUNCH BOX SANDWICH COMPANY LIMITED</a>"
+                        html: "<a class='govuk-link' href='company-detail'>THE BRUNCH BOX</a>"
                       },
                       {
                         text: "France"
-                      },
-                      {
-                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
                       },
                       {
                         text: "£3,300,000"
@@ -358,6 +394,9 @@
                       },
                       {
                         text: "4 July 2023"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted'>View details</a>"
                       }
                     ],
                     [
@@ -368,9 +407,6 @@
                         text: "France"
                       },
                       {
-                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
-                      },
-                      {
                         text: "£233,000,000"
                       },
                       {
@@ -378,6 +414,9 @@
                       },
                       {
                         text: "4 July 2023"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted'>View details</a>"
                       }
                     ],
                     [
@@ -388,9 +427,6 @@
                         text: "Belgium"
                       },
                       {
-                        html: "<a class='govuk-link' href='review-win-accepted.html'>View the summary</a>"
-                      },
-                      {
                         text: "£1,350,000"
                       },
                       {
@@ -398,6 +434,9 @@
                       },
                       {
                         text: "4 July 2023"
+                      },
+                      {
+                        html: "<a class='govuk-link' href='review-win-accepted'>View details</a>"
                       }
                     ]
                   ]
@@ -436,7 +475,15 @@
 </div>
 
 
+<script>
 
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0');
+var yyyy = today.getFullYear();
+document.getElementById('modified-date').innerHTML = dd + "/" + mm + "/" + yyyy;
+
+</script>
 
 
 {% endblock %}

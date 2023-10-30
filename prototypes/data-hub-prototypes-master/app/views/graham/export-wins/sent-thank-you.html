@@ -31,7 +31,7 @@
   </div>
   <div class="govuk-notification-banner__content">
     <h3 class="govuk-notification-banner__heading govuk-!-padding-bottom-0 govuk-!-margin-bottom-0" style="max-width: max-content;">
-      The export win Rolls Royce cars to United Arab Emirates has been sent to howard.kendall@rolls-roycemotorcars.com for review and confirmation.
+      The export win {{ data['type-of-goods'] }} to {{ data['destination'] }} has been sent to  {{ data['contact-name'] | replace(" ", ".") }}@rolls-roycemotorcars.com for review and confirmation.
     </h3>
   </div>
 </div>

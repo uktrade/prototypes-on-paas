@@ -25,6 +25,8 @@
 
         <div class="govuk-grid-row c-local-header__content">
           <div class="govuk-grid-column-full">
+            <div id="notification-msg"></div>
+
             <h1 class="c-local-header__heading">Add export win</h1>
             <h2 class="govuk-!-font-weight-regular">ROLLS-ROYCE HOLDINGS PLC</h2>
         </div>
@@ -40,10 +42,16 @@
   <h2 class="govuk-heading-m govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Win details</h2>
   <h3 class="govuk-hint govuk-!-padding-top-0 govuk-!-margin-top-0">The customer will be asked to confirm this information</h3>
 
-<form method="post" action="support-provided" id="win-details" class="govuk-!-width-two-thirds">
-
+{% if data['form-complete'] != "Yes" %}
+<form method="post" action="support-provided" id="win-details">
+{% else %}
+<form method="post" action="check-before-sending?success=1" id="win-details">
+{%- endif -%}
 
 <!-- START DESTINATION -->
+
+{% if data['form-complete'] != "Yes" %}
+
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     <div class="govuk-form-group">
@@ -52,257 +60,259 @@
       </label>
 
       <select class="govuk-select" id="destination" name="destination">
-        <option value="" selected="">Please choose...</option>
-        <option value="Afghanistan">Afghanistan</option>
-        <option value="Åland Islands">Åland Islands</option>
-        <option value="Albania">Albania</option>
-        <option value="Algeria">Algeria</option>
-        <option value="American Samoa">American Samoa</option>
-        <option value="Andorra">Andorra</option>
-        <option value="Angola">Angola</option>
-        <option value="Anguilla">Anguilla</option>
-        <option value="Antarctica">Antarctica</option>
-        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-        <option value="Argentina">Argentina</option>
-        <option value="Armenia">Armenia</option>
-        <option value="Aruba">Aruba</option>
-        <option value="Australia">Australia</option>
-        <option value="Austria">Austria</option>
-        <option value="Azerbaijan">Azerbaijan</option>
-        <option value="Bahrain">Bahrain</option>
-        <option value="Bangladesh">Bangladesh</option>
-        <option value="Barbados">Barbados</option>
-        <option value="Belarus">Belarus</option>
-        <option value="Belgium">Belgium</option>
-        <option value="Belize">Belize</option>
-        <option value="Benin">Benin</option>
-        <option value="Bermuda">Bermuda</option>
-        <option value="Bhutan">Bhutan</option>
-        <option value="Bolivia">Bolivia</option>
-        <option value="Bonaire">Bonaire</option>
-        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-        <option value="Botswana">Botswana</option>
-        <option value="Bouvet Island">Bouvet Island</option>
-        <option value="Brazil">Brazil</option>
-        <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
-        <option value="British Virgin Islands">British Virgin Islands</option>
-        <option value="Brunei">Brunei</option>
-        <option value="Bulgaria">Bulgaria</option>
-        <option value="Burkina Faso">Burkina Faso</option>
-        <option value="Burundi">Burundi</option>
-        <option value="Cambodia">Cambodia</option>
-        <option value="Cameroon">Cameroon</option>
-        <option value="Canada">Canada</option>
-        <option value="Cape Verde">Cape Verde</option>
-        <option value="Cayman Islands">Cayman Islands</option>
-        <option value="Central African Republic">Central African Republic</option>
-        <option value="Chad">Chad</option>
-        <option value="Chile">Chile</option>
-        <option value="China">China</option>
-        <option value="Christmas Island">Christmas Island</option>
-        <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
-        <option value="Colombia">Colombia</option>
-        <option value="Comoros">Comoros</option>
-        <option value="Congo">Congo</option>
-        <option value="Congo (Democratic Republic)">Congo (Democratic Republic)</option>
-        <option value="Cook Islands">Cook Islands</option>
-        <option value="Costa Rica">Costa Rica</option>
-        <option value="Croatia">Croatia</option>
-        <option value="Cuba">Cuba</option>
-        <option value="Curaçao">Curaçao</option>
-        <option value="Cyprus">Cyprus</option>
-        <option value="Czechia">Czechia</option>
-        <option value="Denmark">Denmark</option>
-        <option value="Djibouti">Djibouti</option>
-        <option value="Dominica">Dominica</option>
-        <option value="Dominican Republic">Dominican Republic</option>
-        <option value="East Timor">East Timor</option>
-        <option value="Ecuador">Ecuador</option>
-        <option value="Egypt">Egypt</option>
-        <option value="El Salvador">El Salvador</option>
-        <option value="Equatorial Guinea">Equatorial Guinea</option>
-        <option value="Eritrea">Eritrea</option>
-        <option value="Estonia">Estonia</option>
-        <option value="Eswatini">Eswatini</option>
-        <option value="Ethiopia">Ethiopia</option>
-        <option value="Falkland Islands">Falkland Islands</option>
-        <option value="Faroe Islands">Faroe Islands</option>
-        <option value="Fiji">Fiji</option>
-        <option value="Finland">Finland</option>
-        <option value="France">France</option>
-        <option value="French Guiana">French Guiana</option>
-        <option value="French Polynesia">French Polynesia</option>
-        <option value="French Southern Territories">French Southern Territories</option>
-        <option value="Gabon">Gabon</option>
-        <option value="Georgia">Georgia</option>
-        <option value="Germany">Germany</option>
-        <option value="Ghana">Ghana</option>
-        <option value="Gibraltar">Gibraltar</option>
-        <option value="Greece">Greece</option>
-        <option value="Greenland">Greenland</option>
-        <option value="Grenada">Grenada</option>
-        <option value="Guadeloupe">Guadeloupe</option>
-        <option value="Guam<">Guam</option>
-        <option value="Guatemala">Guatemala</option>
-        <option value="Guernsey">Guernsey</option>
-        <option value="Guinea<">Guinea</option>
-        <option value="Guinea-Bissau">Guinea-Bissau</option>
-        <option value="Guyana">Guyana</option>
-        <option value="Haiti">Haiti</option>
-        <option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option>
-        <option value="Honduras">Honduras</option>
-        <option value="Hong Kong">Hong Kong</option>
-        <option value="Hungary">Hungary</option>
-        <option value="Iceland">Iceland</option>
-        <option value="India">India</option>
-        <option value="Indonesia">Indonesia</option>
-        <option value="Iran">Iran</option>
-        <option value="Iraq">Iraq</option>
-        <option value="Ireland">Ireland</option>
-        <option value="Isle of Man">Isle of Man</option>
-        <option value="Israel">Israel</option>
-        <option value="Italy">Italy</option>
-        <option value="Ivory Coast">Ivory Coast</option>
-        <option value="Jamaica">Jamaica</option>
-        <option value="Japan">Japan</option>
-        <option value="Jersey">Jersey</option>
-        <option value="Jordan">Jordan</option>
-        <option value="Kazakhstan">Kazakhstan</option>
-        <option value="Kenya">Kenya</option>
-        <option value="Kiribati">Kiribati</option>
-        <option value="Kosovo">Kosovo</option>
-        <option value="Kuwait">Kuwait</option>
-        <option value="Kyrgyzstan">Kyrgyzstan</option>
-        <option value="Laos">Laos</option>
-        <option value="Latvia">Latvia</option>
-        <option value="Lebanon">Lebanon</option>
-        <option value="Lesotho">Lesotho</option>
-        <option value="Liberia">Liberia</option>
-        <option value="Libya">Libya</option>
-        <option value="Liechtenstein">Liechtenstein</option>
-        <option value="Lithuania">Lithuania</option>
-        <option value="Luxembourg">Luxembourg</option>
-        <option value="Macao">Macao</option>
-        <option value="Madagascar">Madagascar</option>
-        <option value="Malawi">Malawi</option>
-        <option value="Malaysia">Malaysia</option>
-        <option value="Maldives">Maldives</option>
-        <option value="Mali">Mali</option>
-        <option value="Malta">Malta</option>
-        <option value="Marshall Islands">Marshall Islands</option>
-        <option value="Martinique">Martinique</option>
-        <option value="Mauritania">Mauritania</option>
-        <option value="Mauritius">Mauritius</option>
-        <option value="Mayotte">Mayotte</option>
-        <option value="Mexico">Mexico</option>
-        <option value="Micronesia">Micronesia</option>
-        <option value="Moldova">Moldova</option>
-        <option value="Monaco">Monaco</option>
-        <option value="Mongolia">Mongolia</option>
-        <option value="Montenegro">Montenegro</option>
-        <option value="Montserrat">Montserrat</option>
-        <option value="Morocco">Morocco</option>
-        <option value="Mozambique">Mozambique</option>
-        <option value="Myanmar (Burma)">Myanmar (Burma)</option>
-        <option value="Namibia">Namibia</option>
-        <option value="Nauru">Nauru</option>
-        <option value="Nepal">Nepal</option>
-        <option value="Netherlands">Netherlands</option>
-        <option value="New Caledonia">New Caledonia</option>
-        <option value="New Zealand">New Zealand</option>
-        <option value="Nicaragua">Nicaragua</option>
-        <option value="Niger">Niger</option>
-        <option value="Nigeria">Nigeria</option>
-        <option value="Niue">Niue</option>
-        <option value="Norfolk Island">Norfolk Island</option>
-        <option value="North Korea">North Korea</option>
-        <option value="North Macedonia">North Macedonia</option>
-        <option value="Northern Mariana Islands">Northern Mariana Islands</option>
-        <option value="Norway">Norway</option>
-        <option value="Occupied Palestinian Territories">Occupied Palestinian Territories</option>
-        <option value="Oman">Oman</option>
-        <option value="Pakistan">Pakistan</option>
-        <option value="Palau">Palau</option>
-        <option value="Palmyra Atoll">Palmyra Atoll</option>
-        <option value="Panama">Panama</option>
-        <option value="Papua New Guinea">Papua New Guinea</option>
-        <option value="Paraguay">Paraguay</option>
-        <option value="Peru">Peru</option>
-        <option value="Philippines">Philippines</option>
-        <option value="Pitcairn, Henderson, Ducie and Oeno Islands">Pitcairn, Henderson, Ducie and Oeno Islands</option>
-        <option value="Poland">Poland</option>
-        <option value="Portugal">Portugal</option>
-        <option value="Puerto Rico">Puerto Rico</option>
-        <option value="Qatar">Qatar</option>
-        <option value="Réunion">Réunion</option>
-        <option value="Romania">Romania</option>
-        <option value="Russia">Russia</option>
-        <option value="Rwanda">Rwanda</option>
-        <option value="Saint Barthélemy">Saint Barthélemy</option>
-        <option value="Saint Helena">Saint Helena</option>
-        <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
-        <option value="Saint-Martin (French part)">Saint-Martin (French part)</option>
-        <option value="Samoa">Samoa</option>
-        <option value="San Marino">San Marino</option>
-        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-        <option value="Saudi Arabia">Saudi Arabia</option>
-        <option value="Senegal">Senegal</option>
-        <option value="Serbia">Serbia</option>
-        <option value="Seychelles">Seychelles</option>
-        <option value="Sierra Leone">Sierra Leone</option>
-        <option value="Singapore">Singapore</option>
-        <option value="Sint Maarten (Dutch part)">Sint Maarten (Dutch part)</option>
-        <option value="Slovakia">Slovakia</option>
-        <option value="Slovenia">Slovenia</option>
-        <option value="Solomon Islands">Solomon Islands</option>
-        <option value="Somalia">Somalia</option>
-        <option value="South Africa">South Africa</option>
-        <option value="South Georgia and South Sandwich Islands">South Georgia and South Sandwich Islands</option>
-        <option value="South Korea">South Korea</option>
-        <option value="South Sudan">South Sudan</option>
-        <option value="Spain">Spain</option>
-        <option value="Sri Lanka">Sri Lanka</option>
-        <option value="St Kitts and Nevis">St Kitts and Nevis</option>
-        <option value="St Lucia">St Lucia</option>
-        <option value="St Vincent">St Vincent</option>
-        <option value="Sudan">Sudan</option>
-        <option value="Suriname">Suriname</option>
-        <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
-        <option value="Sweden">Sweden</option>
-        <option value="Switzerland">Switzerland</option>
-        <option value="Syria">Syria</option>
-        <option value="Taiwan">Taiwan</option>
-        <option value="Tajikistan">Tajikistan</option>
-        <option value="Tanzania">Tanzania</option>
-        <option value="Thailand">Thailand</option>
-        <option value="The Bahamas">The Bahamas</option>
-        <option value="The Gambia">The Gambia</option>
-        <option value="Togo">Togo</option>
-        <option value="Tokelau">Tokelau</option>
-        <option value="Tonga">Tonga</option>
-        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-        <option value="Tunisia">Tunisia</option>
-        <option value="Turkey">Turkey</option>
-        <option value="Turkmenistan">Turkmenistan</option>
-        <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
-        <option value="Tuvalu">Tuvalu</option>
-        <option value="Uganda">Uganda</option>
-        <option value="Ukraine">Ukraine</option>
-        <option value="United Arab Emirates">United Arab Emirates</option>
-        <option value="United States">United States</option>
-        <option value="United States Virgin Islands">United States Virgin Islands</option>
-        <option value="Uruguay">Uruguay</option>
-        <option value="Uzbekistan">Uzbekistan</option>
-        <option value="Vanuatu">Vanuatu</option>
-        <option value="Vatican City">Vatican City</option>
-        <option value="Venezuela">Venezuela</option>
-        <option value="Vietnam">Vietnam</option>
-        <option value="Wallis and Futuna">Wallis and Futuna</option>
-        <option value="Western Sahara">Western Sahara</option>
-        <option value="Yemen">Yemen</option>
-        <option value="Zambia">Zambia</option>
-        <option value="Zimbabwe">Zimbabwe</option>
+        <option value="">Please choose...</option>
+        <option value="Afghanistan" {%- if data['destination'] == "Afghanistan" -%}selected{%- endif -%}>Afghanistan</option>
+        <option value="Åland Islands" {%- if data['destination'] == "Åland Islands" -%}selected{%- endif -%}>Åland Islands</option>
+        <option value="Albania" {%- if data['destination'] == "Albania" -%}selected{%- endif -%}>Albania</option>
+        <option value="Algeria" {%- if data['destination'] == "Algeria" -%}selected{%- endif -%}>Algeria</option>
+        <option value="American Samoa" {%- if data['destination'] == "American Samoa" -%}selected{%- endif -%}>American Samoa</option>
+        <option value="Andorra" {%- if data['destination'] == "Andorra" -%}selected{%- endif -%}>Andorra</option>
+        <option value="Angola" {%- if data['destination'] == "Angola" -%}selected{%- endif -%}>Angola</option>
+        <option value="Anguilla" {%- if data['destination'] == "Anguilla" -%}selected{%- endif -%}>Anguilla</option>
+        <option value="Antarctica" {%- if data['destination'] == "Antarctica" -%}selected{%- endif -%}>Antarctica</option>
+        <option value="Antigua and Barbuda" {%- if data['destination'] == "Antigua and Barbuda" -%}selected{%- endif -%}>Antigua and Barbuda</option>
+        <option value="Argentina" {%- if data['destination'] == "Argentina" -%}selected{%- endif -%}>Argentina</option>
+        <option value="Armenia" {%- if data['destination'] == "Armenia" -%}selected{%- endif -%}>Armenia</option>
+        <option value="Aruba" {%- if data['destination'] == "Aruba" -%}selected{%- endif -%}>Aruba</option>
+        <option value="Australia" {%- if data['destination'] == "Australia" -%}selected{%- endif -%}>Australia</option>
+        <option value="Austria" {%- if data['destination'] == "Austria" -%}selected{%- endif -%}>Austria</option>
+        <option value="Azerbaijan" {%- if data['destination'] == "Azerbaijan" -%}selected{%- endif -%}>Azerbaijan</option>
+        <option value="Bahrain" {%- if data['destination'] == "Bahrain" -%}selected{%- endif -%}>Bahrain</option>
+        <option value="Bangladesh" {%- if data['destination'] == "Bangladesh" -%}selected{%- endif -%}>Bangladesh</option>
+        <option value="Barbados" {%- if data['destination'] == "Barbados" -%}selected{%- endif -%}>Barbados</option>
+        <option value="Belarus" {%- if data['destination'] == "Belarus" -%}selected{%- endif -%}>Belarus</option>
+        <option value="Belgium" {%- if data['destination'] == "Belgium" -%}selected{%- endif -%}>Belgium</option>
+        <option value="Belize" {%- if data['destination'] == "Belize" -%}selected{%- endif -%}>Belize</option>
+        <option value="Benin" {%- if data['destination'] == "Benin" -%}selected{%- endif -%}>Benin</option>
+        <option value="Bermuda" {%- if data['destination'] == "Bermuda" -%}selected{%- endif -%}>Bermuda</option>
+        <option value="Bhutan" {%- if data['destination'] == "Bhutan" -%}selected{%- endif -%}>Bhutan</option>
+        <option value="Bolivia" {%- if data['destination'] == "Bolivia" -%}selected{%- endif -%}>Bolivia</option>
+        <option value="Bonaire" {%- if data['destination'] == "Bonaire" -%}selected{%- endif -%}>Bonaire</option>
+        <option value="Bosnia and Herzegovina" {%- if data['destination'] == "Bosnia and Herzegovina" -%}selected{%- endif -%}>Bosnia and Herzegovina</option>
+        <option value="Botswana" {%- if data['destination'] == "Botswana" -%}selected{%- endif -%}>Botswana</option>
+        <option value="Bouvet Island" {%- if data['destination'] == "Bouvet Island" -%}selected{%- endif -%}>Bouvet Island</option>
+        <option value="Brazil" {%- if data['destination'] == "Brazil" -%}selected{%- endif -%}>Brazil</option>
+        <option value="British Indian Ocean Territory" {%- if data['destination'] == "British Indian Ocean Territory" -%}selected{%- endif -%}>British Indian Ocean Territory</option>
+        <option value="British Virgin Islands" {%- if data['destination'] == "British Virgin Islands" -%}selected{%- endif -%}>British Virgin Islands</option>
+        <option value="Brunei" {%- if data['destination'] == "Brunei" -%}selected{%- endif -%}>Brunei</option>
+        <option value="Bulgaria" {%- if data['destination'] == "Bulgaria" -%}selected{%- endif -%}>Bulgaria</option>
+        <option value="Burkina Faso" {%- if data['destination'] == "Burkina Faso" -%}selected{%- endif -%}>Burkina Faso</option>
+        <option value="Burundi" {%- if data['destination'] == "Burundi" -%}selected{%- endif -%}>Burundi</option>
+        <option value="Cambodia" {%- if data['destination'] == "Cambodia" -%}selected{%- endif -%}>Cambodia</option>
+        <option value="Cameroon" {%- if data['destination'] == "Cameroon" -%}selected{%- endif -%}>Cameroon</option>
+        <option value="Canada" {%- if data['destination'] == "Canada" -%}selected{%- endif -%}>Canada</option>
+        <option value="Cape Verde" {%- if data['destination'] == "Cape Verde" -%}selected{%- endif -%}>Cape Verde</option>
+        <option value="Cayman Islands" {%- if data['destination'] == "Cayman Islands" -%}selected{%- endif -%}>Cayman Islands</option>
+        <option value="Central African Republic" {%- if data['destination'] == "Central African Republic" -%}selected{%- endif -%}>Central African Republic</option>
+        <option value="Chad" {%- if data['destination'] == "Chad" -%}selected{%- endif -%}>Chad</option>
+        <option value="Chile" {%- if data['destination'] == "Chile" -%}selected{%- endif -%}>Chile</option>
+        <option value="China" {%- if data['destination'] == "China" -%}selected{%- endif -%}>China</option>
+        <option value="Christmas Island" {%- if data['destination'] == "Christmas Island" -%}selected{%- endif -%}>Christmas Island</option>
+        <option value="Cocos (Keeling) Islands" {%- if data['destination'] == "Cocos (Keeling) Islands" -%}selected{%- endif -%}>Cocos (Keeling) Islands</option>
+        <option value="Colombia" {%- if data['destination'] == "Colombia" -%}selected{%- endif -%}>Colombia</option>
+        <option value="Comoros" {%- if data['destination'] == "Comoros" -%}selected{%- endif -%}>Comoros</option>
+        <option value="Congo" {%- if data['destination'] == "Congo" -%}selected{%- endif -%}>Congo</option>
+        <option value="Congo (Democratic Republic)" {%- if data['destination'] == "Congo (Democratic Republic)" -%}selected{%- endif -%}>Congo (Democratic Republic)</option>
+        <option value="Cook Islands" {%- if data['destination'] == "Cook Islands" -%}selected{%- endif -%}>Cook Islands</option>
+        <option value="Costa Rica" {%- if data['destination'] == "Costa Rica" -%}selected{%- endif -%}>Costa Rica</option>
+        <option value="Croatia" {%- if data['destination'] == "Croatia" -%}selected{%- endif -%}>Croatia</option>
+        <option value="Cuba" {%- if data['destination'] == "Cuba" -%}selected{%- endif -%}>Cuba</option>
+        <option value="Curaçao" {%- if data['destination'] == "Curaçao" -%}selected{%- endif -%}>Curaçao</option>
+        <option value="Cyprus" {%- if data['destination'] == "Cyprus" -%}selected{%- endif -%}>Cyprus</option>
+        <option value="Czechia" {%- if data['destination'] == "Czechia" -%}selected{%- endif -%}>Czechia</option>
+        <option value="Denmark" {%- if data['destination'] == "Denmark" -%}selected{%- endif -%}>Denmark</option>
+        <option value="Djibouti" {%- if data['destination'] == "Djibouti" -%}selected{%- endif -%}>Djibouti</option>
+        <option value="Dominica" {%- if data['destination'] == "Dominica" -%}selected{%- endif -%}>Dominica</option>
+        <option value="Dominican Republic" {%- if data['destination'] == "Dominican Republic" -%}selected{%- endif -%}>Dominican Republic</option>
+        <option value="East Timor" {%- if data['destination'] == "East Timor" -%}selected{%- endif -%}>East Timor</option>
+        <option value="Ecuador" {%- if data['destination'] == "Ecuador" -%}selected{%- endif -%}>Ecuador</option>
+        <option value="Egypt" {%- if data['destination'] == "Egypt" -%}selected{%- endif -%}>Egypt</option>
+        <option value="El Salvador" {%- if data['destination'] == "El Salvador" -%}selected{%- endif -%}>El Salvador</option>
+        <option value="Equatorial Guinea" {%- if data['destination'] == "Equatorial Guinea" -%}selected{%- endif -%}>Equatorial Guinea</option>
+        <option value="Eritrea" {%- if data['destination'] == "Eritrea" -%}selected{%- endif -%}>Eritrea</option>
+        <option value="Estonia" {%- if data['destination'] == "Estonia" -%}selected{%- endif -%}>Estonia</option>
+        <option value="Eswatini" {%- if data['destination'] == "Eswatini" -%}selected{%- endif -%}>Eswatini</option>
+        <option value="Ethiopia" {%- if data['destination'] == "Ethiopia" -%}selected{%- endif -%}>Ethiopia</option>
+        <option value="Falkland Islands" {%- if data['destination'] == "Falkland Islands" -%}selected{%- endif -%}>Falkland Islands</option>
+        <option value="Faroe Islands" {%- if data['destination'] == "Faroe Islands" -%}selected{%- endif -%}>Faroe Islands</option>
+        <option value="Fiji" {%- if data['destination'] == "Fiji" -%}selected{%- endif -%}>Fiji</option>
+        <option value="Finland" {%- if data['destination'] == "Finland" -%}selected{%- endif -%}>Finland</option>
+        <option value="France" {%- if data['destination'] == "France" -%}selected{%- endif -%}>France</option>
+        <option value="French Guiana" {%- if data['destination'] == "French Guiana" -%}selected{%- endif -%}>French Guiana</option>
+        <option value="French Polynesia" {%- if data['destination'] == "French Polynesia" -%}selected{%- endif -%}>French Polynesia</option>
+        <option value="French Southern Territories" {%- if data['destination'] == "French Southern Territories" -%}selected{%- endif -%}>French Southern Territories</option>
+        <option value="Gabon" {%- if data['destination'] == "Gabon" -%}selected{%- endif -%}>Gabon</option>
+        <option value="Georgia" {%- if data['destination'] == "Georgia" -%}selected{%- endif -%}>Georgia</option>
+        <option value="Germany" {%- if data['destination'] == "Germany" -%}selected{%- endif -%}>Germany</option>
+        <option value="Ghana" {%- if data['destination'] == "Ghana" -%}selected{%- endif -%}>Ghana</option>
+        <option value="Gibraltar" {%- if data['destination'] == "Gibraltar" -%}selected{%- endif -%}>Gibraltar</option>
+        <option value="Greece" {%- if data['destination'] == "Greece" -%}selected{%- endif -%}>Greece</option>
+        <option value="Greenland" {%- if data['destination'] == "Greenland" -%}selected{%- endif -%}>Greenland</option>
+        <option value="Grenada" {%- if data['destination'] == "Grenada" -%}selected{%- endif -%}>Grenada</option>
+        <option value="Guadeloupe" {%- if data['destination'] == "Guadeloupe" -%}selected{%- endif -%}>Guadeloupe</option>
+        <option value="Guam" {%- if data['destination'] == "Guam<" -%}selected{%- endif -%}>Guam</option>
+        <option value="Guatemala" {%- if data['destination'] == "Guatemala" -%}selected{%- endif -%}>Guatemala</option>
+        <option value="Guernsey" {%- if data['destination'] == "Guernsey" -%}selected{%- endif -%}>Guernsey</option>
+        <option value="Guinea" {%- if data['destination'] == "Guinea" -%}selected{%- endif -%}>Guinea</option>
+        <option value="Guinea-Bissau" {%- if data['destination'] == "Guinea-Bissau" -%}selected{%- endif -%}>Guinea-Bissau</option>
+        <option value="Guyana" {%- if data['destination'] == "Guyana" -%}selected{%- endif -%}>Guyana</option>
+        <option value="Haiti" {%- if data['destination'] == "Haiti" -%}selected{%- endif -%}>Haiti</option>
+        <option value="Heard Island and McDonald Islands" {%- if data['destination'] == "Heard Island and McDonald Islands" -%}selected{%- endif -%}>Heard Island and McDonald Islands</option>
+        <option value="Honduras" {%- if data['destination'] == "Honduras" -%}selected{%- endif -%}>Honduras</option>
+        <option value="Hong Kong" {%- if data['destination'] == "Hong Kong" -%}selected{%- endif -%}>Hong Kong</option>
+        <option value="Hungary" {%- if data['destination'] == "Hungary" -%}selected{%- endif -%}>Hungary</option>
+        <option value="Iceland" {%- if data['destination'] == "Iceland" -%}selected{%- endif -%}>Iceland</option>
+        <option value="India" {%- if data['destination'] == "India" -%}selected{%- endif -%}>India</option>
+        <option value="Indonesia" {%- if data['destination'] == "Indonesia" -%}selected{%- endif -%}>Indonesia</option>
+        <option value="Iran" {%- if data['destination'] == "Iran" -%}selected{%- endif -%}>Iran</option>
+        <option value="Iraq" {%- if data['destination'] == "Iraq" -%}selected{%- endif -%}>Iraq</option>
+        <option value="Ireland" {%- if data['destination'] == "Ireland" -%}selected{%- endif -%}>Ireland</option>
+        <option value="Isle of Man" {%- if data['destination'] == "Isle of Man" -%}selected{%- endif -%}>Isle of Man</option>
+        <option value="Israel" {%- if data['destination'] == "Israel" -%}selected{%- endif -%}>Israel</option>
+        <option value="Italy" {%- if data['destination'] == "Italy" -%}selected{%- endif -%}>Italy</option>
+        <option value="Ivory Coast" {%- if data['destination'] == "Ivory Coast" -%}selected{%- endif -%}>Ivory Coast</option>
+        <option value="Jamaica" {%- if data['destination'] == "Jamaica" -%}selected{%- endif -%}>Jamaica</option>
+        <option value="Japan" {%- if data['destination'] == "Japan" -%}selected{%- endif -%}>Japan</option>
+        <option value="Jersey" {%- if data['destination'] == "Jersey" -%}selected{%- endif -%}>Jersey</option>
+        <option value="Jordan" {%- if data['destination'] == "Jordan" -%}selected{%- endif -%}>Jordan</option>
+        <option value="Kazakhstan" {%- if data['destination'] == "Kazakhstan" -%}selected{%- endif -%}>Kazakhstan</option>
+        <option value="Kenya" {%- if data['destination'] == "Kenya" -%}selected{%- endif -%}>Kenya</option>
+        <option value="Kiribati" {%- if data['destination'] == "Kiribati" -%}selected{%- endif -%}>Kiribati</option>
+        <option value="Kosovo" {%- if data['destination'] == "Kosovo" -%}selected{%- endif -%}>Kosovo</option>
+        <option value="Kuwait" {%- if data['destination'] == "Kuwait" -%}selected{%- endif -%}>Kuwait</option>
+        <option value="Kyrgyzstan" {%- if data['destination'] == "Kyrgyzstan" -%}selected{%- endif -%}>Kyrgyzstan</option>
+        <option value="Laos" {%- if data['destination'] == "Laos" -%}selected{%- endif -%}>Laos</option>
+        <option value="Latvia" {%- if data['destination'] == "Latvia" -%}selected{%- endif -%}>Latvia</option>
+        <option value="Lebanon" {%- if data['destination'] == "Lebanon" -%}selected{%- endif -%}>Lebanon</option>
+        <option value="Lesotho" {%- if data['destination'] == "Lesotho" -%}selected{%- endif -%}>Lesotho</option>
+        <option value="Liberia" {%- if data['destination'] == "Liberia" -%}selected{%- endif -%}>Liberia</option>
+        <option value="Libya" {%- if data['destination'] == "Libya" -%}selected{%- endif -%}>Libya</option>
+        <option value="Liechtenstein" {%- if data['destination'] == "Liechtenstein" -%}selected{%- endif -%}>Liechtenstein</option>
+        <option value="Lithuania" {%- if data['destination'] == "Lithuania" -%}selected{%- endif -%}>Lithuania</option>
+        <option value="Luxembourg" {%- if data['destination'] == "Luxembourg" -%}selected{%- endif -%}>Luxembourg</option>
+        <option value="Macao" {%- if data['destination'] == "Macao" -%}selected{%- endif -%}>Macao</option>
+        <option value="Madagascar" {%- if data['destination'] == "Madagascar" -%}selected{%- endif -%}>Madagascar</option>
+        <option value="Malawi" {%- if data['destination'] == "Malawi" -%}selected{%- endif -%}>Malawi</option>
+        <option value="Malaysia" {%- if data['destination'] == "Malaysia" -%}selected{%- endif -%}>Malaysia</option>
+        <option value="Maldives" {%- if data['destination'] == "Maldives" -%}selected{%- endif -%}>Maldives</option>
+        <option value="Mali" {%- if data['destination'] == "Mali" -%}selected{%- endif -%}>Mali</option>
+        <option value="Malta" {%- if data['destination'] == "Malta" -%}selected{%- endif -%}>Malta</option>
+        <option value="Marshall Islands" {%- if data['destination'] == "Marshall Islands" -%}selected{%- endif -%}>Marshall Islands</option>
+        <option value="Martinique" {%- if data['destination'] == "Martinique" -%}selected{%- endif -%}>Martinique</option>
+        <option value="Mauritania" {%- if data['destination'] == "Mauritania" -%}selected{%- endif -%}>Mauritania</option>
+        <option value="Mauritius" {%- if data['destination'] == "Mauritius" -%}selected{%- endif -%}>Mauritius</option>
+        <option value="Mayotte" {%- if data['destination'] == "Mayotte" -%}selected{%- endif -%}>Mayotte</option>
+        <option value="Mexico" {%- if data['destination'] == "Mexico" -%}selected{%- endif -%}>Mexico</option>
+        <option value="Micronesia" {%- if data['destination'] == "Micronesia" -%}selected{%- endif -%}>Micronesia</option>
+        <option value="Moldova" {%- if data['destination'] == "Moldova" -%}selected{%- endif -%}>Moldova</option>
+        <option value="Monaco" {%- if data['destination'] == "Monaco" -%}selected{%- endif -%}>Monaco</option>
+        <option value="Mongolia" {%- if data['destination'] == "Mongolia" -%}selected{%- endif -%}>Mongolia</option>
+        <option value="Montenegro" {%- if data['destination'] == "Montenegro" -%}selected{%- endif -%}>Montenegro</option>
+        <option value="Montserrat" {%- if data['destination'] == "Montserrat" -%}selected{%- endif -%}>Montserrat</option>
+        <option value="Morocco" {%- if data['destination'] == "Morocco" -%}selected{%- endif -%}>Morocco</option>
+        <option value="Mozambique" {%- if data['destination'] == "Mozambique" -%}selected{%- endif -%}>Mozambique</option>
+        <option value="Myanmar (Burma)" {%- if data['destination'] == "Myanmar (Burma)" -%}selected{%- endif -%}>Myanmar (Burma)</option>
+        <option value="Namibia" {%- if data['destination'] == "Namibia" -%}selected{%- endif -%}>Namibia</option>
+        <option value="Nauru" {%- if data['destination'] == "Nauru" -%}selected{%- endif -%}>Nauru</option>
+        <option value="Nepal" {%- if data['destination'] == "Nepal" -%}selected{%- endif -%}>Nepal</option>
+        <option value="Netherlands" {%- if data['destination'] == "Netherlands" -%}selected{%- endif -%}>Netherlands</option>
+        <option value="New Caledonia" {%- if data['destination'] == "New Caledonia" -%}selected{%- endif -%}>New Caledonia</option>
+        <option value="New Zealand" {%- if data['destination'] == "New Zealand" -%}selected{%- endif -%}>New Zealand</option>
+        <option value="Nicaragua" {%- if data['destination'] == "Nicaragua" -%}selected{%- endif -%}>Nicaragua</option>
+        <option value="Niger" {%- if data['destination'] == "Niger" -%}selected{%- endif -%}>Niger</option>
+        <option value="Nigeria" {%- if data['destination'] == "Nigeria" -%}selected{%- endif -%}>Nigeria</option>
+        <option value="Niue" {%- if data['destination'] == "Niue" -%}selected{%- endif -%}>Niue</option>
+        <option value="Norfolk Island" {%- if data['destination'] == "Norfolk Island" -%}selected{%- endif -%}>Norfolk Island</option>
+        <option value="North Korea" {%- if data['destination'] == "North Korea" -%}selected{%- endif -%}>North Korea</option>
+        <option value="North Macedonia" {%- if data['destination'] == "North Macedonia" -%}selected{%- endif -%}>North Macedonia</option>
+        <option value="Northern Mariana Islands" {%- if data['destination'] == "Northern Mariana Islands" -%}selected{%- endif -%}>Northern Mariana Islands</option>
+        <option value="Norway" {%- if data['destination'] == "Norway" -%}selected{%- endif -%}>Norway</option>
+        <option value="Occupied Palestinian Territories" {%- if data['destination'] == "Occupied Palestinian Territories" -%}selected{%- endif -%}>Occupied Palestinian Territories</option>
+        <option value="Oman" {%- if data['destination'] == "Oman" -%}selected{%- endif -%}>Oman</option>
+        <option value="Pakistan" {%- if data['destination'] == "Pakistan" -%}selected{%- endif -%}>Pakistan</option>
+        <option value="Palau" {%- if data['destination'] == "Palau" -%}selected{%- endif -%}>Palau</option>
+        <option value="Palmyra Atoll" {%- if data['destination'] == "Palmyra Atoll" -%}selected{%- endif -%}>Palmyra Atoll</option>
+        <option value="Panama" {%- if data['destination'] == "Panama" -%}selected{%- endif -%}>Panama</option>
+        <option value="Papua New Guinea" {%- if data['destination'] == "Papua New Guinea" -%}selected{%- endif -%}>Papua New Guinea</option>
+        <option value="Paraguay" {%- if data['destination'] == "Paraguay" -%}selected{%- endif -%}>Paraguay</option>
+        <option value="Peru" {%- if data['destination'] == "Peru" -%}selected{%- endif -%}>Peru</option>
+        <option value="Philippines" {%- if data['destination'] == "Philippines" -%}selected{%- endif -%}>Philippines</option>
+        <option value="Pitcairn, Henderson, Ducie and Oeno Islands" {%- if data['destination'] == "Pitcairn, Henderson, Ducie and Oeno Islands" -%}selected{%- endif -%}>Pitcairn, Henderson, Ducie and Oeno Islands</option>
+        <option value="Poland" {%- if data['destination'] == "Poland" -%}selected{%- endif -%}>Poland</option>
+        <option value="Portugal" {%- if data['destination'] == "Portugal" -%}selected{%- endif -%}>Portugal</option>
+        <option value="Puerto Rico" {%- if data['destination'] == "Puerto Rico" -%}selected{%- endif -%}>Puerto Rico</option>
+        <option value="Qatar" {%- if data['destination'] == "Qatar" -%}selected{%- endif -%}>Qatar</option>
+        <option value="Réunion" {%- if data['destination'] == "Réunion" -%}selected{%- endif -%}>Réunion</option>
+        <option value="Romania" {%- if data['destination'] == "Romania" -%}selected{%- endif -%}>Romania</option>
+        <option value="Russia" {%- if data['destination'] == "Russia" -%}selected{%- endif -%}>Russia</option>
+        <option value="Rwanda" {%- if data['destination'] == "Rwanda" -%}selected{%- endif -%}>Rwanda</option>
+        <option value="Saint Barthélemy" {%- if data['destination'] == "Saint Barthélemy" -%}selected{%- endif -%}>Saint Barthélemy</option>
+        <option value="Saint Helena" {%- if data['destination'] == "Saint Helena" -%}selected{%- endif -%}>Saint Helena</option>
+        <option value="Saint Pierre and Miquelon" {%- if data['destination'] == "Saint Pierre and Miquelon" -%}selected{%- endif -%}>Saint Pierre and Miquelon</option>
+        <option value="Saint-Martin (French part)" {%- if data['destination'] == "Saint-Martin (French part)" -%}selected{%- endif -%}>Saint-Martin (French part)</option>
+        <option value="Samoa" {%- if data['destination'] == "Samoa" -%}selected{%- endif -%}>Samoa</option>
+        <option value="San Marino" {%- if data['destination'] == "San Marino" -%}selected{%- endif -%}>San Marino</option>
+        <option value="Sao Tome and Principe" {%- if data['destination'] == "Sao Tome and Principe" -%}selected{%- endif -%}>Sao Tome and Principe</option>
+        <option value="Saudi Arabia" {%- if data['destination'] == "Saudi Arabia" -%}selected{%- endif -%}>Saudi Arabia</option>
+        <option value="Senegal" {%- if data['destination'] == "Senegal" -%}selected{%- endif -%}>Senegal</option>
+        <option value="Serbia" {%- if data['destination'] == "Serbia" -%}selected{%- endif -%}>Serbia</option>
+        <option value="Seychelles" {%- if data['destination'] == "Seychelles" -%}selected{%- endif -%}>Seychelles</option>
+        <option value="Sierra Leone" {%- if data['destination'] == "Sierra Leone" -%}selected{%- endif -%}>Sierra Leone</option>
+        <option value="Singapore" {%- if data['destination'] == "Singapore" -%}selected{%- endif -%}>Singapore</option>
+        <option value="Sint Maarten (Dutch part)" {%- if data['destination'] == "Sint Maarten (Dutch part)" -%}selected{%- endif -%}>Sint Maarten (Dutch part)</option>
+        <option value="Slovakia" {%- if data['destination'] == "Slovakia" -%}selected{%- endif -%}>Slovakia</option>
+        <option value="Slovenia" {%- if data['destination'] == "Slovenia" -%}selected{%- endif -%}>Slovenia</option>
+        <option value="Solomon Islands" {%- if data['destination'] == "Solomon Islands" -%}selected{%- endif -%}>Solomon Islands</option>
+        <option value="Somalia" {%- if data['destination'] == "Somalia" -%}selected{%- endif -%}>Somalia</option>
+        <option value="South Africa" {%- if data['destination'] == "South Africa" -%}selected{%- endif -%}>South Africa</option>
+        <option value="South Georgia and South Sandwich Islands" {%- if data['destination'] == "South Georgia and South Sandwich Islands" -%}selected{%- endif -%}>South Georgia and South Sandwich Islands</option>
+        <option value="South Korea" {%- if data['destination'] == "South Korea" -%}selected{%- endif -%}>South Korea</option>
+        <option value="South Sudan" {%- if data['destination'] == "South Sudan" -%}selected{%- endif -%}>South Sudan</option>
+        <option value="Spain" {%- if data['destination'] == "Spain" -%}selected{%- endif -%}>Spain</option>
+        <option value="Sri Lanka" {%- if data['destination'] == "Sri Lanka" -%}selected{%- endif -%}>Sri Lanka</option>
+        <option value="St Kitts and Nevis" {%- if data['destination'] == "St Kitts and Nevis" -%}selected{%- endif -%}>St Kitts and Nevis</option>
+        <option value="St Lucia" {%- if data['destination'] == "St Lucia" -%}selected{%- endif -%}>St Lucia</option>
+        <option value="St Vincent" {%- if data['destination'] == "St Vincent" -%}selected{%- endif -%}>St Vincent</option>
+        <option value="Sudan" {%- if data['destination'] == "Sudan" -%}selected{%- endif -%}>Sudan</option>
+        <option value="Suriname" {%- if data['destination'] == "Suriname" -%}selected{%- endif -%}>Suriname</option>
+        <option value="Svalbard and Jan Mayen" {%- if data['destination'] == "Svalbard and Jan Mayen" -%}selected{%- endif -%}>Svalbard and Jan Mayen</option>
+        <option value="Sweden" {%- if data['destination'] == "Sweden" -%}selected{%- endif -%}>Sweden</option>
+        <option value="Switzerland" {%- if data['destination'] == "Switzerland" -%}selected{%- endif -%}>Switzerland</option>
+        <option value="Syria" {%- if data['destination'] == "Syria" -%}selected{%- endif -%}>Syria</option>
+        <option value="Taiwan" {%- if data['destination'] == "Taiwan" -%}selected{%- endif -%}>Taiwan</option>
+        <option value="Tajikistan" {%- if data['destination'] == "Tajikistan" -%}selected{%- endif -%}>Tajikistan</option>
+        <option value="Tanzania" {%- if data['destination'] == "Tanzania" -%}selected{%- endif -%}>Tanzania</option>
+        <option value="Thailand" {%- if data['destination'] == "Thailand" -%}selected{%- endif -%}>Thailand</option>
+        <option value="The Bahamas" {%- if data['destination'] == "The Bahamas" -%}selected{%- endif -%}>The Bahamas</option>
+        <option value="The Gambia" {%- if data['destination'] == "The Gambia" -%}selected{%- endif -%}>The Gambia</option>
+        <option value="Togo" {%- if data['destination'] == "Togo" -%}selected{%- endif -%}>Togo</option>
+        <option value="Tokelau" {%- if data['destination'] == "Tokelau" -%}selected{%- endif -%}>Tokelau</option>
+        <option value="Tonga" {%- if data['destination'] == "Tonga" -%}selected{%- endif -%}>Tonga</option>
+        <option value="Trinidad and Tobago" {%- if data['destination'] == "Trinidad and Tobago" -%}selected{%- endif -%}>Trinidad and Tobago</option>
+        <option value="Tunisia" {%- if data['destination'] == "Tunisia" -%}selected{%- endif -%}>Tunisia</option>
+        <option value="Turkey" {%- if data['destination'] == "Turkey" -%}selected{%- endif -%}>Turkey</option>
+        <option value="Turkmenistan" {%- if data['destination'] == "Turkmenistan" -%}selected{%- endif -%}>Turkmenistan</option>
+        <option value="Turks and Caicos Islands" {%- if data['destination'] == "Turks and Caicos Islands" -%}selected{%- endif -%}>Turks and Caicos Islands</option>
+        <option value="Tuvalu" {%- if data['destination'] == "Tuvalu" -%}selected{%- endif -%}>Tuvalu</option>
+        <option value="Uganda" {%- if data['destination'] == "Uganda" -%}selected{%- endif -%}>Uganda</option>
+        <option value="Ukraine" {%- if data['destination'] == "Ukraine" -%}selected{%- endif -%}>Ukraine</option>
+        <option value="United Arab Emirates" {%- if data['destination'] == "United Arab Emirates" -%}selected{%- endif -%}>United Arab Emirates</option>
+        <option value="United States" {%- if data['destination'] == "United States" -%}selected{%- endif -%}>United States</option>
+        <option value="United States Virgin Islands" {%- if data['destination'] == "United States Virgin Islands" -%}selected{%- endif -%}>United States Virgin Islands</option>
+        <option value="Uruguay" {%- if data['destination'] == "Uruguay" -%}selected{%- endif -%}>Uruguay</option>
+        <option value="Uzbekistan" {%- if data['destination'] == "Uzbekistan" -%}selected{%- endif -%}>Uzbekistan</option>
+        <option value="Vanuatu" {%- if data['destination'] == "Vanuatu" -%}selected{%- endif -%}>Vanuatu</option>
+        <option value="Vatican City" {%- if data['destination'] == "Vanuatu" -%}selected{%- endif -%}>Vatican City</option>
+        <option value="Venezuela" {%- if data['destination'] == "Venezuela" -%}selected{%- endif -%}>Venezuela</option>
+        <option value="Vietnam" {%- if data['destination'] == "Vietnam" -%}selected{%- endif -%}>Vietnam</option>
+        <option value="Wallis and Futuna" {%- if data['destination'] == "Vietnam" -%}selected{%- endif -%}>Wallis and Futuna</option>
+        <option value="Western Sahara" {%- if data['destination'] == "Western Sahara" -%}selected{%- endif -%}>Western Sahara</option>
+        <option value="Yemen" {%- if data['destination'] == "Yemen" -%}selected{%- endif -%}>Yemen</option>
+        <option value="Zambia" {%- if data['destination'] == "Zambia" -%}selected{%- endif -%}>Zambia</option>
+        <option value="Zimbabwe" {%- if data['destination'] == "Zimbabwe" -%}selected{%- endif -%}>Zimbabwe</option>
       </select>
+</div>
+</fieldset>
 </div>
 
 <!-- START DATE WON -->
@@ -320,7 +330,7 @@
                 <label class="govuk-label govuk-date-input__label" for="date-won-month">
                   Month
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-won-month" name="date-won-month" type="text" inputmode="numeric">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-won-month" name="date-won-month" type="text" inputmode="numeric" {%- if data['date-won-month'] -%}value="{{ data['date-won-month'] }}" {%- endif -%}>
               </div>
             </div>
             <div class="govuk-date-input__item">
@@ -328,18 +338,21 @@
                 <label class="govuk-label govuk-date-input__label" for="date-won-year">
                   Year
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-won-year" name="date-won-year" type="text" inputmode="numeric">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-won-year" name="date-won-year" type="text" inputmode="numeric" {%- if data['date-won-year'] -%}value="{{ data['date-won-year'] }}" {%- endif -%}>
               </div>
             </div>
           </div>
         </fieldset>
 </div>
 
+{%- endif -%}
+
 
 <!-- START SUMMARY -->
 {{ govukTextarea({
   name: "summarise-support",
   id: "summarise-support",
+  value: data['summarise-support'],
   label: {
     text: "Summary of the support given",
     classes: "govuk-label--s",
@@ -352,33 +365,28 @@
 
 
 <!-- START Overseas customer -->
-{{ govukInput({
-  label: {
-    text: "Overseas customer",
-    classes: "govuk-label--s",
-    isPageHeading: false
-  },
-  hint: {
-    text: "Write 'confidential' if your customer has asked for this not to be public."
-  },
-  id: "overseas-customer",
-  name: "overseas-customer"
-}) }}
+<div class="govuk-form-group">
+  <label class="govuk-label" for="overseas-customer-heading">
+    <strong>Overseas customer</strong>
+    <div class="govuk-hint govuk-!-margin-bottom-0">Write 'confidential' if your customer has asked for this not to be public.</div>
+  </label>
+
+  <input class="govuk-input govuk-!-width-two-thirds" id="overseas-customer" name="overseas-customer" type="text" {%- if data['overseas-customer'] -%}value="{{ data['overseas-customer'] }}" {%- endif -%}>
+  </div>
 
 
-<!-- START Type of business deal -->
-{{ govukInput({
-  label: {
-    text: "Type of business deal",
-    classes: "govuk-label--s",
-    isPageHeading: false
-  },
-  hint: {
-    text: "For example: export sales, contract, order, distributor, tender / competition win, joint venture, outward investment."
-  },
-  id: "type-of-business-deal",
-  name: "type-of-business-deal"
-}) }}
+  {% if data['form-complete'] != "Yes" %}
+
+
+<!-- START Type of goods or services -->
+<div class="govuk-form-group">
+  <label class="govuk-label" for="type-of-business-deal-heading">
+    <strong>Type of business deal</strong>
+    <div class="govuk-hint govuk-!-margin-bottom-0">For example: export sales, contract, order, distributor, tender / competition win, joint venture, outward investment.</div>
+  </label>
+
+  <input class="govuk-input govuk-!-width-two-thirds" id="type-of-business-deal" name="type-of-business-deal" type="text" {%- if data['type-of-business-deal'] -%}value="{{ data['type-of-business-deal'] }}" {%- endif -%}>
+  </div>
 
 
 
@@ -395,7 +403,7 @@
 
       <!-- START Type of win > Export -->
       <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="type-of-win-export" name="type-of-win" type="checkbox" value="Export" data-aria-controls="conditional-contact">
+        <input class="govuk-checkboxes__input" id="type-of-win-export" name="type-of-win" type="checkbox" value="Export" data-aria-controls="conditional-contact" {% if data['type-of-win'] %}{% if "Export" in data['type-of-win'] %}checked{%- endif -%}{%- endif -%}>
         <label class="govuk-label govuk-checkboxes__label" for="type-of-win-export">
           Export
         </label>
@@ -417,7 +425,7 @@
                   </h3>
                   <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-5" id="export-won-year-23" name="export-won-year-23" type="text" spellcheck="false">
+                    <input class="govuk-input govuk-input--width-10" id="export-won-year-23" name="export-won-year-23" type="text" spellcheck="false" {%- if data['export-won-year-23'] -%}value="{{ data['export-won-year-23'] }}" {%- endif -%}>
                   </div>
                 </div><div class="govuk-form-group datahub-width-one-fifth">
                   <h1 class="govuk-label-wrapper">
@@ -427,7 +435,7 @@
                   </h1>
                   <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-5" id="export-won-year-24" name="export-won-year-24" type="text" spellcheck="false">
+                    <input class="govuk-input govuk-input--width-10" id="export-won-year-24" name="export-won-year-24" type="text" spellcheck="false" {%- if data['export-won-year-24'] -%}value="{{ data['export-won-year-24'] }}" {%- endif -%}>
                   </div>
                 </div><div class="govuk-form-group datahub-width-one-fifth">
                   <h1 class="govuk-label-wrapper">
@@ -437,7 +445,7 @@
                   </h1>
                   <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-5" id="export-won-year-25" name="export-won-year-25" type="text" spellcheck="false">
+                    <input class="govuk-input govuk-input--width-10" id="export-won-year-25" name="export-won-year-25" type="text" spellcheck="false" {%- if data['export-won-year-25'] -%}value="{{ data['export-won-year-25'] }}" {%- endif -%}>
                   </div>
                 </div><div class="govuk-form-group datahub-width-one-fifth">
                   <h1 class="govuk-label-wrapper">
@@ -447,7 +455,7 @@
                   </h1>
                   <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-5" id="export-won-year-26" name="export-won-year-26" type="text" spellcheck="false">
+                    <input class="govuk-input govuk-input--width-10" id="export-won-year-26" name="export-won-year-26" type="text" spellcheck="false" {%- if data['export-won-year-26'] -%}value="{{ data['export-won-year-26'] }}" {%- endif -%}>
                   </div>
                 </div><div class="govuk-form-group datahub-width-one-fifth">
                   <h1 class="govuk-label-wrapper">
@@ -457,7 +465,7 @@
                   </h1>
                   <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-5" id="export-won-year-27" name="export-won-year-27" type="text" spellcheck="false">
+                    <input class="govuk-input govuk-input--width-10" id="export-won-year-27" name="export-won-year-27" type="text" spellcheck="false" {%- if data['export-won-year-27'] -%}value="{{ data['export-won-year-27'] }}" {%- endif -%}>
                   </div>
                 </div>
                 </div>
@@ -466,7 +474,7 @@
 
       <!-- START Type of win > Business success -->
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="type-of-win-business-success" name="type-of-win" type="checkbox" value="Business success" data-aria-controls="conditional-contact-2">
+          <input class="govuk-checkboxes__input" id="type-of-win-business-success" name="type-of-win" type="checkbox" value="Business success" data-aria-controls="conditional-contact-2" {% if data['type-of-win'] %}{% if "Business success" in data['type-of-win'] %}checked{%- endif -%}{%- endif -%}>
           <label class="govuk-label govuk-checkboxes__label" for="type-of-win-business-success">
             Business success<br>
             <div class="govuk-hint govuk-!-margin-bottom-0">A success that has brought money back into the UK benefiting the UK economy or successful lobbying which reduced the tax burden on a customer.</div>
@@ -489,7 +497,7 @@
                 </h3>
                 <div class="govuk-input__wrapper">
                   <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                  <input class="govuk-input govuk-input--width-5" id="business-won-year-23" name="business-won-year-23" type="text" spellcheck="false">
+                  <input class="govuk-input govuk-input--width-10" id="business-won-year-23" name="business-won-year-23" type="text" spellcheck="false" {%- if data['business-won-year-23'] -%}value="{{ data['business-won-year-23'] }}" {%- endif -%}>
                 </div>
               </div><div class="govuk-form-group datahub-width-one-fifth">
                 <h1 class="govuk-label-wrapper">
@@ -499,7 +507,7 @@
                 </h1>
                 <div class="govuk-input__wrapper">
                   <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                  <input class="govuk-input govuk-input--width-5" id="business-won-year-24" name="business-won-year-24" type="text" spellcheck="false">
+                  <input class="govuk-input govuk-input--width-10" id="business-won-year-24" name="business-won-year-24" type="text" spellcheck="false" {%- if data['business-won-year-24'] -%}value="{{ data['business-won-year-24'] }}" {%- endif -%}>
                 </div>
               </div><div class="govuk-form-group datahub-width-one-fifth">
                 <h1 class="govuk-label-wrapper">
@@ -509,7 +517,7 @@
                 </h1>
                 <div class="govuk-input__wrapper">
                   <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                  <input class="govuk-input govuk-input--width-5" id="business-won-year-25" name="business-won-year-25" type="text" spellcheck="false">
+                  <input class="govuk-input govuk-input--width-10" id="business-won-year-25" name="business-won-year-25" type="text" spellcheck="false" {%- if data['business-won-year-25'] -%}value="{{ data['business-won-year-25'] }}" {%- endif -%}>
                 </div>
               </div><div class="govuk-form-group datahub-width-one-fifth">
                 <h1 class="govuk-label-wrapper">
@@ -519,7 +527,7 @@
                 </h1>
                 <div class="govuk-input__wrapper">
                   <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                  <input class="govuk-input govuk-input--width-5" id="business-won-year-26" name="business-won-year-26" type="text" spellcheck="false">
+                  <input class="govuk-input govuk-input--width-10" id="business-won-year-26" name="business-won-year-26" type="text" spellcheck="false" {%- if data['business-won-year-26'] -%}value="{{ data['business-won-year-26'] }}" {%- endif -%}>
                 </div>
               </div><div class="govuk-form-group datahub-width-one-fifth">
                 <h1 class="govuk-label-wrapper">
@@ -529,7 +537,7 @@
                 </h1>
                 <div class="govuk-input__wrapper">
                   <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                  <input class="govuk-input govuk-input--width-5" id="business-won-year-27" name="business-won-year-27" type="text" spellcheck="false">
+                  <input class="govuk-input govuk-input--width-10" id="business-won-year-27" name="business-won-year-27" type="text" spellcheck="false" {%- if data['business-won-year-27'] -%}value="{{ data['business-won-year-27'] }}" {%- endif -%}>
                 </div>
               </div>
               </div>
@@ -539,7 +547,7 @@
 
 <!-- START Type of win > Outward Direct Investment -->
       <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="type-of-win" name="type-of-win" type="checkbox" value="Outward Direct Investment" data-aria-controls="conditional-contact-3">
+        <input class="govuk-checkboxes__input" id="type-of-win" name="type-of-win" type="checkbox" value="Outward Direct Investment" data-aria-controls="conditional-contact-3" {% if data['type-of-win'] %}{% if "Outward Direct Investment" in data['type-of-win'] %}checked{%- endif -%}{%- endif -%}>
         <label class="govuk-label govuk-checkboxes__label" for="type-of-win-odi">
           Outward Direct Investment<br>
           <div class="govuk-hint govuk-!-margin-bottom-0">A cross-border investment from the UK into another country, which will bring funds to the UK.</div>
@@ -562,7 +570,7 @@
                   </h3>
                   <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-5" id="odi-won-year-23" name="odi-won-year-23" type="text" spellcheck="false">
+                    <input class="govuk-input govuk-input--width-10" id="odi-won-year-23" name="odi-won-year-23" type="text" spellcheck="false" {%- if data['odi-won-year-23'] -%}value="{{ data['odi-won-year-23'] }}" {%- endif -%}>
                   </div>
                 </div><div class="govuk-form-group datahub-width-one-fifth">
                   <h1 class="govuk-label-wrapper">
@@ -572,7 +580,7 @@
                   </h1>
                   <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-5" id="odi-won-year-24" name="odi-won-year-24" type="text" spellcheck="false">
+                    <input class="govuk-input govuk-input--width-10" id="odi-won-year-24" name="odi-won-year-24" type="text" spellcheck="false" {%- if data['odi-won-year-24'] -%}value="{{ data['odi-won-year-24'] }}" {%- endif -%}>
                   </div>
                 </div><div class="govuk-form-group datahub-width-one-fifth">
                   <h1 class="govuk-label-wrapper">
@@ -582,7 +590,7 @@
                   </h1>
                   <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-5" id="odi-won-year-25" name="odi-won-year-25" type="text" spellcheck="false">
+                    <input class="govuk-input govuk-input--width-10" id="odi-won-year-25" name="odi-won-year-25" type="text" spellcheck="false" {%- if data['odi-won-year-25'] -%}value="{{ data['odi-won-year-25'] }}" {%- endif -%}>
                   </div>
                 </div><div class="govuk-form-group datahub-width-one-fifth">
                   <h1 class="govuk-label-wrapper">
@@ -592,7 +600,7 @@
                   </h1>
                   <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-5" id="odi-won-year-26" name="odi-won-year-26" type="text" spellcheck="false">
+                    <input class="govuk-input govuk-input--width-10" id="odi-won-year-26" name="odi-won-year-26" type="text" spellcheck="false" {%- if data['odi-won-year-26'] -%}value="{{ data['odi-won-year-26'] }}" {%- endif -%}>
                   </div>
                 </div><div class="govuk-form-group datahub-width-one-fifth">
                   <h1 class="govuk-label-wrapper">
@@ -602,7 +610,7 @@
                   </h1>
                   <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-5" id="odi-won-year-27" name="odi-won-year-27" type="text" spellcheck="false">
+                    <input class="govuk-input govuk-input--width-10" id="odi-won-year-27" name="odi-won-year-27" type="text" spellcheck="false" {%- if data['odi-won-year-27'] -%}value="{{ data['odi-won-year-27'] }}" {%- endif -%}>
                   </div>
                 </div>
                 </div>
@@ -611,6 +619,8 @@
     </div>
   </fieldset>
 </div>
+
+{%- endif -%}
 
 
 
@@ -625,13 +635,13 @@
   <fieldset class="govuk-fieldset">
     <div class="govuk-checkboxes" data-module="govuk-checkboxes">
       <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="goods-and-services" name="goods-and-services" type="checkbox" value="Goods">
+        <input class="govuk-checkboxes__input" id="goods-and-services" name="goods-and-services" type="checkbox" value="Goods" {% if data['goods-and-services'] %}{% if "Goods" in data['goods-and-services'] %}checked{%- endif -%}{%- endif -%}>
         <label class="govuk-label govuk-checkboxes__label" for="Goods">
         Goods
         </label>
       </div>
       <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="goods-and-services" name="goods-and-services" type="checkbox" value="Services">
+        <input class="govuk-checkboxes__input" id="goods-and-services" name="goods-and-services" type="checkbox" value="Services" {% if data['goods-and-services'] %}{% if "Services" in data['goods-and-services'] %}checked{%- endif -%}{%- endif -%}>
         <label class="govuk-label govuk-checkboxes__label" for="Services">
           Services<br>
         </label>
@@ -648,7 +658,7 @@
   <strong>Type of goods or services</strong>
 </label>
 
-<input class="govuk-input govuk-!-width-two-thirds" id="type-of-goods" name="type-of-goods" type="text">
+<input class="govuk-input govuk-!-width-two-thirds" id="type-of-goods" name="type-of-goods" type="text" {%- if data['type-of-goods'] -%}value="{{ data['type-of-goods'] }}" {%- endif -%}>
 </div>
 
 
@@ -659,159 +669,159 @@
 </label>
 
 <select class="govuk-select govuk-!-width-two-thirds" id="sector" name="sector">
-  <option value="" selected="">Please choose...</option>
+  <option value="">Please choose...</option>
 
-  <option value="Advanced engineering">Advanced engineering</option>
-  <option value="Advanced engineering : Mechanical, electrical and process engineering">Advanced engineering : Mechanical, electrical and process engineering</option>
-  <option value="Advanced engineering : Metallurgical process plant">Advanced engineering : Metallurgical process plant</option>
-  <option value="Advanced engineering : Metals, minerals and materials">Advanced engineering : Metals, minerals and materials</option>
-  <option value="Advanced engineering : Metals, minerals and materials : Ceramics">Advanced engineering : Metals, minerals and materials : Ceramics</option>
-  <option value="Advanced engineering : Metals, minerals and materials : Composite materials">Advanced engineering : Metals, minerals and materials : Composite materials</option>
-  <option value="Advanced engineering : Metals, minerals and materials : Elastomers and rubbers">Advanced engineering : Metals, minerals and materials : Elastomers and rubbers</option>
-  <option value="Advanced engineering : Metals, minerals and materials : Metals">Advanced engineering : Metals, minerals and materials : Metals</option>
-  <option value="Advanced engineering : Metals, minerals and materials : Minerals">Advanced engineering : Metals, minerals and materials : Minerals</option>
-  <option value="Advanced engineering : Metals, minerals and materials : Plastics">Advanced engineering : Metals, minerals and materials : Plastics</option>
-  <option value="Aerospace">Aerospace</option>
-  <option value="Aerospace : Aircraft design">Aerospace : Aircraft design</option>
-  <option value="Aerospace : Component manufacturing">Aerospace : Component manufacturing</option>
-  <option value="Aerospace : Component manufacturing : Engines">Aerospace : Component manufacturing : Engines</option>
-  <option value="Aerospace : Maintenance">Aerospace : Maintenance</option>
-  <option value="Aerospace : Manufacturing and assembly">Aerospace : Manufacturing and assembly</option>
-  <option value="Aerospace : Manufacturing and assembly : Aircraft">Aerospace : Manufacturing and assembly : Aircraft</option>
-  <option value="Aerospace : Manufacturing and assembly : Unmanned aerial vehicles">Aerospace : Manufacturing and assembly : Unmanned aerial vehicles</option>
-  <option value="Agriculture, horticulture, fisheries and pets">Agriculture, horticulture, fisheries and pets</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Advisory services">Agriculture, horticulture, fisheries and pets : Advisory services</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Arable crops">Agriculture, horticulture, fisheries and pets : Arable crops</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Arable crops : Fertilisers and pesticides">Agriculture, horticulture, fisheries and pets : Arable crops : Fertilisers and pesticides</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Arable crops : Seeds and plant varieties">Agriculture, horticulture, fisheries and pets : Arable crops : Seeds and plant varieties</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Arable crops : Soil management systems">Agriculture, horticulture, fisheries and pets : Arable crops : Soil management systems</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Engineering and precision farming">Agriculture, horticulture, fisheries and pets : Engineering and precision farming</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Machinery">Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Machinery</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Technology">Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Technology</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Fisheries and aquaculture">Agriculture, horticulture, fisheries and pets : Fisheries and aquaculture</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Forestry and logging">Agriculture, horticulture, fisheries and pets : Forestry and logging</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Horticulture">Agriculture, horticulture, fisheries and pets : Horticulture</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Horticulture : Fruit and vegetable production">Agriculture, horticulture, fisheries and pets : Horticulture : Fruit and vegetable production</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Infrastructure">Agriculture, horticulture, fisheries and pets : Infrastructure</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses">Agriculture, horticulture, fisheries and pets : Livestock, pets and horses</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Breeding stock and genetics">Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Breeding stock and genetics</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Health, welfare and veterinary services">Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Health, welfare and veterinary services</option>
-  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Livestock feed and nutrition">Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Livestock feed and nutrition</option>
-  <option value="Airports">Airports</option>
-  <option value="Airports : Air freight and cargo services">Airports : Air freight and cargo services</option>
-  <option value="Airports : Air traffic control and airspace management">Airports : Air traffic control and airspace management</option>
-  <option value="Airports : Airport design, engineering, management and build">Airports : Airport design, engineering, management and build</option>
-  <option value="Airports : Airport management, flight and passenger operations">Airports : Airport management, flight and passenger operations</option>
+  <option value="Advanced engineering" {%- if data['sector'] == "Advanced engineering" -%}selected{%- endif -%}>Advanced engineering</option>
+  <option value="Advanced engineering : Mechanical, electrical and process engineering" {%- if data['sector'] == "Advanced engineering : Mechanical, electrical and process engineering" -%}selected{%- endif -%}>Advanced engineering : Mechanical, electrical and process engineering</option>
+  <option value="Advanced engineering : Metallurgical process plant" {%- if data['sector'] == "Advanced engineering : Metallurgical process plant" -%}selected{%- endif -%}>Advanced engineering : Metallurgical process plant</option>
+  <option value="Advanced engineering : Metals, minerals and materials" {%- if data['sector'] == "Advanced engineering : Metals, minerals and materials" -%}selected{%- endif -%}>Advanced engineering : Metals, minerals and materials</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Ceramics" {%- if data['sector'] == "Advanced engineering : Metals, minerals and materials : Ceramics" -%}selected{%- endif -%}>Advanced engineering : Metals, minerals and materials : Ceramics</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Composite materials" {%- if data['sector'] == "Advanced engineering : Metals, minerals and materials : Composite materials" -%}selected{%- endif -%}>Advanced engineering : Metals, minerals and materials : Composite materials</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Elastomers and rubbers" {%- if data['sector'] == "Advanced engineering : Metals, minerals and materials : Elastomers and rubbers" -%}selected{%- endif -%}>Advanced engineering : Metals, minerals and materials : Elastomers and rubbers</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Metals" {%- if data['sector'] == "Advanced engineering : Metals, minerals and materials : Metals" -%}selected{%- endif -%}>Advanced engineering : Metals, minerals and materials : Metals</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Minerals" {%- if data['sector'] == "Advanced engineering : Metals, minerals and materials : Minerals" -%}selected{%- endif -%}>Advanced engineering : Metals, minerals and materials : Minerals</option>
+  <option value="Advanced engineering : Metals, minerals and materials : Plastics" {%- if data['sector'] == "Advanced engineering : Metals, minerals and materials : Plastics" -%}selected{%- endif -%}>Advanced engineering : Metals, minerals and materials : Plastics</option>
+  <option value="Aerospace" {%- if data['sector'] == "Aerospace" -%}selected{%- endif -%}>Aerospace</option>
+  <option value="Aerospace : Aircraft design" {%- if data['sector'] == "Aerospace : Aircraft design" -%}selected{%- endif -%}>Aerospace : Aircraft design</option>
+  <option value="Aerospace : Component manufacturing" {%- if data['sector'] == "Aerospace : Component manufacturing" -%}selected{%- endif -%}>Aerospace : Component manufacturing</option>
+  <option value="Aerospace : Component manufacturing : Engines" {%- if data['sector'] == "Aerospace : Component manufacturing : Engines" -%}selected{%- endif -%}>Aerospace : Component manufacturing : Engines</option>
+  <option value="Aerospace : Maintenance" {%- if data['sector'] == "Aerospace : Maintenance" -%}selected{%- endif -%}>Aerospace : Maintenance</option>
+  <option value="Aerospace : Manufacturing and assembly" {%- if data['sector'] == "Aerospace : Manufacturing and assembly" -%}selected{%- endif -%}>Aerospace : Manufacturing and assembly</option>
+  <option value="Aerospace : Manufacturing and assembly : Aircraft" {%- if data['sector'] == "Aerospace : Manufacturing and assembly : Aircraft" -%}selected{%- endif -%}>Aerospace : Manufacturing and assembly : Aircraft</option>
+  <option value="Aerospace : Manufacturing and assembly : Unmanned aerial vehicles" {%- if data['sector'] == "Aerospace : Manufacturing and assembly : Unmanned aerial vehicles" -%}selected{%- endif -%}>Aerospace : Manufacturing and assembly : Unmanned aerial vehicles</option>
+  <option value="Agriculture, horticulture, fisheries and pets" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Advisory services" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Advisory services" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Advisory services</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Arable crops" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Arable crops" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Arable crops</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Arable crops : Fertilisers and pesticides" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Arable crops : Fertilisers and pesticides" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Arable crops : Fertilisers and pesticides</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Arable crops : Seeds and plant varieties" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Arable crops : Seeds and plant varieties" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Arable crops : Seeds and plant varieties</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Arable crops : Soil management systems" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Arable crops : Soil management systems" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Arable crops : Soil management systems</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Engineering and precision farming" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Engineering and precision farming" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Engineering and precision farming</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Machinery" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Machinery" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Machinery</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Technology" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Technology" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Engineering and precision farming : Technology</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Fisheries and aquaculture" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Fisheries and aquaculture" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Fisheries and aquaculture</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Forestry and logging" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Forestry and logging" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Forestry and logging</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Horticulture" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Horticulture" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Horticulture</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Horticulture : Fruit and vegetable production" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Horticulture : Fruit and vegetable production" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Horticulture : Fruit and vegetable production</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Infrastructure" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Infrastructure" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Infrastructure</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Livestock, pets and horses" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Livestock, pets and horses</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Breeding stock and genetics" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Breeding stock and genetics" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Breeding stock and genetics</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Health, welfare and veterinary services" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Health, welfare and veterinary services" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Health, welfare and veterinary services</option>
+  <option value="Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Livestock feed and nutrition" {%- if data['sector'] == "Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Livestock feed and nutrition" -%}selected{%- endif -%}>Agriculture, horticulture, fisheries and pets : Livestock, pets and horses : Livestock feed and nutrition</option>
+  <option value="Airports" {%- if data['sector'] == "Airports" -%}selected{%- endif -%}>Airports</option>
+  <option value="Airports : Air freight and cargo services" {%- if data['sector'] == "Airports : Air freight and cargo services" -%}selected{%- endif -%}>Airports : Air freight and cargo services</option>
+  <option value="Airports : Air traffic control and airspace management" {%- if data['sector'] == "Airports : Air traffic control and airspace management" -%}selected{%- endif -%}>Airports : Air traffic control and airspace management</option>
+  <option value="Airports : Airport design, engineering, management and build" {%- if data['sector'] == "Airports : Airport design, engineering, management and build" -%}selected{%- endif -%}>Airports : Airport design, engineering, management and build</option>
+  <option value="Airports : Airport management, flight and passenger operations" {%- if data['sector'] == "Airports : Airport management, flight and passenger operations" -%}selected{%- endif -%}>Airports : Airport management, flight and passenger operations</option>
   <option value="Airports : Airport security and equipment">Airports : Airport security and equipment</option>
   <option value="Airports : Specialised airport vehicles and equipment">Airports : Specialised airport vehicles and equipment</option>
-  <option value="Automotive">Automotive</option>
-  <option value="Automotive : Component manufacturing">Automotive : Component manufacturing</option>
-  <option value="Automotive : Component manufacturing : Bodies and coachwork">Automotive : Component manufacturing : Bodies and coachwork</option>
-  <option value="Automotive : Component manufacturing : Connectivity and automation">Automotive : Component manufacturing : Connectivity and automation</option>
-  <option value="Automotive : Component manufacturing : Electric vehicle components">Automotive : Component manufacturing : Electric vehicle components</option>
-  <option value="Automotive : Component manufacturing : Electronic components">Automotive : Component manufacturing : Electronic components</option>
-  <option value="Automotive : Component manufacturing : Engines and transmission">Automotive : Component manufacturing : Engines and transmission</option>
-  <option value="Automotive : Component manufacturing : Tyres">Automotive : Component manufacturing : Tyres</option>
-  <option value="Automotive : Design engineering">Automotive : Design engineering</option>
-  <option value="Automotive : Maintenance">Automotive : Maintenance</option>
-  <option value="Automotive : Manufacturing and assembly">Automotive : Manufacturing and assembly</option>
-  <option value="Automotive : Manufacturing and assembly : Agricultural machinery">Automotive : Manufacturing and assembly : Agricultural machinery</option>
-  <option value="Automotive : Manufacturing and assembly : Bicycles">Automotive : Manufacturing and assembly : Bicycles</option>
-  <option value="Automotive : Manufacturing and assembly : Buses">Automotive : Manufacturing and assembly : Buses</option>
-  <option value="Automotive : Manufacturing and assembly : Caravans">Automotive : Manufacturing and assembly : Caravans</option>
-  <option value="Automotive : Manufacturing and assembly : Cars">Automotive : Manufacturing and assembly : Cars</option>
-  <option value="Automotive : Manufacturing and assembly : Lorries">Automotive : Manufacturing and assembly : Lorries</option>
-  <option value="Automotive : Manufacturing and assembly : Motorcycles">Automotive : Manufacturing and assembly : Motorcycles</option>
-  <option value="Automotive : Manufacturing and assembly : Trailers">Automotive : Manufacturing and assembly : Trailers</option>
-  <option value="Automotive : Motorsport">Automotive : Motorsport</option>
-  <option value="Automotive : Retail">Automotive : Retail</option>
-  <option value="Chemicals">Chemicals</option>
-  <option value="Chemicals : Agricultural chemicals">Chemicals : Agricultural chemicals</option>
-  <option value="Chemicals : Basic chemicals">Chemicals : Basic chemicals</option>
-  <option value="Chemicals : Cleaning preparations">Chemicals : Cleaning preparations</option>
-  <option value="Chemicals : Miscellaneous chemicals">Chemicals : Miscellaneous chemicals</option>
-  <option value="Chemicals : Paint, coating and adhesive products">Chemicals : Paint, coating and adhesive products</option>
-  <option value="Chemicals : Speciality and fine chemical ingredients">Chemicals : Speciality and fine chemical ingredients</option>
-  <option value="Chemicals : Synthetic materials">Chemicals : Synthetic materials</option>
-  <option value="Construction">Construction</option>
-  <option value="Construction : Construction materials, equipment and tools">Construction : Construction materials, equipment and tools</option>
-  <option value="Construction : Design, engineering, management and build">Construction : Design, engineering, management and build</option>
-  <option value="Construction : New materials and technologies">Construction : New materials and technologies</option>
-  <option value="Construction : Pre-cast structural, fit-out and components">Construction : Pre-cast structural, fit-out and components</option>
-  <option value="Construction : Specialised construction vehicles">Construction : Specialised construction vehicles</option>
-  <option value="Consumer and retail">Consumer and retail</option>
-  <option value="Consumer and retail : Books, printed media and stationery">Consumer and retail : Books, printed media and stationery</option>
-  <option value="Consumer and retail : Clothing, footwear and fashion">Consumer and retail : Clothing, footwear and fashion</option>
-  <option value="Consumer and retail : Clothing, footwear and fashion : Accessories, bags and luggage">Consumer and retail : Clothing, footwear and fashion : Accessories, bags and luggage</option>
-  <option value="Consumer and retail : Clothing, footwear and fashion : Children's apparel">Consumer and retail : Clothing, footwear and fashion : Children's apparel</option>
-  <option value="Consumer and retail : Clothing, footwear and fashion : Footwear">Consumer and retail : Clothing, footwear and fashion : Footwear</option>
-  <option value="Consumer and retail : Clothing, footwear and fashion : Men's apparel">Consumer and retail : Clothing, footwear and fashion : Men's apparel</option>
-  <option value="Consumer and retail : Clothing, footwear and fashion : Sports and leisurewear">Consumer and retail : Clothing, footwear and fashion : Sports and leisurewear</option>
-  <option value="Consumer and retail : Clothing, footwear and fashion : Women's apparel">Consumer and retail : Clothing, footwear and fashion : Women's apparel</option>
-  <option value="Consumer and retail : Cosmetics and beauty">Consumer and retail : Cosmetics and beauty</option>
-  <option value="Consumer and retail : Electronic consumer products">Consumer and retail : Electronic consumer products</option>
-  <option value="Consumer and retail : Furniture and furnishings">Consumer and retail : Furniture and furnishings</option>
-  <option value="Consumer and retail : Giftware">Consumer and retail : Giftware</option>
-  <option value="Consumer and retail : Household goods">Consumer and retail : Household goods</option>
-  <option value="Consumer and retail : Jewellery">Consumer and retail : Jewellery</option>
-  <option value="Consumer and retail : Leisure and tourism">Consumer and retail : Leisure and tourism</option>
-  <option value="Consumer and retail : Leisure and tourism : Hotels and hospitality">Consumer and retail : Leisure and tourism : Hotels and hospitality</option>
-  <option value="Consumer and retail : Leisure and tourism : Travel">Consumer and retail : Leisure and tourism : Travel</option>
-  <option value="Consumer and retail : Luxury">Consumer and retail : Luxury</option>
-  <option value="Consumer and retail : Musical instruments">Consumer and retail : Musical instruments</option>
-  <option value="Consumer and retail : Supermarkets">Consumer and retail : Supermarkets</option>
-  <option value="Consumer and retail : Tableware">Consumer and retail : Tableware</option>
-  <option value="Consumer and retail : Textiles, interior textiles and carpets">Consumer and retail : Textiles, interior textiles and carpets</option>
-  <option value="Consumer and retail : Toys">Consumer and retail : Toys</option>
-  <option value="Consumer and retail : eCommerce">Consumer and retail : eCommerce</option>
-  <option value="Creative industries">Creative industries</option>
-  <option value="Creative industries : Advertising">Creative industries : Advertising</option>
-  <option value="Creative industries : Animation">Creative industries : Animation</option>
-  <option value="Creative industries : Antiques and antiquities">Creative industries : Antiques and antiquities</option>
-  <option value="Creative industries : Art">Creative industries : Art</option>
-  <option value="Creative industries : Design">Creative industries : Design</option>
-  <option value="Creative industries : Design : Industrial design">Creative industries : Design : Industrial design</option>
-  <option value="Creative industries : Design : Interior design">Creative industries : Design : Interior design</option>
-  <option value="Creative industries : Digital services">Creative industries : Digital services</option>
-  <option value="Creative industries : Digital services : Agencies">Creative industries : Digital services : Agencies</option>
-  <option value="Creative industries : Digital services : Social media platforms">Creative industries : Digital services : Social media platforms</option>
-  <option value="Creative industries : Equipment">Creative industries : Equipment</option>
-  <option value="Creative industries : Equipment : Photo and cinema">Creative industries : Equipment : Photo and cinema</option>
-  <option value="Creative industries : Experience economy">Creative industries : Experience economy</option>
-  <option value="Creative industries : Experience economy : Attractions">Creative industries : Experience economy : Attractions</option>
-  <option value="Creative industries : Film and TV">Creative industries : Film and TV</option>
-  <option value="Creative industries : Film and TV : Hardware">Creative industries : Film and TV : Hardware</option>
-  <option value="Creative industries : Film and TV : Production and finance">Creative industries : Film and TV : Production and finance</option>
-  <option value="Creative industries : Film and TV : Sales and distribution">Creative industries : Film and TV : Sales and distribution</option>
-  <option value="Creative industries : Film and TV : Visual effects (VFX) and motion graphics">Creative industries : Film and TV : Visual effects (VFX) and motion graphics</option>
-  <option value="Creative industries : Games">Creative industries : Games</option>
-  <option value="Creative industries : Games : Development">Creative industries : Games : Development</option>
-  <option value="Creative industries : Games : Esports">Creative industries : Games : Esports</option>
-  <option value="Creative industries : Immersive technology">Creative industries : Immersive technology</option>
-  <option value="Creative industries : Music">Creative industries : Music</option>
-  <option value="Creative industries : Performing arts">Creative industries : Performing arts</option>
-  <option value="Creative industries : Publishing">Creative industries : Publishing</option>
-  <option value="Defence">Defence</option>
-  <option value="Defence : Air">Defence : Air</option>
-  <option value="Defence : Air : Air electronic warfare">Defence : Air : Air electronic warfare</option>
-  <option value="Defence : Air : Aircrew training">Defence : Air : Aircrew training</option>
-  <option value="Defence : Air : Battlespace management">Defence : Air : Battlespace management</option>
-  <option value="Defence : Air : Complex weapons">Defence : Air : Complex weapons</option>
-  <option value="Defence : Air : Fast jet">Defence : Air : Fast jet</option>
-  <option value="Defence : Air : Ground based air defence (GBAD)">Defence : Air : Ground based air defence (GBAD)</option>
-  <option value="Defence : Air : Intelligence surveillance target acquisition and reconnaissance (ISTAR)">Defence : Air : Intelligence surveillance target acquisition and reconnaissance (ISTAR)</option>
-  <option value="Defence : Air : Large aircraft">Defence : Air : Large aircraft</option>
-  <option value="Defence : Air : Platform protection">Defence : Air : Platform protection</option>
-  <option value="Defence : Air : Support and maintenance">Defence : Air : Support and maintenance</option>
-  <option value="Defence : Air : Unmanned air systems (UAS)">Defence : Air : Unmanned air systems (UAS)</option>
-  <option value="Defence : Land">Defence : Land</option>
-  <option value="Defence : Land : Chemical, biological, radiological and nuclear (CBRN)">Defence : Land : Chemical, biological, radiological and nuclear (CBRN)</option>
-  <option value="Defence : Land : Combat">Defence : Land : Combat</option>
-  <option value="Defence : Land : Combat support">Defence : Land : Combat support</option>
-  <option value="Defence : Land : Counter explosive ordnance (C-EO)">Defence : Land : Counter explosive ordnance (C-EO)</option>
-  <option value="Defence : Land : Cyber">Defence : Land : Cyber</option>
-  <option value="Defence : Maritime">Defence : Maritime</option>
-  <option value="Defence : Maritime : Maritime aviation">Defence : Maritime : Maritime aviation</option>
+  <option value="Automotive" {%- if data['sector'] == "Automotive" -%}selected{%- endif -%}>Automotive</option>
+  <option value="Automotive : Component manufacturing" {%- if data['sector'] == "Automotive : Component manufacturing" -%}selected{%- endif -%}>Automotive : Component manufacturing</option>
+  <option value="Automotive : Component manufacturing : Bodies and coachwork" {%- if data['sector'] == "Automotive : Component manufacturing : Bodies and coachwork" -%}selected{%- endif -%}>Automotive : Component manufacturing : Bodies and coachwork</option>
+  <option value="Automotive : Component manufacturing : Connectivity and automation" {%- if data['sector'] == "Automotive : Component manufacturing : Connectivity and automation" -%}selected{%- endif -%}>Automotive : Component manufacturing : Connectivity and automation</option>
+  <option value="Automotive : Component manufacturing : Electric vehicle components" {%- if data['sector'] == "Automotive : Component manufacturing : Electric vehicle components" -%}selected{%- endif -%}>Automotive : Component manufacturing : Electric vehicle components</option>
+  <option value="Automotive : Component manufacturing : Electronic components" {%- if data['sector'] == "Automotive : Component manufacturing : Electronic components" -%}selected{%- endif -%}>Automotive : Component manufacturing : Electronic components</option>
+  <option value="Automotive : Component manufacturing : Engines and transmission" {%- if data['sector'] == "Automotive : Component manufacturing : Engines and transmission" -%}selected{%- endif -%}>Automotive : Component manufacturing : Engines and transmission</option>
+  <option value="Automotive : Component manufacturing : Tyres" {%- if data['sector'] == "Automotive : Component manufacturing : Tyres" -%}selected{%- endif -%}>Automotive : Component manufacturing : Tyres</option>
+  <option value="Automotive : Design engineering" {%- if data['sector'] == "Automotive : Design engineering" -%}selected{%- endif -%}>Automotive : Design engineering</option>
+  <option value="Automotive : Maintenance" {%- if data['sector'] == "Automotive : Maintenance" -%}selected{%- endif -%}>Automotive : Maintenance</option>
+  <option value="Automotive : Manufacturing and assembly" {%- if data['sector'] == "Automotive : Manufacturing and assembly" -%}selected{%- endif -%}>Automotive : Manufacturing and assembly</option>
+  <option value="Automotive : Manufacturing and assembly : Agricultural machinery" {%- if data['sector'] == "Automotive : Manufacturing and assembly : Agricultural machinery" -%}selected{%- endif -%}>Automotive : Manufacturing and assembly : Agricultural machinery</option>
+  <option value="Automotive : Manufacturing and assembly : Bicycles" {%- if data['sector'] == "Automotive : Manufacturing and assembly : Bicycles" -%}selected{%- endif -%}>Automotive : Manufacturing and assembly : Bicycles</option>
+  <option value="Automotive : Manufacturing and assembly : Buses" {%- if data['sector'] == "Automotive : Manufacturing and assembly : Buses" -%}selected{%- endif -%}>Automotive : Manufacturing and assembly : Buses</option>
+  <option value="Automotive : Manufacturing and assembly : Caravans" {%- if data['sector'] == "Automotive : Manufacturing and assembly : Caravans" -%}selected{%- endif -%}>Automotive : Manufacturing and assembly : Caravans</option>
+  <option value="Automotive : Manufacturing and assembly : Cars" {%- if data['sector'] == "Automotive : Manufacturing and assembly : Cars" -%}selected{%- endif -%}>Automotive : Manufacturing and assembly : Cars</option>
+  <option value="Automotive : Manufacturing and assembly : Lorries" {%- if data['sector'] == "Automotive : Manufacturing and assembly : Lorries" -%}selected{%- endif -%}>Automotive : Manufacturing and assembly : Lorries</option>
+  <option value="Automotive : Manufacturing and assembly : Motorcycles" {%- if data['sector'] == "Automotive : Manufacturing and assembly : Motorcycles" -%}selected{%- endif -%}>Automotive : Manufacturing and assembly : Motorcycles</option>
+  <option value="Automotive : Manufacturing and assembly : Trailers" {%- if data['sector'] == "Automotive : Manufacturing and assembly : Trailers" -%}selected{%- endif -%}>Automotive : Manufacturing and assembly : Trailers</option>
+  <option value="Automotive : Motorsport" {%- if data['sector'] == "Automotive : Motorsport" -%}selected{%- endif -%}>Automotive : Motorsport</option>
+  <option value="Automotive : Retail" {%- if data['sector'] == "Automotive : Retail" -%}selected{%- endif -%}>Automotive : Retail</option>
+  <option value="Chemicals" {%- if data['sector'] == "Chemicals" -%}selected{%- endif -%}>Chemicals</option>
+  <option value="Chemicals : Agricultural chemicals" {%- if data['sector'] == "Chemicals : Agricultural chemicals" -%}selected{%- endif -%}>Chemicals : Agricultural chemicals</option>
+  <option value="Chemicals : Basic chemicals" {%- if data['sector'] == "Chemicals : Basic chemicals" -%}selected{%- endif -%}>Chemicals : Basic chemicals</option>
+  <option value="Chemicals : Cleaning preparations" {%- if data['sector'] == "Chemicals : Cleaning preparations" -%}selected{%- endif -%}>Chemicals : Cleaning preparations</option>
+  <option value="Chemicals : Miscellaneous chemicals" {%- if data['sector'] == "Chemicals : Miscellaneous chemicals" -%}selected{%- endif -%}>Chemicals : Miscellaneous chemicals</option>
+  <option value="Chemicals : Paint, coating and adhesive products" {%- if data['sector'] == "Chemicals : Paint, coating and adhesive products" -%}selected{%- endif -%}>Chemicals : Paint, coating and adhesive products</option>
+  <option value="Chemicals : Speciality and fine chemical ingredients" {%- if data['sector'] == "Chemicals : Speciality and fine chemical ingredients" -%}selected{%- endif -%}>Chemicals : Speciality and fine chemical ingredients</option>
+  <option value="Chemicals : Synthetic materials" {%- if data['sector'] == "Chemicals : Synthetic materials" -%}selected{%- endif -%}>Chemicals : Synthetic materials</option>
+  <option value="Construction" {%- if data['sector'] == "Construction" -%}selected{%- endif -%}>Construction</option>
+  <option value="Construction : Construction materials, equipment and tools" {%- if data['sector'] == "Construction : Construction materials, equipment and tools" -%}selected{%- endif -%}>Construction : Construction materials, equipment and tools</option>
+  <option value="Construction : Design, engineering, management and build" {%- if data['sector'] == "Construction : Design, engineering, management and build" -%}selected{%- endif -%}>Construction : Design, engineering, management and build</option>
+  <option value="Construction : New materials and technologies" {%- if data['sector'] == "Construction : New materials and technologies" -%}selected{%- endif -%}>Construction : New materials and technologies</option>
+  <option value="Construction : Pre-cast structural, fit-out and components" {%- if data['sector'] == "Construction : Pre-cast structural, fit-out and components" -%}selected{%- endif -%}>Construction : Pre-cast structural, fit-out and components</option>
+  <option value="Construction : Specialised construction vehicles" {%- if data['sector'] == "Construction : Specialised construction vehicles" -%}selected{%- endif -%}>Construction : Specialised construction vehicles</option>
+  <option value="Consumer and retail" {%- if data['sector'] == "Consumer and retail" -%}selected{%- endif -%}>Consumer and retail</option>
+  <option value="Consumer and retail : Books, printed media and stationery" {%- if data['sector'] == "Consumer and retail : Books, printed media and stationery" -%}selected{%- endif -%}>Consumer and retail : Books, printed media and stationery</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion" {%- if data['sector'] == "Consumer and retail : Clothing, footwear and fashion" -%}selected{%- endif -%}>Consumer and retail : Clothing, footwear and fashion</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Accessories, bags and luggage" {%- if data['sector'] == "Consumer and retail : Clothing, footwear and fashion : Accessories, bags and luggage" -%}selected{%- endif -%}>Consumer and retail : Clothing, footwear and fashion : Accessories, bags and luggage</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Children's apparel" {%- if data['sector'] == "Consumer and retail : Clothing, footwear and fashion : Children's apparel" -%}selected{%- endif -%}>Consumer and retail : Clothing, footwear and fashion : Children's apparel</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Footwear" {%- if data['sector'] == "Consumer and retail : Clothing, footwear and fashion : Footwear" -%}selected{%- endif -%}>Consumer and retail : Clothing, footwear and fashion : Footwear</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Men's apparel" {%- if data['sector'] == "Consumer and retail : Clothing, footwear and fashion : Men's apparel" -%}selected{%- endif -%}>Consumer and retail : Clothing, footwear and fashion : Men's apparel</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Sports and leisurewear" {%- if data['sector'] == "Consumer and retail : Clothing, footwear and fashion : Sports and leisurewear" -%}selected{%- endif -%}>Consumer and retail : Clothing, footwear and fashion : Sports and leisurewear</option>
+  <option value="Consumer and retail : Clothing, footwear and fashion : Women's apparel" {%- if data['sector'] == "Consumer and retail : Clothing, footwear and fashion : Women's apparel" -%}selected{%- endif -%}>Consumer and retail : Clothing, footwear and fashion : Women's apparel</option>
+  <option value="Consumer and retail : Cosmetics and beauty" {%- if data['sector'] == "Consumer and retail : Cosmetics and beauty" -%}selected{%- endif -%}>Consumer and retail : Cosmetics and beauty</option>
+  <option value="Consumer and retail : Electronic consumer products" {%- if data['sector'] == "Consumer and retail : Electronic consumer products" -%}selected{%- endif -%}>Consumer and retail : Electronic consumer products</option>
+  <option value="Consumer and retail : Furniture and furnishings" {%- if data['sector'] == "Consumer and retail : Furniture and furnishings" -%}selected{%- endif -%}>Consumer and retail : Furniture and furnishings</option>
+  <option value="Consumer and retail : Giftware" {%- if data['sector'] == "Consumer and retail : Giftware" -%}selected{%- endif -%}>Consumer and retail : Giftware</option>
+  <option value="Consumer and retail : Household goods" {%- if data['sector'] == "Consumer and retail : Household goods" -%}selected{%- endif -%}>Consumer and retail : Household goods</option>
+  <option value="Consumer and retail : Jewellery" {%- if data['sector'] == "Consumer and retail : Jewellery" -%}selected{%- endif -%}>Consumer and retail : Jewellery</option>
+  <option value="Consumer and retail : Leisure and tourism" {%- if data['sector'] == "Consumer and retail : Leisure and tourism" -%}selected{%- endif -%}>Consumer and retail : Leisure and tourism</option>
+  <option value="Consumer and retail : Leisure and tourism : Hotels and hospitality" {%- if data['sector'] == "Consumer and retail : Leisure and tourism : Hotels and hospitality" -%}selected{%- endif -%}>Consumer and retail : Leisure and tourism : Hotels and hospitality</option>
+  <option value="Consumer and retail : Leisure and tourism : Travel" {%- if data['sector'] == "Consumer and retail : Leisure and tourism : Travel" -%}selected{%- endif -%}>Consumer and retail : Leisure and tourism : Travel</option>
+  <option value="Consumer and retail : Luxury" {%- if data['sector'] == "Consumer and retail : Luxury" -%}selected{%- endif -%}>Consumer and retail : Luxury</option>
+  <option value="Consumer and retail : Musical instruments" {%- if data['sector'] == "Consumer and retail : Musical instruments" -%}selected{%- endif -%}>Consumer and retail : Musical instruments</option>
+  <option value="Consumer and retail : Supermarkets" {%- if data['sector'] == "Consumer and retail : Supermarkets" -%}selected{%- endif -%}>Consumer and retail : Supermarkets</option>
+  <option value="Consumer and retail : Tableware" {%- if data['sector'] == "Consumer and retail : Tableware" -%}selected{%- endif -%}>Consumer and retail : Tableware</option>
+  <option value="Consumer and retail : Textiles, interior textiles and carpets" {%- if data['sector'] == "Consumer and retail : Tableware" -%}selected{%- endif -%}>Consumer and retail : Textiles, interior textiles and carpets</option>
+  <option value="Consumer and retail : Toys" {%- if data['sector'] == "Consumer and retail : Toys" -%}selected{%- endif -%}>Consumer and retail : Toys</option>
+  <option value="Consumer and retail : eCommerce" {%- if data['sector'] == "Consumer and retail : eCommerce" -%}selected{%- endif -%}>Consumer and retail : eCommerce</option>
+  <option value="Creative industries" {%- if data['sector'] == "Creative industries" -%}selected{%- endif -%}>Creative industries</option>
+  <option value="Creative industries : Advertising" {%- if data['sector'] == "Creative industries : Advertising" -%}selected{%- endif -%}>Creative industries : Advertising</option>
+  <option value="Creative industries : Animation" {%- if data['sector'] == "Creative industries : Animation" -%}selected{%- endif -%}>Creative industries : Animation</option>
+  <option value="Creative industries : Antiques and antiquities" {%- if data['sector'] == "Creative industries : Antiques and antiquities" -%}selected{%- endif -%}>Creative industries : Antiques and antiquities</option>
+  <option value="Creative industries : Art" {%- if data['sector'] == "Creative industries : Art" -%}selected{%- endif -%}>Creative industries : Art</option>
+  <option value="Creative industries : Design" {%- if data['sector'] == "Creative industries : Design" -%}selected{%- endif -%}>Creative industries : Design</option>
+  <option value="Creative industries : Design : Industrial design" {%- if data['sector'] == "Creative industries : Design : Industrial design" -%}selected{%- endif -%}>Creative industries : Design : Industrial design</option>
+  <option value="Creative industries : Design : Interior design" {%- if data['sector'] == "Creative industries : Design : Interior design" -%}selected{%- endif -%}>Creative industries : Design : Interior design</option>
+  <option value="Creative industries : Digital services" {%- if data['sector'] == "Creative industries : Digital services" -%}selected{%- endif -%}>Creative industries : Digital services</option>
+  <option value="Creative industries : Digital services : Agencies" {%- if data['sector'] == "Creative industries : Digital services : Agencies" -%}selected{%- endif -%}>Creative industries : Digital services : Agencies</option>
+  <option value="Creative industries : Digital services : Social media platforms" {%- if data['sector'] == "Creative industries : Digital services : Social media platforms" -%}selected{%- endif -%}>Creative industries : Digital services : Social media platforms</option>
+  <option value="Creative industries : Equipment" {%- if data['sector'] == "Creative industries : Equipment" -%}selected{%- endif -%}>Creative industries : Equipment</option>
+  <option value="Creative industries : Equipment : Photo and cinema" {%- if data['sector'] == "Creative industries : Equipment : Photo and cinema" -%}selected{%- endif -%}>Creative industries : Equipment : Photo and cinema</option>
+  <option value="Creative industries : Experience economy" {%- if data['sector'] == "Creative industries : Experience economy" -%}selected{%- endif -%}>Creative industries : Experience economy</option>
+  <option value="Creative industries : Experience economy : Attractions" {%- if data['sector'] == "Creative industries : Experience economy : Attractions" -%}selected{%- endif -%}>Creative industries : Experience economy : Attractions</option>
+  <option value="Creative industries : Film and TV" {%- if data['sector'] == "Creative industries : Film and TV" -%}selected{%- endif -%}>Creative industries : Film and TV</option>
+  <option value="Creative industries : Film and TV : Hardware" {%- if data['sector'] == "Creative industries : Film and TV : Hardware" -%}selected{%- endif -%}>Creative industries : Film and TV : Hardware</option>
+  <option value="Creative industries : Film and TV : Production and finance" {%- if data['sector'] == "Creative industries : Film and TV : Production and finance" -%}selected{%- endif -%}>Creative industries : Film and TV : Production and finance</option>
+  <option value="Creative industries : Film and TV : Sales and distribution" {%- if data['sector'] == "Creative industries : Film and TV : Sales and distribution" -%}selected{%- endif -%}>Creative industries : Film and TV : Sales and distribution</option>
+  <option value="Creative industries : Film and TV : Visual effects (VFX) and motion graphics" {%- if data['sector'] == "Creative industries : Film and TV : Visual effects (VFX) and motion graphics" -%}selected{%- endif -%}>Creative industries : Film and TV : Visual effects (VFX) and motion graphics</option>
+  <option value="Creative industries : Games" {%- if data['sector'] == "Creative industries : Games" -%}selected{%- endif -%}>Creative industries : Games</option>
+  <option value="Creative industries : Games : Development" {%- if data['sector'] == "Creative industries : Games : Development" -%}selected{%- endif -%}>Creative industries : Games : Development</option>
+  <option value="Creative industries : Games : Esports" {%- if data['sector'] == "Creative industries : Games : Esports" -%}selected{%- endif -%}>Creative industries : Games : Esports</option>
+  <option value="Creative industries : Immersive technology" {%- if data['sector'] == "Creative industries : Immersive technology" -%}selected{%- endif -%}>Creative industries : Immersive technology</option>
+  <option value="Creative industries : Music" {%- if data['sector'] == "Creative industries : Music" -%}selected{%- endif -%}>Creative industries : Music</option>
+  <option value="Creative industries : Performing arts" {%- if data['sector'] == "Creative industries : Performing arts" -%}selected{%- endif -%}>Creative industries : Performing arts</option>
+  <option value="Creative industries : Publishing" {%- if data['sector'] == "Creative industries : Publishing" -%}selected{%- endif -%}>Creative industries : Publishing</option>
+  <option value="Defence" {%- if data['sector'] == "Defence" -%}selected{%- endif -%}>Defence</option>
+  <option value="Defence : Air" {%- if data['sector'] == "Defence : Air" -%}selected{%- endif -%}>Defence : Air</option>
+  <option value="Defence : Air : Air electronic warfare" {%- if data['sector'] == "Defence : Air : Air electronic warfare" -%}selected{%- endif -%}>Defence : Air : Air electronic warfare</option>
+  <option value="Defence : Air : Aircrew training" {%- if data['sector'] == "Defence : Air : Aircrew training" -%}selected{%- endif -%}>Defence : Air : Aircrew training</option>
+  <option value="Defence : Air : Battlespace management" {%- if data['sector'] == "Defence : Air : Battlespace management" -%}selected{%- endif -%}>Defence : Air : Battlespace management</option>
+  <option value="Defence : Air : Complex weapons" {%- if data['sector'] == "Defence : Air : Complex weapons" -%}selected{%- endif -%}>Defence : Air : Complex weapons</option>
+  <option value="Defence : Air : Fast jet" {%- if data['sector'] == "Defence : Air : Fast jet" -%}selected{%- endif -%}>Defence : Air : Fast jet</option>
+  <option value="Defence : Air : Ground based air defence (GBAD)" {%- if data['sector'] == "Defence : Air : Ground based air defence (GBAD)" -%}selected{%- endif -%}>Defence : Air : Ground based air defence (GBAD)</option>
+  <option value="Defence : Air : Intelligence surveillance target acquisition and reconnaissance (ISTAR)" {%- if data['sector'] == "Defence : Air : Intelligence surveillance target acquisition and reconnaissance (ISTAR)" -%}selected{%- endif -%}>Defence : Air : Intelligence surveillance target acquisition and reconnaissance (ISTAR)</option>
+  <option value="Defence : Air : Large aircraft" {%- if data['sector'] == "Defence : Air : Large aircraft" -%}selected{%- endif -%}>Defence : Air : Large aircraft</option>
+  <option value="Defence : Air : Platform protection" {%- if data['sector'] == "Defence : Air : Platform protection" -%}selected{%- endif -%}>Defence : Air : Platform protection</option>
+  <option value="Defence : Air : Support and maintenance" {%- if data['sector'] == "Defence : Air : Support and maintenance" -%}selected{%- endif -%}>Defence : Air : Support and maintenance</option>
+  <option value="Defence : Air : Unmanned air systems (UAS)" {%- if data['sector'] == "Defence : Air : Unmanned air systems (UAS)" -%}selected{%- endif -%}>Defence : Air : Unmanned air systems (UAS)</option>
+  <option value="Defence : Land" {%- if data['sector'] == "Defence : Land" -%}selected{%- endif -%}>Defence : Land</option>
+  <option value="Defence : Land : Chemical, biological, radiological and nuclear (CBRN)" {%- if data['sector'] == "Defence : Land : Chemical, biological, radiological and nuclear (CBRN)" -%}selected{%- endif -%}>Defence : Land : Chemical, biological, radiological and nuclear (CBRN)</option>
+  <option value="Defence : Land : Combat" {%- if data['sector'] == "Defence : Land : Combat" -%}selected{%- endif -%}>Defence : Land : Combat</option>
+  <option value="Defence : Land : Combat support" {%- if data['sector'] == "Defence : Land : Combat support" -%}selected{%- endif -%}>Defence : Land : Combat support</option>
+  <option value="Defence : Land : Counter explosive ordnance (C-EO)" {%- if data['sector'] == "Defence : Land : Counter explosive ordnance (C-EO)" -%}selected{%- endif -%}>Defence : Land : Counter explosive ordnance (C-EO)</option>
+  <option value="Defence : Land : Cyber" {%- if data['sector'] == "Defence : Land : Cyber" -%}selected{%- endif -%}>Defence : Land : Cyber</option>
+  <option value="Defence : Maritime" {%- if data['sector'] == "Defence : Maritime" -%}selected{%- endif -%}>Defence : Maritime</option>
+  <option value="Defence : Maritime : Maritime aviation" {%- if data['sector'] == "Defence : Maritime : Maritime aviation" -%}selected{%- endif -%}>Defence : Maritime : Maritime aviation</option>
   <option value="Defence : Maritime : Non-traditional and development">Defence : Maritime : Non-traditional and development</option>
   <option value="Defence : Maritime : Sub-surface">Defence : Maritime : Sub-surface</option>
   <option value="Defence : Maritime : Support and infrastructure">Defence : Maritime : Support and infrastructure</option>
@@ -1004,10 +1014,17 @@
 
 <!-- START Buttons -->
 <div class="govuk-button-group">
+  {% if data['form-complete'] != "Yes" %}
   <button class="govuk-button" data-module="govuk-button">
     Continue
   </button>
-  <a class="govuk-link" href="customer-details">Cancel</a>
+  <a class="govuk-link" href="customer-details">Back</a>
+  {% else %}
+  <button class="govuk-button" data-module="govuk-button">
+    Save
+  </button>
+  <a class="govuk-link" href="check-before-sending">Cancel</a>
+  {% endif %}
 </div>
 
 </form>
@@ -1016,5 +1033,12 @@
   </div>
 </div>
 <!-- END CONTAINER -->
+
+<script>
+  if (window.location.href.includes('edit') == true) {
+    document.getElementById('notification-msg').innerHTML = "<div class='govuk-notification-banner' role='alert' aria-labelledby='govuk-notification-banner-title' data-module='govuk-notification-banner'><div class='govuk-notification-banner__header'><h2 class='govuk-notification-banner__title' id='govuk-notification-banner-title'>Important</h2></div><div class='govuk-notification-banner__content'><h3 class='govuk-notification-banner__heading govuk-!-padding-bottom-0 govuk-!-margin-bottom-0' style='max-width: max-content;'>Contact <a href='mailto:exportwins@businessandtrade.gov.uk' class='govuk-link'>exportwins@businessandtrade.gov.uk</a> if you need to update the sections: Destination, Date won, Type of win and Export value</h3></div></div>";
+  }
+
+</script>
 
 {% endblock %}
