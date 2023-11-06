@@ -19,29 +19,36 @@ class ReverseProxyRouter(ProxyView):
 
     def dispatch(self, request, path):
         if path and "pop_static" in path:
+            # this is a request for a static file from the POP Django app
             static_path = path.replace("pop_static/", "")
             return serve(request, static_path, document_root=settings.STATIC_ROOT)
 
+        elif not request.session.get("authenticated", False):
+            # the user is not authenticated, take them to the password-entry page
+            return self.return_index_page(request)
+
         elif request.POST and "pop_authentication_flag" in request.POST:
+            # the user is trying to authenticate
             if entered_password := request.POST.get("password", None):
                 if (
                     hashlib.sha256(entered_password.encode()).hexdigest()
                     == settings.HASHED_PASSWORD
                 ):
+                    # password matches, let them in
                     request.session["authenticated"] = True
                     return redirect("/")
                 else:
+                    # password doesn't match, take them back home and show them the error
                     request.session["authenticated"] = False
                     return self.return_index_page(
                         request, extra_context={"failed_authentication": True}
                     )
 
-        elif not request.session.get("authenticated", False):
-            return self.return_index_page(request)
-
         elif path and "pop_static" not in path:
+            # authenticated user is trying to access a prototype's page
             return super().dispatch(request, path)
         else:
+            # let's just take them to the index page, what's happened here?
             return self.return_index_page(request)
 
     @property
@@ -51,10 +58,14 @@ class ReverseProxyRouter(ProxyView):
             prototype_name = split_path[0]
 
             if prototype := prototypes.get(prototype_name, None):
+                # we have a prototype name in the URL, let's store it in the session
+                # this needs to happen first in case they're trying to access a different prototype
                 self.request.session["prototype_name"] = prototype_name
+                # figure out the port number from the prototype dict, then return the URL
                 return f"http://localhost:{prototype['env']['PORT']}"
 
             if stored_prototype := self.request.session.get("prototype_name", None):
+                # we have a prototype name in the session, let's use that
                 return f"http://localhost:{prototypes[stored_prototype]['env']['PORT']}"
 
             return None
