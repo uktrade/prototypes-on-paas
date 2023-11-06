@@ -18,16 +18,7 @@ class ReverseProxyRouter(ProxyView):
         return SimpleTemplateResponse(template="index.html", context=context)
 
     def dispatch(self, request, path):
-        if path and "pop_static" in path:
-            # this is a request for a static file from the POP Django app
-            static_path = path.replace("pop_static/", "")
-            return serve(request, static_path, document_root=settings.STATIC_ROOT)
-
-        elif not request.session.get("authenticated", False):
-            # the user is not authenticated, take them to the password-entry page
-            return self.return_index_page(request)
-
-        elif request.POST and "pop_authentication_flag" in request.POST:
+        if request.POST and "pop_authentication_flag" in request.POST:
             # the user is trying to authenticate
             if entered_password := request.POST.get("password", None):
                 if (
@@ -43,6 +34,15 @@ class ReverseProxyRouter(ProxyView):
                     return self.return_index_page(
                         request, extra_context={"failed_authentication": True}
                     )
+
+        elif not request.session.get("authenticated", False):
+            # the user is not authenticated, take them to the password-entry page
+            return self.return_index_page(request)
+
+        if path and "pop_static" in path:
+            # this is a request for a static file from the POP Django app
+            static_path = path.replace("pop_static/", "")
+            return serve(request, static_path, document_root=settings.STATIC_ROOT)
 
         elif path and "pop_static" not in path:
             # authenticated user is trying to access a prototype's page
