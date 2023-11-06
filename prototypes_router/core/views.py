@@ -35,14 +35,14 @@ class ReverseProxyRouter(ProxyView):
                         request, extra_context={"failed_authentication": True}
                     )
 
-        elif not request.session.get("authenticated", False):
-            # the user is not authenticated, take them to the password-entry page
-            return self.return_index_page(request)
-
-        if path and "pop_static" in path:
+        elif path and "pop_static" in path:
             # this is a request for a static file from the POP Django app
             static_path = path.replace("pop_static/", "")
             return serve(request, static_path, document_root=settings.STATIC_ROOT)
+
+        elif not request.session.get("authenticated", False):
+            # the user is not authenticated, take them to the password-entry page
+            return self.return_index_page(request)
 
         elif path and "pop_static" not in path:
             # authenticated user is trying to access a prototype's page
