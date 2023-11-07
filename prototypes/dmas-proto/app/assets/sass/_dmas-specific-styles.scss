@@ -1,0 +1,189 @@
+// CSS for DBT DMAS specific components
+// These in addition to styles from LIVE
+// Do not use this code in a production environment
+
+/* DBT DMAS colours (some maybe dupes of gov colours */
+$colour-dbt-pending-blue: #144E81;
+$colour-dbt-published-orange: #F47738;
+$colour-dbt-notallowed-pink: #80224D;
+$colour-dbt-warning-red: #AA2A16;
+$colour-dbt-dormant-grey: #505A5F;
+$colour-dbt-open-green: #00703C;
+$colour-dbt-info-box-grey: #B1B4B6;
+$colour-dbt-info-box-lgrey: #f3f2f1;
+
+$colour-dbt-gh1: #cf102d;
+$colour-dbt-websafe-gh2: #005ea5;
+
+/* Additional GOV colours (not covered in live-styles colours.scss */
+$govuk-green: govuk-colour( 'green' );
+$govuk-black: govuk-colour( 'black' );
+
+/* CTA vars */
+$cta-button-width: 295px;
+$cta-button-margin: 30px;
+
+
+/* Set DMAS font stack */
+
+/* body, p, h1, h2, h3, h4, h5, h6, a, span, div, table, th, td, blockquote, li, tr {
+	font-family:
+		Arial,
+		"Helvetica Neue",
+		Helvetica,
+		sans-serif !important;
+}
+*/
+
+.information-box {
+	padding: 10px 10px 0px 10px;
+	flex: 1;
+	margin-bottom: 20px;
+	border: 1px solid $colour-dbt-info-box-grey;
+
+	&__container {
+		display: flex;
+		width: 100%;
+	}
+
+	@media (max-width: 40.0525em) {
+
+		&__container {
+			display: grid;
+			width: 100%;
+		}
+	}
+}
+
+/* INTERVENTION COMPONENT */
+
+.intervention-banner {
+    color: $govuk-black;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: $colour-dbt-info-box-lgrey;
+    border-left: 10px solid $govuk-green;
+}
+
+@media (min-width: 40.0625em) {
+    .intervention-banner {
+        margin-bottom:30px
+    }
+}
+
+.intervention-banner__dismiss-icon {
+	width: 1.1em;
+	height: 1em;
+	margin-bottom: -2px;
+}
+
+/* HELP CTA COMPONENT */
+/* _dash-card.scss and _dash-button.scss classes would replace this code */
+
+.help-cta-card {
+
+	width: $cta-button-width;
+	margin: $cta-button-margin;
+	padding: 8px 10px 7px;
+	border: 3px solid $govuk-green;
+	text-align: left;
+	flex: 1;
+
+	&__fix {
+		display: flex;
+		width: 100;
+
+	}
+
+}
+
+
+/* THIS IS JUST FOR FIREBREAK CONCEPTS */
+/* FIREBREAK CONCEPTS START */
+
+.information-box-concept {
+
+	padding: 16px;
+	margin-bottom: 20px;
+	flex: 1;
+	border: 3px solid $colour-dbt-info-box-grey;
+	text-align: center;
+
+	&__fix {
+		display: flex;
+		width: 100;
+
+	}
+
+}
+
+.top-message-banner {
+	display: flex;
+	width: 100%;
+	padding: 1.25rem;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.625rem;
+
+	border: 5px solid var(--Brand, #1D70B8);
+	background: #FFF;
+
+}
+
+
+
+/* FIREBREAK CONCEPTS END */
+
+
+
+/* Come back and use a mixin? */
+.public-view-status {
+	padding: 10px 10px 10px 10px;
+	flex: 1;
+	margin-bottom: 20px;
+
+	&__notlive {
+		border: 2px solid $colour-dbt-pending-blue;
+		
+		&__heading{
+			color: $colour-dbt-pending-blue;
+		}
+	}
+
+	&__published {
+		border: 2px solid $colour-dbt-published-orange;
+
+		&__heading{
+			color:$colour-dbt-published-orange;
+		}
+	}
+
+	&__notallowed {
+		border: 2px solid $colour-dbt-notallowed-pink;
+
+		&__heading{
+			color: $colour-dbt-notallowed-pink;
+		}
+	}
+
+	&__deadlineexpired {
+		border: 2px solid $colour-dbt-warning-red;
+		
+		&__heading{
+			color: $colour-dbt-warning-red;;
+		}
+	}
+
+}
+
+.approvers-table {
+	padding-right: 20px;
+}
+
+/* From existing _global.scss file for formatting cancel link nicely on forms */
+.form-cancel {
+	line-height: 2.1;
+	margin-left: govuk-em( 10, 16 );
+	font-size: 19px;
+}
+

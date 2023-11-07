@@ -1,0 +1,26 @@
+//
+// For guidance on how to add CSS and SCSS see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+// 
+
+// Add extra styles here
+
+//
+//Import some DBT/DMAS specific stylesheets
+//
+
+//Import some from LIVE (market-access-python-frontend-master)
+@import 'live-styles/all.scss';
+@import 'live-styles/components/all.scss';
+@import 'live-styles/pages/all.scss';
+@import 'live-styles/vendor/all.scss';
+
+//Prototype specific
+@import "dmas-specific-styles.scss";
+@import "dbt-style-overrides.scss";
+
+// Override the default GOV.UK Frontend font stack
+/* $govuk-font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif; */
+
+//$govuk-page-width: 1800px;
+

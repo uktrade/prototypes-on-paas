@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add public title – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="barrier-information#public-view-tab" method="post">
+      {{ govukCharacterCount({
+        name: "public-summary",
+        value: data['public-summary'],
+        id: "public-summary",
+        maxlength: 1500,
+        rows: 5,
+        label: {
+          text: "Public summary",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "Describe the barrier in a way that is suitable for the public to read on GOV.UK. The summary will only be published once it has been reviewed internally."
+        }
+      }) }}
+
+        {{ govukButton({
+          text: "Confirm"
+        }) }}
+        <a href="barrier-information#public-view-tab" class="govuk-link form-cancel">Cancel</a>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

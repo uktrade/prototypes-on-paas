@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Barrier status – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="barrier-information?progressStep=step1#public-view-tab" method="post">
+        <p>
+          <!-- set the html for conditional reveal when allowed -->
+          {% set allowedHtml %}
+            {{ govukTextarea({
+            name: "barrier-allowed-desc",
+            value: data['barrier-allowed-desc'],
+            id: "barrier-allowed-desc",
+            label: {
+              text: "Why is it allowed to be public? (optional)",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            }
+          }) }}
+          {% endset -%}
+
+          {% set notallowedHtml %}
+            {{ govukTextarea({
+            name: "barrier-not-allowed-desc",
+            value: data['barrier-not-allowed-desc'],
+            id: "barrier-not-allowed-desc",
+            label: {
+              text: "Why is it allowed to be public?",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            }
+          }) }}
+          {% endset -%}     
+          
+          {{ govukRadios({
+            name: "barrier-public-view-status",
+            value: data['barrier-public-view-status'],
+            fieldset: {
+              legend: {
+                text: "Update public view status",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "allowed",
+                text: "Allowed, it can be viewed by the public",            
+                conditional: {
+                  html: allowedHtml
+                }
+              },
+              {
+                value: "not allowed",
+                text: "Not allowed",
+                conditional: {
+                  html: notallowedHtml
+                }
+              }
+            ]
+          }) }}
+        </p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+Step: {{ data['progressStep'] }}
+{% endblock %}

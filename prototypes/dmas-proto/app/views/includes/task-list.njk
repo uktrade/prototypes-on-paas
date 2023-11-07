@@ -1,0 +1,178 @@
+<!-- SET SOME DEFAULT VALUES -->
+{% set defaultapproversList = data.defaultApprovers %}
+<!-- read approver checkboxes into array -->
+<!-- Come back and delete this if not needed -->
+{% set checkedApprovers = data['confirm-approvers'] %}
+{% set approvedList = [] %}
+{% for confapprover in checkedApprovers if confapprover == defapprover %}
+            {% set approvedList = (approvedList.push(confapprover, 'yes'), approvedList) %}
+{% endfor %}
+
+<!-- VIEW STATE, TITLE AND SUMMARY -->
+<div class="information-box">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-0 govuk-!-margin-top-2">Prepare barrier for publication</h2>
+    <p class="govuk-body"><a href="#" class="govuk-link">Read more about the publication process</a></p>
+    <!-- PUBLIC VIEW STATUS -->
+    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-2 govuk-!-padding-0">
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                <h3 class="govuk-heading-s govuk-!-margin-0">Decide public view status</h3>
+            </dt>
+            <dd class="govuk-summary-list__actions">
+                {% if data['barrier-public-view-status'] %}
+                <strong class="govuk-tag govuk-tag--green">
+                    completed
+                </strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--blue">
+                    pending
+                </strong>
+                {% endif %}
+            </dd>
+        </div>        
+        {% if data['barrier-public-view-status'] == "allowed" %}
+            <p class="govuk-body">Allowed<br><a href="set-public-view" class="govuk-link">Edit</a></p>
+        {% elseif data['barrier-public-view-status'] == "not allowed" %}
+            <p>Not Allowed<br><a href="set-public-view" class="govuk-link">Edit</a></p>
+        {% else %}
+           <p class="govuk-body govuk-!-margin-0"><a href="set-public-view" class="govuk-link ">Set public view status</a></p> 
+        {% endif %}    
+    </dl>
+    {{ govukDetails({
+        summaryText: "Public status explained",
+        text: "Some text explaining public status goes here."
+      }) }}
+    <!-- TITLE AND SUMMARY -->
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+            <h3 class="govuk-heading-s govuk-!-margin-0">Add a public title and summary</h3>
+        </dt>
+        <dd class="govuk-summary-list__actions">
+            {% if not data['public-title'] and not data['public-summary'] %}
+                <strong class="govuk-tag govuk-tag--blue">
+                    pending
+                </strong>
+            {% elseif data['public-title'] and data['public-summary'] %}
+                <strong class="govuk-tag govuk-tag--green">
+                    completed
+                </strong>
+            {% else %}
+                <strong class="govuk-tag govuk-tag--grey">
+                    incomplete
+                </strong>
+            {% endif %}
+        </dd>
+        </div>
+        {% if data['public-title'] %}
+            <p>{{ data['public-title']}}<br><a href="add-title" class="govuk-link">Edit</a></p>
+        {% else %}
+            <p class="govuk-body govuk-!-margin-bottom-2"><a href="add-title" class="govuk-link">Add public title</a></p>    
+        {% endif %}
+        {% if data['public-summary'] %}
+            <p>{{ data['public-summary']}}<br><a href="add-summary" class="govuk-link">Edit</a></p>
+        {% else %}
+            <p class="govuk-body govuk-!-margin-bottom-2"><a href="add-summary" class="govuk-link">Add public summary</a></p>    
+        {% endif %}
+    </dl>
+    <!-- APPROVERS LIST -->
+
+     <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-2 govuk-!-padding-0">
+        <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+            <h3 class="govuk-heading-s govuk-!-margin-0">Confirm list of approvers</h3>
+        </dt>
+        <dd class="govuk-summary-list__actions">
+        {% if not data['approvers-confirm-status'] %}
+            <strong class="govuk-tag govuk-tag--blue">
+                pending
+            </strong>
+        {% else %}
+            <strong class="govuk-tag govuk-tag--green">
+                completed
+            </strong>
+        {% endif %}
+        </dd>
+        </div>
+        <!--
+        <p>Default approvers: {{defaultapproversList}}</p>
+        <p>Approved approvers: {{checkedApprovers}}</p>
+        -->         
+        <ul class="govuk-list govuk-list--spaced">
+        <!-- CHECK THAT APPROVERS AGREED AND AT LEAST ONE CONFIRMED APPROVAL-->
+        {% if data['approvers-confirm-status'] and data['confirm-approvers'] %}
+            {% for item in defaultapproversList %}
+                {% if item in checkedApprovers %}    
+                    <li class="govuk-body-xs">{{ item }} - <strong>approved</strong> 
+                    </li>
+                    {% else %}
+                    <li class="govuk-body-xs">{{ item }} - <strong>outstanding</strong>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        <a href="approvers" class="govuk-link">Edit approvers</a>&nbsp;&nbsp;<a href="approvers-progress" class="govuk-link">Track approvers</a>
+        {% elseif data['approvers-confirm-status'] and not data['confirm-approvers'] %}
+            <!-- CHECK THAT APPROVERS AGREED AND NO CONFIRMED APPROVAL-->
+            {% for item in defaultapproversList %}
+                <li class="govuk-body-xs">{{ item }} - <strong>outstanding</strong>
+                </li>
+            {% endfor %}
+            <a href="approvers" class="govuk-link">Edit approvers</a>&nbsp;&nbsp;<a href="approvers-progress" class="govuk-link">Track approvers</a>
+        
+        {% else%}
+            <!-- NO APPROVERS AGREED AND NO CONFIRMED APPROVAL-->
+            {% for items in defaultapproversList %}
+                <li class="govuk-body-xs">{{ items }}</li>
+            {% endfor %}
+                <a href="approvers" class="govuk-link">Edit approvers</a>
+        {% endif %} 
+        </ul>
+    </dl>
+   
+    {{ govukDetails({
+        summaryText: "Who are approvers?",
+        text: "Some text explaining about approvers goes here."
+    }) }}
+</div>
+<!-- READY FOR REVIEW -->
+<div class="information-box">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-0 govuk-!-margin-top-2">Mark as ready for review</h2>
+    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-2 govuk-!-padding-0">
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                <h3 class="govuk-heading-s govuk-!-margin-0">Mark as ready for review</h3>
+            </dt>
+            <dd class="govuk-summary-list__actions">
+                <strong class="govuk-tag govuk-tag--blue">
+                    pending
+                </strong>
+            </dd>
+        </div>
+    </dl>
+    <p class="govuk-!-margin-0 govuk-!-padding-0">
+        {{ govukButton({
+        text: "Ready for review"
+      }) }}
+    </p> 
+</div>
+<!-- PUBLISH -->
+<div class="information-box">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-0 govuk-!-margin-top-2">Publish on GOV.UK</h2>
+    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-2 govuk-!-padding-0">
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                <h3 class="govuk-heading-s govuk-!-margin-0">Mark as ready for review</h3>
+            </dt>
+            <dd class="govuk-summary-list__actions">
+                <strong class="govuk-tag govuk-tag--blue">
+                    pending
+                </strong>
+            </dd>
+        </div> 
+    </dl>
+    <p class="govuk-!-margin-0 govuk-!-padding-0">
+        {{ govukButton({
+        text: "Publish"
+      }) }}
+    </p>
+</div>

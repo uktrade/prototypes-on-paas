@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Example components – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1>Production components</h1>
+        <ul class="govuk-list">
+          <li>
+            — <a class="govuk-link" href="#listofthings">List of things</a>
+          </li>
+          <li>
+            — <a class="govuk-link" href="#basicinformation">Basic information</a>
+          </li>
+          <li>
+            — <a class="govuk-link" href="#twocolumninformation">2 column information</a>
+          </li>
+          <li>
+            — <a class="govuk-link" href="#dottedbox">Dotted box</a>
+          </li>
+          <li>
+            — <a class="govuk-link" href="#barrierstatus">Barrier status</a>
+          </li>
+          <li>
+            — <a class="govuk-link" href="#notes">Notes - various states</a>
+          </li>
+          <li>
+            — <a class="govuk-link" href="#homepagecta">Homepage CTA</a>
+          </li>
+        </ul>
+        <h2 id="listofthings" class="govuk-!-margin-bottom-0">List of things</h2>
+        <p class="govuk-body-s">file: /list-of-things.html &nbsp;&nbsp;&nbsp; where in prod: report a barrier journey</p>
+            {% include "/components/production/list-of-things.html" %}
+        <!-- These components live in a styled SECTION so add <section class="summary-group"> when using -->
+        <h2 id="basicinformation" class="govuk-!-margin-top-9 govuk-!-margin-bottom-0">Basic information </h2>
+        <p class="govuk-body-s">file: /summary-1-column-basic-information.html &nbsp;&nbsp;&nbsp; where in prod: barrier information page</p>
+            {% include "/components/production/summary-1-column-basic-information.html" %}
+        <h2 id="twocolumninformation" class="govuk-!-margin-top-9 govuk-!-margin-bottom-0">2 column information</h2>
+        <p class="govuk-body-s">file: /summary-2-column-basic-information.html &nbsp;&nbsp;&nbsp; where in prod: barrier information page</p>
+            {% include "/components/production/summary-2-column-basic-information.html" %}
+        <h2 id="dottedbox" class="govuk-!-margin-top-9 govuk-!-margin-bottom-0">Dotted box</h2>
+        <p class="govuk-body-s">file: /summary-dotted-box.html &nbsp;&nbsp;&nbsp; where in prod: barrier information page</p>
+            {% include "/components/production/summary-dotted-box.html" %}
+        <h2 id="barrierstatus" class="govuk-!-margin-top-9 govuk-!-margin-bottom-0">Barrier status</h2>
+        <p class="govuk-body-s">file: /barrier-status.html &nbsp;&nbsp;&nbsp; where in prod: barrier information page</p>
+            {% include "/components/production/barrier-status.html" %}
+        <h2 id="notes" class="govuk-!-margin-top-9 govuk-!-margin-bottom-0">Notes - various states</h2>
+        <p class="govuk-body-s">file: /barrier-information-notes.html &nbsp;&nbsp;&nbsp; where in prod: barrier information page</p>
+            {% include "/components/production/barrier-information-notes.html" %}
+        <h2 id="homepagecta" class="govuk-!-margin-top-9 govuk-!-margin-bottom-0">Homepage CTA cards</h2>
+        <p class="govuk-body-s">file: /homepage-cta.html &nbsp;&nbsp;&nbsp; where in prod: Homepage</p>
+            {% include "/components/production/homepage-cta.html" %}
+      </div>
+  </div>
+
+
+{% endblock %}

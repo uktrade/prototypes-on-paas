@@ -1,0 +1,11 @@
+// For ease of use we don't want every style in the prototype. Only enable add the ones we need
+
+/* SCSS used by this prototype */
+@import 'colours'; /* contains colour vars */
+@import 'error'; /* define goes here */
+@import 'global'; /* define goes here */
+@import 'layout'; /* define goes here */
+@import 'spacing'; /* define goes here */
+@import 'utility'; /* define goes here */
+
+

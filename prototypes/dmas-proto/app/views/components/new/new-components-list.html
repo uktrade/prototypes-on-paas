@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Example components – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h1>Production components</h1>
+        <ul class="govuk-list">
+          <li>
+            — <a class="govuk-link" href="#intervention">Intervention Message</a>
+          </li>
+          <li>
+            — <a class="govuk-link" href="#helpcta">Help call to action</a>
+          </li>
+        </ul>
+        <h2 id="intervention" class="govuk-!-margin-bottom-0">Intervention Message</h2>
+        <p class="govuk-body-s">file: /intervention-banner/macro.njk &nbsp;&nbsp;&nbsp; where in prod: not in production</p>
+
+        {{ appInterventionBanner({
+          interventionTitle: 'Banner title',
+          interventionDescription: 'Ut nisl elit, tristique quis tortor nec, dignissim vulputate augue. Suspendisse ac quam hendrerit justo vehicula placerat at a lacus.',
+          interventionDismissLinkMessage: 'Hide this suggestion'
+          })
+        }}
+
+        <h2 id="helpcta" class="govuk-!-margin-bottom-0">Help call to action card</h2>
+        <p class="govuk-body-s govuk-!-margin-bottom-0">file: /help-cta-card/macro.njk &nbsp;&nbsp;&nbsp; where in prod: not in production</p>
+        {% set cardHtml %}
+          <p class="govuk-body govuk-!-font-size-14  govuk-!-margin-bottom-2">Read the market access playbook for help resolving your barriers.</p>
+          <p class="govuk-body govuk-!-font-size-14 govuk-!-margin-bottom-1">You can also find out:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li class="govuk-!-font-size-14"><a href="#" class="govuk-link">how to use DMAS</a></li>
+            <li class="govuk-!-font-size-14"><a href="#" class="govuk-link">what’s new on DMAS</a></li>
+          </ul>
+        {% endset %}
+        
+        {{ appHelpCta({
+          helpCardCtaTitle: 'Banner title',
+          helpCardCtaDescription: cardHtml | safe
+          })
+        }}
+        
+      </div>
+  </div>
+
+
+{% endblock %}

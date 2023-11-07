@@ -1,0 +1,184 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Firebreak landing page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+<!-- MASTHEAD SECTION -->
+    {% include "../includes/dmasheader.njk" %}
+    <div class="datahub-header__navigation-container">
+      {% include "../includes/dmasnavbar-concept.njk" %}
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<!-- INCLUDE NOTIFICATION COMPONENT -->
+{% include "../includes/notification-bell.njk" %}
+
+<!-- TEMPORARY MESSAGING
+<div class="govuk-grid-row govuk-!-margin-bottom-8 ">
+    <div class="govuk-grid-column-full">
+        <div class="top-message-banner ">
+            <p class="govuk-body">Message here</p>
+        </div>
+    </div>
+</div>
+ -->
+
+
+<!-- TOP LEVEL STATS -->
+
+<div class="govuk-grid-row govuk-!-margin-bottom-8 govuk-!-padding-0 information-box-concept__fix">
+    <div class="govuk-grid-column-one-quarter information-box-concept__fix">
+        <div class="information-box-concept">
+        <p class="govuk-body">Barriers open</p>
+        <p class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold govuk-!-padding-top-5"><a href="#" class="govuk-link">36</a></p>
+        </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter information-box-concept__fix">
+        <div class="information-box-concept">
+        <p class="govuk-body">Barriers resolved</p>
+        <p class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold govuk-!-padding-top-5"><a href="#" class="govuk-link">12</a></p>
+        </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter information-box-concept__fix">
+        <div class="information-box-concept">
+        <p class="govuk-body">Barriers requiring attention</p>
+        <p class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold"><a href="#" class="govuk-link">8</a></p>
+        </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter information-box-concept__fix">
+        <div class="information-box-concept">
+        <p class="govuk-body">Value of barriers</p>
+        <p class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold govuk-!-padding-top-5"><a href="#" class="govuk-link">£21.12bn</a></p>
+        </div>
+    </div>
+</div>
+
+
+<!-- SET TABS -->
+<div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">
+      Title
+    </h2>
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#dashboard">
+          My dashboard
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#barriers">
+          My barriers
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#notifications">
+          My notifications <strong>(4)</strong>
+        </a>
+      </li>      
+    </ul>
+
+<!-- SET TAB CONTENT -->
+    <!-- DASHBOARD  -->
+    <div class="govuk-tabs__panel" id="dashboard">     
+      <div class="govuk-grid-row govuk-!-margin-0 govuk-!-padding-0">
+        <div class="govuk-grid-column-full">
+            <h2 class="govuk-heading-l">My dashboard</h2>
+        </div>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+                <div class="information-box">
+                  <h3 class="govuk-!-margin-top-0 govuk-!-padding-0">What you need to do next</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                  <li>Review barrier <a href="#" class="govuk-link">(C-22-DWN) my test barrier for something somewhere</a></li>
+                  <li>Approve/reject barrier <a href="#" class="govuk-link">(A-25-WML) Barrier about something in South Asia )</a></li>
+                  <li>Publish barrier <a href="#" class="govuk-link">(O-U8-12L) Change in stance in coastal something</a></li>
+                  <li>Something else</li>
+                  <li>Something more</li>
+                  </ul>
+                </div>
+                <div class="information-box">
+                  <h3 class="govuk-!-margin-top-0 govuk-!-padding-0">What's new?</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                  <li><a href="#" class="govuk-link">Joe Bloggs</a> in Mexico has <a href="#" class="govuk-link">resolved a barrier worth £20 million.</a></li>
+                  <li><a href="#" class="govuk-link">EECA</a> have made public <a href="#" class="govuk-link">2 barriers</a> in the past week</li>
+                  <li>Guidance has changed in the<a href="#"> Playbook</a></li>
+                  <li>Essential maintenance due to take place in Oct 23 - <a href="#" class="govuk-link">What's changing?</a></li>
+                  </ul>
+                </div>
+            </div>
+            <div class="govuk-grid-column-one-half ">
+                <div class="information-box">
+                    <h3 class="govuk-!-margin-top-0 govuk-!-padding-0">My visual data thing</h3>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="region">
+                            Region
+                            </label>
+                            <select class="govuk-select select-width-fix" id="region" name="region">
+                            <option value="Asia Pacific">Asia Pacific</option>
+                            <option value="Another region">Another region</option>
+                            </select>
+                        </div>
+                        <div class="information-box govuk-!-margin-top-3">
+                            <img src="/public/images/mock_map_image.png" style="height:100%;width:100%;" alt="Sample map">
+                        </div>
+                        <div class="information-box govuk-!-margin-top-3">
+                            <img src="/public/images/mock_graph_image.png" style="height:100%;width:100%;" alt="Sample chart">
+                        </div>
+                </div>
+                <div class="information-box">
+                Column 2 B
+                </div>
+            </div>
+        </div>
+      </div>
+</div>
+
+
+
+    <!-- BARRIERS  -->
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="barriers">
+      <h2 class="govuk-heading-l">My barriers</h2>      
+    </div>
+
+
+    <!-- NOTIFICATIONS  -->
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="notifications">
+      <h2 class="govuk-heading-l">My notifications</h2>    
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Months and rates</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Month you apply</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Rate for bicycles</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Rate for vehicles</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">January</th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">£85</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">£95</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">February</th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">£75</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">£55</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">March</th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">£165</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">£125</td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+
+    </div>
+  </div>
+
+{% endblock %}

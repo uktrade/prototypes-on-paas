@@ -1,0 +1,36 @@
+
+        <div class="ma-masthead">
+            <section class="barrier-summary">
+            <div class="barrier-summary__heading flex justify-between align-end">
+                <div>
+                    <p class="barrier-summary__code">{{ barrierInformation[1].barrierID }}</p>
+                    <h1 class="barrier-summary__heading__text">{{ barrierInformation[1].barrierTitle }}</h1>
+                    <p class="barrier-summary__heading__country">{{ barrierInformation[1].barrierLocation }}</p>
+                    <!-- Tag work will go here to be above the change links in layout -->
+                    
+                        <div class="barrier-summary__edit-links">
+                            <a href="#">Edit title</a>
+                            or
+                            <a href="#">location</a>
+                        </div>                
+                </div>
+                <div>                
+                        <div class="barrier-summary__status">
+                            <ul class="barrier-tag-list barrier-tag-list--inline m0">
+                                
+                            </ul>
+                            <div class="barrier-summary__status__edit-links">
+                            
+                                <a aria-expanded="false" class="barrier-summary__status__link js-barrier-summary-link" href="#">
+                                    <span class="sr-only govuk-visually-hidden">Activate link to change barrier priority.</span>
+                                    Change priority
+                                </a>
+                            
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            </section>
+        </div>
+
