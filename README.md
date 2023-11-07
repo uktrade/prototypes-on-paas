@@ -7,6 +7,7 @@ Jenkins - https://jenkins.ci.uktrade.digital/job/prototypes-on-paas-production/
 1. Clone the repo
 2. Checkout a new branch
 3. Copy your prototype's files into the `prototypes` folder
-4. Push and create a pull request
-5. Merge the pull request
-6. Your prototype should automatically be deployed to the service
+4. Within your prototype's folder, delete the `.git` folder
+5. Push and create a pull request 
+6. Merge the pull request
+7. Your prototype should automatically be deployed to the service
