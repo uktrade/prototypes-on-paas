@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% set bodyClasses = 'dmas-width' %}
+{% set barrierInformation = data.sampleBarrierData %}
+
+{% block pageTitle %}
+  Barrier information – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+<!-- MASTHEAD SECTION -->
+    {% include "../includes/dmasheader.njk" %}
+    <div class="datahub-header__navigation-container">
+      {% include "../includes/datahubnavbar.njk" %}
+      {% include "../includes/dmasnavbar.njk" %}
+    </div>
+    {% include "../includes/masthead.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<!-- TAGS SECTION -->
+<!-- TABS SECTION -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-tabs govuk-!-padding-top-8" data-module="govuk-tabs">
+        <ul class="govuk-tabs__list">
+          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            <a class="govuk-tabs__tab" href="#barrier-info-tab">
+              Barrier information
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#public-view-tab">
+              Public view
+            </a>
+          </li>
+        </ul>
+    <!-- BARRIER INFORMATION TAB -->
+    <div class="govuk-tabs__panel" id="barrier-info-tab">
+      <!-- ROW HERE -->
+      <div class="govuk-grid-row">
+        <!-- COLUMN FULL -->
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-l">Barrier headlines</h2>
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+            LH column
+        </div>
+        <div class="govuk-grid-column-one-half">
+            RH column
+        </div>
+      </div>
+    </div>
+        <!-- PUBLIC VIEW TAB -->
+    <div class="govuk-tabs__panel" id="public-view-tab">
+      <div class="govuk-grid-row govuk-!-margin-0 govuk-!-padding-0">
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-l">Public view</h2>
+          <div class="govuk-grid-row govuk-!-margin-0 govuk-!-padding-0">
+            <div class="govuk-grid-column-one-half">
+              {% include "../includes/task-list.njk" %}
+              {% include "../includes/additional-information-public-view.njk" %}
+            </div>
+            <div class="govuk-grid-column-one-half">
+              {% include "../includes/publish-status.njk" %}
+              {% include "../includes/public-view-notes.njk" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

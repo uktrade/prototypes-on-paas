@@ -31,12 +31,6 @@ SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = env.bool("DEBUG", False)
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost"])
-ALLOWED_HOSTS = [
-    "localhost",
-    ".london.cloudapps.digital",
-    ".prototypes-on-paas.uktrade.digital",
-    "pop.com"
-]
 
 # Application definition
 

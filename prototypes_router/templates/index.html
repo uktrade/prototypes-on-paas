@@ -47,14 +47,14 @@
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 {% if authenticated %}
-                <h1 class="govuk-heading-l">Prototypes</h1>
-                <ul class="govuk-list">
-                    {% for prototype_url_path, prototype_info in prototypes.items %}
-                    <li>
-                        <a class="govuk-link" href="/{{ prototype_url_path }}">{{ prototype_info.name }}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
+                    <h1 class="govuk-heading-l">Prototypes</h1>
+                    <ul class="govuk-list">
+                        {% for prototype_url_path, prototype_info in prototypes.items %}
+                        <li>
+                            <a class="govuk-link" href="/{{ prototype_url_path }}">{{ prototype_info.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 {% else %}
                 <form method="post">
                     <p class="govuk-body">You need to enter a password to use this service</p>
