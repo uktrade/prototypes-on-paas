@@ -40,7 +40,7 @@ soupsieve = "2.5"
 sqlparse = "0.4.4"
 tomli = "2.0.1"
 typing_extensions = "4.8.0"
-urllib3 = "2.0.5"
+urllib3 = "2.0.7"
 Werkzeug = "3.0.0"
 Zope = "5.8.6"
 django-revproxy = { git = "https://github.com/jazzband/django-revproxy" }
