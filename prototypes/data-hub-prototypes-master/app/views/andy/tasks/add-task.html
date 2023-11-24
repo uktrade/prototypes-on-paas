@@ -1,0 +1,538 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+  .autocomplete__dropdown-arrow-down {
+    z-index: 99;
+  }
+</style>
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="homepage">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      Add task
+    </li>
+
+  </ol>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-8">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-l">Add a task</h1>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-!-padding-top-0">
+    <div class="govuk-grid-row">
+        <form class="form govuk-grid-column-two-thirds" action="/andy/tasks/task-detail-complete" method="post">
+
+          <!-- Task title -->
+
+          {{ govukInput({
+            label: {
+              text: "Task title",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            },
+            id: "task-title",
+            name: "taskTitle"
+          }) }}
+
+          <!-- Task description -->
+
+          {{ govukTextarea({
+            name: "taskDescription",
+            id: "task-description",
+            label: {
+              text: "Task description (optional)",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            },
+            hint: {
+              text: "Add details of the task, especially if you intend to assign it to someone else."
+            }
+          }) }}
+
+          <!-- Task assigned to -->
+
+          {% set someoneElseHtml %}
+          {{ govukSelect({
+            id: "someone-else",
+            name: "someoneElse",
+            attributes: {
+              multiple: ''
+            },
+            items: [
+              {
+                value: "Dulcine Inkles, DIT West Midlands - Regional and LLP",
+                text: "Dulcine Inkles, DIT West Midlands - Regional and LLP"
+              },
+              {
+                value: "John Doe, Lancashire LEP",
+                text: "John Doe, Lancashire LEP"
+              },
+              {
+                value: "Timmy Counter, Corporate Services",
+                text: "Timmy Counter, Corporate Services"
+              },
+              {
+                value: "Melisse Simmell, Enterprise M3 LEP",
+                text: "Melisse Simmell, Enterprise M3 LEP"
+              },
+              {
+                value: "Grace Kenneway, DIT West Midlands - Regional and LLP",
+                text: "Grace Kenneway, DIT West Midlands - Regional and LLP"
+              },
+              {
+                value: "Wyn Master, Lancashire LEP",
+                text: "Wyn Master, Lancashire LEP"
+              },
+              {
+                value: "Vicky Roze, Corporate Services",
+                text: "Vicky Roze, Corporate Services"
+              },
+              {
+                value: "Fredia Donnel, Enterprise M3 LEP",
+                text: "Fredia Donnel, Enterprise M3 LEP"
+              },
+              {
+                value: "Morry Bazley, DIT West Midlands - Regional and LLP",
+                text: "Morry Bazley, DIT West Midlands - Regional and LLP"
+              },
+              {
+                value: "Louisette Hurlston, Lancashire LEP",
+                text: "Louisette Hurlston, Lancashire LEP"
+              },
+              {
+                value: "Kathryn Andreoletti, Corporate Services",
+                text: "Kathryn Andreoletti, Corporate Services"
+              },
+              {
+                value: "Keith Jery, Enterprise M3 LEP",
+                text: "Keith Jery, Enterprise M3 LEP"
+              },
+              {
+                value: "Budd McCuffie, DIT West Midlands - Regional and LLP",
+                text: "Budd McCuffie, DIT West Midlands - Regional and LLP"
+              },
+              {
+                value: "Cosetta Hunnable, Lancashire LEP",
+                text: "Cosetta Hunnable, Lancashire LEP"
+              },
+              {
+                value: "Marni Stoltz, Corporate Services",
+                text: "Marni Stoltz, Corporate Services"
+              },
+              {
+                value: "Johannes Gass, Enterprise M3 LEP",
+                text: "Johannes Gass, Enterprise M3 LEP"
+              }
+            ]
+            }) }}
+          {% endset -%}
+
+          {{ govukRadios({
+            name: "assignedTo",
+            fieldset: {
+              legend: {
+                text: "Task assigned to",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "Me",
+                text: "Me"
+              },
+              {
+                value: "Someone else",
+                text: "Someone else",
+                conditional: {
+                  html: someoneElseHtml
+                }
+              }
+            ]
+          }) }}
+
+          <!-- Task assigned to helper -->
+
+          {{ govukDetails({
+            summaryText: "What happens when I assign someone a task",
+            html: "<p class='govuk-body'>When you assign a task the assignee will be sent a reminder, according to their Data Hub reminder preferences. They will be able to edit, re-assign or complete the task.</p><p class='govuk-body'>As the creator of the task you will be sent a reminder when the task is changed, re-assigned or completed. You can change when you receive these updates in your <a href='' class='govuk-link'>reminder settings (opens in new tab)</a>.</p>"
+          }) }}
+
+          <!-- Task due date -->
+
+          {% set customDateHtml %}
+          {{ govukDateInput({
+            id: "custom-date",
+            namePrefix: "custom-date",
+            hint: {
+              text: "For example 28 11 2025"
+            }
+          }) }}
+          {% endset -%}
+
+          {{ govukRadios({
+            name: "dueDate",
+            fieldset: {
+              legend: {
+                text: "Task due date",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "Custom date",
+                text: "Custom date",
+                conditional: {
+                html: customDateHtml
+                }
+              },
+              {
+                value: "1 week",
+                text: "1 week"
+              },
+              {
+                value: "1 month",
+                text: "1 month"
+              },
+              {
+                value: "No due date",
+                text: "No due date"
+              }
+            ]
+          }) }}
+
+          <!-- Find out more -->
+
+          {{ govukDetails({
+            summaryText: "Find out more about task reminders",
+            html: "<p class='govuk-body'>By default reminders are sent at 8am, on the specified date by:</p><ul class='govuk-list govuk-list--bullet'><li>emails to the assignee</li><li>Data Hub reminders</li></ul>"
+          }) }}
+
+          <!-- Related to a company? -->
+
+          {{ govukSelect({
+            id: "related-company",
+            name: "relatedCompany",
+            label: {
+              text: "Companies task is related to (optional)",
+              classes: "govuk-label--s"
+            },
+            items: [
+            {
+              "text": "Type to search for a company",
+              "value": ""
+              },
+            {
+              "text": "Ullrich-Muller",
+              "value": "Ullrich-Muller"
+              }, {
+              "text": "Hegmann-Purdy",
+              "value": "Hegmann-Purdy"
+              }, {
+              "text": "Hoppe, Huels and Bauch",
+              "value": "Hoppe, Huels and Bauch"
+              }, {
+              "text": "Jenkins-Halvorson",
+              "value": "Jenkins-Halvorson"
+              }, {
+              "text": "Dickens Inc",
+              "value": "Dickens Inc"
+              }, {
+              "text": "Powlowski, Murphy and Mante",
+              "value": "Powlowski, Murphy and Mante"
+              }, {
+              "text": "Bednar-McLaughlin",
+              "value": "Bednar-McLaughlin"
+              }, {
+              "text": "Rowe, Kreiger and Dickens",
+              "value": "Rowe, Kreiger and Dickens"
+              }, {
+              "text": "Koch Inc",
+              "value": "Koch Inc"
+              }, {
+              "text": "Fisher-Purdy",
+              "value": "Fisher-Purdy"
+              }, {
+              "text": "Breitenberg LLC",
+              "value": "Breitenberg LLC"
+              }, {
+              "text": "Goodwin-Beer",
+              "value": "Goodwin-Beer"
+              }, {
+              "text": "Streich, Murazik and Bartell",
+              "value": "Streich, Murazik and Bartell"
+              }, {
+              "text": "Terry, Greenfelder and Carter",
+              "value": "Terry, Greenfelder and Carter"
+              }, {
+              "text": "Beer-Beatty",
+              "value": "Beer-Beatty"
+              }, {
+              "text": "Jacobson, Borer and Morar",
+              "value": "Jacobson, Borer and Morar"
+              }, {
+              "text": "Larson, Frami and Torphy",
+              "value": "Larson, Frami and Torphy"
+              }, {
+              "text": "Parker, Friesen and Doyle",
+              "value": "Parker, Friesen and Doyle"
+              }, {
+              "text": "Sanford, Crooks and Mayert",
+              "value": "Sanford, Crooks and Mayert"
+              }, {
+              "text": "Hilpert Inc",
+              "value": "Hilpert Inc"
+              }, {
+              "text": "Stracke-Wiza",
+              "value": "Stracke-Wiza"
+              }, {
+              "text": "Stracke-Kling",
+              "value": "Stracke-Kling"
+              }, {
+              "text": "Dooley LLC",
+              "value": "Dooley LLC"
+              }, {
+              "text": "Collier Inc",
+              "value": "Collier Inc"
+              }, {
+              "text": "Koss and Sons",
+              "value": "Koss and Sons"
+              }, {
+              "text": "Wiegand and Sons",
+              "value": "Wiegand and Sons"
+              }, {
+              "text": "Farrell, Kessler and Hahn",
+              "value": "Farrell, Kessler and Hahn"
+              }, {
+              "text": "Muller, Shields and McClure",
+              "value": "Muller, Shields and McClure"
+              }, {
+              "text": "Trantow, Olson and White",
+              "value": "Trantow, Olson and White"
+              }, {
+              "text": "Mueller, Jacobson and Carroll",
+              "value": "Mueller, Jacobson and Carroll"
+              }, {
+              "text": "Schumm, Oberbrunner and Larkin",
+              "value": "Schumm, Oberbrunner and Larkin"
+              }, {
+              "text": "Rogahn Inc",
+              "value": "Rogahn Inc"
+              }, {
+              "text": "Schumm, Wilderman and Dare",
+              "value": "Schumm, Wilderman and Dare"
+              }, {
+              "text": "Schaden LLC",
+              "value": "Schaden LLC"
+              }, {
+              "text": "Kovacek, DuBuque and Treutel",
+              "value": "Kovacek, DuBuque and Treutel"
+              }, {
+              "text": "Legros, Blick and Mraz",
+              "value": "Legros, Blick and Mraz"
+              }, {
+              "text": "Stehr, Grant and Hamill",
+              "value": "Stehr, Grant and Hamill"
+              }, {
+              "text": "Schiller, Mohr and Rippin",
+              "value": "Schiller, Mohr and Rippin"
+              }, {
+              "text": "Glover, Leuschke and Goyette",
+              "value": "Glover, Leuschke and Goyette"
+              }, {
+              "text": "Fahey-Stanton",
+              "value": "Fahey-Stanton"
+              }, {
+              "text": "Sanford Group",
+              "value": "Sanford Group"
+              }, {
+              "text": "Sanford Group",
+              "value": "Sanford Group"
+              }, {
+              "text": "Crist-Hayes",
+              "value": "Crist-Hayes"
+              }, {
+              "text": "Zieme, Mohr and McCullough",
+              "value": "Zieme, Mohr and McCullough"
+              }, {
+              "text": "Morissette LLC",
+              "value": "Morissette LLC"
+              }, {
+              "text": "Rempel-Waelchi",
+              "value": "Rempel-Waelchi"
+              }, {
+              "text": "Hermann, Satterfield and Kemmer",
+              "value": "Hermann, Satterfield and Kemmer"
+              }, {
+              "text": "Walsh-Jacobson",
+              "value": "Walsh-Jacobson"
+              }, {
+              "text": "Blanda LLC",
+              "value": "Blanda LLC"
+              }, {
+              "text": "Strosin, Prosacco and Witting",
+              "value": "Strosin, Prosacco and Witting"
+              }, {
+              "text": "Wehner-Gerhold",
+              "value": "Wehner-Gerhold"
+              }, {
+              "text": "Schultz Inc",
+              "value": "Schultz Inc"
+              }, {
+              "text": "Mante, Quigley and Monahan",
+              "value": "Mante, Quigley and Monahan"
+              }, {
+              "text": "Mitchell, Kris and Murphy",
+              "value": "Mitchell, Kris and Murphy"
+              }, {
+              "text": "Harvey Inc",
+              "value": "Harvey Inc"
+              }, {
+              "text": "Stehr and Sons",
+              "value": "Stehr and Sons"
+              }, {
+              "text": "Glover, Bosco and Ondricka",
+              "value": "Glover, Bosco and Ondricka"
+              }, {
+              "text": "Conroy LLC",
+              "value": "Conroy LLC"
+              }, {
+              "text": "VonRueden-Hodkiewicz",
+              "value": "VonRueden-Hodkiewicz"
+              }, {
+              "text": "Wiza, Kuhic and Trantow",
+              "value": "Wiza, Kuhic and Trantow"
+              }, {
+              "text": "Torp-Lesch",
+              "value": "Torp-Lesch"
+              }, {
+              "text": "Koepp Inc",
+              "value": "Koepp Inc"
+              }, {
+              "text": "Murphy Inc",
+              "value": "Murphy Inc"
+              }, {
+              "text": "Rath LLC",
+              "value": "Rath LLC"
+              }, {
+              "text": "Prosacco and Sons",
+              "value": "Prosacco and Sons"
+              }, {
+              "text": "McKenzie Inc",
+              "value": "McKenzie Inc"
+              }, {
+              "text": "Rosenbaum-Hickle",
+              "value": "Rosenbaum-Hickle"
+              }, {
+              "text": "Ortiz, Bradtke and Nienow",
+              "value": "Ortiz, Bradtke and Nienow"
+              }, {
+              "text": "Weimann-Kerluke",
+              "value": "Weimann-Kerluke"
+              }, {
+              "text": "Rohan-Koelpin",
+              "value": "Rohan-Koelpin"
+              }, {
+              "text": "Romaguera-Marquardt",
+              "value": "Romaguera-Marquardt"
+              }, {
+              "text": "Treutel, Wuckert and Treutel",
+              "value": "Treutel, Wuckert and Treutel"
+              }, {
+              "text": "Dare Group",
+              "value": "Dare Group"
+              }
+            ]
+          }) }}
+
+
+          <!-- Contacts -->
+          <div class="govuk-radios__conditional" id="related-contacts-group" style="display: none">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="contacts">
+                Contacts (optional)
+              </label>
+              <select class="govuk-select" id="related-contacts" name="relatedContacts" multiple>
+                <option value="">Type to search for a contact</option>
+                <option value="Sam Jones, Director">Sam Jones, Director</option>
+                <option value=" Terry Smith, Assistant">Terry Smith, Assistant</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Button -->
+
+          <div class="govuk-button-group govuk-!-margin-top-5">
+            {{ govukButton({
+              text: "Save task"
+            }) }}
+
+            <a class="govuk-link" href="homepage">Back</a>
+          </div>
+        </form>
+
+      </div>
+  </main>
+</div>
+
+
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script>
+  accessibleAutocomplete.enhanceSelectElement({
+  placeholder: 'Type to search for advisers',
+  showAllValues: false,
+  autoselect: false,
+  selectElement: document.querySelector('#someone-else'),
+  showNoOptionsFound: true,
+  dropdownArrow: () => '',
+  displayMenu: 'overlay'
+})
+
+  accessibleAutocomplete.enhanceSelectElement({
+  placeholder: 'Type to search for a company',
+  showAllValues: false,
+  autoselect: false,
+  selectElement: document.querySelector('#related-company'),
+  showNoOptionsFound: true,
+  defaultValue: '',
+  displayMenu: 'overlay'
+  })
+
+  accessibleAutocomplete.enhanceSelectElement({
+  placeholder: 'Type to search for contacts',
+  showAllValues: true,
+  autoselect: false,
+  selectElement: document.querySelector('#related-contacts'),
+  showNoOptionsFound: true,
+  displayMenu: 'overlay'
+
+})
+
+document.getElementById('related-company__listbox').addEventListener('click', clickHandler);
+
+function clickHandler(){
+  document.getElementById("related-contacts-group").style.display="block";
+}
+
+</script>
+
+
+{% endblock %}
