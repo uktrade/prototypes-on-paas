@@ -511,8 +511,8 @@
               </label>
               <select class="govuk-select" id="related-contacts" name="relatedContacts" multiple>
                 <option value="">Type to search for a contact</option>
-                <option value="Sam Jones, Director" {% if 'Sam Jones, Director' in contacts %}selected{%- endif -%}>Sam Jones, Director</option>
-                <option value=" Terry Smith, Assistant" {% if 'Terry Smith, Assistant' in contacts %}selected{%- endif -%}>Terry Smith, Assistant</option>
+                <option value="Sam Jones, Director" {% if data['relatedContacts'] %}{% if 'Sam Jones, Director' in contacts %}selected{%- endif -%}{%- endif -%}>Sam Jones, Director</option>
+                <option value=" Terry Smith, Assistant" {% if data['relatedContacts'] %}{% if ' Terry Smith, Assistant' in contacts %}selected{%- endif -%}{%- endif -%}>Terry Smith, Assistant</option>
               </select>
             </div>
           </div>
