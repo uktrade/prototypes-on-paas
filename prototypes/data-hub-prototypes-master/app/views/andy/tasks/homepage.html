@@ -1,0 +1,562 @@
+{% extends "layout-dh-home-new.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Search -->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-text-align-centre">
+    <label class="govuk-label govuk-visually-hidden" for="search">
+      Search for company, contact, event, investment project or OMIS order
+    </label>
+    <div class="govuk-form-group homepage--search-container">
+      <input class="govuk-input" type="text" placeholder="Search Data Hub"><button type="submit" size="40" style="background: rgb(11, 12, 12)"><svg viewBox="0 0 18 18" focusable="false" aria-hidden="true"><g fill="#ffffff"><path d="M18,16.56l-4.32-4.32a7.65,7.65,0,1,0-1.44,1.44L16.56,18ZM2,7.62a5.6,5.6,0,1,1,5.59,5.59A5.6,5.6,0,0,1,2,7.62Z"></path></g></svg><span class="govuk-visually-hidden">Submit Search</span></button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Tabbed content -->
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#tasks">
+            Tasks
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#company-lists">
+            Company lists
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#investment-projects">
+            Investment projects
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#export-projects">
+            Export projects
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#referrals">
+            Referrals
+          </a>
+        </li>
+      </ul>
+      {% if data['taskTitle'] %}
+      <div class="govuk-tabs__panel" id="tasks">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <p class="gov-body govuk-!-font-size-36 govuk-!-margin-bottom-0"><b>1</b> <span class="govuk-!-font-size-24">Task</span></p>
+          </div>
+          <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+            <a class="govuk-button govuk-!-margin-bottom-2" data-module="govuk-button" href="add-task">
+              Add task
+            </a>
+          </div>
+        </div>
+        <hr></hr>
+        {% else %}
+        <div class="govuk-tabs__panel govuk-!-text-align-centre" id="tasks">
+        {%- endif -%}
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            {% if data['taskTitle'] %}
+            {% if data['dueDate'] == "Custom date" %}
+            {% set dueDate = data['custom-date-day'] + "/" + data['custom-date-month'] + "/" + data['custom-date-year'] %}
+            {% elseif data['dueDate'] == "1 week" %}
+            {% set dueDate = "4/12/2023" %}
+            {% elseif data['dueDate'] == "1 month" %}
+            {% set dueDate = "27/12/2023" %}
+            {% elseif data['dueDate'] == "No due date" %}
+            {% set dueDate = "No due date" %}
+            {%- endif -%}
+
+            {% if data['relatedCompany'] == "" %}
+            {% set relatedCompany = "None" %}
+            {% else %}
+            {% set relatedCompany = data['relatedCompany'] %}
+            {%- endif -%}
+
+
+              {{ govukTable({
+              firstCellIsHeader: false,
+              classes: "govuk-!-font-size-16",
+              head: [
+                {
+                  text: "Date due"
+                },
+                {
+                  text: "Task title"
+                },
+                {
+                  text: "Related company"
+                },
+                {
+                  text: "Related project"
+                },
+                {
+                  text: "Assigned to"
+                },
+                {
+                  text: "Action"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    text: dueDate
+                  },
+                  {
+                    html: "<a class='govuk-link' href='task-detail'>" + data['taskTitle'] + "</a>"
+                  },
+                  {
+                    text: relatedCompany
+                  },
+                  {
+                    text: "None"
+                  },
+                  {
+                    text: "Joe Smith"
+                  },
+                  {
+                    html: "<a href='' class='govuk-link'>Complete</a>"
+                  }
+                ]
+              ]
+            }) }}
+            {% else %}
+              <h3 class="govuk-heading-m">You don't currently have any tasks</h3>
+              <p class="govuk-body">You can create your own tasks or collaborate with colleagues and assign tasks to other users.</p>
+              <a class="govuk-button govuk-!-margin-bottom-2" data-module="govuk-button" href="add-task">Add a task</a><br />
+              <img src="/public/images/img-tasks.jpg" alt="Tasks on Data Hub" class="govuk-!-margin-top-5" width="460" />
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+      <div class="govuk-tabs__panel" id="company-lists">
+        <h3 class="govuk-heading-m">1 My companies list</h3>
+        <hr></hr>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <h4 class="govuk-heading-m">Example list</h4>
+          </div>
+          <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              Edit list name
+            </button>
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              Delete list
+            </button>
+          </div>
+        </div>
+        <div class="govuk-grid-column-full bg-grey govuk-!-padding-2">
+          <div class="govuk-grid-column-one-half">
+            <label for="company-name"><span class="govuk-!-font-size-19 govuk-!-padding-right-3">Search this list</span><input placeholder="Company name" id="company-name" type="text" class="govuk-input govuk-input--width-10" value=""></label>
+          </div>
+          <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+            <div class="govuk-form-group govuk-!-margin-0">
+              <label class="govuk-label" for="sort">
+                Sort by
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="published">Recent interaction</option>
+                <option value="updated" selected>Least recent interaction</option>
+                <option value="views">Company name A-Z</option>
+              </select>
+              </label>
+            </div>
+          </div>
+        </div>
+        <table class="govuk-table govuk-!-font-size-16">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Company name</th>
+              <th scope="col" class="govuk-table__header">Last interaction</th>
+              <th scope="col" class="govuk-table__header">Subject</th>
+              <th scope="col" class="govuk-table__header">Added by</th>
+              <th scope="col" class="govuk-table__header"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Example company</td>
+              <td class="govuk-table__cell">22 Mar 2023</td>
+              <td class="govuk-table__cell"><a href="" class="govuk-link">Initial DSE meeting - overview</a></td>
+              <td class="govuk-table__cell">Multiple advisers</td>
+              <td class="govuk-table__cell"><button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-1" data-module="govuk-button">Add interaction</button></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Example company</td>
+              <td class="govuk-table__cell">22 Mar 2023</td>
+              <td class="govuk-table__cell"><a href="" class="govuk-link">Initial DSE meeting - overview</a></td>
+              <td class="govuk-table__cell">Multiple advisers</td>
+              <td class="govuk-table__cell"><button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-1" data-module="govuk-button">Add interaction</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden govuk-!-text-align-centre" id="investment-projects">
+        <h3 class="govuk-heading-m">No investment projects</h3>
+        <p class="govuk-body">My pipeline allows you to track the progress of your projects.</p>
+        <img src="/public/images/investmenttimeline.png" alt="Stages within the investment project workflow" width="760" />
+
+        <p class="govuk-body govuk-!-margin-top-3 govuk-!-text-align-left" style="width: 600px; display: inline-block">Once added, you'll be able to:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-!-text-align-left" style="width: 600px; display: inline-block">
+          <li>view the progress of each project</li>
+          <li>move projects onto the next stage</li>
+          <li>view estimated land dates</li>
+          <li>view project summaries for the next financial year.</li>
+        </ul>
+      </div>
+
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="export-projects">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-quarter">
+            <label class="govuk-label">Status</label>
+            <select class="govuk-select govuk-!-width-full" id="status" name="status">
+              <option value="" selected>Show all</option>
+            </select>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+            <label class="govuk-label">Export potential</label>
+            <select class="govuk-select govuk-!-width-full" id="export-potential" name="export-potential">
+              <option value="" selected>Show all</option>
+            </select>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+            <label class="govuk-label">Sector</label>
+            <select class="govuk-select govuk-!-width-full" id="sector" name="sector">
+              <option value="" selected>Show all</option>
+            </select>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+            <label class="govuk-label">Country</label>
+            <select class="govuk-select govuk-!-width-full" id="country" name="country">
+              <option value="" selected>Show all</option>
+            </select>
+          </div>
+        </div>
+        <div class="govuk-grid-row govuk-!-margin-top-3 govuk-!-margin-bottom-6">
+          <div class="govuk-grid-column-one-quarter">
+            <label class="govuk-label">Win from</label>
+            <select class="govuk-select govuk-!-width-full" id="win-from" name="win-from">
+              <option value="" selected>--------- ----</option>
+            </select>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+            <label class="govuk-label">Win to</label>
+            <select class="govuk-select govuk-!-width-full" id="win-to" name="win-to">
+              <option value="" selected>--------- ----</option>
+            </select>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+            <label class="govuk-label">Owner</label>
+            <select class="govuk-select govuk-!-width-full" id="owner" name="owner">
+              <option value="" selected>Show all</option>
+            </select>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+            <label class="govuk-label">Sort by</label>
+            <select class="govuk-select govuk-!-width-full" id="sort-by" name="sort-by">
+              <option value="" selected>Recently created</option>
+            </select>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <p class="gov-body govuk-!-font-size-36"><b>6</b> <span class="govuk-!-font-size-24">Exports</span></p>
+          </div>
+        </div>
+        <hr></hr>
+
+        <div class="govuk-grid-row govuk-!-padding-top-3">
+          <div class="govuk-grid-column-one-half">
+            {{govukTag({
+          text: "High potential",
+          classes: "govuk-tag--grey"
+          })}}
+          </div>
+          <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+            {{govukTag({
+          text: "Inactive",
+          classes: "govuk-tag--red"
+          })}}
+          </div>
+          <div class="govuk-grid-column-full govuk-!-margin-top-4">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a href="" class="govuk-link">Company name</a></h3>
+          </div>
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body govuk-!-margin-bottom-3"><a href="" class="govuk-link">Company name</a></p>
+          </div>
+          <div class="govuk-grid-column-full">
+            <details class="govuk-details-s govuk-!-margin-bottom-3" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Show
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Destination:</span> Afghanistan<br />
+                <span class="govuk-hint govuk-!-font-size-16">Total estimated export value:</span> £9,000 (2 years)<br />
+                <span class="govuk-hint govuk-!-font-size-16">Estimated date for win:</span> September 2023<br />
+                <span class="govuk-hint govuk-!-font-size-16">Main sector:</span> Aerospace : Aircraft Design<br />
+                <span class="govuk-hint govuk-!-font-size-16">Owner:</span> Andrew Davies<br />
+                <span class="govuk-hint govuk-!-font-size-16">Created on:</span> 12 Sep 2023, 2:09pm</p>
+              </div>
+            </details>
+            <hr class="keyline-1"></hr>
+          </div>
+        </div>
+
+        <div class="govuk-grid-row govuk-!-padding-top-3">
+          <div class="govuk-grid-column-one-half">
+            {{govukTag({
+          text: "Low potential",
+          classes: "govuk-tag--grey"
+          })}}
+          </div>
+          <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+            {{govukTag({
+          text: "Won",
+          classes: "govuk-tag--green"
+          })}}
+          </div>
+          <div class="govuk-grid-column-full govuk-!-margin-top-4">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a href="" class="govuk-link">Company name</a></h3>
+          </div>
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body govuk-!-margin-bottom-3"><a href="" class="govuk-link">Company name</a></p>
+          </div>
+          <div class="govuk-grid-column-full">
+            <details class="govuk-details-s govuk-!-margin-bottom-3" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Show
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Destination:</span> Afghanistan<br />
+                <span class="govuk-hint govuk-!-font-size-16">Total estimated export value:</span> £9,000 (2 years)<br />
+                <span class="govuk-hint govuk-!-font-size-16">Estimated date for win:</span> September 2023<br />
+                <span class="govuk-hint govuk-!-font-size-16">Main sector:</span> Aerospace : Aircraft Design<br />
+                <span class="govuk-hint govuk-!-font-size-16">Owner:</span> Andrew Davies<br />
+                <span class="govuk-hint govuk-!-font-size-16">Created on:</span> 12 Sep 2023, 2:09pm</p>
+              </div>
+            </details>
+            <hr class="keyline-1"></hr>
+          </div>
+        </div>
+
+        <div class="govuk-grid-row govuk-!-padding-top-3">
+          <div class="govuk-grid-column-one-half">
+            {{govukTag({
+          text: "High potential",
+          classes: "govuk-tag--grey"
+          })}}
+          </div>
+          <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+            {{govukTag({
+          text: "Active",
+          classes: "govuk-tag--blue"
+          })}}
+          </div>
+          <div class="govuk-grid-column-full govuk-!-margin-top-4">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a href="" class="govuk-link">Company name</a></h3>
+          </div>
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body govuk-!-margin-bottom-3"><a href="" class="govuk-link">Company name</a></p>
+          </div>
+          <div class="govuk-grid-column-full">
+            <details class="govuk-details-s govuk-!-margin-bottom-3" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Show
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Destination:</span> Afghanistan<br />
+                <span class="govuk-hint govuk-!-font-size-16">Total estimated export value:</span> £9,000 (2 years)<br />
+                <span class="govuk-hint govuk-!-font-size-16">Estimated date for win:</span> September 2023<br />
+                <span class="govuk-hint govuk-!-font-size-16">Main sector:</span> Aerospace : Aircraft Design<br />
+                <span class="govuk-hint govuk-!-font-size-16">Owner:</span> Andrew Davies<br />
+                <span class="govuk-hint govuk-!-font-size-16">Created on:</span> 12 Sep 2023, 2:09pm</p>
+              </div>
+            </details>
+            <hr class="keyline-1"></hr>
+          </div>
+        </div>
+
+        <div class="govuk-grid-row govuk-!-padding-top-3">
+          <div class="govuk-grid-column-one-half">
+            {{govukTag({
+          text: "Low potential",
+          classes: "govuk-tag--grey"
+          })}}
+          </div>
+          <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+            {{govukTag({
+          text: "Inactive",
+          classes: "govuk-tag--red"
+          })}}
+          </div>
+          <div class="govuk-grid-column-full govuk-!-margin-top-4">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a href="" class="govuk-link">Company name</a></h3>
+          </div>
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body govuk-!-margin-bottom-3"><a href="" class="govuk-link">Company name</a></p>
+          </div>
+          <div class="govuk-grid-column-full">
+            <details class="govuk-details-s govuk-!-margin-bottom-3" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Show
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Destination:</span> Afghanistan<br />
+                <span class="govuk-hint govuk-!-font-size-16">Total estimated export value:</span> £9,000 (2 years)<br />
+                <span class="govuk-hint govuk-!-font-size-16">Estimated date for win:</span> September 2023<br />
+                <span class="govuk-hint govuk-!-font-size-16">Main sector:</span> Aerospace : Aircraft Design<br />
+                <span class="govuk-hint govuk-!-font-size-16">Owner:</span> Andrew Davies<br />
+                <span class="govuk-hint govuk-!-font-size-16">Created on:</span> 12 Sep 2023, 2:09pm</p>
+              </div>
+            </details>
+            <hr class="keyline-1"></hr>
+          </div>
+        </div>
+
+        <div class="govuk-grid-row govuk-!-padding-top-3">
+          <div class="govuk-grid-column-one-half">
+            {{govukTag({
+          text: "High potential",
+          classes: "govuk-tag--grey"
+          })}}
+          </div>
+          <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+            {{govukTag({
+          text: "Active",
+          classes: "govuk-tag--blue"
+          })}}
+          </div>
+          <div class="govuk-grid-column-full govuk-!-margin-top-4">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a href="" class="govuk-link">Company name</a></h3>
+          </div>
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body govuk-!-margin-bottom-3"><a href="" class="govuk-link">Company name</a></p>
+          </div>
+          <div class="govuk-grid-column-full">
+            <details class="govuk-details-s govuk-!-margin-bottom-3" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Show
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Destination:</span> Afghanistan<br />
+                <span class="govuk-hint govuk-!-font-size-16">Total estimated export value:</span> £9,000 (2 years)<br />
+                <span class="govuk-hint govuk-!-font-size-16">Estimated date for win:</span> September 2023<br />
+                <span class="govuk-hint govuk-!-font-size-16">Main sector:</span> Aerospace : Aircraft Design<br />
+                <span class="govuk-hint govuk-!-font-size-16">Owner:</span> Andrew Davies<br />
+                <span class="govuk-hint govuk-!-font-size-16">Created on:</span> 12 Sep 2023, 2:09pm</p>
+              </div>
+            </details>
+            <hr class="keyline-1"></hr>
+          </div>
+        </div>
+
+        <div class="govuk-grid-row govuk-!-padding-top-3">
+          <div class="govuk-grid-column-one-half">
+            {{govukTag({
+          text: "High potential",
+          classes: "govuk-tag--grey"
+          })}}
+          </div>
+          <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+            {{govukTag({
+          text: "Won",
+          classes: "govuk-tag--green"
+          })}}
+          </div>
+          <div class="govuk-grid-column-full govuk-!-margin-top-4">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a href="" class="govuk-link">Company name</a></h3>
+          </div>
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body govuk-!-margin-bottom-3"><a href="" class="govuk-link">Company name</a></p>
+          </div>
+          <div class="govuk-grid-column-full">
+            <details class="govuk-details-s govuk-!-margin-bottom-3" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Show
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body-s"><span class="govuk-hint govuk-!-font-size-16">Destination:</span> Afghanistan<br />
+                <span class="govuk-hint govuk-!-font-size-16">Total estimated export value:</span> £9,000 (2 years)<br />
+                <span class="govuk-hint govuk-!-font-size-16">Estimated date for win:</span> September 2023<br />
+                <span class="govuk-hint govuk-!-font-size-16">Main sector:</span> Aerospace : Aircraft Design<br />
+                <span class="govuk-hint govuk-!-font-size-16">Owner:</span> Andrew Davies<br />
+                <span class="govuk-hint govuk-!-font-size-16">Created on:</span> 12 Sep 2023, 2:09pm</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="referrals">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <h3 class="govuk-heading-m">0 received referrals</h3>
+          </div>
+          <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+            <div class="govuk-form-group govuk-!-margin-0">
+              <label class="govuk-label" for="sort">
+                View
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="published">Received referrals</option>
+                <option value="updated" selected>Sent referrals</option>
+              </select>
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr class="keyline-4"></hr>
+        <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-5">You have not received or sent any referrals.</p>
+        <p class="govuk-body govuk-!-margin-bottom-0">You can refer companies to other advisers from a company page.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Data Hub updates -->
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-full">
+    <hr class="keyline-4"></hr>
+    <h3 class="govuk-heading-m govuk-!-margin-top-4">Data Hub updates</h3>
+    <a href="http://data-services-help.trade.gov.uk/data-hub/updates/announcements/company-overview/" target="_blank" rel="noopener noreferrer" aria-labelledby="link-label" class="govuk-link govuk-!-font-size-19">New company overview page</a> <span class="govuk-body govuk-!-font-size-14">(Link opens in a new window)</span><br />
+    <p class="govuk-body govuk-!-font-size-14">3 days ago</p>
+    <p class="govuk-body govuk-!-font-size-14"><a href="" class="govuk-link">View all Data Hub updates</a></p>
+    <hr class="keyline-4"></hr>
+  </div>
+</div>
+
+{% endblock %}
