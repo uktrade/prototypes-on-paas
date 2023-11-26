@@ -94,6 +94,12 @@
             {% set relatedCompany = data['relatedCompany'] %}
             {%- endif -%}
 
+            {% if data['assignedTo'] == "Me" %}
+            {% set assignedTo = "Joe Smith" %}
+            {% else %}
+            {% set assignedTo = data['someoneElse'] %}
+            {%- endif -%}
+
 
               {{ govukTable({
               firstCellIsHeader: false,
@@ -133,7 +139,7 @@
                     text: "None"
                   },
                   {
-                    text: "Joe Smith"
+                    text: assignedTo
                   },
                   {
                     html: "<a href='' class='govuk-link'>Complete</a>"

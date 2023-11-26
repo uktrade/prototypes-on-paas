@@ -59,7 +59,11 @@
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Assigned to</th>
+              {% if data['assignedTo'] == "Me" %}
               <td class="govuk-table__cell">Joe Smith</td>
+              {% else %}
+              <td class="govuk-table__cell">{{ data['someoneElse'] }}</td>
+              {%- endif -%}
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Task description</th>
