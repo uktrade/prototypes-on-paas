@@ -1,0 +1,139 @@
+{% extends "layout-dh.html" %}
+{% block pageTitle %}
+ Data Hub
+{% endblock %}
+
+{% block header %}
+{{ dataHubHeader({serviceName: "Data Hub", navigation: [{"href": "companies", "text": "Companies", "class": "active"}, {"href": "contacts", "text": "Contacts"}, {"href": "events", "text": "Events"}, {"href": "interactions", "text": "Interactions"}, {"href": "investments", "text": "Investments"}, {"href": "orders", "text": "Orders"}, {"href": "#", "text": "Find exporters"}, {"href": "#", "text": "Market access"}, {"href": "support", "text": "Support"}]}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="homepage">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="homepage">Tasks</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      {{ data['taskTitle'] }}
+    </li>
+
+  </ol>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-8">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          Changes saved
+        </h3>
+      </div>
+    </div>
+
+    <h1 class="govuk-heading-l">{{ data['taskTitle'] }}</h1>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-!-padding-top-0">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {% if data['dueDate'] == "Custom date" %}
+        {% set dueDate = data['custom-date-day'] + "/" + data['custom-date-month'] + "/" + data['custom-date-year'] %}
+        {% elseif data['dueDate'] == "1 week" %}
+        {% set dueDate = "4/12/2023" %}
+        {% elseif data['dueDate'] == "1 month" %}
+        {% set dueDate = "27/12/2023" %}
+        {% elseif data['dueDate'] == "No due date" %}
+        {% set dueDate = "No due date" %}
+        {%- endif -%}
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            {% if data['relatedCompany'] %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Company</th>
+              <td class="govuk-table__cell">{{ data['relatedCompany'] }}</td>
+            </tr>
+            {%- endif -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date due</th>
+              <td class="govuk-table__cell">{{ dueDate }}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Assigned to</th>
+              {% if data['assignedTo'] == "Me" %}
+              <td class="govuk-table__cell">Joe Smith</td>
+              {% else %}
+              <td class="govuk-table__cell">{{ data['someoneElse'] }}</td>
+              {%- endif -%}
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Task description</th>
+              <td class="govuk-table__cell">{{ data['taskDescription'] }}</td>
+            </tr>
+            {% if data['relatedContacts'] %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Company contact(s)</th>
+              <td class="govuk-table__cell">{{ data['relatedContacts'] }}</td>
+            </tr>
+            {%- endif -%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Reminders set</th>
+              <td class="govuk-table__cell">7 days before due date</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date created</th>
+              <td class="govuk-table__cell"><span id='todays-date'></span></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Created by</th>
+              <td class="govuk-table__cell">Joe Smith</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Mark as complete"
+          }) }}
+
+          <a class="govuk-button govuk-button--secondary" href="edit-task">Edit task</a>
+
+          {{ govukButton({
+            text: "Create another task",
+            classes: "govuk-button--secondary"
+          }) }}
+
+          <a class="govuk-link" href="homepage">Back to tasks</a>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+<script>
+
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
+
+  document.getElementById('todays-date').innerHTML = dd + "/" + mm + "/" + yyyy;
+
+  </script>
+
+
+
+
+{% endblock %}
