@@ -1674,13 +1674,13 @@ test = ["zope.testrunner"]
 
 [[package]]
 name = "zope"
-version = "5.8.6"
+version = "5.9"
 description = "Zope application server / web framework"
 optional = false
 python-versions = ">= 3.7"
 files = [
-    {file = "Zope-5.8.6-py3-none-any.whl", hash = "sha256:67af76f82ad22b919352de3108ca044915c023f80e3d12ae9d6fb262eeff8370"},
-    {file = "Zope-5.8.6.tar.gz", hash = "sha256:c0e1e40071aa0f5521398b5875f206267ba2fdffe03262c6b7833c0a8e2e04ed"},
+    {file = "Zope-5.9-py3-none-any.whl", hash = "sha256:e0a0a104926b44fe44249c630315976303064573f8fbb98b8d25760f251b359b"},
+    {file = "Zope-5.9.tar.gz", hash = "sha256:411f0de9d81d003734f536ca827e9069e0bb04533286d22e704e236fa84074f7"},
 ]
 
 [package.dependencies]
@@ -2883,4 +2883,4 @@ test = ["zope.size", "zope.testing", "zope.testrunner"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.12"
-content-hash = "fe74f90220b1bb068551a40dfc12e43fe35b34984b1b2db0c273bacbc4d1ea9d"
+content-hash = "95bc41581adbf9c506d75c982ec7c34c54e56d999b4083acb58287a56bec8890"

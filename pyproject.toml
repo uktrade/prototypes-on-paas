@@ -42,5 +42,5 @@ tomli = "2.0.1"
 typing_extensions = "4.8.0"
 urllib3 = "2.1.0"
 Werkzeug = "3.0.1"
-Zope = "5.8.6"
+Zope = "5.9"
 django-revproxy = { git = "https://github.com/jazzband/django-revproxy" }
