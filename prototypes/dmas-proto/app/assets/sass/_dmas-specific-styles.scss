@@ -2,15 +2,27 @@
 // These in addition to styles from LIVE
 // Do not use this code in a production environment
 
-/* DBT DMAS colours (some maybe dupes of gov colours */
-$colour-dbt-pending-blue: #144E81;
-$colour-dbt-published-orange: #F47738;
-$colour-dbt-notallowed-pink: #80224D;
-$colour-dbt-warning-red: #AA2A16;
-$colour-dbt-dormant-grey: #505A5F;
-$colour-dbt-open-green: #00703C;
-$colour-dbt-info-box-grey: #B1B4B6;
-$colour-dbt-info-box-lgrey: #f3f2f1;
+/*
+-------------------------------
+DBT DMAS COLOURS START
+some maybe dupes of gov colours
+-------------------------------
+*/
+
+$colour-dbt-orange: #F47738;
+$colour-dbt-dark-green: #00703C;
+$colour-dbt-dark-grey: #505a5f;
+$colour-dbt-dormant-grey: #6F777B;
+$colour-dbt-light-grey: #f3f2f1;
+$colour-dbt-error-red: #d4351c;
+$colour-dbt-light-green: #e6f1ec;
+$colour-dbt-dashed-box-grey: #B1B4B6;
+$colour-dbt-blue: #144E81;
+$colour-dbt-highlight-yellow: #ffdd00;
+$govuk-secondary-text-colour: #505a5f;
+
+$colour-dbt-pink: #80224D;
+
 
 $colour-dbt-gh1: #cf102d;
 $colour-dbt-websafe-gh2: #005ea5;
@@ -19,12 +31,20 @@ $colour-dbt-websafe-gh2: #005ea5;
 $govuk-green: govuk-colour( 'green' );
 $govuk-black: govuk-colour( 'black' );
 
+/* DBT DMAS colours ENDS */
+
+
+
 /* CTA vars */
 $cta-button-width: 295px;
 $cta-button-margin: 30px;
 
 
-/* Set DMAS font stack */
+/*
+-------------------
+Set DMAS font stack
+-------------------
+*/
 
 /* body, p, h1, h2, h3, h4, h5, h6, a, span, div, table, th, td, blockquote, li, tr {
 	font-family:
@@ -36,15 +56,28 @@ $cta-button-margin: 30px;
 */
 
 .information-box {
-	padding: 10px 10px 0px 10px;
+	padding: 10px 10px 10px 10px;
 	flex: 1;
 	margin-bottom: 20px;
-	border: 1px solid $colour-dbt-info-box-grey;
+	border: 2px solid $colour-dbt-dashed-box-grey;
+
+	&__notset {
+		border: 2px dashed $colour-dbt-dashed-box-grey;
+		background-color: #f3f2f1;
+	}
 
 	&__container {
 		display: flex;
 		width: 100%;
 	}
+
+	/* Use secondary font for public view cards that cannot be edited 
+	Am using gov-hint on page to replicate this
+	&__pv-secondary-text {
+		color: $govuk-secondary-text-colour;
+	}
+	*/
+
 
 	@media (max-width: 40.0525em) {
 
@@ -55,14 +88,19 @@ $cta-button-margin: 30px;
 	}
 }
 
-/* INTERVENTION COMPONENT */
+/*
+----------------------------
+INTERVENTION COMPONENT START
+Not used anywhere yet
+----------------------------
+*/
 
 .intervention-banner {
     color: $govuk-black;
     padding: 15px;
     margin-bottom: 20px;
-    background-color: $colour-dbt-info-box-lgrey;
-    border-left: 10px solid $govuk-green;
+    background-color: $colour-dbt-light-grey;
+    border-left: 10px solid $colour-dbt-dark-green;
 }
 
 @media (min-width: 40.0625em) {
@@ -76,16 +114,24 @@ $cta-button-margin: 30px;
 	height: 1em;
 	margin-bottom: -2px;
 }
+/* INTERVENTION COMPONENT END */
 
-/* HELP CTA COMPONENT */
-/* _dash-card.scss and _dash-button.scss classes would replace this code */
+
+/*
+---------------------------------------------------------------------
+HELP CTA COMPONENT START
+Now replaced with live code
+Need to update this in component
+_dash-card.scss and _dash-button.scss classes would replace this code
+---------------------------------------------------------------------
+*/
 
 .help-cta-card {
 
 	width: $cta-button-width;
 	margin: $cta-button-margin;
 	padding: 8px 10px 7px;
-	border: 3px solid $govuk-green;
+	border: 3px solid $colour-dbt-dark-green;
 	text-align: left;
 	flex: 1;
 
@@ -96,17 +142,20 @@ $cta-button-margin: 30px;
 	}
 
 }
+/* HELP CTA COMPONENT END */
 
-
-/* THIS IS JUST FOR FIREBREAK CONCEPTS */
-/* FIREBREAK CONCEPTS START */
+/*
+-----------------------------------
+THIS IS JUST FOR FIREBREAK CONCEPTS
+-----------------------------------
+*/
 
 .information-box-concept {
 
 	padding: 16px;
 	margin-bottom: 20px;
 	flex: 1;
-	border: 3px solid $colour-dbt-info-box-grey;
+	border: 3px solid $colour-dbt-dashed-box-grey;
 	text-align: center;
 
 	&__fix {
@@ -129,61 +178,198 @@ $cta-button-margin: 30px;
 	background: #FFF;
 
 }
-
-
-
 /* FIREBREAK CONCEPTS END */
 
 
+/*
+----------------------------------------------
+TSS-870 - PUBLISHING V2 DESIGNS STYLING STARTS
+----------------------------------------------
+*/
 
-/* Come back and use a mixin? */
+/*
+OLDER VERSION OF THE PUBLIC VIEW STATUS CARD
+NON-RESPONSIVE - REPLACED WITH NEWER VERSION
+*/
+
 .public-view-status {
 	padding: 10px 10px 10px 10px;
 	flex: 1;
 	margin-bottom: 20px;
 
 	&__notlive {
-		border: 2px solid $colour-dbt-pending-blue;
+		border: 2px solid $colour-dbt-blue;
 		
 		&__heading{
-			color: $colour-dbt-pending-blue;
+			color: $colour-dbt-blue;
 		}
 	}
 
 	&__published {
-		border: 2px solid $colour-dbt-published-orange;
+		border: 2px solid $colour-dbt-orange;
 
 		&__heading{
-			color:$colour-dbt-published-orange;
+			color:$colour-dbt-orange;
 		}
 	}
 
 	&__notallowed {
-		border: 2px solid $colour-dbt-notallowed-pink;
+		border: 2px solid $colour-dbt-pink;
 
 		&__heading{
-			color: $colour-dbt-notallowed-pink;
+			color: $colour-dbt-pink;
 		}
 	}
 
 	&__deadlineexpired {
-		border: 2px solid $colour-dbt-warning-red;
+		border: 2px solid $colour-dbt-error-red;
 		
 		&__heading{
-			color: $colour-dbt-warning-red;;
+			color: $colour-dbt-error-red;;
 		}
 	}
 
 }
 
+
 .approvers-table {
 	padding-right: 20px;
 }
+/* TSS-870 - PUBLISHING V2 DESIGNS STYLING ENDS */
 
-/* From existing _global.scss file for formatting cancel link nicely on forms */
+
+/*
+---------------------------------------------------------------------------------
+From existing _global.scss file for formatting cancel link nicely on forms STARTS
+---------------------------------------------------------------------------------
+*/
+
 .form-cancel {
 	line-height: 2.1;
 	margin-left: govuk-em( 10, 16 );
 	font-size: 19px;
 }
 
+.barrier-summary__centred {
+	max-width: 960px;
+	margin-right: auto;
+    margin-left: auto;
+	padding-top: govuk-em( 30, 16 );
+	padding-bottom: govuk-em( 30, 16 );	
+}
+
+.barrier-summary__centred:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+/* From existing _global.scss file for formatting cancel link nicely on forms ENDS */
+
+
+/*
+-----------------------------------------------
+TSS-1130 - PUBLISHING V3 DESIGNS STYLING STARTS
+-----------------------------------------------
+*/
+
+/* Newer version of the public view status card */
+
+.pv-status {
+
+	padding: 16px;
+	margin-bottom: 20px;
+	flex: 1;
+	text-align: left;
+
+	&__heading {
+		font-size: 22px;
+	}
+
+	&__inprogress {
+		border: 3px solid $colour-dbt-blue;
+	}
+
+	&__published {
+		border: 3px solid $colour-dbt-dark-green;
+	}
+
+	&__overdue {
+		border: 3px solid $colour-dbt-error-red;
+	}
+
+	&__fix {
+		display: flex;
+		width: 100;
+
+	}
+}
+
+
+/* Newer concept version of the barrier status card
+larger font, different border */
+
+.bar-status {
+
+	padding: 16px;
+	margin-bottom: 20px;
+	flex: 1;
+	text-align: left;
+
+	&__heading {
+		font-size: 22px;
+	}
+
+	&__open {
+		border: 3px solid $colour-dbt-blue;
+	}
+
+	&__resolved {
+		border: 3px solid $colour-dbt-dark-green;
+	}
+
+	&__dormant {
+		border: 3px solid $colour-dbt-dormant-grey;
+	}
+
+	&__fix {
+		display: flex;
+		width: 100;
+
+	}
+
+}
+
+
+/* Adds logged in style to dmas nav header */
+
+.datahub-header__navigation__item__logged {
+	padding: 10px;
+	background-color: $colour-dbt-highlight-yellow;
+}
+
+/* TSS-1130 - PUBLISHING V3 DESIGNS STYLING ENDS */
+
+/*
+-----------------------------------------------------------
+TSS-1368 - PUBLISHING V3 MVE BOLT ON DESIGNS STYLING STARTS
+-----------------------------------------------------------
+*/
+
+/* Pretty up the HS codes */
+
+    .segmented-commodity-code--coloured span {
+        padding:.17em .25em;
+        margin-right: .16em
+    }
+
+    .segmented-commodity-code--coloured span:first-of-type {
+        background-color: #e8e9f3
+    }
+
+    .segmented-commodity-code--coloured span:nth-of-type(2) {
+        background-color: #d9ecf7
+    }
+
+    .segmented-commodity-code--coloured span:nth-of-type(3) {
+        background-color: #d5f5f2
+    }

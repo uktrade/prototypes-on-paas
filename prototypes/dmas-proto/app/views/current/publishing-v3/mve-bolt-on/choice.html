@@ -1,0 +1,43 @@
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  About the barrier – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        MVE Bolt-on
+      </h1>
+
+      <p>There are alternate versions of this journey.</p>
+
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="option-1/start" class="govuk-link">Option 1</a> - All after MVE journey</li>
+        <li><a href="option-2/start" class="govuk-link">Option 2</a> - Set public view status as part of MVE</li>
+        <li><a href="option-3/start" class="govuk-link">Option 3</a> - All after MVE journey - no exit option</li>
+      </ul>
+      <h2>Static page examples</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="option-1/barrier-confirmation-set-pv" class="govuk-link">Confirmation banner and set public view status combined</a></li>
+        <li><a href="option-1/barrier-confirmation-large-confirm" class="govuk-link">Large confirmation banner - seperate step</a></li>
+      </ul>
+
+    </div>   
+  </div>
+
+  {% endblock %}

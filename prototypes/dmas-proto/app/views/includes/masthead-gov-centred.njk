@@ -1,11 +1,11 @@
 
         <div class="ma-masthead">
-            <section class="barrier-summary">
+            <section class="barrier-summary__centred">
             <div class="barrier-summary__heading flex justify-between align-end">
                 <div>
-                    <p class="barrier-summary__code">B-23-T65</p>
-                    <h1 class="barrier-summary__heading__text">Electronics to Iceland</h1>
-                    <p class="barrier-summary__heading__country">Exporting electronics to Iceland are frozen at present.</p>
+                    <p class="barrier-summary__code">{{ barrierInformation[1].barrierID }}</p>
+                    <h1 class="barrier-summary__heading__text">{{ barrierInformation[1].barrierTitle }}</h1>
+                    <p class="barrier-summary__heading__country">{{ barrierInformation[1].barrierLocation }}</p>
                     <!-- Tag work will go here to be above the change links in layout -->
                     
                         <div class="barrier-summary__edit-links">

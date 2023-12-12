@@ -20,6 +20,9 @@
             — <a class="govuk-link" href="#intervention">Intervention Message</a>
           </li>
           <li>
+            — <a class="govuk-link" href="#statuscards">Barrier status cards</a>
+          </li>
+          <li>
             — <a class="govuk-link" href="#helpcta">Help call to action</a>
           </li>
         </ul>
@@ -33,7 +36,12 @@
           })
         }}
 
-        <h2 id="helpcta" class="govuk-!-margin-bottom-0">Help call to action card</h2>
+        <h2 id="statuscards" class="govuk-!-margin-bottom-0 govuk-!-margin-top-9">Barrier status cards</h2>
+        <p class="govuk-body-s govuk-!-margin-bottom-0">file: /public-view-status-card/macro.njk &nbsp;&nbsp;&nbsp; where in prod: not in production</p>
+        <p class="govuk-body-s govuk-!-margin-bottom-0">file: /new-barrier-status-card/macro.njk &nbsp;&nbsp;&nbsp; where in prod: not in production</p>
+        <p class="govuk-body govuk-!-margin-top-5">You can find all of the <a href="status-cards" class="govuk-link">card examples</a> on it's own page</p>
+
+        <h2 id="helpcta" class="govuk-!-margin-bottom-0 govuk-!-margin-top-9">Help call to action card</h2>
         <p class="govuk-body-s govuk-!-margin-bottom-0">file: /help-cta-card/macro.njk &nbsp;&nbsp;&nbsp; where in prod: not in production</p>
         {% set cardHtml %}
           <p class="govuk-body govuk-!-font-size-14  govuk-!-margin-bottom-2">Read the market access playbook for help resolving your barriers.</p>
@@ -49,6 +57,7 @@
           helpCardCtaDescription: cardHtml | safe
           })
         }}
+        
         
       </div>
   </div>
