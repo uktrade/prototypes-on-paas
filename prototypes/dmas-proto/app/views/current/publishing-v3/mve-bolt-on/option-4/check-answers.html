@@ -306,7 +306,7 @@
           <!-- PUBLIC TITLE AND SUMMARY -->
           <h2 class="govuk-heading-m">Public title and summary</h2>
           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-            {% if data['complete-title-summary'] %}
+
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Public title and summary provided?
@@ -314,13 +314,13 @@
                 <dd class="govuk-summary-list__value">
                   {{ data['complete-title-summary'] }}
                 </dd>
-            {% endif %}
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="section-9">
                     Change<span class="govuk-visually-hidden"> add title and summary now decision</span>
                   </a>
                 </dd>
               </div>
+
             {% if data['complete-title-summary'] == 'Yes' %}
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
