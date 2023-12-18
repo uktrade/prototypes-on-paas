@@ -607,7 +607,47 @@ router.post('/hs-codes-known-answer', function(request, response) {
     }
 })
 
-// MVE Bolt-on routing for forms - option 1
+// ------------------------------
+// MVE BOLT-ON ROUTING - OPTION 4
+// ------------------------------
+
+// Route to section 9 page if allowed = 'yes' else end MVE journey and goto check answers
+router.post('/barrier-mve-pv-allowed', function(request, response) {
+
+    var barrierState = request.session.data['barrier-public-view-status']
+    if (barrierState == "Allowed"){
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/section-9")
+    } else {
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/check-answers")
+    }
+})
+
+// Route to section 10 page if will complete title and summary = 'yes' else end MVE journey and goto check answers
+router.post('/barrier-mve-pv-complete-title-summary', function(request, response) {
+
+    var titleSummaryDecision = request.session.data['complete-title-summary']
+    if (titleSummaryDecision == "Yes"){
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/section-10")
+    } else {
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/check-answers")
+    }
+})
+
+// Route to section 10 page if allowed = 'yes' else end MVE journey and goto check answers
+router.post('/barrier-mve-pv-allowed', function(request, response) {
+
+    var barrierState = request.session.data['barrier-public-view-status']
+    if (barrierState == "Allowed"){
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/section-9")
+    } else {
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/check-answers")
+    }
+})
+
+// ------------------------------
+// MVE BOLT-ON ROUTING - OPTION 1
+// ------------------------------
+
 // PV status page - Routes if first add / editing from pv tab / allowed status handling
 router.post('/barrier-status-submit', function(request, response) {
 

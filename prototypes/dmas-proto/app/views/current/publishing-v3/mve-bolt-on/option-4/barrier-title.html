@@ -6,7 +6,7 @@
 
 <!-- CHECK IF FIRST VISIT -->
 {% set actionState = data['action-state'] %}
-{% if actionState == 'edit-mode' %}
+{% if data['public-title'] %}
   {% set titleHeadingText = "Update public title" %}
 {% else %}
   {% block beforeContent %}
@@ -15,14 +15,11 @@
     href: "javascript:window.history.back()"
   }) }}
   {% endblock %}
-  {% set titleHeadingText %}
-  <span class="govuk-caption-m">Setting the public view - Step 2 of 3</span>
-  Add a public title
-  {% endset %}
+  {% set titleHeadingText = "Add a public title" %}
 {% endif %}
 
 {% set titleHintText %}
-<p class="govuk-body">You need to provide a public summary for the barrier <strong>{% if data['barrier-summary'] %} {{ data['barrier-title'] }} {% else %} Electronics to Iceland{% endif %}</strong>.</p>
+<p class="govuk-body">You need to provide a public summary for the barrier <strong>{% if data['barrier-summary'] %} {{ data['barrier-title'] }} {% else %} Electronics to Iceland. {% endif %}</strong>.</p>
   <details class="govuk-details">
     <summary class="govuk-details__summary">
       <span class="govuk-details__summary-text">
@@ -38,7 +35,9 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+      <h1 class="govuk-heading-l">
+        {{ titleHeadingText }}
+      </h1>
       
       <form class="form" action="/barrier-title-submit" method="post">
       {{ govukCharacterCount({
@@ -46,18 +45,13 @@
         value: data['public-title'],
         id: "public-title",
         maxlength: 150,
-        label: {
-          html: titleHeadingText,
-          classes: "govuk-label--l",
-          isPageHeading: true
-        },
         rows: 1,
         hint: {
           html: titleHintText | safe
         }
       }) }}
 
-    {% if actionState == 'edit-mode' %}
+    {% if actionState == 'edit-pv-title' %}
       {{ govukButton({
         text: "Update"
       }) }}

@@ -1,0 +1,373 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  About the barrier – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+          <span class="govuk-caption-m">Section 9 of 9</span>
+          <h1 class="govuk-heading-l">Check your answers</h1>
+          <!-- ABOUT THE BARRIER -->
+          <h2 class="govuk-heading-m">About the barrier</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Barrier title
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data['barrier-title'] %}
+                  {{ data['barrier-title'] }}
+                {% else %}
+                  Electronics to Iceland
+                {% endif %}                  
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="section-1.html">
+                  Change<span class="govuk-visually-hidden"> barrier title</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Barrier description
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data['barrier-description'] %}
+                {{ data['barrier-description'] }}
+                {% else %}
+                Exporting electronics to Iceland are frozen at present.
+                {% endif %} 
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> barrier description</span>
+                </a>
+              </dd>
+            </div>                     
+          </dl>
+
+          <!-- BARRIER STATUS -->
+          <h2 class="govuk-heading-m">Barrier status</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Barrier status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Open
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> barrier status</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Barrier start date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                1 January 2023
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> start date</span>
+                </a>
+              </dd>
+            </div>                     
+          </dl>
+
+          <!-- BARRIER LOCATION -->
+          <h2 class="govuk-heading-m">Barrier location</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Barrier location
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Singapore
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> barrier location</span>
+                </a>
+              </dd>
+            </div>                                 
+          </dl>
+
+          <!-- TRADE DIRECTION AFFECTED -->
+          <h2 class="govuk-heading-m">Trade direction affected</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Trade direction
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Exporting from the UK or investing overseas
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> trade direction affected</span>
+                </a>
+              </dd>
+            </div>                     
+          </dl>
+
+          <!-- SECTORS AFFECTED -->
+          <h2 class="govuk-heading-m">Sectors affected</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Main sector affected
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Aerospace
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> sectors affected</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Other sectors affected
+              </dt>
+              <dd class="govuk-summary-list__value">
+                None
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> other sectors affected</span>
+                </a>
+              </dd>
+            </div>                     
+          </dl>
+
+          <!-- COMPANIES AFFECTED -->
+          <h2 class="govuk-heading-m">Companies affected</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Name of companies affected by the barrier
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Geddy Lee Entertainment Limited
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> companies affected</span>
+                </a>
+              </dd>
+            </div>                                 
+          </dl>
+
+          <!-- GOODS, SERVICES OR INVESTMENTS AFFECTED OLD
+          <h2 class="govuk-heading-m">Goods, services or investments affected</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Export type
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Services
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> export type</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Goods, services or investments affected
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Build of space vehicle
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> goods, services or investments affected</span>
+                </a>
+              </dd>
+            </div>                     
+          </dl> -->
+          <!-- ALTERNATE -->
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Goods, services or investments affected</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Export type</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-two-thirds">Export description</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third"></th>
+              </tr>
+            </thead>
+
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Goods</th>
+                  <td class="govuk-table__cell">Reflective panels</td>
+                  <td class="govuk-table__cell"><a href='#' class='govuk-link'>Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Services</th>
+                  <td class="govuk-table__cell">Rocket building service </td>
+                  <td class="govuk-table__cell"><a href='#' class='govuk-link'>Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">HS Code</th>
+                  <td class="govuk-table__cell">
+                    <span class="segmented-commodity-code segmented-commodity-code--coloured">
+                      <span>7604</span>
+                      <span>2910</span>
+                      <span>10</span>
+                    </span>
+                    <br>Bars of aluminium-lithium alloys</td>
+                  <td class="govuk-table__cell"><a href='#' class='govuk-link'>Change</a></td>
+                </tr>
+              </tbody>
+            </table>
+
+
+          <!-- PUBLIC VIEW STATUS -->
+          <h2 class="govuk-heading-m">Public view status</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Public view status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data['barrier-public-view-status'] %}{{ data['barrier-public-view-status'] }} {% else %} Allowed {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="section-8">
+                  Change<span class="govuk-visually-hidden"> public view status</span>
+                </a>
+              </dd>
+            </div>
+            {% if data['barrier-public-view-status'] == 'Allowed' %}
+              <div class="govuk-summary-list__row">
+                <!-- Display based on selections -->
+                  <dt class="govuk-summary-list__key">
+                    Reason why it is allowed to be public
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['barrier-allowed-desc'] }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="section-8">
+                      Change<span class="govuk-visually-hidden"> public view status</span>
+                    </a>
+                  </dd>
+              </div>
+            {% elseif data['barrier-public-view-status'] == 'Not allowed' %}
+              <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Further detail provided
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['barrier-not-allowed-desc'] }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="section-8">
+                      Change<span class="govuk-visually-hidden"> public view status</span>
+                    </a>
+                  </dd>
+              </div>
+            {% else %}
+              <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Reason why it is allowed to be public
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    None entered
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="section-8">
+                      Change<span class="govuk-visually-hidden"> public view status</span>
+                    </a>
+                  </dd>
+              </div>
+            {% endif %}
+          </dl>
+
+          <!-- PUBLIC TITLE AND SUMMARY -->
+          <h2 class="govuk-heading-m">Public title and summary</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            {% if data['complete-title-summary'] %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Public title and summary provided?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['complete-title-summary'] }}
+                </dd>
+            {% endif %}
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="section-9">
+                    Change<span class="govuk-visually-hidden"> add title and summary now decision</span>
+                  </a>
+                </dd>
+              </div>
+            {% if data['complete-title-summary'] == 'Yes' %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Public title
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['public-title'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="section-10">
+                    Change<span class="govuk-visually-hidden"> public title</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Public summary
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['public-summary'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="section-11">
+                    Change<span class="govuk-visually-hidden"> public summary</span>
+                  </a>
+                </dd>
+              </div>
+            {% endif %}                               
+          </dl>
+
+          <form class="form" action="public-view-tab" method="post">
+    
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and exit",
+          classes: "govuk-button--secondary",
+          href: "#"
+        }) }}
+    
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+{% endblock %}

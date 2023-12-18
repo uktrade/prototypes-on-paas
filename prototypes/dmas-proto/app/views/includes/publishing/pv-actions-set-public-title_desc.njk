@@ -15,24 +15,25 @@
         {% if pvStatus == "not allowed" %}
             <p class="govuk-body govuk-hint govuk-!-margin-bottom-2">You must set the public view status before you can add a title and summary.</p>
 
-        <!-- IF PV SET AND TITLE ADDED -->
-        {% elseif pvStatus == "allowed" and pvTitleStatus == 'entered' or pvSummaryStatus == 'entered' %}
+        <!-- IF PV SET AND TITLE ADDED 
+        {# {% elseif pvStatus == "allowed" and pvTitleStatus == 'entered' or pvSummaryStatus == 'entered' %} #}
             <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Public title</p>
             <p class="govuk-body govuk-!-margin-bottom-0">Electronics to Iceland</p>
             <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-4 govuk-!-margin-bottom-0">Public title</p>
             <p class="govuk-body govuk-!-margin-bottom-2">Not entered</p>
             <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Add public title and summary</a>
+        -->
 
         <!-- IF PV SET AND SUMMARY ADDED -->
-        <!-- MIGHT NOT NEED IF TAKING THEM BACK INTO 2-STEP PROCESS AND NOT INDIVIDUALLY EDITABLE 
-        {#{% elseif pvStatus == "allowed" and pvTitleStatus == 'entered' and pvSummaryStatus == 'entered' %} #}
+        <!-- MIGHT NOT NEED IF TAKING THEM BACK INTO 2-STEP PROCESS AND NOT INDIVIDUALLY EDITABLE -->
+        {% elseif pvStatus == "allowed" and pvTitleStatus == 'entered' and pvSummaryStatus == 'entered' %}
             <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Public title</p>
             <p class="govuk-body govuk-!-margin-bottom-2">Electronics to Iceland</p>
             <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Edit</a>
             <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-4 govuk-!-margin-bottom-0">Public summary</p>
             <p class="govuk-body govuk-!-margin-bottom-2">Exporting electronics to Iceland are frozen at present.</p>
             <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Edit</a>
-        -->
+        
 
         <!-- IF PV SET BUT NO TITLE OR SUMMARY ADDED -->
         {% else %}

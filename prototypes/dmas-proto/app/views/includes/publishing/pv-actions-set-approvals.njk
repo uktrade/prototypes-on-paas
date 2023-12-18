@@ -1,5 +1,5 @@
 {% set pvStatus = data['barrier-public-view-status'] %}
-{% set pvTitleStatus = data['public-title'] %}
+{% set pvApproved = data['public-title'] %}
 {% set pvSummaryStatus = data['public-summary'] %}
 {% set pvApprovalStatus = data['approval-status'] %}
 {% set pvStatus = 'none' %}
@@ -8,12 +8,13 @@
 {% set pvApprovalStatus = 'none' %}
 <!-- NEED TO COME BACK AND SET AN OVERALL PUBLIC VIEW STATUS VAR -->
 
+ 
 <!-- Check if first time and show dashed box if so -->
 <div class="information-box {% if pvStatus == 'allowed' and pvTitleStatus == 'none' or pvSummaryStatus == 'none' %}information-box__notset">{% else %}">{% endif %}
         <div class="govuk-summary-list__row">
             <h3 class="govuk-heading-s govuk-!-margin-bottom-3">Approvals</h3>
         </div>     
-        
+{#        
         <!-- IF PV NOT SET -->   
         {% if pvStatus == "not allowed" %}
             <p class="govuk-body govuk-hint govuk-!-margin-bottom-2">You must set the public view status before you can add a title and summary.</p>
@@ -39,7 +40,7 @@
         {% else %}
             <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Add public title and summary</a>
         {% endif %}
-</div>
+</div> #}
 
 
 <!--

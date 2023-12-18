@@ -4,25 +4,14 @@
   Add public title – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-<!-- CHECK IF FIRST VISIT -->
-{% set actionState = data['action-state'] %}
-{% if actionState == 'edit-mode' %}
-  {% set titleHeadingText = "Update public title" %}
-{% else %}
-  {% block beforeContent %}
-    {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
-  {% endblock %}
-  {% set titleHeadingText %}
-  <span class="govuk-caption-m">Setting the public view - Step 2 of 3</span>
-  Add a public title
-  {% endset %}
-{% endif %}
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
 
 {% set titleHintText %}
-<p class="govuk-body">You need to provide a public summary for the barrier <strong>{% if data['barrier-summary'] %} {{ data['barrier-title'] }} {% else %} Electronics to Iceland{% endif %}</strong>.</p>
   <details class="govuk-details">
     <summary class="govuk-details__summary">
       <span class="govuk-details__summary-text">
@@ -33,37 +22,29 @@
       We will add some guidance here and possibly links to help, or examples or both or more.
     </div>
   </details>
+  <p class="govuk-body govuk-hint">You need to provide a public title for the barrier with the internal title <strong>{% if data['barrier-title'] %} {{ data['barrier-title'] }}{% else %} Electronics to Iceland{% endif %}</strong>.</p>
 {% endset %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+      <span class="govuk-caption-m">Section 10 of 11</span>
+      <h1 class="govuk-heading-l">
+        Add a public title
+      </h1>
       
-      <form class="form" action="/barrier-title-submit" method="post">
+      <form class="form" action="section-11" method="post">
       {{ govukCharacterCount({
         name: "public-title",
         value: data['public-title'],
         id: "public-title",
         maxlength: 150,
-        label: {
-          html: titleHeadingText,
-          classes: "govuk-label--l",
-          isPageHeading: true
-        },
         rows: 1,
         hint: {
           html: titleHintText | safe
         }
       }) }}
 
-    {% if actionState == 'edit-mode' %}
-      {{ govukButton({
-        text: "Update"
-      }) }}
-      <a href="public-view-tab-temp" class="govuk-link form-cancel">Cancel</a>
-
-    {% else %}
       {{ govukButton({
         text: "Continue"
       }) }}
@@ -73,8 +54,6 @@
         classes: "govuk-button--secondary",
         href: "public-view-tab-temp?action-state=save-and-continue"
       }) }}
-    {% endif %}
-
 
       </form>
 
