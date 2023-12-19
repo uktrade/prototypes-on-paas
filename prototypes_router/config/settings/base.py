@@ -19,7 +19,8 @@ from sentry_sdk.integrations.django import DjangoIntegration
 env = environ.Env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).parents[2]
+ROOT_DIR = Path(__file__).parents[3]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -30,7 +31,7 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", False)
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost"])
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
 # Application definition
 
@@ -53,6 +54,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "core.middleware.DisableClientCachingMiddleware",
+    "core.middleware.NoIndexMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -60,7 +63,9 @@ ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "DIRS": [
+            BASE_DIR / "templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -81,7 +86,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": ROOT_DIR / "db.sqlite3",
     }
 }
 
@@ -120,9 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/pop_static/"
-STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
+STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "core", "static"),
+    BASE_DIR / "core" / "static",
 ]
 
 # Default primary key field type
@@ -130,15 +135,14 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-parent_dir = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
-process_json_file = open(os.path.join(parent_dir, "process.json"), "r")
+process_json_file = open(ROOT_DIR / "process.json", "r")
 PROTOTYPES = json.load(process_json_file)
 PROTOTYPES = {each["url_path"]: each for each in PROTOTYPES["apps"]}
 process_json_file.close()
 
 sentry_sdk.init(
-    dsn=os.environ.get("SENTRY_DSN"),
-    environment="prod",
+    dsn=env.str("SENTRY_DSN", default=""),
+    environment=env.str("SENTRY_ENVIRONMENT", default="local"),
     integrations=[
         DjangoIntegration(),
     ],
