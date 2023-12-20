@@ -20,35 +20,31 @@
         html: "The barrier ID is<br><strong>B-23-T65</strong>"
       }) }}
 
-      <h2 class="govuk-heading-m">What do I need to do next?</h2>
-      <h3>You need to add a public title and description to this barrier</h3>
+      <!-- DISPLAY BASED ON STEP REACHED IN MVE JOURNEY -->
 
-      {{ govukInsetText({
-        text: "Whatever information you provide next can be changed at any time."
-      }) }}
+      {% if data['barrier-public-view-status'] == 'Allowed' and data['public-title'] and data['public-summary'] %}
+      <p class="govuk-body">In the next 30 days the approver in your region needs to confirm they are happy for the barrier to be published.</p>
 
-      <p>You will be asked:</p>
+      {% elseif data['barrier-public-view-status'] == 'Not allowed' %}
+        Not allowed
+      {% else %}
+      <!-- DISPLAYED IF NO TITLE AND SUMMARY -->
+        <p class="govuk-body">As soon as you can, go to the <a href="#" class="govuk-link">Public view page</a> to provide a public title and summary. </p>
+        <p class="govuk-body">In the next 30 days:</p>
 
-      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
-        <li>provide a publically viewable title</li>
-        <li> provide a publically viewable summary</li>
-      </ul>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+          <li>you need to write a public title and summary </li>
+          <li>the approver in your region needs to confirm they are happy for the barrier to be published </li>
+        </ul>
+      
+      {% endif %}
 
-      <form class="form" action="barrier-title" method="post">
 
-        <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        
-          {{ govukButton({
-            text: "I'll do this later",
-            href: "public-view-tab-temp?action-state=do-later",
-            classes: "govuk-button--secondary"
-          }) }}
-        </div>
+      <!-- DISPLAYED IF SET TO NOT ALLOWED TO BE PUBLISHED -->
 
-      </form>
+
+
+
 
     </div>
   </div>

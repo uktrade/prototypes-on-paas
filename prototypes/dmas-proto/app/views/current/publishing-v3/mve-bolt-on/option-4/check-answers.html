@@ -17,7 +17,7 @@
     <main class="govuk-main-wrapper " id="main-content" role="main">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds-from-desktop">
-          <span class="govuk-caption-m">Section 9 of 9</span>
+          <!-- <span class="govuk-caption-m">Section 9 of 9</span> -->
           <h1 class="govuk-heading-l">Check your answers</h1>
           <!-- ABOUT THE BARRIER -->
           <h2 class="govuk-heading-m">About the barrier</h2>
@@ -242,116 +242,83 @@
 
 
           <!-- PUBLIC VIEW STATUS -->
-          <h2 class="govuk-heading-m">Public view status</h2>
+          <h2 class="govuk-heading-m">Barrier publication</h2>
           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Public view status
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {% if data['barrier-public-view-status'] %}{{ data['barrier-public-view-status'] }} {% else %} Allowed {% endif %}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="section-8">
-                  Change<span class="govuk-visually-hidden"> public view status</span>
-                </a>
-              </dd>
-            </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Publishing
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if data['barrier-public-view-status'] %}{{ data['barrier-public-view-status'] }} {% else %} Allowed {% endif %}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="section-8">
+                      Change<span class="govuk-visually-hidden"> publishing status</span>
+                    </a>
+                  </dd>
+                </div>
             {% if data['barrier-public-view-status'] == 'Allowed' %}
-              <div class="govuk-summary-list__row">
-                <!-- Display based on selections -->
-                  <dt class="govuk-summary-list__key">
-                    Reason why it is allowed to be public
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['barrier-allowed-desc'] }}
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="section-8">
-                      Change<span class="govuk-visually-hidden"> public view status</span>
-                    </a>
-                  </dd>
-              </div>
-            {% elseif data['barrier-public-view-status'] == 'Not allowed' %}
-              <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Further detail provided
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['barrier-not-allowed-desc'] }}
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="section-8">
-                      Change<span class="govuk-visually-hidden"> public view status</span>
-                    </a>
-                  </dd>
-              </div>
+                
+                {% if data['complete-title-summary'] %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Public title
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {% if data['public-title'] %}{{ data['public-title'] }} {% else %} Title not provided {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="section-10">
+                        Change<span class="govuk-visually-hidden"> public title</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Public summary
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {% if data['public-summary'] %}{{ data['public-summary'] }} {% else %} Summary not provided {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="section-11">
+                        Change<span class="govuk-visually-hidden"> public summary</span>
+                      </a>
+                    </dd>
+                  </div>
+                {% endif %}
+              {% elseif data['barrier-public-view-status'] == 'Not allowed' %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Reason
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {% if data['barrier-not-allowed-desc'] %}{{ data['barrier-not-allowed-desc'] }} {% else %} No reason supplied {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="section-8">
+                        Change<span class="govuk-visually-hidden"> publishing status</span>
+                      </a>
+                    </dd>
+                </div>
             {% else %}
-              <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Reason why it is allowed to be public
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    None entered
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="section-8">
-                      Change<span class="govuk-visually-hidden"> public view status</span>
-                    </a>
-                  </dd>
-              </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Reason
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      None entered
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="section-8">
+                        Change<span class="govuk-visually-hidden"> public view status</span>
+                      </a>
+                    </dd>
+                </div>
             {% endif %}
           </dl>
 
-          <!-- PUBLIC TITLE AND SUMMARY -->
-          <h2 class="govuk-heading-m">Public title and summary</h2>
-          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Public title and summary provided?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['complete-title-summary'] }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="section-9">
-                    Change<span class="govuk-visually-hidden"> add title and summary now decision</span>
-                  </a>
-                </dd>
-              </div>
-
-            {% if data['complete-title-summary'] == 'Yes' %}
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Public title
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['public-title'] }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="section-10">
-                    Change<span class="govuk-visually-hidden"> public title</span>
-                  </a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Public summary
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['public-summary'] }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="section-11">
-                    Change<span class="govuk-visually-hidden"> public summary</span>
-                  </a>
-                </dd>
-              </div>
-            {% endif %}                               
-          </dl>
-
-          <form class="form" action="public-view-tab" method="post">
+          <form class="form" action="barrier-confirmation" method="post">
     
         {{ govukButton({
           text: "Continue"

@@ -17,33 +17,44 @@
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-m">Section 9 of 11</span>
       <h1 class="govuk-heading-l">
-        Public barriers completion
+        Public barrier information
       </h1>
 
       <form class="form" action="/barrier-mve-pv-complete-title-summary" method="post">
         {# Barrier state: {{ data['barrier-public-view-status'] }} #}
 
+        {{ govukFieldset({
+          legend: {
+            text: "Do you want to provide a public title and summary now or later?",
+            classes: "govuk-fieldset__legend--s govuk-!-margin-bottom-0",
+            isPageHeading: true
+          }
+        }) }}
+
+        <div class="govuk-inset-text inset-banner">
+          <p class="govuk-body">For a barrier to be published on GOV.UK it must have a title and summary that are suitable for members of the public to read.</p>
+          <a href="https://data-services-help.trade.gov.uk/market-access/how-guides/how-prepare-market-access-barrier-report-public-view/" target="_blank" class="govuk-link">Find out how to write a public title and summary (opens in new tab)</a>
+        </div>
+        
+        <p class="govuk-body">You can write the title and summary now, or you can do it within 30 days after reporting the barrier.</p> 
+        <!--<p class="govuk-body">If you choose to do it after reporting the barrier, you will have 30 days, but you should try to do it as soon as possible.</p>-->
+       
+        {#{{ govukWarningText({
+          text: "If you choose to do it after reporting the barrier, you will have 30 days, but you should try to do it as soon as possible.",
+          iconFallbackText: "Warning"
+        }) }}#}
+
         {{ govukRadios({
           name: "complete-title-summary",
           value: data['complete-title-summary'],
-          fieldset: {
-            legend: {
-              text: "Are you ready to complete the public title and summary now?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--s"
-            }
-          },
-          hint: {
-              text: "In order to be published you will need to provide a public title and summary. If you do not provide now, you will need to provide within 30 days."
-          },
           items: [
             {
               value: "Yes",
-              text: "Yes, I will complete now"
+              text: "Now"
             },
             {
               value: "No",
-              text: "No, I will complete within 30 days"
+              text: "Later"
             }
           ]
         }) }}

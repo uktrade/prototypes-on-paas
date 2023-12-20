@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Add public title – {{ serviceName }} – GOV.UK Prototype Kit
+  Add public summary – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,17 +12,8 @@
 {% endblock %}
 
 {% set titleHintText %}
-  <details class="govuk-details">
-    <summary class="govuk-details__summary">
-      <span class="govuk-details__summary-text">
-        Guidance on writing summaries
-      </span>
-    </summary>
-    <div class="govuk-details__text">
-      We will add some guidance here and possibly links to help, or examples or both or more.
-    </div>
-  </details>
-  <p class="govuk-body govuk-hint">You need to provide a public summary for the barrier with the internal description <strong>{% if data['barrier-description'] %} {{ data['barrier-description'] }}{% else %} Electronics to Iceland{% endif %}</strong>.</p>
+  <p class="govuk-body govuk-hint">Provide a summary that is suitable for the public to read.</p>
+  <a href="https://data-services-help.trade.gov.uk/market-access/how-guides/how-prepare-market-access-barrier-report-public-view/" target="_blank" class="govuk-link">Find out how to write a public summary (opens in new tab)</a>
 {% endset %}
 
 {% block content %}
@@ -30,7 +21,7 @@
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-m">Section 11 of 11</span>
       <h1 class="govuk-heading-l">
-        Add a public summary
+        Public summary
       </h1>
       
       <form class="form" action="check-answers" method="post">
@@ -45,6 +36,11 @@
         }
       }) }}
 
+      {% set internalTitleAndSummaryHtml %}
+      <p class="govuk-body govuk-!-font-weight-bold">Barrier title: {% if data['barrier-title'] %}<span class="govuk-body">{{ data['barrier-title'] }}</span> {% else %} <span class="govuk-body">Sample internal title</span> {% endif %}</p>
+      <p class="govuk-body govuk-!-font-weight-bold">Barrier description: {% if data['barrier-description'] %}<span class="govuk-body">{{ data['barrier-description'] }}</span> {% else %} <span class="govuk-body">Sample internal summary</span> {% endif %}
+      {% endset %}
+
       {{ govukButton({
         text: "Continue"
       }) }}
@@ -52,7 +48,7 @@
       {{ govukButton({
         text: "Save and exit",
         classes: "govuk-button--secondary",
-        href: "public-view-tab-temp?action-state=save-and-continue"
+        href: "#"
       }) }}
 
       </form>

@@ -373,3 +373,25 @@ TSS-1368 - PUBLISHING V3 MVE BOLT ON DESIGNS STYLING STARTS
     .segmented-commodity-code--coloured span:nth-of-type(3) {
         background-color: #d5f5f2
     }
+
+/* Pretty up the inset component */
+
+.inset-banner {
+    color: $govuk-black;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-left: 10px solid $colour-dbt-orange;
+}
+
+@media (min-width: 40.0625em) {
+    .inset-banner {
+        margin-bottom:30px
+    }
+}
+
+.inset-banner__dismiss-icon {
+	width: 1.1em;
+	height: 1em;
+	margin-bottom: -2px;
+}
+/* TSS-1368 - PUBLISHING V3 MVE BOLT ON DESIGNS STYLING ENDS */
