@@ -41,6 +41,11 @@
       <p class="govuk-body govuk-!-font-weight-bold">Barrier description: {% if data['barrier-description'] %}<span class="govuk-body">{{ data['barrier-description'] }}</span> {% else %} <span class="govuk-body">Sample internal summary</span> {% endif %}
       {% endset %}
 
+      {{ govukDetails({
+        summaryText: "View internal title and summary ",
+        html: internalTitleAndSummaryHtml
+      }) }}
+
       {{ govukButton({
         text: "Continue"
       }) }}
