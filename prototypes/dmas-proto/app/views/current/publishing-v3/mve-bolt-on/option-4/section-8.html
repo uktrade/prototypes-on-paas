@@ -1,0 +1,108 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Barrier public view status – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-m">Section 8 of 11</span>
+      <h1 class="govuk-heading-l">
+        Barrier publication
+      </h1>     
+
+      <form class="form" action="/barrier-mve-pv-allowed" method="post">
+
+        {{ govukFieldset({
+          legend: {
+            text: "Can the barrier be published on GOV.UK?",
+            classes: "govuk-fieldset__legend--s",
+            isPageHeading: true
+          }
+        }) }}
+
+        <p class="govuk-hint">Select yes unless there is a valid reason that the barrier should not be published.</p>
+
+        {% set listOfExemptions %}
+        <p class="govuk-body">A barrier should not be published if:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the company affected could be easily identified, even once the company name has been removed</li>
+          <li>the barrier was shared with the government in confidence</li>
+          <li>publishing the barrier might damage the UK’s relationship with the host government</li>
+          <li>it is defence or security related</li>
+          <li>there are specific strategic concerns relating to upcoming negotiations</li>
+          <li>it affects imports into the UK</li>
+          <li>it is a future or potential barrier that is not yet affecting trade</li>
+          <li>an other government department (OGD) or ?? (DA) has advised that it should not be published</li>
+        </ul>
+        {% endset %}
+
+        {{ govukDetails({
+          summaryText: " What are the valid reasons for not publishing a barrier? ",
+          html: listOfExemptions
+        }) }}
+
+          <!-- set the html for conditional reveal when allowed -->
+          {% set allowedHtml %}
+            {{ govukTextarea({
+            name: "barrier-allowed-desc",
+            value: data['barrier-allowed-desc'],
+            id: "barrier-allowed-desc",
+            label: {
+              text: "Why is it allowed to be public? (optional)",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            }
+          }) }}
+          {% endset -%}
+
+          {% set notallowedHtml %}
+            {{ govukTextarea({
+            name: "barrier-not-allowed-desc",
+            value: data['barrier-not-allowed-desc'],
+            id: "barrier-not-allowed-desc",
+            label: {
+              text: "Explain why the barrier should not be published",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            }
+          }) }}
+          {% endset -%}     
+          
+          {{ govukRadios({
+            name: "barrier-public-view-status",
+            value: data['barrier-public-view-status'],
+
+            items: [
+              {
+                value: "Allowed",
+                text: "Yes"
+              },
+              {
+                value: "Not allowed",
+                text: "No",
+                conditional: {
+                  html: notallowedHtml
+                }
+              }
+            ]
+          }) }}
+        </p>
+  
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and exit",
+          classes: "govuk-button--secondary",
+          href: "#"
+        }) }}
+  
+        </form>
+
+    </div>
+  </div>
+{% endblock %}

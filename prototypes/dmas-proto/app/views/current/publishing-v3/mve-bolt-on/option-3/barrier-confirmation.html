@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Page name – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Barrier created",
+        html: "The barrier ID is<br><strong>B-23-T65</strong>"
+      }) }}
+
+      <h2 class="govuk-heading-m">What do I need to do next?</h2>
+      <h3>You need to decide if this barrier will be publically viewable</h3>
+
+      {{ govukInsetText({
+        text: "Whatever information you provide next can be changed at any time."
+      }) }}
+
+      <p>You will be asked:</p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>to decide if this barrier is allowed to be published</li>
+        <li>provide a publically viewable title</li>
+        <li> provide a publically viewable summary</li>
+      </ul>
+
+      <form class="form" action="set-public-view" method="post">
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+       
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
