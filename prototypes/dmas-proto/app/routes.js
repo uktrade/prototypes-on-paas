@@ -596,6 +596,7 @@ function generate_list_of_barriers(amount) {
 }
 
 // Add your routes here
+// Section 7 concept routing based on HC codes known or not
 router.post('/hs-codes-known-answer', function(request, response) {
 
     var knowHsCodes = request.session.data['do-you-know-the-hs-codes']
@@ -603,6 +604,84 @@ router.post('/hs-codes-known-answer', function(request, response) {
         response.redirect("report-a-barrier/mve-updates/section-7v2-hscodes")
     } else {
         response.redirect("report-a-barrier/mve-updates/section-7v2-no-code-route")
+    }
+})
+
+// ------------------------------
+// MVE BOLT-ON ROUTING - OPTION 4
+// ------------------------------
+
+// Route to section 9 page if allowed = 'yes' else end MVE journey and goto check answers
+router.post('/barrier-mve-pv-allowed', function(request, response) {
+
+    var barrierState = request.session.data['barrier-public-view-status']
+    if (barrierState == "Allowed"){
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/section-9")
+    } else {
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/check-answers")
+    }
+})
+
+// Route to section 10 page if will complete title and summary = 'yes' else end MVE journey and goto check answers
+router.post('/barrier-mve-pv-complete-title-summary', function(request, response) {
+
+    var titleSummaryDecision = request.session.data['complete-title-summary']
+    if (titleSummaryDecision == "Yes"){
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/section-10")
+    } else {
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/check-answers")
+    }
+})
+
+// Route to section 10 page if allowed = 'yes' else end MVE journey and goto check answers
+router.post('/barrier-mve-pv-allowed', function(request, response) {
+
+    var barrierState = request.session.data['barrier-public-view-status']
+    if (barrierState == "Allowed"){
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/section-9")
+    } else {
+        response.redirect("current/publishing-v3/mve-bolt-on/option-4/check-answers")
+    }
+})
+
+// ------------------------------
+// MVE BOLT-ON ROUTING - OPTION 1
+// ------------------------------
+
+// PV status page - Routes if first add / editing from pv tab / allowed status handling
+router.post('/barrier-status-submit', function(request, response) {
+
+    var actionState = request.session.data['action-state']
+    var pvAllowedState = request.session.data['barrier-public-view-status']
+    if (actionState == "edit-pv-status"){
+        response.redirect("current/publishing-v3/mve-bolt-on/option-1/public-view-tab-temp")
+    } else if (pvAllowedState == "allowed"){
+        response.redirect("current/publishing-v3/mve-bolt-on/option-1/barrier-title")
+    } else {
+        response.redirect("current/publishing-v3/mve-bolt-on/option-1/public-view-tab-temp")
+    }
+})
+
+// PV title page - Routes if first add / editing from pv tab
+router.post('/barrier-title-submit', function(request, response) {
+
+    var actionState = request.session.data['action-state']
+    if (actionState == "edit-pv-title"){
+        response.redirect("current/publishing-v3/mve-bolt-on/option-1/public-view-tab-temp")
+    } else {
+        response.redirect("current/publishing-v3/mve-bolt-on/option-1/barrier-summary")
+    }
+})
+
+// PV summary page - Routes if first add / editing from pv tab
+router.post('/barrier-summary-submit', function(request, response) {
+
+    var actionState = request.session.data['action-state']
+    if (actionState == "edit-pv-summary"){
+        response.redirect("current/publishing-v3/mve-bolt-on/option-1/public-view-tab-temp")
+    } else {
+        // Same for now unless adding check answers to these steps
+        response.redirect("current/publishing-v3/mve-bolt-on/option-1/public-view-tab-temp")
     }
 })
 

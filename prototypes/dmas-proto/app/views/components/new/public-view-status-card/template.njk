@@ -1,0 +1,32 @@
+{# Pass values into macro (params): barrierState,  #}
+Public view state: {{ params.publicViewState }}
+<!-- Add logic to display type of barrier based on publicViewState var -->
+{% if params.publicViewState == "notset" %}
+    <div class="pv-status pv-status__inprogress">
+    <h2 class="pv-status__heading govuk-!-margin-bottom-0 govuk-!-margin-top-0">Publish status not set</h2>
+    <p class="govuk-!-margin-0 govuk-!-padding-top-2">
+    A decision on whether this barrier should be allowed to be made public is required.
+    </p>
+    </div>
+{% endif %}
+
+{% if params.publicViewState == "published" %}
+    <div class="pv-status pv-status__published">
+    <h2 class="pv-status__heading govuk-!-margin-bottom-0 govuk-!-margin-top-0">Published</h2>
+    <p class="govuk-!-margin-0 govuk-!-padding-top-2">
+        <a href="#" class="govuk-link">View this barrier on the public website.</a>
+    </p>
+    <p class="govuk-!-margin-0 govuk-!-padding-top-2">
+        Public ID: PID-B6L37G
+    </p>
+    </div>
+{% endif %}
+
+{% if params.publicViewState == "overdue" %}
+    <div class="pv-status pv-status__overdue">
+    <h2 class="pv-status__heading govuk-!-margin-bottom-0 govuk-!-margin-top-0">Overdue</h2>
+    <p class="govuk-!-margin-0 govuk-!-padding-top-2">
+        The deadline for getting approval for this barrier to become publicly accessible has been exceeded by 5 days.
+    </p>
+    </div>
+{% endif %}
