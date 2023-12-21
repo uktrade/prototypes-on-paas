@@ -1,0 +1,171 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Barrier status – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+<!-- CHECK IF FIRST VISIT -->
+{% set actionState = data['action-state'] %}
+{% if actionState == 'edit-pv-status' %}
+  {% set pvStatusHeadingText = "Update public view status" %}
+{% else %}
+  {% set pvStatusHeadingText %}
+  <span class="govuk-caption-m">Setting the public view - Step 1 of 3</span>
+  Set public view status
+  {% endset %}
+  {% block beforeContent %}
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  {% endblock %}
+{% endif %}
+
+{% set titleHintText %}
+<p class="govuk-body">You now need to decide whether the barrier should be allowed to be published or not.</p>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Guidance on deciding if allowed or not
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    We will add some guidance here and possibly links to help, or examples or both or more.
+  </div>
+</details>
+{% endset %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% set html %}
+        <p class="govuk-notification-banner__heading">
+          You have successfully created the barrier B-23-T65
+        </p>
+      {% endset %}
+
+      {% set captionHeading %}
+      <span class="govuk-caption-m">Section 1 of 3</span>
+      About the barrier
+      {% endset %}
+
+      {{ govukNotificationBanner({
+        html: html,
+        type: "success"
+      }) }}
+
+      <form class="form" action="/barrier-status-submit" method="post">
+
+          <!-- set the html for conditional reveal when allowed -->
+          {% set allowedHtml %}
+            {{ govukTextarea({
+            name: "barrier-allowed-desc",
+            value: data['barrier-allowed-desc'],
+            id: "barrier-allowed-desc",
+            label: {
+              text: "Why is it allowed to be public? (optional)",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            }
+          }) }}
+          {% endset -%}
+
+            {% set notallowedHtml %}
+            {{ govukSelect({
+              id: "barrier-notallowed-defined-reason",
+              name: "barrier-notallowed-defined-reason",
+              label: {
+                text: "Select a reason why is it not allowed to be public",
+                classes: "govuk-label--s"
+              },
+              items: [
+                {
+                  value: "None selected",
+                  text: "None selected"
+                },
+                {
+                  value: "OGD says no",
+                  text: "OGD says no"
+                },
+                {
+                  value: "Legally not allowed",
+                  text: "Legally not allowed"
+                },
+                {
+                  value: "This barrier is sensitive",
+                  text: "This barrier is sensitive"
+                },
+                {
+                  value: "Computer says no",
+                  text: "Computer says no"
+                }
+              ]
+            }) }}
+
+            {{ govukTextarea({
+            name: "barrier-not-allowed-desc",
+            value: data['barrier-not-allowed-desc'],
+            id: "barrier-not-allowed-desc",
+            label: {
+              text: "Provide more detail if needed (optional)",
+              isPageHeading: true
+            }
+          }) }}
+          {% endset -%}     
+          
+          {{ govukRadios({
+            name: "barrier-public-view-status",
+            value: data['barrier-public-view-status'],
+            fieldset: {
+              legend: {
+                html: pvStatusHeadingText,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: titleHintText
+            },
+            items: [
+              {
+                value: "allowed",
+                text: "Allowed, it can be viewed by the public",            
+                conditional: {
+                  html: allowedHtml
+                }
+              },
+              {
+                value: "not allowed",
+                text: "Not allowed",
+                conditional: {
+                  html: notallowedHtml
+                }
+              }
+            ]
+          }) }}
+        </p>
+        {% if actionState == 'edit-pv-status' %}
+          {{ govukButton({
+            text: "Update"
+          }) }}
+          <a href="public-view-tab-temp" class="govuk-link form-cancel">Cancel</a>
+
+        {% else %}
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+          {{ govukButton({
+            text: "Save and exit",
+            classes: "govuk-button--secondary",
+            href: "public-view-tab-temp?action-state=save-and-continue"
+          }) }}
+        {% endif %}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

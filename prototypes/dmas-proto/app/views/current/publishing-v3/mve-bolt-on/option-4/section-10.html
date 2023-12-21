@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add public title – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% set titleHintText %}
+  <p class="govuk-body govuk-hint">Provide a title that is suitable for the public to read.</p>
+  <a href="https://data-services-help.trade.gov.uk/market-access/how-guides/how-prepare-market-access-barrier-report-public-view/" target="_blank" class="govuk-link">Find out how to write a public title (opens in new tab)</a>
+{% endset %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-m">Section 10 of 11</span>
+      <h1 class="govuk-heading-l">
+        Public title
+      </h1>
+      
+      <form class="form" action="section-11" method="post">
+      {{ govukCharacterCount({
+        name: "public-title",
+        value: data['public-title'],
+        id: "public-title",
+        maxlength: 150,
+        rows: 1,
+        hint: {
+          html: titleHintText | safe
+        }
+      }) }}
+
+      {% set internalTitleAndSummaryHtml %}
+      <p class="govuk-body govuk-!-font-weight-bold">Barrier title: {% if data['barrier-title'] %}<span class="govuk-body">{{ data['barrier-title'] }}</span> {% else %} <span class="govuk-body">Electronics to Iceland</span> {% endif %}</p>
+      <p class="govuk-body govuk-!-font-weight-bold">Barrier description: {% if data['barrier-description'] %}<span class="govuk-body">{{ data['barrier-description'] }}</span> {% else %} <span class="govuk-body">Exporting electronics to Iceland are frozen at present.</span> {% endif %}
+      {% endset %}
+      
+      {{ govukDetails({
+        summaryText: "View internal title and summary ",
+        html: internalTitleAndSummaryHtml
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and exit",
+        classes: "govuk-button--secondary",
+        href: "#"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

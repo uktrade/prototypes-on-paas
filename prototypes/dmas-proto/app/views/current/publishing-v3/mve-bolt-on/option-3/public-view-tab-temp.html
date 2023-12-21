@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Page name – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+<!-- check what state the public view information is in
+This allows us to set the edit URLs to the correct state which are:
+Do later - user exited on conf page. Resume journey in full
+Save and continue - user exited
+-->
+{% set actionState = data['action-state'] %}
+
+
+{% block content %}
+
+<h2>Public view status</h2>
+<p>status: {{ data['barrier-public-view-status'] }}&nbsp;<a href="set-public-view?{{ actionState }}" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
+<p>Allowed reason: {{ data['barrier-allowed-desc'] }}&nbsp;<a href="set-public-view?{{ actionState }}" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
+<p>Not allowed selection: {{ data['barrier-notallowed-defined-reason'] }}&nbsp;<a href="set-public-view?{{ actionState }}" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
+<p>Not allowed reason: {{ data['barrier-not-allowed-desc'] }}&nbsp;<a href="set-public-view?{{ actionState }}" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
+
+
+<h2>Public title and summary</h2>
+<p>Title: {{ data['public-title'] }}&nbsp;<a href="barrier-title?{{ actionState }}" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
+<p>Summary: {{ data['public-summary'] }}&nbsp;<a href="barrier-summary?{{ actionState }}" class="govuk-link govuk-link--no-visited-state">Edit</a></p>
+
+{% if data['barrier-public-view-status'] and data['barrier-public-view-status'] == 'not allowed' %}
+<h1>Not allowed</h1>
+{% elseif data['barrier-public-view-status'] %}
+<h1>Allowed</h1>
+<h2>30 Days timer has started</h2>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add public title – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="barrier-information#public-view-tab" method="post">
+      {{ govukCharacterCount({
+        name: "public-title",
+        value: data['public-title'],
+        id: "public-title",
+        maxlength: 150,
+        rows: 1,
+        label: {
+          text: "Public title",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "The title should be suitable for the public to read on GOV.UK. It will only be published once it has been reviewed internally. Include the product, service or investment and the type of problem. For example, Import quotas for steel rods."
+        }
+      }) }}
+
+        {{ govukButton({
+          text: "Confirm"
+        }) }}
+        {#
+        {{ govukButton({
+          text: "Confirm and add summary",
+          classes: "govuk-button--secondary"
+        }) }} #}
+        <a href="barrier-information#public-view-tab" class="govuk-link form-cancel">Cancel</a>
+
+      </form>
+
+    </div>
+  </div>
+{{ data['progressStep'] }}
+{% endblock %}
