@@ -44,6 +44,7 @@ urllib3 = "2.0.5"
 Werkzeug = "3.0.0"
 Zope = "5.8.6"
 django-revproxy = { git = "https://github.com/jazzband/django-revproxy" }
+django-log-formatter-ecs = "*"
 
 [tool.poetry.dev-dependencies]
 black = "23.12.0"
