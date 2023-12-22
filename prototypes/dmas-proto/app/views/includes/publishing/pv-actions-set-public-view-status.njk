@@ -1,23 +1,22 @@
 {% set pvStatus = data['barrier-public-view-status'] %}
-{% set pvStatus = 'none' %}
+{% set pvStatus = '' %}
+
 
 <!-- Check if first time and show dashed box if so -->
-<div class="information-box {% if pvStatus == 'none' %}information-box__notset">{% else %}">{% endif %}
+<div class="information-box {% if not pvStatus %}information-box__notset">{% else %}">{% endif %}
         <div class="govuk-summary-list__row">
-                <h3 class="govuk-heading-s govuk-!-margin-bottom-3">Public view status</h3>
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Public view status</h2>
         </div>     
         
         <!-- IF NOT ALLOWED -->   
         {% if pvStatus == "allowed" %}
             <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Allowed</p>
-            <p class="govuk-body govuk-!-margin-bottom-2"><span>More detail:</span> Someone said it was allowed</p>
             <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Edit</a>
 
         <!-- IF NOT ALLOWED -->
         {% elseif pvStatus == "not allowed" %}
             <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Not Allowed</p>
-            <p class="govuk-body govuk-!-margin-bottom-0"><span>Reason:</span> Legally not allowed</p>
-            <p class="govuk-body govuk-!-margin-bottom-2"><span>More detail:</span> Someone said it was not legally allowed</p>
+            <p class="govuk-body govuk-!-margin-bottom-2"><span>Reason:</span> Legally not allowed</p>
             <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Edit</a>
 
         <!-- IF NOTHING SET YET-->

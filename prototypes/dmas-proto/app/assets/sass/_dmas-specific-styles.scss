@@ -63,7 +63,18 @@ Set DMAS font stack
 
 	&__notset {
 		border: 2px dashed $colour-dbt-dashed-box-grey;
-		background-color: #f3f2f1;
+		/* Note current background colour with gov buttons will fail contrast ratio 3:1 - look to change background colour below
+		Using gov inverse button
+		--surface: #b1b4b6;
+		--background: #ffffff;
+		--color: #337cbd;
+		--focus-background: #e8f1f8;
+		--focus-color: #337cbd;
+		FAILS surface vs Background
+
+		Will we have buttons on this background anyway? Check scenarios in New Year
+		*/
+		background-color: #f3f2f1; 
 	}
 
 	&__container {

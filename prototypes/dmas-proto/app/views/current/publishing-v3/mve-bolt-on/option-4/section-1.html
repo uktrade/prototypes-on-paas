@@ -24,42 +24,47 @@
 
         <p>
          
-          {% call govukFieldset({
+          {{ govukFieldset({
             legend: {
               html: captionHeading,
               classes: "govuk-fieldset__legend--l",
               isPageHeading: false
             }
-          }) %}
+          }) }}
           
-            {{ govukInput({
-              label: {
-                text: 'Barrier title',
-                classes: 'govuk-label--s'
-              },
-              value: data['barrier-title'],
-              hint: {
-                text: "Include the product, service or investment and the type of problem. For example, Import quotas for steel rods."
-              },
-              id: "barrier-title",
-              name: "barrier-title",
-              autocomplete: "barrier-title"
-            }) }}
-          
-            {{ govukTextarea({
-              label: {
-                text: 'Barrier description',
-                classes: 'govuk-label--s'
-              },
-              value: data['barrier-description'],
-              hint: {
-                text: "Explain how the barrier is affecting trade and why it exists. Where relevant include the specific laws or measures blocking trade, and any political context."
-              },
-              id: "barrier-description",
-              name: "barrier-description",
-              autocomplete: "barrier-description"
-            }) }}
-          {% endcall %}
+          {{ govukCharacterCount({
+            name: "barrier-title",
+            value: data['barrier-title'],
+            id: "barrier-title",
+            maxlength: 150,
+            rows: 1,
+            label: {
+              text: "Barrier title",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            },
+            hint: {
+              text: "Include the product, service or investment and the type of problem. For example, Import quotas for steel rods."
+            }
+          }) }}
+
+          {{ govukCharacterCount({
+            name: "barrier-description",
+            value: data['barrier-description'],
+            id: "barrier-description",
+            maxlength: 500,
+            rows: 3,
+            label: {
+              text: "Barrier description",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            },
+            hint: {
+              text: "Explain how the barrier is affecting trade and why it exists. Where relevant include the specific laws or measures blocking trade, and any political context."
+            }
+          }) }}
+
+
         </p>
 
         {{ govukButton({

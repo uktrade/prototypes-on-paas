@@ -1,0 +1,64 @@
+{% set pvStatus = data['barrier-public-view-status'] %}
+{% set pvApproved = data['public-title'] %}
+{% set pvSummaryStatus = data['public-summary'] %}
+{% set pvApprovalStatus = data['approval-status'] %}
+{% set pvStatus = '' %}
+{% set pvTitleStatus = 'entered' %}
+{% set pvSummaryStatus = 'entered' %}
+{% set pvApprovalStatus = 'approved' %}
+{% set pvPublishStatus = 'not published' %}
+<!-- NEED TO COME BACK AND SET AN OVERALL PUBLIC VIEW STATUS VAR -->
+
+<!-- IF PV NOT ALLOWED WE SUPRESS THE COMPONENT -->
+{% if pvStatus == "not allowed" %}
+
+<!-- IF PV NOT SET EITHER WAY -->
+{% elseif not pvStatus %}
+    <!-- show first time box style -->
+    <div class="information-box information-box__notset">
+        <div class="govuk-summary-list__row">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Publishing</h2>
+        </div>     
+        <p class="govuk-body govuk-hint govuk-!-margin-bottom-2">You must set the public view status, add a title and summary and approve the barrier.</p>
+    </div>
+
+    <!-- IF PV SET AND TITLE AND SUMMARY ADDED AND APPROVED --> 
+    {% elseif pvStatus == "allowed" and pvTitleStatus == "entered" and pvSummaryStatus == "entered" and pvApprovalStatus == 'approved' %}
+        <div class="information-box">
+            <div class="govuk-summary-list__row">
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Publishing</h2>
+            </div> 
+        {% if pvPublishStatus == 'not published' %}
+            {{ govukButton({
+                text: "Publish",
+                classes: "govuk-!-margin-bottom-1"
+            }) }}
+
+            {{ govukButton({
+                text: "Mark as rejected",
+                classes: "govuk-button--secondary govuk-!-margin-bottom-1"                
+            }) }}
+        {% else %}
+            {{ govukButton({
+                text: "Unpublish",
+                classes: "govuk-button--secondary govuk-!-margin-bottom-1"                
+            }) }}
+        {% endif %}
+</div>
+
+{% endif %}
+
+
+
+<!---
+If not allowed hide
+else
+if blank then say set allowed or not, add a title and summary and approved
+else
+must be set to allowed so show various states which are:
+    Not published - with publish option
+    Published
+
+end if
+
+-->

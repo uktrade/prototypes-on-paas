@@ -1,54 +1,65 @@
 {% set pvStatus = data['barrier-public-view-status'] %}
 {% set pvTitleStatus = data['public-title'] %}
 {% set pvSummaryStatus = data['public-summary'] %}
-{% set pvStatus = 'not allowed' %}
-{% set pvTitleStatus = 'none' %}
-{% set pvSummaryStatus = 'none' %}
+{% set pvStatus = '' %}
+{% set pvTitleStatus = 'entered' %}
+{% set pvSummaryStatus = 'entered' %}
 
-<!-- Check if first time and show dashed box if so -->
-<div class="information-box {% if pvStatus == 'allowed' and pvTitleStatus == 'none' or pvSummaryStatus == 'none' %}information-box__notset">{% else %}">{% endif %}
-        <div class="govuk-summary-list__row">
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-3">Public title and summary</h3>
-        </div>     
-        
-        <!-- IF PV NOT SET -->   
-        {% if pvStatus == "not allowed" %}
+<!-- IF PV NOT ALLOWED WE SUPRESS THE COMPONENT -->
+{% if pvStatus == "not allowed" %}
+
+<!-- IF PV NOT SET EITHER WAY -->
+{% elseif not pvStatus %}  
+    <!-- show first time box style -->
+    <div class="information-box information-box__notset">
+            <div class="govuk-summary-list__row">
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Public title and summary</h2>
+            </div>     
             <p class="govuk-body govuk-hint govuk-!-margin-bottom-2">You must set the public view status before you can add a title and summary.</p>
+    </div>
 
-        <!-- IF PV SET AND TITLE ADDED 
-        {# {% elseif pvStatus == "allowed" and pvTitleStatus == 'entered' or pvSummaryStatus == 'entered' %} #}
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Public title</p>
-            <p class="govuk-body govuk-!-margin-bottom-0">Electronics to Iceland</p>
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-4 govuk-!-margin-bottom-0">Public title</p>
-            <p class="govuk-body govuk-!-margin-bottom-2">Not entered</p>
-            <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Add public title and summary</a>
-        -->
 
-        <!-- IF PV SET AND SUMMARY ADDED -->
-        <!-- MIGHT NOT NEED IF TAKING THEM BACK INTO 2-STEP PROCESS AND NOT INDIVIDUALLY EDITABLE -->
-        {% elseif pvStatus == "allowed" and pvTitleStatus == 'entered' and pvSummaryStatus == 'entered' %}
+<!-- IF PV SET TO ALLOWED -->
+{% elseif pvStatus == "allowed" %}
+    <div class="information-box">
+        <div class="govuk-summary-list__row">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Public title and summary</h2>
+        </div>
+        {% if pvTitleStatus == 'entered' %}
             <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Public title</p>
             <p class="govuk-body govuk-!-margin-bottom-2">Electronics to Iceland</p>
-            <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Edit</a>
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-4 govuk-!-margin-bottom-0">Public summary</p>
+            <p class="govuk-body"><a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Edit</a></p>
+        {% else %}
+        <p class="govuk-body"><a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Add public title</a></p>
+        {% endif %}
+        {% if pvSummaryStatus == 'entered' %}
+            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0 govuk-!-margin-top-3">Public summary</p>
             <p class="govuk-body govuk-!-margin-bottom-2">Exporting electronics to Iceland are frozen at present.</p>
             <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Edit</a>
-        
-
-        <!-- IF PV SET BUT NO TITLE OR SUMMARY ADDED -->
         {% else %}
-            <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Add public title and summary</a>
+        <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Add public summary</a>
         {% endif %}
-</div>
-
+    </div>
+{% endif %}
 
 <!--
     Will need these states covered 
 
     PV not set so no option to add title/summary
-    PV set so can add title and summary
-    PV set title added so edit option
-    PV set title and summary added so edit option
+    PV set not allowed so do not display anything
+    PV set allowed so can add title and summary
+    PV set title and/or summary added so edit option
     ALSO ADD PUBLISHED WITH OUTSTANDING CHANGES VIEW HERE
+    PLUS ANY OTHER VIEWS THAT COME OUT DURING WORKSHOP IN JAN
+-->
+
+
+<!---
+If not allowed hide
+else
+if blank then say set allowed or not
+else
+must be set to allowed so show various add edit states
+end if
 
 -->

@@ -2,54 +2,65 @@
 {% set pvApproved = data['public-title'] %}
 {% set pvSummaryStatus = data['public-summary'] %}
 {% set pvApprovalStatus = data['approval-status'] %}
-{% set pvStatus = 'none' %}
-{% set pvTitleStatus = 'none' %}
-{% set pvSummaryStatus = 'none' %}
-{% set pvApprovalStatus = 'none' %}
+{% set pvStatus = '' %}
+{% set pvTitleStatus = 'entered' %}
+{% set pvSummaryStatus = 'entered' %}
+{% set pvApprovalStatus = 'approved' %}
 <!-- NEED TO COME BACK AND SET AN OVERALL PUBLIC VIEW STATUS VAR -->
 
- 
-<!-- Check if first time and show dashed box if so -->
-<div class="information-box {% if pvStatus == 'allowed' and pvTitleStatus == 'none' or pvSummaryStatus == 'none' %}information-box__notset">{% else %}">{% endif %}
+<!-- IF PV NOT ALLOWED WE SUPRESS THE COMPONENT -->
+{% if pvStatus == "not allowed" %}
+
+<!-- IF PV NOT SET EITHER WAY -->
+{% elseif not pvStatus %}  
+    <!-- show first time box style -->
+    <div class="information-box information-box__notset">
+            <div class="govuk-summary-list__row">
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Approval</h2>
+            </div>     
+            <p class="govuk-body govuk-hint govuk-!-margin-bottom-2">You must set the public view status and add a title and summary.</p>
+    </div>
+
+<!-- IF PV SET AND TITLE AND SUMMARY ADDED --> 
+{% elseif pvStatus == "allowed" and pvTitleStatus == "entered" and pvSummaryStatus == "entered" %}
+    <div class="information-box">
         <div class="govuk-summary-list__row">
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-3">Approvals</h3>
-        </div>     
-{#        
-        <!-- IF PV NOT SET -->   
-        {% if pvStatus == "not allowed" %}
-            <p class="govuk-body govuk-hint govuk-!-margin-bottom-2">You must set the public view status before you can add a title and summary.</p>
-
-        <!-- IF PV SET AND TITLE ADDED -->
-        {% elseif pvStatus == "allowed" and pvTitleStatus == 'entered' and pvSummaryStatus == 'none' %}
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Public title</p>
-            <p class="govuk-body govuk-!-margin-bottom-2">Electronics to Iceland</p>
-            <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Edit</a>
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0 govuk-!-margin-top-4">Public summary</p>
-            <p class="govuk-body"><a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Add public summary</a></p>
-
-        <!-- IF PV SET AND SUMMARY ADDED -->
-        {% elseif pvStatus == "allowed" and pvTitleStatus == 'entered' and pvSummaryStatus == 'entered' %}
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Public title</p>
-            <p class="govuk-body govuk-!-margin-bottom-2">Electronics to Iceland</p>
-            <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Edit</a>
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-4 govuk-!-margin-bottom-0">Public summary</p>
-            <p class="govuk-body govuk-!-margin-bottom-2">Exporting electronics to Iceland are frozen at present.</p>
-            <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Edit</a>
-
-        <!-- IF PV SET BUT NO TITLE OR SUMMARY ADDED -->
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Approval</h2>
+        </div>
+        <h3 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">Approvers for this barrier:</h3>
+        <ul class="govuk-list govuk-list--bullet govuk-list--spaced govuk-!-margin-bottom-0">
+            <li>Market Access Regional Coordinators</li>
+            <li>BTR Regional Teams</li>
+            <li>Department for Levelling Up, Housing and Communities</li>
+            <li>Department for Environment, Food & Rural Affairs</li>
+        </ul>
+        {% if pvApprovalStatus == "not approved"%}
+            <ul class="govuk-list ">
+                <li class="govuk-!-margin-top-0"><a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Edit approvers</a></li>
+            </ul>
+            {{ govukButton({
+                text: "Mark as approved",
+                classes: "govuk-!-margin-bottom-1"
+            }) }}
         {% else %}
-            <a href="#" class="govuk-link--no-visited-state govuk-!-font-size-19">Add public title and summary</a>
+            {{ govukButton({
+                text: "Mark as not approved",
+                classes: "govuk-button--secondary govuk-!-margin-bottom-1"                
+            }) }}
         {% endif %}
-</div> #}
+    </div>
 
+{% endif %}
 
-<!--
-    Will need these states covered 
+<!---
+If not allowed hide
+else
+if blank then say set allowed or not and add a title and summary
+else
+must be set to allowed so show various states which are:
+    Not approved - show edit approvers / approve button
+    Approved - show unapprove button
 
-    PV not set so no option to add title/summary
-    PV set so can add title and summary
-    PV set title added so edit option
-    PV set title and summary added so edit option
-    ALSO ADD PUBLISHED WITH OUTSTANDING CHANGES VIEW HERE
+end if
 
 -->
