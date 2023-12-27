@@ -616,6 +616,32 @@ files = [
 Django = ">=3.2"
 
 [[package]]
+name = "django-ipware"
+version = "3.0.7"
+description = "A Django application to retrieve user's IP address"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+files = [
+    {file = "django-ipware-3.0.7.tar.gz", hash = "sha256:753f8214a16ccaac54ea977349a96e37b582a28a54065e00c1c46d530862c85e"},
+    {file = "django_ipware-3.0.7-py2.py3-none-any.whl", hash = "sha256:a18820ea2b98ff3f87b7530eb6346f5feb65d18e89397606aacc098fa7b93db2"},
+]
+
+[[package]]
+name = "django-log-formatter-ecs"
+version = "0.0.5"
+description = "ECS log formatter for Django"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "django_log_formatter_ecs-0.0.5-py3-none-any.whl", hash = "sha256:1e8731dd25a11ac64e789f19931e12fe7ef8ad1a172b7bceb2ea5cab185a583e"},
+    {file = "django_log_formatter_ecs-0.0.5.tar.gz", hash = "sha256:6b9784fe31eb1bd6598dc7db0f7f647e03ea6c3926c73cd1c9221adefee289ad"},
+]
+
+[package.dependencies]
+django-ipware = ">=3.0,<4.0"
+kubi-ecs-logger = ">=0.1.0,<0.2.0"
+
+[[package]]
 name = "django-revproxy"
 version = "0.12.0"
 description = "Yet another Django reverse proxy application"
@@ -897,6 +923,20 @@ perf = ["ipython"]
 testing = ["flufl.flake8", "importlib-resources (>=1.3)", "packaging", "pyfakefs", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy (>=0.9.1)", "pytest-perf (>=0.9.2)", "pytest-ruff"]
 
 [[package]]
+name = "kubi-ecs-logger"
+version = "0.1.2"
+description = "Logger based on Elasticsearch Common Schema."
+optional = false
+python-versions = ">=3.6, <4"
+files = [
+    {file = "kubi_ecs_logger-0.1.2-py3-none-any.whl", hash = "sha256:f35bd3ae9ac4c23977ac5307779c8e98cd7cef0025c11f7368e443d482dc30f6"},
+    {file = "kubi_ecs_logger-0.1.2.tar.gz", hash = "sha256:48e9a9a4b1e77b73631efd70d253386f34ca742da1b268b8e72624d903fff99b"},
+]
+
+[package.dependencies]
+marshmallow = "3.19.0"
+
+[[package]]
 name = "markupsafe"
 version = "2.1.3"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -964,6 +1004,26 @@ files = [
     {file = "MarkupSafe-2.1.3-cp39-cp39-win_amd64.whl", hash = "sha256:3fd4abcb888d15a94f32b75d8fd18ee162ca0c064f35b11134be77050296d6ba"},
     {file = "MarkupSafe-2.1.3.tar.gz", hash = "sha256:af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"},
 ]
+
+[[package]]
+name = "marshmallow"
+version = "3.19.0"
+description = "A lightweight library for converting complex datatypes to and from native Python datatypes."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "marshmallow-3.19.0-py3-none-any.whl", hash = "sha256:93f0958568da045b0021ec6aeb7ac37c81bfcccbb9a0e7ed8559885070b3a19b"},
+    {file = "marshmallow-3.19.0.tar.gz", hash = "sha256:90032c0fd650ce94b6ec6dc8dfeb0e3ff50c144586462c389b81a07205bedb78"},
+]
+
+[package.dependencies]
+packaging = ">=17.0"
+
+[package.extras]
+dev = ["flake8 (==5.0.4)", "flake8-bugbear (==22.10.25)", "mypy (==0.990)", "pre-commit (>=2.4,<3.0)", "pytest", "pytz", "simplejson", "tox"]
+docs = ["alabaster (==0.7.12)", "autodocsumm (==0.2.9)", "sphinx (==5.3.0)", "sphinx-issues (==3.0.1)", "sphinx-version-warning (==1.1.2)"]
+lint = ["flake8 (==5.0.4)", "flake8-bugbear (==22.10.25)", "mypy (==0.990)", "pre-commit (>=2.4,<3.0)"]
+tests = ["pytest", "pytz", "simplejson"]
 
 [[package]]
 name = "multimapping"
@@ -1387,13 +1447,13 @@ testing = ["coverage"]
 
 [[package]]
 name = "typing-extensions"
-version = "4.8.0"
+version = "4.9.0"
 description = "Backported and Experimental Type Hints for Python 3.8+"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "typing_extensions-4.8.0-py3-none-any.whl", hash = "sha256:8f92fc8806f9a6b641eaa5318da32b44d401efaac0f6678c9bc448ba3605faa0"},
-    {file = "typing_extensions-4.8.0.tar.gz", hash = "sha256:df8e4339e9cb77357558cbdbceca33c303714cf861d1eef15e1070055ae8b7ef"},
+    {file = "typing_extensions-4.9.0-py3-none-any.whl", hash = "sha256:af72aea155e91adfc61c3ae9e0e342dbc0cba726d6cba4b6c72c1f34e47291cd"},
+    {file = "typing_extensions-4.9.0.tar.gz", hash = "sha256:23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"},
 ]
 
 [[package]]
@@ -2879,4 +2939,4 @@ test = ["zope.size", "zope.testing", "zope.testrunner"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.12"
-content-hash = "6c4091d829d1cc455a16fa8d33c7f2e83ad9f56a8aa46eab7fef942e7b7baeb7"
+content-hash = "aa7b70bbbc4bc5d631fcbeac5fe7d73ae49d857caae5b9a862b05d7a19a47415"
