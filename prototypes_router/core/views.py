@@ -1,9 +1,13 @@
+import hashlib
+import time
+
+import requests
+from django import views
 from django.conf import settings
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.template.response import SimpleTemplateResponse
 from django.views.static import serve
 from revproxy.views import ProxyView
-import hashlib
 
 prototypes = settings.PROTOTYPES
 
@@ -93,4 +97,31 @@ class ReverseProxyRouter(ProxyView):
             body=request_payload,
             decode_content=False,
             preload_content=False,
+        )
+
+
+class HealthCheckView(views.View):
+    def get(self, request, *args, **kwargs):
+        start = time.time()
+
+        fail = False
+        # if we're accessing via healthcheck/ then we're checking the status of the POP Django app
+        if "warning" in request.path:
+            # if we're accessing via healthcheck/warning/ then we're checking the status of the prototypes
+            for prototype_name, prototype_path in prototypes.items():
+                response = requests.get(
+                    f"http://localhost:{prototype_path['env']['PORT']}"
+                )
+                if response.status_code != 200:
+                    fail = True
+                    break
+
+        end = time.time()
+        time_taken = round(end - start, 3)
+
+        return render(
+            request,
+            "healthcheck.html",
+            context={"fail": fail, "time_taken": time_taken},
+            content_type="text/xml",
         )

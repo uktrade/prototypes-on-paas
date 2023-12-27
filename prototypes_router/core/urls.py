@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from .views import ReverseProxyRouter
+from .views import ReverseProxyRouter, HealthCheckView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("healthcheck/", HealthCheckView.as_view()),
+    path("healthcheck/warning/", HealthCheckView.as_view()),
     re_path(r"^(?P<path>.*)$", ReverseProxyRouter.as_view()),
 ]

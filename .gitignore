@@ -222,3 +222,4 @@ node_modules
 
 *.pem
 *.sqlite3
+local.env
