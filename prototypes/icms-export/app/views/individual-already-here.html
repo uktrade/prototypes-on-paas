@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-form-group">
+  <span class="govuk-caption-m">2 of 3</span>
+  <h1 class="govuk-heading-xl">
+    Has anyone else set up an account with the private indidvidual's details?
+  </h1>
+  <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="changed-name">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="changed-name-2">
+        No
+      </label>
+    </div>
+  </div>
+  <div class="govuk-form-group">
+    <br />
+  </div>
+  {{ govukButton({
+    text: "Continue",
+    href: "#",
+    attributes: {
+      "data-action": "form-submit",
+      "data-submitting-text": "Submitting...",
+      "data-prevent-double-click": "true",
+      "onclick": "return handleSignIn();"
+    }
+  }) }}
+</div>
+
+<script>
+  function handleSignIn() {
+    const yesRadio = document.getElementById("changed-name");
+    const noRadio = document.getElementById("changed-name-2");
+
+    if (yesRadio.checked) {
+      window.location.href = "ask-individual-admin";  // URL for "Yes" option
+    } else if (noRadio.checked) {
+      window.location.href = "name-of-exporter";  // URL for "No" option
+    }
+
+    return false;  // Prevent form submission
+  }
+</script>
+
+{% endblock %}
+
+
+

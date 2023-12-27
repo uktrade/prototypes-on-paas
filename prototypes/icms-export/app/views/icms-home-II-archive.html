@@ -1,0 +1,272 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+  Start page with step by step template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      Manage import licences and certificates for export
+    </h1>
+
+    <p>Use this service to:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>apply for import licences</li>
+      <li>apply for certificates for export</li>
+      <li>edit or check an application</li>
+    </ul>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        </legend>
+
+        <h2 class="govuk-heading-m">
+          Check if you need an import licence or a certificate for export 
+          <div id="event-name-hint" class="govuk-hint">
+            Use the form below to check that you're in the right place.
+          </div>
+        </h2>
+
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="contact-import" name="contact" type="radio" value="import" checked data-aria-controls="conditional-contact-import">
+            <label class="govuk-label govuk-radios__label" for="contact-import">
+              Apply for an import licence
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="contact-export" name="contact" type="radio" value="export" data-aria-controls="conditional-contact-export">
+            <label class="govuk-label govuk-radios__label" for="contact-export">
+              Apply for a certificate for export
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="contact-other" name="contact" type="radio" value="other" data-aria-controls="conditional-contact-other">
+            <label class="govuk-label govuk-radios__label" for="contact-other">
+              Other
+            </label>
+          </div>
+
+        </div>
+        </fieldset>
+        </div>
+        
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        
+        {% set buttonHref = "/import-form" %}
+        
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            var importRadio = document.getElementById("contact-import");
+            var exportRadio = document.getElementById("contact-export");
+            var otherRadio = document.getElementById("contact-other");
+            
+            importRadio.addEventListener("change", function() {
+              updateButtonHref("/import-form");
+            });
+            
+            exportRadio.addEventListener("change", function() {
+              updateButtonHref("/export-form-updated");
+            });
+            
+            otherRadio.addEventListener("change", function() {
+              updateButtonHref("/finished-pesticide");
+            });
+            
+            function updateButtonHref(href) {
+              var button = document.getElementById("start-form-button");
+              button.href = href;
+            }
+          });
+        </script>
+        
+        {{ govukButton({
+          text: "Continue",
+          classes: "govuk-button--secondary",
+          id: "start-form-button",
+          href: buttonHref
+        }) }}
+        
+        <h2 class="govuk-heading-m" style="margin-top: 1em;">
+          Manage a licence or a certificate
+          <div id="event-name-hint" class="govuk-hint">
+            Apply, renew or check the progress of your licence or certificate 
+          </div>
+        </h2>
+        
+
+
+
+        <div class="govuk-button-group">
+          <a href="onegov-new" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">
+            Start now
+            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="govuk-button-group">
+          <a class="govuk-link govuk-link--no-visited-state" href="/help">Help</a>
+        </div>
+            
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+    <div class="app-step-nav-related app-step-nav-related--singular">
+      <h2 class="app-step-nav-related__heading">
+        <span class="app-step-nav-related__pretitle">Obtaining your licence or certificate: step by step</span>
+      </h2>
+    </div>
+
+    <div data-module="appstepnav"id="step-by-step-navigation" class="app-step-nav govuk-!-display-none-print js-hidden" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all steps" data-hide-all-text="Hide all steps">
+      <ol class="app-step-nav__steps">
+        <li class="app-step-nav__step js-step app-step-nav__step--active" aria-current="step" id="check-you-re-allowed-to-drive">
+          <div class="app-step-nav__header js-toggle-panel" data-position="1">
+            <h3 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--number">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 1<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
+                Check if you need a licence or a certificate
+              </span>
+            </h3>
+          </div>
+
+          <div class="app-step-nav__panel js-panel" id="step-panel-check-you-re-allowed-to-drive-1">
+            <p class="app-step-nav__paragraph">Check licence or certificate requirements based on type, origin, destination, and goods.</p>
+        
+
+
+        </li>
+        <li class="app-step-nav__step js-step" id="driving-lessons-and-practice">
+          <div class="app-step-nav__header js-toggle-panel" data-position="2">
+            <h3 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--number">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 2<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
+                Read the guidance applicable to your goods
+              </span>
+            </h3>
+          </div>
+
+          <div class="app-step-nav__panel js-panel" id="step-panel-driving-lessons-and-practice-2">
+            <p class="app-step-nav__paragraph">Read the guidance for your goods to understand the licensing and certification requirements. 
+              Stay updated to comply with regulations and ensure smooth import/export processes.</p>
+
+           
+        
+
+         
+
+        </li>
+        <li class="app-step-nav__step js-step" id="book-and-manage-your-theory-test">
+          <div class="app-step-nav__header js-toggle-panel" data-position="3">
+            <h3 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--number">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 3<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
+                Sign in or create an account
+              </span>
+            </h3>
+          </div>
+
+          <div class="app-step-nav__panel js-panel" id="step-panel-book-and-manage-your-theory-test-3">
+            <p class="app-step-nav__paragraph">The account will allow you to manage applications, add a colleague to your account and access support. </p>
+
+           
+            </li>
+            <li class="app-step-nav__step js-step" id="book-and-manage-your-theory-test">
+              <div class="app-step-nav__header js-toggle-panel" data-position="4">
+                <h3 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--number">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 4<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Apply for a licence or a certificate
+                  </span>
+                </h3>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-book-and-manage-your-theory-test-4">
+                <p class="app-step-nav__paragraph">Complete the form accurately, submit required documents and track the progress. 
+                  Await the outcome after review. Promptly respond to requests for additional information, if needed.. </p>
+       
+                </li>
+                <li class="app-step-nav__step js-step" id="book-and-manage-your-theory-test">
+                  <div class="app-step-nav__header js-toggle-panel" data-position="5">
+                    <h3 class="app-step-nav__title">
+                      <span class="app-step-nav__circle app-step-nav__circle--number">
+                        <span class="app-step-nav__circle-inner">
+                          <span class="app-step-nav__circle-background">
+                            <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 5<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                          </span>
+                        </span>
+                      </span>
+        
+                      <span class="js-step-title">
+                        Issuance, rejection or renewal
+                      </span>
+                    </h3>
+                  </div>
+        
+                  <div class="app-step-nav__panel js-panel" id="step-panel-book-and-manage-your-theory-test-6">
+                    <p class="app-step-nav__paragraph"> You will receive an approval, a detailed explanation for a rejection or a a renewal to ensure smooth import/export operations. </p>
+
+           
+       
+
+        </li>
+      </ol>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+</div>
+</div>
+{% endblock %}

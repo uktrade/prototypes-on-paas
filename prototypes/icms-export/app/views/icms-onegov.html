@@ -1,0 +1,198 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+  Start page with step by step template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+        </div>
+        </fieldset>
+        </div>
+        
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        
+        {% set buttonHref = "/import-form" %}
+        
+  <html lang="en" class="govuk-template "><head>
+    <meta charset="utf-8">
+    <title>
+    
+    
+        Create a GOV.UK One Login or sign in
+        -
+    
+    GOV.UK One Login
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c"> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon">
+      <link rel="mask-icon" href="/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+
+  <!--[if !IE 8]><!-->
+    <link href="/public/style.css" rel="stylesheet">
+  <!--<![endif]-->
+
+  
+  
+  <!--[if IE 8]>
+    <link href="/govuk-frontend/all-ie8.css" rel="stylesheet">
+  <![endif]-->
+
+  
+  <!--[if lt IE 9]>
+    <script src="/html5-shiv/html5shiv.js"></script>
+  <![endif]-->
+
+
+
+
+
+    
+    
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js" nonce=""></script><script type="text/javascript" async="true" src="https://www.googletagmanager.com/gtm.js?id=GTM-TK92W68"></script></head>
+  <body class="govuk-template__body  js-enabled">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+    
+
+
+
+
+
+
+    
+      <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+
+	      
+	      
+	      <main class="govuk-main-wrapper " id="main-content" role="main">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds ">
+              
+  
+
+
+
+  
+    <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3">Create a GOV.UK One Login or sign in</h1>
+  
+
+  <p class="govuk-body">You’ll need:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>an email address</li>
+    
+      <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
+    
+  </ul>
+  
+    
+    <div class="govuk-inset-text">
+  
+    You can also 
+    <a href="?lng=cy" class="govuk-link" rel="noreferrer">
+      use GOV.UK One Login in Welsh
+      <span lang="cy">(Cymraeg)</span></a>.
+    
+</div>
+
+  
+
+  <form action="/sign-in-or-create" method="post" novalidate="novalidate">
+
+    <input type="hidden" name="_csrf" value="78VN9JMt-IQvk7ObkwbmoKt23_SN7KoUcoIg">
+    <input type="hidden" name="supportInternationalNumbers" value="true">
+
+    
+  
+
+
+  
+    
+  
+
+<button value="create" name="optionSelected" class="govuk-button govuk-!-margin-right-3" data-module="govuk-button" id="create-account-link">
+  Create a GOV.UK One Login
+</button>
+
+
+    
+  
+
+
+  
+    
+  
+
+<button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="sign-in-button">
+  Sign in
+</button>
+
+
+  </form>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      About GOV.UK One Login
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    
+<p class="govuk-body">GOV.UK One Login is new. At the moment you can only use it to access some government services.</p>
+<p class="govuk-body">It does not work with all government accounts or services yet (for example Government Gateway or Universal Credit).</p>
+<p class="govuk-body">In the future, you’ll be able to use GOV.UK One Login to access all services on GOV.UK.</p>
+
+  </div>
+</details>
+
+
+
+            </div>
+          </div>
+	      </main>
+      </div>
+    
+  <script type="text/javascript" src="/public/scripts/cookies.js"></script>
+  <script type="text/javascript" src="/public/scripts/application.js"></script>
+  <script type="text/javascript" src="/public/scripts/all.js"></script>
+  <script type="text/javascript" nonce="">window.GOVSignIn.appInit("GTM-TK92W68", "integration.account.gov.uk")</script>
+
+  
+
+</body></html>
+
+
+  <div class="govuk-grid-column-one-third">
+
+
+
+  </div>
+
+</div>
+
+
+</div>
+</div>
+{% endblock %}

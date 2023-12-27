@@ -1,0 +1,151 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <style>
+    .govuk-autocomplete__option {
+      padding: 0.5em;
+    }
+
+    .govuk-autocomplete__option:hover {
+      background-color: #f2f2f2;
+    }
+
+    .govuk-autocomplete__option:focus {
+      outline: 2px solid #005ea5;
+      outline-offset: -1px;
+      background-color: #f2f2f2;
+    }
+  </style>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-m">3 of 3</span>
+      <h1 class="govuk-heading-xl">
+        What is the name of your organisation?
+      </h1>
+      <form class="form" action="/path/of/next/page" method="post">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label" for="address-line-1">
+                Registered name
+              </label>
+            </h1>
+            <div id="address-line-1-hint" class="govuk-hint">
+              The official business name recognised by legal authorities
+            </div>
+            <div class="govuk-autocomplete">
+              <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="off" aria-describedby="address-line-1-hint">
+              <ul class="govuk-list govuk-autocomplete__list" role="listbox" id="autocomplete-options"></ul>
+            </div>
+          </div>
+      
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label" for="trading-name">
+                Trading name
+              </label>
+            </h1>
+            <div id="trading-name-hint" class="govuk-hint">
+              The name used for commercial activities
+            </div>
+            <input class="govuk-input" id="trading-name" name="trading-name" type="text" aria-describedby="trading-name-hint">
+          </div>
+          </fieldset>
+          </form>
+          
+      
+
+          {{ govukButton({
+            text: "Continue",
+            attributes: {
+              "data-action": "form-submit",
+              "data-submitting-text": "Submitting...",
+              "data-prevent-double-click": "true"
+            }
+          }) }}
+          <script>
+            const tradingNameInput = document.getElementById("trading-name");
+            const input = document.getElementById("address-line-1");
+            const autocompleteOptions = document.getElementById("autocomplete-options");
+            const options = ['ACME', 'ACME123'];
+            const continueButton = document.querySelector(".govuk-button");
+          
+            function updateTradingName() {
+              const autocompleteValue = input.value;
+          
+              if (autocompleteValue === "ACME") {
+                tradingNameInput.value = "ACME Trading";
+              } else if (autocompleteValue === "ACME123") {
+                tradingNameInput.value = "456";
+              } else {
+                tradingNameInput.value = "";
+              }
+            }
+          
+            function updateAutocompleteOptions() {
+              const inputValue = input.value.toLowerCase();
+              const matchingOptions = options.filter(option => option.toLowerCase().includes(inputValue));
+          
+              autocompleteOptions.innerHTML = "";
+          
+              matchingOptions.forEach(optionText => {
+                const option = document.createElement("li");
+                option.classList.add("govuk-list-item", "govuk-autocomplete__option");
+                option.textContent = optionText;
+                autocompleteOptions.appendChild(option);
+              });
+            }
+          
+            function handleAutocompleteOptionClick(event) {
+              if (event.target.tagName === "LI") {
+                const selectedOption = event.target.textContent;
+                input.value = selectedOption;
+                tradingNameInput.value = selectedOption === "ACME" ? "ACME Trading" : selectedOption;
+                autocompleteOptions.innerHTML = ""; // Clear the dropdown options
+              }
+            }
+          
+            function handleContinueButtonClick(event) {
+              event.preventDefault(); // Prevent form submission
+              const inputValue = input.value;
+          
+              if (inputValue === "ACME123") {
+                window.location.href = "account-exists-already";
+              } else if (inputValue === "ACME") {
+                window.location.href = "access-request";
+              } else {
+                window.location.href = "#";
+              }
+            }
+          
+            input.addEventListener("input", updateTradingName);
+            input.addEventListener("input", updateAutocompleteOptions);
+            autocompleteOptions.addEventListener("click", handleAutocompleteOptionClick);
+            continueButton.addEventListener("click", handleContinueButtonClick);
+          </script>
+          
+          
+        </fieldset>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+

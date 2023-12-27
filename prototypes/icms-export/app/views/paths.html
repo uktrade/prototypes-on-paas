@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      What do you want to do today?
+    </h1>
+    
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2"><a href="/export-form-updated">Check if you need a certificate</a></h2>
+    <p>
+      Use this form to check that you're in the right place.
+    </p>
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2"><a href="onegov-new">Create an account</a></h2>
+    <p>
+      Create an account to access this service
+    </p>
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2"><a href="/enter-email-login">Apply for an export certificate</a></h2>
+    <p>
+      Sign into your account to apply, manage existing applications or renew certificates
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3">Create a GOV.UK One Login or sign in</h1>
+  
+
+      <p class="govuk-body">You’ll need:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>an email address</li>
+        
+          <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
+        
+      </ul>
+      
+        
+        <div class="govuk-inset-text">
+      
+        You can also 
+        <a href="?lng=cy" class="govuk-link" rel="noreferrer">
+          use GOV.UK One Login in Welsh
+          <span lang="cy">(Cymraeg)</span></a>.
+        
+    </div>
+       
+      <form action="/sign-in-or-create" method="post" novalidate="novalidate">
+    
+        <input type="hidden" name="_csrf" value="78VN9JMt-IQvk7ObkwbmoKt23_SN7KoUcoIg">
+        <input type="hidden" name="supportInternationalNumbers" value="true">
+    
+        <a href="/enter-email-login-plain" class="govuk-button govuk-!-margin-right-3" data-module="govuk-button" id="create-account-link">
+          Create a GOV.UK One Login
+        </a>
+        
+    <a href="/enter-email-login" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="sign-in-button">
+      Sign in
+    </a> 
+    
+    
+      </form>
+    
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          About GOV.UK One Login
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        
+    <p class="govuk-body">GOV.UK One Login is new. At the moment you can only use it to access some government services.</p>
+    <p class="govuk-body">It does not work with all government accounts or services yet (for example Government Gateway or Universal Credit).</p>
+    <p class="govuk-body">In the future, you’ll be able to use GOV.UK One Login to access all services on GOV.UK.</p>
+    
+      </div>
+    </details>
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
