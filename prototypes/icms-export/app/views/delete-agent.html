@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "manage-account",
+  serviceName: "Apply for an export certificate",
+  serviceUrl: "manage-account",
+  navigation: [
+    {
+      href: "#3",
+      text: "Home"
+    },
+    {
+      href: "#3",
+      text: "Certificates"
+    }
+    ,
+    {
+      href: "manage-account",
+      text: "Account",
+      active: true
+    }
+    ,
+    {
+      href: "/your-orgs",
+      text: "Your organisations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Account",
+        href: "manage-account"
+      },
+      {
+        text: "Agents",
+        href: "manage-account#agents"
+      },
+      {
+        text: "Lyle agency",
+        href: "agent-org-detail"
+      },
+      {
+        text: "Archive"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-form-group">
+  <h1 class="govuk-heading-l">
+    Are you sure you want to archive Lyle agency?
+  </h1>
+
+  <label class="govuk-label" for="sort">
+    The agents attached to Lyle agency will no longer be able to submit applications on your behalf.
+  </label>
+  <br>
+  <div class="govuk-button-group">
+    <a class="govuk-button govuk-button--warning" data-module="govuk-button" href="manage-account-4#agents">
+      Archive
+    </a>  
+    <a class="govuk-button govuk-button--secondary" data-module="govuk-button" href="agent-org-detail">
+      Cancel
+    </a>
+  </div>
+
+{% endblock %}
+
+

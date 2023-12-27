@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What is your name?
+      </h1>
+
+      <form class="form" action="/path/of/next/page" method="post">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-line-1">
+              First name
+            </label>
+            <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-line-1">
+              Last name
+            </label>
+            <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
+          </div>
+          
+
+
+
+          {{ govukButton({
+            text: "Continue",
+            href: "org-or-individual-ii"
+          }) }}
+
+        </fieldset>
+      </form>
+      
+
+    </div>
+  </div>
+
+  
+
+
+
+ 
+    
+
+   
+
+{% endblock %}
+
+

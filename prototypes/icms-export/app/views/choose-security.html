@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3">Choose how to get security codes</h1>
+
+    <div id="contact-hint" class="govuk-hint">
+      To finish creating your GOV.UK One Login, choose a way to prove it’s you when you sign in.
+    </div>
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="text-message" name="contact" type="radio" value="import" checked data-aria-controls="conditional-text-message">
+        <label class="govuk-label govuk-radios__label" for="contact-text-message">
+          Text message
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="app" name="contact" type="radio" value="app" data-aria-controls="conditional-app">
+        <label class="govuk-label govuk-radios__label" for="contact-app">
+          Authenticator app for smartphone, tablet or computer
+        </label>
+      </div>
+
+      <br>
+      <br>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is an authenticator app?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">An authenticator app creates a security code that helps confirm it’s you when you sign in.
+            You can use an authenticator app on your smartphone, tablet or desktop computer.</p>
+            <p>Download an authenticator app for your smartphone or tablet from your app store or search online for an authenticator app for your computer.</p>
+        </div>
+      </details>
+
+      <a href="#" class="govuk-button govuk-!-margin-right-3" data-module="govuk-button" id="continue-button" onclick="redirectToPage()">
+        Continue
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function redirectToPage() {
+    var selectedOption = document.querySelector('input[name="contact"]:checked').value;
+    var redirectUrl = "/enter-number";
+
+    if (selectedOption === "text-message") {
+      redirectUrl = "/enter-email-login";
+    } else if (selectedOption === "app") {
+      redirectUrl = "/authenticator-app-login";
+    }
+
+    window.location.href = redirectUrl;
+  }
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Create an account
+      </h1>
+
+      <p>You are about to register for a Manage licences and certificates account. Note that after registering, you will not be able to apply for import licences  until you have been granted permission.</p>
+
+      <p>For further information, please refer to the <a class="govuk-link govuk-link--no-visited-state" href="/help" target="_blank">guidance documents</a>.</p>
+
+      <p>All fields are mandatory.</p>
+
+      <span class="govuk-caption-m">2 of 3</span>
+      <h1 class="govuk-heading-m">
+        Security
+      </h1>
+
+      <p>Select a security question</p>
+
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-import" name="contact" type="radio" value="import" checked data-aria-controls="conditional-contact-import">
+          <label class="govuk-label govuk-radios__label" for="contact-import">
+            What is the name of your first school?
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-export" name="contact" type="radio" value="export" data-aria-controls="conditional-contact-export">
+          <label class="govuk-label govuk-radios__label" for="contact-export">
+            What is the name of your childhood best friend?
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-export" name="contact" type="radio" value="export" data-aria-controls="conditional-contact-export">
+          <label class="govuk-label govuk-radios__label" for="contact-export">
+            What is your mother's maiden name?
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-other" name="contact" type="radio" value="other" data-aria-controls="conditional-contact-other">
+          <label class="govuk-label govuk-radios__label" for="contact-other">
+            Enter your own question
+          </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-other">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="contact-by-text">
+              Type question below
+            </label>
+            <input class="govuk-input govuk-!-width-three-quarters" id="contact-by-text" name="contact-by-text" type="tel" autocomplete="tel">
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="two-thirds">
+          Security answer
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" name="two-thirds" type="text">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="two-thirds">
+          Confirm security answer
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" name="two-thirds" type="text">
+      </div>
+
+    <br />
+  {{ govukButton({
+    text: "Create account",
+    href: "#",
+    attributes: {
+      "data-action": "form-submit",
+      "data-submitting-text": "Submitting...",
+      "data-prevent-double-click": "true",
+      "onclick": "return handleSignIn();"
+    }
+  }) }}
+</div>
+{% endblock %}
+
+
+

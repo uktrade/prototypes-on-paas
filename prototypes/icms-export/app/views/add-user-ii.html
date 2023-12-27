@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "manage-account",
+  serviceName: "Apply for an export certificate",
+  serviceUrl: "manage-account",
+  navigation: [
+    {
+      href: "#3",
+      text: "Home"
+    },
+    {
+      href: "#3",
+      text: "Certificates"
+    }
+    ,
+    {
+      href: "manage-account",
+      text: "Account",
+      active: true
+    }
+    ,
+    {
+      href: "/your-orgs",
+      text: "Your organisations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Account",
+        href: "manage-account"
+      },
+      {
+        text: "Add a contact"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-form-group">
+  <h1 class="govuk-heading-xl">
+    Who do you want to add?
+  </h1>
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+        <label class="govuk-label govuk-radios__label" for="sign-in-2">
+         An exporter
+        </label>
+        <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
+          Exporters can make and submit export applications.
+        </div>
+      </div>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+          <label class="govuk-label govuk-radios__label" for="sign-in">
+            An agent
+          </label>
+          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+            Agents can make and submit applications on your behalf
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <br>
+  {{ govukButton({
+    text: "Continue",
+    href: "#",
+    attributes: {
+      "data-action": "form-submit",
+      "data-submitting-text": "Submitting...",
+      "data-prevent-double-click": "true",
+      "onclick": "return handleSignIn();"
+    }
+  }) }}
+
+</div>
+
+<script>
+  function handleSignIn() {
+    const organizationRadio = document.getElementById("sign-in");
+    const individualRadio = document.getElementById("sign-in-2");
+
+    if (organizationRadio.checked) {
+      window.location.href = "/add-user-3";  // URL for the "Organization" option
+    } else if (individualRadio.checked) {
+      window.location.href = "/add-exporter";  // URL for the "Private Individual" option
+    } else if (individualRadio.checked) {
+      window.location.href = "individual-already-here";  // URL for the "Private Individual" option
+    }
+
+    return false;  // Prevent form submission
+  }
+</script>
+
+            
+
+
+
+{% endblock %}
+
+

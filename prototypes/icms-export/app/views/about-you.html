@@ -1,0 +1,117 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Create an account
+      </h1>
+
+      <p>You are about to register for a Manage import licences and certificates for export account. 
+        Note that after registering, you will not be able to apply for licences or certificates until your access request has been granted.</p>
+
+        <p>For further information, please refer to the <a class="govuk-link govuk-link--no-visited-state" href="/help" target="_blank">guidance documents</a>.</p> 
+        
+        <p>All fields are mandatory.</p>
+
+        <span class="govuk-caption-m">1 of 3</span>
+<h1 class="govuk-heading-m">
+  About you
+</h1>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="one-quarter">
+    Title
+  </label>
+  <input class="govuk-input govuk-!-width-one-quarter" id="one-quarter" name="one-quarter" type="text">
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="two-thirds">
+    Forename
+  </label>
+  <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" name="two-thirds" type="text">
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="two-thirds">
+    Surname
+  </label>
+  <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" name="two-thirds" type="text">
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="two-thirds">
+    Date of birth
+  </label>
+
+    <div class="govuk-date-input" id="dob">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-caption-m" for="dob-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="text" autocomplete="bday-day" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-caption-m" for="dob-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="text" autocomplete="bday-month" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-caption-m" for="dob-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year" type="text" autocomplete="bday-year" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="two-thirds">
+    Organisation name
+  </label>
+  <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" name="two-thirds" type="text" value="ACME">
+</div>
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "/security-questions"
+      }) }}
+
+    </div>
+  </div>
+
+  
+
+
+
+ 
+    
+
+   
+
+{% endblock %}
+
+

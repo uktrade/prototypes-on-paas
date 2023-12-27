@@ -1,0 +1,221 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Export details</h1>
+
+      <br>
+
+      {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+      {{ govukSelect({
+        id: "destination-country",
+        name: "destination-country",
+        label: {
+          text: "Choose the destination country",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "The country you're exporting to"
+        },
+        items: [
+          {
+            value: "choose",
+            text: "Choose country",
+            selected: true
+          },
+          {
+            value: "china",
+            text: "China"
+          },
+          {
+            value: "turkey",
+            text: "Turkey"
+          },
+          {
+            value: "uae",
+            text: "U.A.E"
+          },
+          {
+            value: "uganda",
+            text: "Uganda"
+          },
+          {
+            value: "ukraine",
+            text: "Ukraine"
+          },
+          {
+            value: "unitedkingdom",
+            text: "United Kingdom"
+          },
+          {
+            value: "unitedstates",
+            text: "United States"
+          },
+          {
+            value: "uruguay",
+            text: "Uruguay"
+          },
+          {
+            value: "uzbekistan",
+            text: "Uzbekistan"
+          },
+          {
+            value: "vietnam",
+            text: "Vietnam"
+          }
+        ]
+      }) }}
+
+      {{ govukSelect({
+        id: "certificate-type",
+        name: "certificate-type",
+        label: {
+          text: "Choose the certificate type",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "The export document you're applying for"
+        },
+        items: [
+          {
+            value: "choose",
+            text: "Choose certificate",
+            selected: true
+          },
+          {
+            value: "freesale",
+            text: "Certificate of Free Sale (CFS)"
+          },
+          {
+            value: "manufacture",
+            text: "Certificate of Manufacture (CoM)"
+          },
+          {
+            value: "practice",
+            text: "Certificate of Good Manufacturing Practice (GMPC)"
+          }
+        ]
+      }) }}
+
+      <style>
+        .govuk-autocomplete__option {
+          padding: 0.5em;
+        }
+
+        .govuk-autocomplete__option:hover {
+          background-color: #f2f2f2;
+        }
+
+        .govuk-autocomplete__option:focus {
+          outline: 2px solid #005ea5;
+          outline-offset: -1px;
+          background-color: #f2f2f2;
+        }
+      </style>
+
+      <div class="govuk-grid-row" id="goods-type-section" hidden>
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-label--m">
+            What is your goods type?
+          </h1>
+          <div id="event-name-hint" class="govuk-hint">
+            The type of goods you're exporting
+          </div>
+          <form class="form" action="/path/of/next/page" method="post">
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-form-group">
+                <div class="govuk-autocomplete">
+                  <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="off" aria-describedby="address-line-1-hint">
+                  <ul class="govuk-list govuk-autocomplete__list" role="listbox" id="autocomplete-options"></ul>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      {{ govukButton({
+        text: "Continue",
+        attributes: {
+          "data-action": "form-submit",
+          "data-submitting-text": "Submitting...",
+          "data-prevent-double-click": "true"
+        },
+        href: "finished-food-drinks",
+        id: "continue-button"
+      }) }}
+
+      <script>
+        const certificateTypeSelect = document.getElementById("certificate-type");
+        const goodsTypeSection = document.getElementById("goods-type-section");
+        const continueButton = document.getElementById("continue-button");
+
+        // Hide the goods type section by default
+        goodsTypeSection.hidden = true;
+
+        // Function to handle the change event of the certificate type select element
+        function handleCertificateTypeChange() {
+          const selectedValue = certificateTypeSelect.value;
+
+          // Show the goods type section if the selected value is 'freesale'
+          goodsTypeSection.hidden = (selectedValue !== "freesale");
+
+          // Update the continue button's href based on the selected certificate type
+          if (selectedValue === "freesale") {
+            continueButton.href = "finished-food-drinks";
+          } else if (selectedValue === "manufacture") {
+            continueButton.href = "finished-export-only-v2";
+          } else if (selectedValue === "practice") {
+            continueButton.href = "finished-gmpc";
+          } else {
+            continueButton.href = "#";
+          }
+        }
+
+        // Add event listener to the certificate type select element
+        certificateTypeSelect.addEventListener("change", handleCertificateTypeChange);
+
+        const input = document.getElementById("address-line-1");
+        const autocompleteOptions = document.getElementById("autocomplete-options");
+        const options = ['Biocides','Food, drinks or supplements','Goods that come into contact with animals ','Medical devices','Other',];
+
+        input.addEventListener("input", function() {
+          const inputValue = input.value.toLowerCase();
+          const matchingOptions = options.filter(option => option.toLowerCase().includes(inputValue));
+
+          autocompleteOptions.innerHTML = "";
+
+          matchingOptions.forEach(optionText => {
+            const option = document.createElement("li");
+            option.classList.add("govuk-list-item", "govuk-autocomplete__option");
+            option.textContent = optionText;
+            autocompleteOptions.appendChild(option);
+          });
+        });
+
+        autocompleteOptions.addEventListener("click", function(event) {
+          if (event.target.tagName === "LI") {
+            input.value = event.target.textContent;
+            autocompleteOptions.innerHTML = ""; // Clear the dropdown options
+          }
+        });
+      </script>
+    </div>
+  </div>
+{% endblock %}
+
+

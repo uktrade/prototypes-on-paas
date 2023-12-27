@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        You do not need to use this service
+      </h1>
+
+      <p>
+        Based on your answer, you do not need to use this service as we do not issue certificates for your goods type.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Your answers
+      </h2>
+      <p>
+        <a href="/exports-only">Start again</a>
+      </p>
+
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Check if you need an import licence or export certificate
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Apply for a certificate for export
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/export-form-2">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Choose a destination country
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Turkey
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/export-form-2">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Choose a certificate type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Certificate of Free Sale (CFS)
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/export-form-2">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What is your goods type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Other
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/export-form-2">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+
+    </div>
+  </div>
+
+  
+{% endblock %}

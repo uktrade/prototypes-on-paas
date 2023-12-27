@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        How can we help you?
+      </h1>
+
+      <p>Submit the form below and we will contact you within 'x' working days.</p>
+      <p>Do not include any personal or financial information. For example, your National Insurance or credit card numbers.</p>
+
+
+
+      <form class="form" action="/path/of/next/page" method="post">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-line-1">
+              Full name
+            </label>
+           
+            <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
+          </div>
+
+      
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="password">
+              Email address
+            </label>
+            <div class="govuk-password-input" style="display: flex;">
+              <input class="govuk-input" id="password" name="password" type="password" autocomplete="off" style="flex: 1;">
+            </div> 
+
+        </fieldset>
+      </form>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="more-detail">
+          Your comments
+        </label>
+        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+      </div>
+
+      <br />
+      {{ govukButton({
+        text: "Submit",
+        href: "confirmation-email-sent"
+      }) }}
+      
+
+    </div>
+
+   
+  </div>
+
+  
+
+
+
+ 
+    
+
+   
+
+{% endblock %}
+
+

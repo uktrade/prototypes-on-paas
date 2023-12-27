@@ -1,0 +1,97 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Make an access request
+      </h1>
+
+
+<div class="govuk-form-group">
+
+  <span class="govuk-caption-m">2 of 2</span>
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <h1 class="govuk-heading-m">
+      About the organisation
+      <div id="address-line-1-hint" class="govuk-hint">
+        The organisation which will legally own the goods being exported.
+      </div>
+    </h1>
+
+ 
+          <label class="govuk-label" for="two-thirds">
+            Registered name
+  </label>
+  <div id="registered-name" class="govuk-hint">
+    The official business name recognised by legal authorities
+  </div>
+  <input class="govuk-input govuk-!-width-two-thirds" id="registered-name-input" name="two-thirds" type="text" value="ACME">  
+</div>
+
+<div>
+  <label class="govuk-label" for="two-thirds" id="eo">
+    Trading name
+</label>
+<div id="economic-operators-hint" class="govuk-hint">
+  The name used for commercial activities
+</div>
+<input class="govuk-input govuk-!-width-two-thirds" id="economic-operators-hint-input" name="two-thirds" type="text" value="ACME Trading">  
+</div>
+<br>
+
+<br>
+<div class="govuk-form-group">
+  <label class="govuk-label" for="address">
+    Organisation address
+  </label>
+  <textarea class="govuk-textarea" id="address" name="address" rows="5" autocomplete="street-address"></textarea>
+</div>
+
+<div>
+  <label class="govuk-label" for="two-thirds" id="tn">
+    Economic Operators Registration and Identification number (EORI number)
+</label>
+<div id="trading-name-hint" class="govuk-hint">
+  <a href="https://www.gov.uk/eori/apply-for-eori" target="_blank">Get an EORI number</a> if you don't have one
+</div>
+<input class="govuk-input govuk-!-width-two-thirds" id="trading-name-input" name="two-thirds" type="text">  
+</div>
+<br>
+
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "/finished-access-request"
+      }) }}
+
+    </div>
+  </div>
+
+  
+
+
+
+ 
+    
+
+   
+
+{% endblock %}
+
+
