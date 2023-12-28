@@ -1,0 +1,109 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Frequently Asked Questions
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for this page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/icms-home-II"
+      },
+      {
+        text: "Help using this service",
+        href: "/help"
+      },
+      {
+        text: "Frequently Asked Questions"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Frequently Asked Questions</h1>
+    <aside class="govuk-prototype-kit-common-templates-mainstream-guide-contents-list" role="complementary">
+      <p class="govuk-body-l">Frequently asked questions about using this service.</p>
+    </aside>
+    <br>
+
+    <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+      <h2 class="govuk-prototype-kit-common-templates-contents-list__title" id="contentsii" >Questions</h2>
+      <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+        <li aria-current="true" class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+          <a href="#difference">What is the difference between a certificate and a licence?</a>
+        </li>
+        <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+          <a href="#commodity">How do I find my commodity code?</a>
+        </li>
+        <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+          <a href="#permanent">Is my licence or certificate permanent?</a>
+        </li>
+        <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+          <a href="#sanctions">How do I find out if my goods are impacted by sanctions?</a>
+        </li>
+        <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+          <a href="#costs">What are the costs for xyz?</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+
+    <h2 class="govuk-heading-s" id="difference">What is the difference between a certificate and a licence?</h2>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+    <h2 class="govuk-heading-s" id="commodity">How do I find my commodity code?</h2>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+    <h2 class="govuk-heading-s" id="permanent">Is my licence or certificate permanent?</h2>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+    <h2 class="govuk-heading-s" id="sanctions">How do I find out if my goods are impacted by sanctions?</h2>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+    <h2 class="govuk-heading-s" id="costs">What are the costs for xyz?</h2>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+    <div data-sticky-element="" class="app-c-contents-list-with-body__link-wrapper sticky-element--enabled">
+      <div class="app-c-contents-list-with-body__link-container">
+        <a class="govuk-link app-c-back-to-top dont-print" href="#contentsii">
+          <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Contents
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

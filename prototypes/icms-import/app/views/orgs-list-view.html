@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "icms-home-II",
+  serviceName: "Manage import licences and certificates for export",
+  serviceUrl: "icms-home-II",
+  navigation: [
+  ]
+}) }}
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<table class="govuk-table">
+  <span class="govuk-caption-m">Hi David, choose an organisation from the list below</span>
+  <caption class="govuk-table__caption govuk-table__caption--l">Your organisations</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Organisation name</th>
+      <th scope="col" class="govuk-table__header">Status</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="/manage-account">ACME</a></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise">
+        ACTIVE
+      </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Company II</a></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise">
+        ACTIVE
+      </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="/manage-account">Org Three</a></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">
+        PENDING
+      </strong></td>
+    </tr>
+  </tbody>
+</table>
+            
+
+
+
+{% endblock %}
+
+

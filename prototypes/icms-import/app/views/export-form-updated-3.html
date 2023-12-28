@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+
+        {{ govukSelect({
+          id: "subject",
+          name: "subject",
+          label: {
+            text: "Choose the country of consignment",
+            classes: "govuk-label--l"
+          },
+            hint: {
+            text: "Which country will you send the goods from?"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose country",
+              selected: true
+            },
+            {
+              value: "turkey",
+              text: "Turkey"
+            },
+            {
+              value: "uae",
+              text: "U.A.E"
+            },
+            {
+              value: "uganda",
+              text: "Uganda"
+            },
+            {
+              value: "ukraine",
+              text: "Ukraine"
+            },
+            {
+              value: "unitedkingdom",
+              text: "United Kingdom"
+            },
+            {
+              value: "unitedstates",
+              text: "United States"
+            },
+            {
+              value: "uruguay",
+              text: "Uruguay"
+            },
+            {
+              value: "uzbekistan",
+              text: "Uzbekistan"
+            },
+            {
+              value: "vietnam",
+              text: "Vietnam"
+            }
+           ]
+        
+        }) }}
+
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "/import-form-part-2"
+        }) }}
+        
+        
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+

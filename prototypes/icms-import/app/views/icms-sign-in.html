@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Sign in to the Import & Export Case Management System
+      </h1>
+
+      <p>Sign in to request a new investigation or participate in an existing case.</p>
+
+      <form class="form" action="/path/of/next/page" method="post">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-line-1">
+              Email address
+            </label>
+            <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
+          </div>
+      
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="password">
+              Password
+            </label>
+            <div class="govuk-password-input" style="display: flex;">
+              <input class="govuk-input" id="password" name="password" type="password" autocomplete="off" style="flex: 1;">
+              <button class="govuk-button govuk-button--secondary govuk-password-input__button" type="button" aria-label="Toggle password visibility" style="margin-left: 10px;" onclick="togglePasswordVisibility()">
+                Show
+              </button>
+            </div>
+          
+          <script>
+            function togglePasswordVisibility() {
+              var passwordInput = document.getElementById("password");
+              var showButton = document.querySelector(".govuk-password-input__button");
+          
+              if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                showButton.textContent = "Hide";
+              } else {
+                passwordInput.type = "password";
+                showButton.textContent = "Show";
+              }
+            }
+          </script>
+          
+          
+          <p class="govuk-body">
+            <a class="govuk-link govuk-link--no-visited-state" href="/reset-password">Forgot your password?</a>
+        </p>
+      
+          {{ govukButton({
+            text: "Sign in",
+            href: "#"
+          }) }}
+
+          <p class="govuk-body">
+            <a class="govuk-link govuk-link--no-visited-state" href="/sign-up">Create an account</a>
+        </p>
+
+        </fieldset>
+      </form>
+      
+
+    </div>
+  </div>
+
+  
+
+
+
+ 
+    
+
+   
+
+{% endblock %}
+
+

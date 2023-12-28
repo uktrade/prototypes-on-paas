@@ -1,0 +1,277 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "icms-home-II",
+  serviceName: "Manage import licences and certificates for export",
+  serviceUrl: "icms-home-II",
+  navigation: [
+    {
+      href: "#3",
+      text: "Home"
+    },
+    {
+      href: "#3",
+      text: "Licences and certificates"
+    }
+    ,
+    {
+      href: "manage-account",
+      text: "Manage account",
+      active: true
+    }
+    ,
+    {
+      href: "/orgs-list-view",
+      text: "Your organisations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#2"
+      },
+      {
+        text: "Manage account"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+<span class="govuk-caption-m">Manage account and users</span>
+<h2 class="govuk-heading-l">ACME  
+</h2>
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#users">
+        Users
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#past-week">
+        Offices
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#past-month">
+        Roles
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#past-year">
+        Details
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-tabs__panel" id="users">
+    <div class="horizontal-container"></div>
+    <a href="add-user-ii" class="govuk-button" data-module="govuk-button">
+      Add a user
+    </a>
+    
+    <div class="govuk-form-group" style="float: right;">
+      <label class="govuk-label" for="sort">
+        Sort by status
+      </label>
+      <select class="govuk-select" id="sort" name="sort">
+        <option value="published" selected>Active</option>
+        <option value="updated">Pending</option>
+        <option value="views">Deactivated</option>
+      </select>
+    </div>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Email</th>
+          <th scope="col" class="govuk-table__header">Role</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="user-details">David Francis</a></td>
+          <td class="govuk-table__cell">d.francis@acme.com</td>
+          <td class="govuk-table__cell">Exporter</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise">
+            ACTIVE
+          </strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">John Doe</a></td>
+          <td class="govuk-table__cell">agent@email.com</td>
+          <td class="govuk-table__cell">Agent</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">
+            PENDING
+          </strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">Rita Patel</a></td>
+          <td class="govuk-table__cell">r.patel@acme.com</td>
+          <td class="govuk-table__cell">Exporter</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">
+            DEACTIVATED
+          </strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+    <div class="horizontal-container"></div>
+    <button class="govuk-button" data-module="govuk-button">
+      Add an office
+    </button>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Office name</th>
+          <th scope="col" class="govuk-table__header">Address</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">ACME HQ</a></td>
+          <td class="govuk-table__cell">Buckingham Palace
+            <br>
+            London
+            <br>
+            SW1A 1AA</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">ACME Midlands</a></td>
+          <td class="govuk-table__cell">Buckingham Palace
+            <br>
+            London
+            <br>
+            SW1A 1AA
+
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">ACME Cardiff</a></td>
+          <td class="govuk-table__cell">Buckingham Palace
+            <br>
+            London
+            <br>
+            SW1A 1AA</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Role</th>
+          <th scope="col" class="govuk-table__header">Users with this role can</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+             <b>Exporter</b>
+          </td>
+          <td class="govuk-table__cell">
+            <div class="green-tick-icon">
+              <span class="green-tick">&#10004;</span> View applications and certificates
+              <br>
+              <span class="green-tick">&#10004;</span> Edit applications and vary certificates
+              <br>
+              <span class="green-tick">&#10004;</span> Approve and reject agents and exporters
+            </div>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+             <b>Importer</b>
+          </td>
+          <td class="govuk-table__cell">
+            <div class="green-tick-icon">
+              <span class="green-tick">&#10004;</span> View applications and licences
+              <br>
+              <span class="green-tick">&#10004;</span> Edit applications and vary certificates
+              <br>
+              <span class="green-tick">&#10004;</span> Approve and reject agents and importers
+            </div>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+             <b>Agent</b>
+          </td>
+          <td class="govuk-table__cell">
+            <div class="green-tick-icon">
+              <span class="green-tick">&#10004;</span> View applications, certificates and licences
+              <br>
+              <span class="green-tick">&#10004;</span> Edit applications and vary certificates
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-year">
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><b>Organisation registered name</b></td>
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">ACME</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><b>Organisation trading name</b></td>
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">ACME Trading</a></td>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><b>EORI number</b></td>
+          <td class="govuk-table__cell">GB1234567891111</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><b>SIC code</b></td>
+          <td class="govuk-table__cell">1234</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><b>VAT number</b></td>
+          <td class="govuk-table__cell">GB123456</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><b>Registered office address</b></td>
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">ACME HQ</a>
+            <br>
+            Buckingham Palace
+            <br>
+            London
+            <br>
+            SW1A 1AA</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><b>Phone number</b></td>
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">07433213456</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><b>Website</b></td>
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">http://www.google.com</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+            
+
+
+
+{% endblock %}
+
+

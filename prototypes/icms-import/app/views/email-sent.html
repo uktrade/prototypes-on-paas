@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Email sent
+      </h1>
+
+      <p>Check your email and follow the link provided to reset your password.</p>
+      <p>You will only receive a password reset email if you entered the same email you used to sign up.</p>
+
+
+        </fieldset>
+      </form>
+      
+
+    </div>
+  </div>
+
+  
+
+
+
+ 
+    
+
+   
+
+{% endblock %}
+
+
