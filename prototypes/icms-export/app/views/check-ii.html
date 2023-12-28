@@ -1,0 +1,95 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Which export certificate do you need?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="CFS">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          Certificate of Free Sale (CFS)
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="CoM">
+        <label class="govuk-label govuk-radios__label" for "whereDoYouLive-2">
+          Certificate of Manufacture (CoM)
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-3" name="whereDoYouLive" type="radio" value="GMPC">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
+          Certificate of Good Manufacturing Practice (GMPC)
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Help with certificate types
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    Read about the <a href="#">different types of export certificates</a> offered by the Department for Business and Trade (DBT).
+  </div>
+</details>
+
+{{ govukButton({
+  text: "Continue",
+  attributes: {
+    "data-action": "form-submit",
+    "data-submitting-text": "Submitting...",
+    "data-prevent-double-click": "true"
+  },
+  href: "javascript:void(0);",
+  id: "continue-button"
+}) }}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const continueButton = document.getElementById("continue-button");
+
+    continueButton.addEventListener("click", function () {
+      const selectedCertificateType = document.querySelector('input[name="whereDoYouLive"]:checked').value;
+
+      switch (selectedCertificateType) {
+        case "CFS":
+          window.location.href = "/check-iii"; // Replace with the actual URL for Certificate of Free Sale
+          break;
+        case "CoM":
+          window.location.href = "/finished-export-only-v2"; // Replace with the actual URL for Certificate of Manufacture
+          break;
+        case "GMPC":
+          window.location.href = "/finished-gmpc"; // Replace with the actual URL for Good Manufacturing Practice Certificate
+          break;
+        default:
+          // Handle the default case here (if necessary)
+          break;
+      }
+    });
+  });
+</script>
+</div>
+{% endblock %}
+
+

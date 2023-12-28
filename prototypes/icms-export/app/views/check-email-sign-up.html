@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <style>
+    .govuk-autocomplete__option {
+      padding: 0.5em;
+    }
+
+    .govuk-autocomplete__option:hover {
+      background-color: #f2f2f2;
+    }
+
+    .govuk-autocomplete__option:focus {
+      outline: 2px solid #005ea5;
+      outline-offset: -1px;
+      background-color: #f2f2f2;
+    }
+  </style>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Check your email
+      </h1>
+     
+      <div class="govuk-inset-text">
+        We have sent an email to: <b>signup@email.com</b>
+      </div>
+
+      <p>The email contains a 6 digit security code.</p>
+
+      <p>Your email might take a few minutes to arrive. If you do not get an emal, check your spam folder.</p>
+
+      <p>The code will expire after 2 hours.</p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="width-10">
+          Enter the 6 digit security code
+        </label>
+        <input class="govuk-input govuk-input--width-10" id="width-10" name="width-10" type="text">
+      </div>
+        
+        <script>
+          function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var showButton = document.querySelector(".govuk-password-input__button");
+        
+            if (passwordInput.type === "password") {
+              passwordInput.type = "text";
+              showButton.textContent = "Hide";
+            } else {
+              passwordInput.type = "password";
+              showButton.textContent = "Show";
+            }
+          }
+        </script>
+
+<a href="create-password" class="govuk-button" data-module="govuk-button">
+  Continue
+</a>
+
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Problems with the code?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    We can send the code again if the code is not working or you did not receive it.
+  </div>
+</details>
+{% endblock %}
+
+
+
+
+
+
+

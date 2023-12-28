@@ -1,0 +1,182 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Import details</h1>
+
+      <h2 class="govuk-heading-m">
+        Are you importing goods impacted by sanctions?
+      </h2>
+
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-import" name="contact" type="radio" value="import" checked data-aria-controls="conditional-contact-import">
+          <label class="govuk-label govuk-radios__label" for="contact-import">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-export" name="contact" type="radio" value="export" data-aria-controls="conditional-contact-export">
+          <label class="govuk-label govuk-radios__label" for="contact-export">
+            No
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="contact-other" name="contact" type="radio" value="other" data-aria-controls="conditional-contact-other">
+          <label class="govuk-label govuk-radios__label" for="contact-other">
+            I don't know
+          </label>
+        </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <p>
+        <a href="https://www.gov.uk/guidance/current-arms-embargoes-and-other-restrictions" target="_blank">Find out more about trade sanctions</a>
+      </p>
+      </fieldset>
+
+<br>
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+
+        {{ govukSelect({
+          id: "subject",
+          name: "subject",
+          label: {
+            text: "Choose the country of origin",
+            classes: "govuk-label--m"
+          },
+            hint: {
+            text: "The country where the goods were made"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose country",
+              selected: true
+            },
+            {
+              value: "turkey",
+              text: "Turkey"
+            },
+            {
+              value: "uae",
+              text: "U.A.E"
+            },
+            {
+              value: "uganda",
+              text: "Uganda"
+            },
+            {
+              value: "ukraine",
+              text: "Ukraine"
+            },
+            {
+              value: "unitedkingdom",
+              text: "United Kingdom"
+            },
+            {
+              value: "unitedstates",
+              text: "United States"
+            },
+            {
+              value: "uruguay",
+              text: "Uruguay"
+            },
+            {
+              value: "uzbekistan",
+              text: "Uzbekistan"
+            },
+            {
+              value: "vietnam",
+              text: "Vietnam"
+            }
+           ]
+        
+        }) }}
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+
+        {{ govukSelect({
+          id: "subject",
+          name: "subject",
+          label: {
+            text: "Choose the country of consignment",
+            classes: "govuk-label--m"
+          },
+            hint: {
+            text: "The country from which goods will be dispatched"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose country",
+              selected: true
+            },
+            {
+              value: "turkey",
+              text: "Turkey"
+            },
+            {
+              value: "uae",
+              text: "U.A.E"
+            },
+            {
+              value: "uganda",
+              text: "Uganda"
+            },
+            {
+              value: "ukraine",
+              text: "Ukraine"
+            },
+            {
+              value: "unitedkingdom",
+              text: "United Kingdom"
+            },
+            {
+              value: "unitedstates",
+              text: "United States"
+            },
+            {
+              value: "uruguay",
+              text: "Uruguay"
+            },
+            {
+              value: "uzbekistan",
+              text: "Uzbekistan"
+            },
+            {
+              value: "vietnam",
+              text: "Vietnam"
+            }
+           ]
+        
+        }) }}
+
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "/import-form-part-2"
+        }) }}
+        
+        
+      </form>
+    </div>
+  </div>
+{% endblock %}

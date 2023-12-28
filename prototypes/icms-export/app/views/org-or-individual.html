@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Create an account
+      </h1>
+
+      <p>You are about to register for a Manage import licences and certificates for export account. 
+        Note that after registering, you will not be able to apply for licences or certificates until your access request has been granted.</p>
+
+        <p>For further information, please refer to the <a class="govuk-link govuk-link--no-visited-state" href="/help" target="_blank">guidance documents</a>.</p> 
+        
+        <p>All fields are mandatory.</p>
+
+        <span class="govuk-caption-m">1 of 3</span>
+<h1 class="govuk-heading-m">
+  Organisation or private individual
+</h1>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+        <label class="govuk-label govuk-radios__label" for="sign-in">
+          Organisation or agent on behalf of an organisation
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          Select this if you want to register an organisation
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+        <label class="govuk-label govuk-radios__label" for="sign-in-2">
+          Private individual or agent on behalf of an individual
+        </label>
+        <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
+          Select this if you want to register a private individual.
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "/security-questions"
+      }) }}
+
+    </div>
+  </div>
+
+  
+
+
+
+ 
+    
+
+   
+
+{% endblock %}
+
+

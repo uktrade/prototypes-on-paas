@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        You do not need an import licence
+      </h1>
+
+      <p>
+        Based on your answers, you do not need to apply for an import licence to import <b>Chapter 95</b> commodities. 
+        Follow the step by step guide below for how to import goods into the UK.
+      </p>
+
+      <div class="govuk-button-group">
+        <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/import-goods-into-uk" target="_blank">Import goods into the UK: step by step</a>
+      </div>
+
+      <h2 class="govuk-heading-m">
+        Your answers
+      </h2>
+      <p>
+        <a href="/exports-only">Start again</a>
+      </p>
+
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Choose your goods
+          </dt>
+          <dd class="govuk-summary-list__value">
+            95 - Toys, games and sports requisites; parts and accessories thereof
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/export-form-2">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Choose a certificate type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            I don't know
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/export-form-2">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">
+        Want to know more?
+      </h2>
+     
+      <p>
+        <a href="https://www.trade-tariff.service.gov.uk/chapters/95" target="_blank">UK Intergrated Online Tarrif - Chapter 95 breakdown</a>
+      </p>
+
+      <p>
+        <a href="https://www.trade-tariff.service.gov.uk/chapters/95" target="_blank">Legal requirement for UK Exports - Chapter 95 commodities</a>
+      </p>
+
+    </div>
+  </div>
+
+  
+{% endblock %}

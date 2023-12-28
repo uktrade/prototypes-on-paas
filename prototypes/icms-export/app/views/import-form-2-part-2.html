@@ -1,0 +1,134 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-m">2 of 2</span>
+      <h1 class="govuk-heading-l">Import details</h1>
+
+      <form action="/form-handler-answer" method="post" novalidate>
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+
+        {{ govukSelect({
+          id: "subject",
+          name: "subject",
+          label: {
+            text: "Choose a destination country",
+            classes: "govuk-label--m"
+          },
+            hint: {
+            text: "The importing country"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose location",
+              selected: true
+            },
+            {
+              value: "turkey",
+              text: "Turkey"
+            },
+            {
+              value: "uae",
+              text: "U.A.E"
+            },
+            {
+              value: "uganda",
+              text: "Uganda"
+            },
+            {
+              value: "ukraine",
+              text: "Ukraine"
+            },
+            {
+              value: "unitedkingdom",
+              text: "United Kingdom"
+            },
+            {
+              value: "unitedstates",
+              text: "United States"
+            },
+            {
+              value: "uruguay",
+              text: "Uruguay"
+            },
+            {
+              value: "uzbekistan",
+              text: "Uzbekistan"
+            },
+            {
+              value: "vietnam",
+              text: "Vietnam"
+            }
+           ]
+        
+        }) }}
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+
+        {{ govukSelect({
+          id: "subject",
+          name: "subject",
+          label: {
+            text: "Choose a licence type",
+            classes: "govuk-label--m"
+          },
+            hint: {
+            text: "The licence you're applying for"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose licence",
+              selected: true
+            },
+            {
+              value: "Firearms and Ammunition",
+              text: "Firearms and Ammunition"
+            },
+            {
+              value: "Derogations from Sanction Bans",
+              text: "Derogations from Sanction Bans"
+            },
+            {
+              value: "Iron and steel (Quota)",
+              text: "Iron and steel (Quota)"
+            },
+            {
+              value: "Wood (Quota)",
+              text: "Wood (Quota)"
+            },
+            {
+              value: "I don't know",
+              text: "I don't know"
+            }
+           ]
+        
+        }) }}
+
+
+        {{ govukButton({
+          text: "Results",
+          href:"/finished-no-need"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

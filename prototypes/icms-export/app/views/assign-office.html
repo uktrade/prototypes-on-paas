@@ -1,0 +1,122 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "manage-account",
+  serviceName: "Apply for an export certificate",
+  serviceUrl: "manage-account",
+  navigation: [
+    {
+      href: "#3",
+      text: "Home"
+    },
+    {
+      href: "#3",
+      text: "Certificates"
+    }
+    ,
+    {
+      href: "manage-account",
+      text: "Account",
+      active: true
+    }
+    ,
+    {
+      href: "/your-orgs",
+      text: "Your organisations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        Permissions
+      </h1>
+    </legend>
+    <div id="waste-hint" class="govuk-hint">
+      Exporter permissions for user David Francis
+    </div>
+
+  <br>
+
+  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" checked aria-describedby="nationality-item-hint">
+      <label class="govuk-label govuk-checkboxes__label" for="nationality">
+        View applications and certificates
+      </label>
+      <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+        Can view all applications and certificates for a particular exporter
+      </div>
+    </div>
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
+      <label class="govuk-label govuk-checkboxes__label" for="nationality-2">
+        Edit applications and vary certificates
+      </label>
+      <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+        Can create and edit new applications and vary existing licences for a particular exporter
+      </div>
+    </div>
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
+      <label class="govuk-label govuk-checkboxes__label" for="nationality-3">
+        Approve and reject agents and exporters
+      </label>
+      <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+        Can approve and reject access for agents and new exporter contacts
+      </div>
+    </div>
+  </div>
+</fieldset>
+</div>
+  <br>
+  {{ govukButton({
+    text: "Save",
+    attributes: {
+      "data-action": "form-submit",
+      "data-submitting-text": "Submitting...",
+      "data-prevent-double-click": "true",
+      "onclick": "return handleSave();"
+    }
+  }) }}
+
+</div>
+
+<script>
+  function handleSave() {
+    const checkboxes = document.querySelectorAll('input[name="nationality"]:checked');
+    const numChecked = checkboxes.length;
+
+    switch (numChecked) {
+      case 0:
+        window.location.href = "/user-details-no-perm";
+        break;
+      case 1:
+        window.location.href = "user-details";
+        break;
+      case 2:
+        window.location.href = "#";
+        break;
+      case 3:
+        window.location.href = "/user-details-updated";
+        break;
+      default:
+        // Handle the default case here (if necessary)
+        break;
+    }
+
+    return false; // Prevent form submission
+  }
+</script>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Help using this service
+      </h1>
+
+      <p>
+        This page provides you with contact and support information for using the service, including details on how your data and cookies are used.
+      </p>
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2"><a href="/guidance">Guidance</a></h2>
+      <p>
+        General guidance about this service and for help with specific areas.
+      </p>
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2"><a href="/contact">Contact</a></h2>
+      <p>
+        Contact us if you need additional help and we will respond as quickly as possible.
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
