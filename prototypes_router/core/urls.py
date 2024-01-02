@@ -21,5 +21,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("healthcheck/", HealthCheckView.as_view()),
     path("healthcheck/warning/", HealthCheckView.as_view()),
+    path("raise_error/", lambda request: 1 / 0),
     re_path(r"^(?P<path>.*)$", ReverseProxyRouter.as_view()),
 ]
