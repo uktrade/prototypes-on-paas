@@ -13,6 +13,6 @@
     "govuk-prototype-kit": "13.13.3",
     "hmrc-frontend": "5.30.0",
     "jquery": "3.6.4",
-    "notifications-node-client": "5.2.3"
+    "notifications-node-client": "7.0.6"
   }
 }
