@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <style>
+    .govuk-autocomplete__option {
+      padding: 0.5em;
+    }
+
+    .govuk-autocomplete__option:hover {
+      background-color: #f2f2f2;
+    }
+
+    .govuk-autocomplete__option:focus {
+      outline: 2px solid #005ea5;
+      outline-offset: -1px;
+      background-color: #f2f2f2;
+    }
+  </style>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        What is the name of your organisation?
+      </h1>
+      <form class="form" action="/path/of/next/page" method="post">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-form-group">
+            <div class="govuk-autocomplete">
+              <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="off" aria-describedby="address-line-1-hint">
+              <ul class="govuk-list govuk-autocomplete__list" role="listbox" id="autocomplete-options"></ul>
+            </div>
+          </div>
+          {{ govukButton({
+            text: "Continue",
+            attributes: {
+              "data-action": "form-submit",
+              "data-submitting-text": "Submitting...",
+              "data-prevent-double-click": "true"
+            }
+          }) }}
+          <script>
+            const continueButton = document.querySelector(".govuk-button");
+            const input = document.getElementById("address-line-1");
+            const autocompleteOptions = document.getElementById("autocomplete-options");
+            const options = ['ACME', 'ACME123'];
+
+            input.addEventListener("input", function() {
+              const inputValue = input.value.toLowerCase();
+              const matchingOptions = options.filter(option => option.toLowerCase().includes(inputValue));
+
+              autocompleteOptions.innerHTML = "";
+
+              matchingOptions.forEach(optionText => {
+                const option = document.createElement("li");
+                option.classList.add("govuk-list-item", "govuk-autocomplete__option");
+                option.textContent = optionText;
+                autocompleteOptions.appendChild(option);
+              });
+            });
+
+            autocompleteOptions.addEventListener("click", function(event) {
+              if (event.target.tagName === "LI") {
+                input.value = event.target.textContent;
+                autocompleteOptions.innerHTML = ""; // Clear the dropdown options
+              }
+            });
+
+            continueButton.addEventListener("click", function(event) {
+              event.preventDefault(); // Prevent form submission
+
+              const inputValue = input.value;
+
+              if (inputValue === "ACME123") {
+                window.location.href = "account-exists-already";
+              } else if (inputValue === "ACME") {
+                window.location.href = "create-account";
+              } else {
+                window.location.href = "#";
+              }
+            });
+          </script>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "icms-home-II",
+  serviceName: "Manage import licences and certificates for export",
+  serviceUrl: "icms-home-II",
+  navigation: [
+    {
+      href: "#3",
+      text: "Home"
+    },
+    {
+      href: "#3",
+      text: "Licences and certificates"
+    }
+    ,
+    {
+      href: "manage-account",
+      text: "Manage account",
+      active: true
+    }
+    ,
+    {
+      href: "/orgs-list-view",
+      text: "Your organisations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#2"
+      },
+      {
+        text: "Manage account",
+        href: "manage-account"
+      },
+      {
+        text: "David Francis"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+<h2 class="govuk-heading-l">David Francis
+  <br>
+  <div class="govuk-inset-text">
+    This user hasn't signed in to their account.
+  </div> 
+</h2>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Role</th>
+      <td class="govuk-table__cell">Exporter</td>
+      <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="/change-role">Edit</a></td>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><b>Status</b></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise">
+        ACTIVE
+      </strong></td>
+      <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="/deactivate-user">Deactivate</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><b>Offices</b></td>
+      <td class="govuk-table__cell">ACME HQ</td>
+      <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="assign-office">Edit</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><b>Email</b></td>
+      <td class="govuk-table__cell">d.francis@acme.com</td>
+      <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="/manage-account"></a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+            
+
+
+
+{% endblock %}
+
+

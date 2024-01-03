@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "icms-home-II",
+  serviceName: "Manage import licences and certificates for export",
+  serviceUrl: "icms-home-II",
+  navigation: [
+    {
+      href: "manage-account",
+      text: "Home"
+    },
+    {
+      href: "#3",
+      text: "Licences and certificates"
+    }
+    ,
+    {
+      href: "manage-account",
+      text: "Manage account",
+      active: true
+    }
+    ,
+    {
+      href: "/orgs-list-view",
+      text: "Your organisations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-form-group">
+  <h1 class="govuk-heading-xl">
+    Change role
+  </h1>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="sort">
+      Role
+    </label>
+    <select class="govuk-select" id="sort" name="sort">
+      <option value="published">Exporter</option>
+      <option value="published">Importer</option>
+      <option value="updated" selected>Agent</option>
+    </select>
+  </div>
+
+  <br>
+  {{ govukButton({
+    text: "Save",
+    href: "/user-details",
+    attributes: {
+      "data-action": "form-submit",
+      "data-submitting-text": "Submitting...",
+      "data-prevent-double-click": "true",
+      "onclick": "return handleSignIn();"
+    }
+  }) }}
+
+</div>
+
+
+
+{% endblock %}
+
+

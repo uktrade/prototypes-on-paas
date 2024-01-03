@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div id="goods-type-section">
+  {{ govukSelect({
+    id: "goods-type",
+    name: "goods-type",
+    label: {
+      text: "What is your goods type?",
+      classes: "govuk-label--l"
+    },
+    hint: {
+      text: "The type of goods you're exporting"
+    },
+    items: [
+      {
+        value: "choose-goods",
+        text: "Choose goods type",
+        selected: true
+      },
+      {
+        value: "biocides",
+        text: "Biocides"
+      },
+      {
+        value: "cosmetics",
+        text: "Cosmetics"
+      },
+      {
+        value: "food-drinks-or-supplements",
+        text: "Food, drinks or supplements"
+      },
+      {
+        value: "animal-goods",
+        text: "Goods that come into contact with animals"
+      },
+      {
+        value: "devices",
+        text: "Medical devices"
+      },
+      {
+        value: "medicines",
+        text: "Medicines"
+      },
+      {
+        value: "other",
+        text: "Other"
+      }
+    ]
+  }) }}
+{{ govukButton({
+  text: "Continue",
+  attributes: {
+    "data-action": "form-submit",
+    "data-submitting-text": "Submitting...",
+    "data-prevent-double-click": "true"
+  },
+  href: "javascript:void(0);",
+  id: "continue-button"
+}) }}
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const continueButton = document.getElementById("continue-button");
+    const goodsTypeSelect = document.getElementById("goods-type");
+
+    continueButton.addEventListener("click", function () {
+      const selectedGoodsType = goodsTypeSelect.value;
+
+      switch (selectedGoodsType) {
+        case "biocides":
+          window.location.href = "/finished-biocides"; // Replace with the actual URL for Biocides
+          break;
+        case "cosmetics":
+          window.location.href = "/cosmetics-page"; // Replace with the actual URL for Cosmetics
+          break;
+        case "food-drinks-or-supplements":
+          window.location.href = "/finished-food-drinks"; // Replace with the actual URL for Food, Drinks, or Supplements
+          break;
+        case "animal-goods":
+          window.location.href = "/animal-goods-page"; // Replace with the actual URL for Goods that come into contact with animals
+          break;
+        case "devices":
+          window.location.href = "/devices-page"; // Replace with the actual URL for Medical Devices
+          break;
+        case "medicines":
+          window.location.href = "/medicines-page"; // Replace with the actual URL for Medicines
+          break;
+        case "other":
+          window.location.href = "/check-iv"; // Replace with the actual URL for Other Goods
+          break;
+        default:
+          // Handle the default case here (if necessary)
+          break;
+      }
+    });
+  });
+</script>
+{% endblock %}
+
+

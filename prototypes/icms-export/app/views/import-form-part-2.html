@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Import details</h1>
+      
+
+      <form action="/form-handler-answer" method="post" novalidate>
+
+        <style>
+          .govuk-autocomplete__option {
+            padding: 0.5em;
+          }
+      
+          .govuk-autocomplete__option:hover {
+            background-color: #f2f2f2;
+          }
+      
+          .govuk-autocomplete__option:focus {
+            outline: 2px solid #005ea5;
+            outline-offset: -1px;
+            background-color: #f2f2f2;
+          }
+        </style>
+      
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-label--m">
+              Enter your commodity code or type 
+            </h1>
+            <div id="event-name-hint" class="govuk-hint">
+              Select the commodity that applies to you
+            </div>
+            <form class="form" action="/path/of/next/page" method="post">
+              <fieldset class="govuk-fieldset">
+                <div class="govuk-form-group">
+                  <div class="govuk-autocomplete">
+                    <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="off" aria-describedby="address-line-1-hint">
+                    <ul class="govuk-list govuk-autocomplete__list" role="listbox" id="autocomplete-options"></ul>
+                    {{ govukButton({
+                      text: "Continue",
+                      attributes: {
+                        "data-action": "form-submit",
+                        "data-submitting-text": "Submitting...",
+                        "data-prevent-double-click": "true"
+                      }
+                    }) }}
+              
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Need help with commodity codes?
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <a href="https://www.trade-tariff.service.gov.uk/find_commodity" target="_blank">Browse goods classification on Trade Tariff</a>
+                  </div>
+                </details>
+
+                <script>
+                  const continueButton = document.querySelector(".govuk-button");
+                  const input = document.getElementById("address-line-1");
+                  const autocompleteOptions = document.getElementById("autocomplete-options");
+                  const options = ['7207111400 - Iron, Steel and Aluminium', '2707100010 - Oil and Petrochemicals',];
+      
+                  input.addEventListener("input", function() {
+                    const inputValue = input.value.toLowerCase();
+                    const matchingOptions = options.filter(option => option.toLowerCase().includes(inputValue));
+      
+                    autocompleteOptions.innerHTML = "";
+      
+                    matchingOptions.forEach(optionText => {
+                      const option = document.createElement("li");
+                      option.classList.add("govuk-list-item", "govuk-autocomplete__option");
+                      option.textContent = optionText;
+                      autocompleteOptions.appendChild(option);
+                    });
+                  });
+      
+                  autocompleteOptions.addEventListener("click", function(event) {
+                    if (event.target.tagName === "LI") {
+                      input.value = event.target.textContent;
+                      autocompleteOptions.innerHTML = ""; // Clear the dropdown options
+                    }
+                  });
+      
+                  continueButton.addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent form submission
+      
+                    const inputValue = input.value;
+      
+                    if (inputValue === "7207111400 - Iron, Steel and Aluminium") {
+                      window.location.href = "finished-aluminium";
+                    } else if (inputValue === "2707100010 - Oil and Petrochemicals") {
+                      window.location.href = "#";
+                    } else if (inputValue === "Other") {
+                      window.location.href = "#";
+                    } else {
+                      window.location.href = "#";
+                    }
+                  });
+                </script>
+              </fieldset>
+        
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

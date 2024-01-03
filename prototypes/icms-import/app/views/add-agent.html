@@ -1,0 +1,131 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "icms-home-II",
+  serviceName: "Manage import licences and certificates for export",
+  serviceUrl: "icms-home-II",
+  navigation: [
+    {
+      href: "manage-account",
+      text: "Home"
+    },
+    {
+      href: "#3",
+      text: "Licences and certificates"
+    }
+    ,
+    {
+      href: "manage-account",
+      text: "Manage account",
+      active: true
+    }
+    ,
+    {
+      href: "/orgs-list-view",
+      text: "Your organisations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-form-group">
+  <h1 class="govuk-heading-xl">
+    Add an agent
+  </h1>
+
+  <form class="form" action="/path/of/next/page" method="post">
+    <fieldset class="govuk-fieldset">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">
+          Name
+          <span class="govuk-caption-m">The agent's first and last name</span>
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address-line-1">
+          Email
+          <span class="govuk-caption-m">Make sure your agent has a One Login account linked to this email address</span>
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
+      </div>
+
+      <label class="govuk-label">
+        Assign office
+        <span class="govuk-caption-m">Select the office you want to assign to your agent</span>
+      </label>
+      <br>
+  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+      <label class="govuk-label govuk-checkboxes__label" for="nationality">
+        ACME HQ
+      </label>
+      <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+        Buckingham Palace
+        <br>
+        London
+        <br>
+        SW1A 1AA
+      </div>
+    </div>
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
+      <label class="govuk-label govuk-checkboxes__label" for="nationality-2">
+        ACME Midlands
+      </label>
+      <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+        Buckingham Palace
+        <br>
+        London
+        <br>
+        SW1A 1AA
+      </div>
+    </div>
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
+      <label class="govuk-label govuk-checkboxes__label" for="nationality-3">
+        ACME Cardiff
+      </label>
+      <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+        Buckingham Palace
+        <br>
+        London
+        <br>
+        SW1A 1AA
+      </div>
+    </div>
+  </div>
+</fieldset>
+</div>
+  <br>
+  {{ govukButton({
+    text: "Continue",
+    href: "/add-agent-review",
+    attributes: {
+      "data-action": "form-submit",
+      "data-submitting-text": "Submitting...",
+      "data-prevent-double-click": "true",
+      "onclick": "return handleSignIn();"
+    }
+  }) }}
+
+</div>
+
+
+
+{% endblock %}
+
+

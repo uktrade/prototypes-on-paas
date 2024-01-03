@@ -1,0 +1,127 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "manage-account",
+  serviceName: "Apply for an export certificate",
+  serviceUrl: "manage-account",
+  navigation: [
+    {
+      href: "#3",
+      text: "Home"
+    },
+    {
+      href: "#3",
+      text: "Certificates"
+    }
+    ,
+    {
+      href: "manage-account",
+      text: "Account",
+      active: true
+    }
+    ,
+    {
+      href: "/your-orgs",
+      text: "Your organisations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-xl">
+      Review your answers
+    </h1>
+   
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Organisation name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Agent Org IV
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Registered number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          2456
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Organisation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Agent Org IV HQ
+          <br>
+          Zebra building
+          <br>
+          71 Park Lane
+          <br>
+          Telford
+          <br>
+          United Kingdom
+          <br>
+          TF40 2VX
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+<br>
+    <h2 class="govuk-heading-m">
+      Now submit your form
+    </h2>
+   
+    <p>
+        This form will create an agent organisation. Once your agent organisation is created, you will be able to add individual agents to it.
+  </div>
+</div>
+  <br>
+  {{ govukButton({
+    text: "Confirm and submit",
+    href: "agent-org-form-submitted",
+    attributes: {
+      "data-action": "form-submit",
+      "data-submitting-text": "Submitting...",
+      "data-prevent-double-click": "true",
+      "onclick": "return handleSignIn();"
+    }
+  }) }}
+
+</div>
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,137 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "icms-home-II",
+  serviceName: "Manage import licences and certificates for export",
+  serviceUrl: "icms-home-II",
+  navigation: [
+    {
+      href: "manage-account",
+      text: "Home"
+    },
+    {
+      href: "#3",
+      text: "Licences and certificates"
+    }
+    ,
+    {
+      href: "manage-account",
+      text: "Manage account",
+      active: true
+    }
+    ,
+    {
+      href: "/orgs-list-view",
+      text: "Your organisations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-xl">
+      Review your answers
+    </h1>
+
+    <h2 class="govuk-heading-m">
+      Your invite
+    </h2>
+   
+
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          User type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Agent
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="/export-form-2">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          User name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          John Doe
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="/export-form-2">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          User email
+        </dt>
+        <dd class="govuk-summary-list__value">
+          agent@email.com
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="/export-form-2">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Office
+        </dt>
+        <dd class="govuk-summary-list__value">
+          ACME HQ
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="/export-form-2">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+<br>
+    <h2 class="govuk-heading-m">
+      Now send your invite
+    </h2>
+   
+    <p>
+        The invite will give the user access to your organisation's account. Make sure that this user already has a One Login account linked to the email above.
+    </p>
+  </div>
+</div>
+  <br>
+  {{ govukButton({
+    text: "Confirm and submit invite",
+    href: "invite-sent",
+    attributes: {
+      "data-action": "form-submit",
+      "data-submitting-text": "Submitting...",
+      "data-prevent-double-click": "true",
+      "onclick": "return handleSignIn();"
+    }
+  }) }}
+
+</div>
+
+
+
+{% endblock %}
+
+

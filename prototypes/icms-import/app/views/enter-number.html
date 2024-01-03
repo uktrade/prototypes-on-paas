@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Enter your mobile phone number
+      </h1>
+
+      <p>We will send a 6 digit security code to the number you give us.</p>
+
+      <form class="form" action="/path/of/next/page" method="post">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-line-1">
+              UK mobile phone number
+            </label>
+            <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
+          </div>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              </legend>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses" onchange="toggleInputBox()">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    I do not have a UK mobile number
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional" id="conditional-contact" style="display: none;">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-email">
+                      Mobile phone number
+                    </label>
+                    <div id="event-name-hint" class="govuk-hint">
+                      Include the country code, for example +33 for France
+                    </div>
+                    <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false" autocomplete="email">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          
+          <script>
+            function toggleInputBox() {
+              var conditionalContact = document.getElementById("conditional-contact");
+              var wasteCheckbox = document.getElementById("waste");
+          
+              if (wasteCheckbox.checked) {
+                conditionalContact.style.display = "block";
+              } else {
+                conditionalContact.style.display = "none";
+              }
+            }
+          </script>
+          
+
+
+
+          {{ govukButton({
+            text: "Continue",
+            href: "created-onegov"
+          }) }}
+
+        </fieldset>
+      </form>
+      
+
+    </div>
+  </div>
+
+  
+
+
+
+ 
+    
+
+   
+
+{% endblock %}
+
+

@@ -1,0 +1,137 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers before submitting your access request
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Your answers
+      </h2>
+     
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: " Access request type
+              "
+            },
+            value: {
+              text: "Access to act as an exporter"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/access-request",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Goods being imported
+              "
+            },
+            value: {
+              text: "xyz"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/access-request",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Organisation registered name"
+            },
+            value: {
+              text: "ACME"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/about-the-org",
+                  text: "Change",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,     
+          {
+            key: {
+              text: "Organisation trading name"
+            },
+            value: {
+              text: "ACME Trading"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/about-the-org",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Organisation address"
+            },
+            value: {
+              text: "xyz"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/about-the-org",
+                  text: "Change",
+                  visuallyHiddenText: "Question 4"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Now submit your access request
+      </h2>
+
+      <p> By submitting this access request you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+      {{ govukButton({
+        text: "Accept and submit",
+        href: "/confirmation-org-access-request"
+      }) }}
+      
+    </div>
+  </div>
+
+  
+{% endblock %}

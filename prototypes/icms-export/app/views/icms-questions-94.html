@@ -1,0 +1,303 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/icms-home-II"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Export details</h1>
+
+      <form action="/form-handler" method="post" novalidate>
+
+
+        
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+
+        {{ govukSelect({
+          id: "subject",
+          name: "subject",
+          label: {
+            text: "Choose country of origin",
+            classes: "govuk-label--m"
+          },
+            hint: {
+            text: "The exporting country"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose location",
+              selected: true
+            },
+            {
+              value: "turkey",
+              text: "Turkey"
+            },
+            {
+              value: "uae",
+              text: "U.A.E"
+            },
+            {
+              value: "uganda",
+              text: "Uganda"
+            },
+            {
+              value: "ukraine",
+              text: "Ukraine"
+            },
+            {
+              value: "unitedkingdom",
+              text: "United Kingdom"
+            },
+            {
+              value: "unitedstates",
+              text: "United States"
+            },
+            {
+              value: "uruguay",
+              text: "Uruguay"
+            },
+            {
+              value: "uzbekistan",
+              text: "Uzbekistan"
+            },
+            {
+              value: "vietnam",
+              text: "Vietnam"
+            }
+           ]
+        
+        }) }}
+
+        <h2 class="govuk-heading-m">
+          Choose your product
+        </h2>
+
+        <div class="govuk-tabs" data-module="govuk-tabs">
+          <h2 class="govuk-tabs__title">
+            Contents
+          </h2>
+          <ul class="govuk-tabs__list">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+              <a class="govuk-tabs__tab" href="#past-day">
+                By industry
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#past-week">
+                By keyword
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#past-month">
+                By commodity code
+              </a>
+            </li>
+          </ul>
+          <div class="govuk-tabs__panel" id="past-day">
+
+
+            
+            {{ govukSelect({
+              id: "subject",
+              hint: {
+              text: "First, choose your industry. Then choose your sector"
+            },
+              name: "subject",
+              
+              
+              items: [
+                {
+                  value: "choose",
+                  text: "Choose your industry",
+                  selected: true
+                },
+                {
+                  value: "Liveanimalsanimalproducts",
+                  text: "Live animals; animal products"
+                },
+                {
+                  value: "Vegetableproducts",
+                  text: "Vegetable products"
+                },
+                {
+                  value: "Animalvegetableormicrobialfatsandoilsand",
+                  text: "	Animal, vegetable or microbial fats and oils and..."
+                },
+                {
+                  value: "Arms and ammunition; parts and accessories thereof",
+                  text: "Arms and ammunition; parts and accessories thereof"
+                },
+                {
+                  value: "Miscellaneous manufactured articles",
+                  text: "Miscellaneous manufactured articles"
+                },
+                {
+                  value: "Works of art, collectors' pieces and antiques",
+                  text: "Works of art, collectors' pieces and antiques"
+                }
+               ]
+            
+            }) }}
+
+            {{ govukSelect({
+              id: "subject",
+              name: "subject",
+              
+              
+              items: [
+                {
+                  value: "chooseyoursector",
+                  text: "Choose your sector",
+                  selected: true
+                },
+                {
+                  value: "94 - Furniture; bedding, mattresses...",
+                  text: "94 - Furniture; bedding, mattresses..."
+                },
+                {
+                  value: "95 - Toys, games and sports requisites...",
+                  text: "95 - Toys, games and sports requisites..."
+                },
+                {
+                  value: "96 - Miscellaneous manufactured articles",
+                  text: "96 - Miscellaneous manufactured articles"
+                }
+               ]
+            
+            }) }}
+
+
+            <div class="govuk-inset-text">
+              94 - Furniture; bedding, mattresses, mattress supports, cushions and similar stuffed furnishings; luminaires and lighting fittings, not elsewhere specified or included; illuminated signs, illuminated nameplates and the like; prefabricated buildings
+            </div>
+
+            </table>
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+            
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+
+            {{ govukInput({
+              
+              hint: {
+                text: "Enter a keyword that applies to your product"
+              },
+              id: "event-name",
+              name: "event-name"
+            }) }}
+
+
+            <div>
+              <a class="govuk-link" href="https://www.trade-tariff.service.gov.uk/browse" target="_blank">Browse goods classification</a>
+            </div>
+
+
+            </table>
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+           
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+
+            {{ govukInput({
+              
+              hint: {
+                text: "Enter the commodity code that applies to your product"
+              },
+              id: "event-name",
+              name: "event-name"
+            }) }}
+
+            <div>
+            
+              <a class="govuk-link" href="https://www.trade-tariff.service.gov.uk/browse" target="_blank">Browse goods classification</a>
+            </div>
+
+            </table>
+          </div>
+        </div>
+
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+
+        {{ govukSelect({
+          id: "subject",
+          name: "subject",
+          label: {
+            text: "Choose country of destination",
+            classes: "govuk-label--m"
+          },
+            hint: {
+            text: "The importing country"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose location",
+              selected: true
+            },
+            {
+              value: "turkey",
+              text: "Turkey"
+            },
+            {
+              value: "uae",
+              text: "U.A.E"
+            },
+            {
+              value: "uganda",
+              text: "Uganda"
+            },
+            {
+              value: "ukraine",
+              text: "Ukraine"
+            },
+            {
+              value: "unitedkingdom",
+              text: "United Kingdom"
+            },
+            {
+              value: "unitedstates",
+              text: "United States"
+            },
+            {
+              value: "uruguay",
+              text: "Uruguay"
+            },
+            {
+              value: "uzbekistan",
+              text: "Uzbekistan"
+            },
+            {
+              value: "vietnam",
+              text: "Vietnam"
+            }
+           ]
+        
+        }) }}
+
+
+        {{ govukButton({
+          text: "Results"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

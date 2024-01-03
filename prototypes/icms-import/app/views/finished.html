@@ -1,0 +1,135 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        You need an export certificate
+      </h1>
+
+      <p>
+        Based on your answers, you need to apply for an export certificate to export <b>Chapter 94</b> commodities from 
+        <b>the United Kingdom</b> to <b>the United States</b>. Create an account or sign in to begin the process.
+      </p>
+
+      <div class="govuk-button-group">
+        <a href="/icms-sign-in" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">
+          Sign in
+          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+          </svg>
+        </a>
+        <a class="govuk-link govuk-link--no-visited-state" href="/sign-up">Create an account</a>
+      </div>
+
+      <h2 class="govuk-heading-m">
+        Your answers
+      </h2>
+      <p>
+        <a href="/icms-home-II">Start again</a>
+      </p>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "What do you want to do today?"
+            },
+            value: {
+              text: "Apply for an export certificate"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/icms-home-II",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Choose a country of origin"
+            },
+            value: {
+              text: "United Kingdom"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/icms-questions#past-day",
+                  text: "Change",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,     
+          {
+            key: {
+              text: "Choose your goods"
+            },
+            value: {
+              text: "94 - Furniture; bedding, mattresses, mattress supports, cushions and similar stuffed furnishings..."
+            },
+            actions: {
+              items: [
+                {
+                  href: "/icms-questions#past-day",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Choose a destination country"
+            },
+            value: {
+              text: "United States"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/icms-questions#past-day",
+                  text: "Change",
+                  visuallyHiddenText: "Question 4"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Want to know more?
+      </h2>
+     
+      <p>
+        <a href="https://www.trade-tariff.service.gov.uk/chapters/94" target="_blank">UK Intergrated Online Tarrif - Chapter 94 breakdown</a>
+      </p>
+
+      <p>
+        <a href="https://www.trade-tariff.service.gov.uk/chapters/94" target="_blank">Legal requirement for UK Exports - Chapter 94 commodities</a>
+      </p>
+
+    </div>
+  </div>
+
+  
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+ 
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Make an access request
+      </h1>
+     
+      <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+      <span class="govuk-caption-m">2 of 2</span>
+      <h1 class="govuk-heading-m">
+        About the exporter
+      </h1>
+      <div>
+        <label class="govuk-label" for="two-thirds">
+          Exporter's name
+      </label>
+      <div id="event-name-hint" class="govuk-hint">
+        The name of the individual who will legally own the goods being exported 
+      </div>
+      <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" name="two-thirds" type="text" value="John Wayne">  
+      </div>
+      <br>
+      <br>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address">
+          Exporter's address
+        </label>
+        <textarea class="govuk-textarea" id="address" name="address" rows="5" autocomplete="street-address"></textarea>
+      </div>
+
+      <div>
+        <label class="govuk-label" for="two-thirds" id="tn">
+          GBPR number (optional)
+      </label>
+      <input class="govuk-input govuk-!-width-two-thirds" id="trading-name-input" name="two-thirds" type="text">  
+      </div>
+      <br>
+      
+      
+      
+      
+            {{ govukButton({
+              text: "Continue",
+              href: "/finished-access-request-individual"
+            }) }}
+      
+          </div>
+        </div>
+        
+
+{% endblock %}
+
+
+
+
+
+
+

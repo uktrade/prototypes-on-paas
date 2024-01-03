@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Export details</h1>
+
+      <div class="govuk-grid-row" id="goods-type-section">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-label--m">
+            Enter your email address
+          </h1>
+          <div id="event-name-hint" class="govuk-hint">
+            We use this to contact you about your certificate
+          </div>
+          <form class="form" action="/path/of/next/page" method="post">
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-form-group">
+                <div class="govuk-autocomplete">
+                  <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="off" aria-describedby="address-line-1-hint">
+                  <ul class="govuk-list govuk-autocomplete__list" role="listbox" id="autocomplete-options"></ul>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-s">
+        Agree to our terms of use
+      </h2>
+
+      <p>By continuing, you confirm that you agree to our:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li><a class="govuk-link govuk-link--no-visited-state" href="#">privacy notice (opens in a new tab)</a>, which explains how we use your personal information</li>
+  <li><a class="govuk-link govuk-link--no-visited-state" href="#">terms and conditions (opens in a new tab)</a></li>
+</ul>
+
+      {{ govukButton({
+        text: "Continue",
+        attributes: {
+          "data-action": "form-submit",
+          "data-submitting-text": "Submitting...",
+          "data-prevent-double-click": "true"
+        },
+        href: "check-form-other",
+        id: "continue-button"
+      }) }}
+
+    
+  </div>
+{% endblock %}
+
+

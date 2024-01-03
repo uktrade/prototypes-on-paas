@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "icms-home-II",
+  serviceName: "Manage import licences and certificates for export",
+  serviceUrl: "icms-home-II",
+  navigation: [
+    {
+      href: "#3",
+      text: "Home"
+    },
+    {
+      href: "#3",
+      text: "Licences and certificates"
+    }
+    ,
+    {
+      href: "manage-account",
+      text: "Manage account",
+      active: true
+    }
+    ,
+    {
+      href: "/orgs-list-view",
+      text: "Your organisations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Invite sent",
+      html: "Your reference number<br><strong>HDJ2123F</strong>"
+    }) }}
+
+    <p>
+      We have sent an invite to: agent@email.com.
+    </p>
+
+    <p>
+      Once they have registered, you can manage their access and permissions.
+    </p>
+  
+    <div class="govuk-button-group">
+      <a class="govuk-button" data-module="govuk-button" href="/manage-account">
+        Manage users
+      </a>   
+      <a class="govuk-link" href="/add-user-ii">Invite user</a>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
+
+

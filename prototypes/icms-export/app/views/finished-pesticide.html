@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        You do not need to use this service
+      </h1>
+
+      <p>
+        Based on your answer, you do not need to use this service as we only issue export certificates. For more information on importing and exporting goods. See the guides below:
+      </p>
+
+      <div class="govuk-button-group">
+        <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/import-goods-into-uk" target="_blank">Import goods into the UK: step by step</a>
+      </div>
+
+      <div class="govuk-button-group">
+        <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/export-goods" target="_blank">Export goods from the UK: step by step</a>
+      </div>
+
+      <h2 class="govuk-heading-m">
+        Your answers
+      </h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    What do you want to do today?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                   Other
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                  </dd>
+                </div>
+
+                <br>
+                <p>
+                  <a href="/icms-home-II">Start again</a>
+                </p>
+                
+  
+{% endblock %}

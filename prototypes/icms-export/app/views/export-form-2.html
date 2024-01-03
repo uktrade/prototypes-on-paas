@@ -1,0 +1,250 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Export details</h1>
+
+      <form action="/form-handler-answer" method="post" novalidate>
+
+
+
+        <h2 class="govuk-heading-m">
+          Choose your goods
+        </h2>
+
+        <div class="govuk-tabs" data-module="govuk-tabs">
+          <h2 class="govuk-tabs__title">
+            Contents
+          </h2>
+          <ul class="govuk-tabs__list">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+              <a class="govuk-tabs__tab" href="#past-day">
+                By industry
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#by-keyword">
+                By keyword
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#past-month">
+                By commodity code
+              </a>
+            </li>
+          </ul>
+          <div class="govuk-tabs__panel" id="past-day">
+        
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "subject",
+          hint: {
+              text: "Industry"
+          },
+          name: "subject",
+          items: [
+              {
+                  value: "choose",
+                  text: "Choose your industry",
+                  selected: true
+              },
+              {
+                  value: "Liveanimalsanimalproducts",
+                  text: "Live animals; animal products"
+              },
+              {
+                  value: "Vegetableproducts",
+                  text: "Vegetable products"
+              },
+              {
+                  value: "Animalvegetableormicrobialfatsandoilsand",
+                  text: "Animal, vegetable or microbial fats and oils and..."
+              },
+              {
+                  value: "Arms and ammunition; parts and accessories thereof",
+                  text: "Arms and ammunition; parts and accessories thereof"
+              },
+              {
+                  value: "Miscellaneous manufactured articles",
+                  text: "Miscellaneous manufactured articles"
+              },
+              {
+                  value: "Works of art, collectors' pieces and antiques",
+                  text: "Works of art, collectors' pieces and antiques"
+              }
+          ]
+      }) }}
+      
+      {{ govukSelect({
+          id: "sector-selector",
+          hint: {
+            text: "Sector"
+        },
+          name: "sector-selector",
+          items: [
+              {
+                  value: "chooseyoursector",
+                  text: "Choose your sector",
+                  selected: true
+              },
+              {
+                  value: "94",
+                  text: "94 - Furniture; bedding, mattresses...",
+                  href: "/icms-questions-94",
+                  attributes: {
+                      "data-show-section": "#furniture-section"
+                  }
+              },
+              {
+                  value: "95 - Toys, games and sports requisites...",
+                  text: "95 - Toys, games and sports requisites...",
+                  attributes: {
+                      "data-show-section": "#toys-section"
+                  }
+              },
+              {
+                  value: "96 - Miscellaneous manufactured articles",
+                  text: "96 - Miscellaneous manufactured articles",
+                  attributes: {
+                      "data-show-section": "#misc-section"
+                  }
+              }
+          ],
+          attributes: {
+              "data-conditional": "sector-selector"
+          }
+      }) }}
+      
+      <div id="furniture-section" class="govuk-inset-text" style="display: none;">
+          94 - Furniture; bedding, mattresses, mattress supports, cushions and similar stuffed furnishings; luminaires and lighting fittings, not elsewhere specified or included; illuminated signs, illuminated nameplates and the like; prefabricated buildings
+      </div>
+
+    </table>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+      
+      <script>
+          document.getElementById("sector-selector").addEventListener("change", function() {
+              if (this.value === "94") {
+                  document.getElementById("furniture-section").style.display = "block";
+              } else {
+                  document.getElementById("furniture-section").style.display = "none";
+              }
+          });
+      </script>
+      
+
+
+           
+            </table>
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="by-keyword">
+            
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+
+            {{ govukInput({
+              
+              hint: {
+                text: "Enter the name of the goods"
+              },
+              id: "keyword-search",
+              name: "keyword-search"
+            }) }}
+
+            <div>
+              <a class="govuk-link" href="https://www.trade-tariff.service.gov.uk/browse" target="_blank">Browse goods classification</a>
+            </div>
+
+
+            </table>
+          </div>
+          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+           
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+
+            {{ govukInput({
+              
+              hint: {
+                text: "Enter the commodity code of the goods"
+              },
+              id: "event-name",
+              name: "event-name"
+            }) }}
+
+            <div>
+            
+              <a class="govuk-link" href="https://www.trade-tariff.service.gov.uk/browse" target="_blank">Browse goods classification</a>
+            </div>
+
+            </table>
+          </div>
+        </div>
+
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+
+        {{ govukSelect({
+          id: "subject",
+          name: "subject",
+          label: {
+            text: "Choose a certificate type",
+            classes: "govuk-label--m"
+          },
+            hint: {
+            text: "The certificate you're applying for"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose certificate",
+              selected: true
+            },
+            {
+              value: "Certificate of Free Sale",
+              text: "Certificate of Free Sale"
+            },
+            {
+              value: "Certificate of Manufacture",
+              text: "Certificate of Manufacture"
+            },
+            {
+              value: "Certificate of Good Manufacturing Practice",
+              text: "Certificate of Good Manufacturing Practice"
+            },
+            {
+              value: "Not sure",
+              text: "I don't know"
+            }
+           ]
+        
+        }) }}
+
+
+        {{ govukButton({
+          text: "Results",
+          href:"/finished-export-only"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

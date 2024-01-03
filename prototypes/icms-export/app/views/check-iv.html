@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Provide more detail about your goods
+    </label>
+  </h1>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+{{ govukButton({
+  text: "Continue",
+  attributes: {
+    "data-action": "form-submit",
+    "data-submitting-text": "Submitting...",
+    "data-prevent-double-click": "true"
+  },
+  href: "export-enter-email",
+  id: "continue-button"
+}) }}
+
+</div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "icms-home-II",
+  serviceName: "Manage import licences and certificates for export",
+  serviceUrl: "icms-home-II",
+  navigation: [
+    {
+      href: "manage-account",
+      text: "Home"
+    },
+    {
+      href: "#3",
+      text: "Licences and certificates"
+    }
+    ,
+    {
+      href: "manage-account",
+      text: "Manage account",
+      active: true
+    }
+    ,
+    {
+      href: "/orgs-list-view",
+      text: "Your organisations"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-form-group">
+  <h1 class="govuk-heading-l">
+    Are you sure you want to deactivate this user?
+  </h1>
+
+  <label class="govuk-label" for="sort">
+    This member will no longer be able to xyz.
+  </label>
+  <br>
+  <div class="govuk-button-group">
+    <a class="govuk-button govuk-button--warning" data-module="govuk-button" href="/manage-account">
+      Deactivate member
+    </a>  
+    <a class="govuk-button govuk-button--secondary" data-module="govuk-button" href="/user-details">
+      Cancel
+    </a>
+  </div>
+
+{% endblock %}
+
+

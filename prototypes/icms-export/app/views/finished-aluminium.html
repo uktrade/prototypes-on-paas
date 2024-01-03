@@ -1,0 +1,150 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        You need to use this service
+      </h1>
+
+      <p>
+        Based on your answers, you need an import licence from Manage import licences and certificates for export to import <b>7207111400 - Iron, Steel and Aluminium</b> 
+        commodities . Create an account or sign in to begin the process.
+      </p>
+
+      <div class="govuk-button-group">
+        <a href="/onegov-new" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">
+          Start now
+          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+          </svg>
+        </a>
+      </div>
+
+      <h2 class="govuk-heading-m">
+        Your answers
+      </h2>
+     
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: " Check if you need an import licence or export certificate"
+            },
+            value: {
+              text: "Apply for an import licence"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/icms-home-II",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Are you importing goods impacted by sanctions?"
+            },
+            value: {
+              text: "No"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/icms-home-II",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Choose a country of origin"
+            },
+            value: {
+              text: "United Sates"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/import-form",
+                  text: "Change",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,     
+          {
+            key: {
+              text: "Choose a country of consignment"
+            },
+            value: {
+              text: "United Sates"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/import-form",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Choose your goods"
+            },
+            value: {
+              text: "7207111400 - Iron, Steel and Aluminium"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/import-form-2-part-2",
+                  text: "Change",
+                  visuallyHiddenText: "Question 4"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <p>
+        <a href="/icms-home-II">Start again</a>
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Want to know more?
+      </h2>
+
+      <div class="govuk-button-group">
+        <a class="govuk-link govuk-link--no-visited-state" href="https://www.trade-tariff.service.gov.uk/commodities/7207111400" target="_blank">Legal requirements: 72071114 commodities</a>
+      </div>
+      
+    </div>
+  </div>
+
+  
+{% endblock %}

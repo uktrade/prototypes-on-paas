@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Create an account
+      </h1>
+
+      <p>You are about to register for an Import & Export Case Management System account. Note that after registering, you will not be able to apply for import licences until you have been granted permission to act as an importer.</p>
+
+        <p>For further information, please refer to the <a class="govuk-link govuk-link--no-visited-state" href="/help" target="_blank">guidance documents</a>.</p> 
+        
+        <p>All fields are mandatory.</p>
+
+        <span class="govuk-caption-m">1 of 3</span>
+<h1 class="govuk-heading-m">
+  Your contact details
+</h1>
+
+      <form class="form" action="/path/of/next/page" method="post">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-line-1">
+              Email address
+            </label>
+            <div id="with-hint-hint" class="govuk-hint">
+              We'll send a link to this email address to verify you have access to it.
+            </div>
+            <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
+          </div>
+
+      
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="password">
+              Confirm Email
+            </label>
+            <div class="govuk-password-input" style="display: flex;">
+              <input class="govuk-input" id="password" name="password" type="password" autocomplete="off" style="flex: 1;">
+            </div> 
+
+        </fieldset>
+      </form>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="telephone-number">
+          Telephone number
+        </label>
+        <div id="telephone-number-hint" class="govuk-hint">
+          For international numbers include the country code
+        </div>
+        <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" aria-describedby="telephone-number-hint" autocomplete="tel">
+      </div>
+
+      <br />
+      {{ govukButton({
+        text: "Continue",
+        href: "about-you"
+      }) }}
+      
+
+    </div>
+
+   
+  </div>
+
+  
+
+
+
+ 
+    
+
+   
+
+{% endblock %}
+
+
