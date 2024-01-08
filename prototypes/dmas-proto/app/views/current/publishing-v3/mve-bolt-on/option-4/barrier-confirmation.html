@@ -21,20 +21,20 @@
       }) }}
 
       <!-- DISPLAY BASED ON STEP REACHED IN MVE JOURNEY -->
+      <!-- DISPLAYED IF ALLOWED AND TITLE AND SUMMARY -->
+      {% if data['barrier-public-view-status'] == 'Can be published' and data['public-title'] and data['public-summary'] %}
 
-      {% if data['barrier-public-view-status'] == 'Allowed' and data['public-title'] and data['public-summary'] %}
-      <p class="govuk-body">In the next 30 days the approver in your region needs to confirm they are happy for the barrier to be published.</p>
+      <p class="govuk-body">Within the next 30 days, the approver in your region needs to confirm they are happy for the barrier to be published.</p>
 
-      {% elseif data['barrier-public-view-status'] == 'Not allowed' %}
-        Not allowed
+      {% elseif data['barrier-public-view-status'] == 'Cannot be published' %}
+        <p class="govuk-body">You stated that the barrier cannot be published on GOV.UK. This decision will be reviewed by your regional coordinator.</p>
       {% else %}
       <!-- DISPLAYED IF NO TITLE AND SUMMARY -->
-        <p class="govuk-body">As soon as you can, go to the <a href="#" class="govuk-link">Public view page</a> to provide a public title and summary. </p>
-        <p class="govuk-body">In the next 30 days:</p>
+        <p class="govuk-body">Within the next 30 days:</p>
 
         <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
-          <li>you need to write a public title and summary </li>
-          <li>the approver in your region needs to confirm they are happy for the barrier to be published </li>
+          <li>you need to provide a public title and summary on the <a href="#">Public view page</a></li>
+          <li>the approver in your region needs to confirm they are happy for the barrier to be published</li>
         </ul>
       
       {% endif %}

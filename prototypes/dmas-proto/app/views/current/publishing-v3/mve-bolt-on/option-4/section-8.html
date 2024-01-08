@@ -28,14 +28,12 @@ Barrier public view status – {{ serviceName }} – GOV.UK Prototype Kit
         {% set listOfExemptions %}
         <p class="govuk-body">A barrier should not be published if:</p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>the company affected could be easily identified, even once the company name has been removed</li>
-          <li>the barrier was shared with the government in confidence</li>
-          <li>publishing the barrier might damage the UK’s relationship with the host government</li>
           <li>it is defence or security related</li>
-          <li>there are specific strategic concerns relating to upcoming negotiations</li>
           <li>it affects imports into the UK</li>
-          <li>it is a future or potential barrier that is not yet affecting trade</li>
-          <li>an other government department (OGD) or ?? (DA) has advised that it should not be published</li>
+          <li>it has not yet come into force</li>
+          <li>the UK company affected is easily identifiable</li>
+          <li>the UK company affected told us not to make the barrier public</li>
+          <li>there is a likely risk of damage to the UK’s relationship with the partner government</li>
         </ul>
         {% endset %}
 
@@ -77,11 +75,11 @@ Barrier public view status – {{ serviceName }} – GOV.UK Prototype Kit
 
             items: [
               {
-                value: "Allowed",
+                value: "Can be published",
                 text: "Yes"
               },
               {
-                value: "Not allowed",
+                value: "Cannot be published",
                 text: "No",
                 conditional: {
                   html: notallowedHtml

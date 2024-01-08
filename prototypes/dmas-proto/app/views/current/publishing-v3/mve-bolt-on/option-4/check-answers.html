@@ -249,7 +249,7 @@
                     Publishing
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {% if data['barrier-public-view-status'] %}{{ data['barrier-public-view-status'] }} {% else %} Allowed {% endif %}
+                    {% if data['barrier-public-view-status'] %}{{ data['barrier-public-view-status'] }} {% else %} Can be published {% endif %}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="section-8">
@@ -257,7 +257,7 @@
                     </a>
                   </dd>
                 </div>
-            {% if data['barrier-public-view-status'] == 'Allowed' %}
+            {% if data['barrier-public-view-status'] == 'Can be published' %}
                 
                 {% if data['complete-title-summary'] %}
                   <div class="govuk-summary-list__row">
@@ -287,7 +287,7 @@
                     </dd>
                   </div>
                 {% endif %}
-              {% elseif data['barrier-public-view-status'] == 'Not allowed' %}
+              {% elseif data['barrier-public-view-status'] == 'Cannot be published' %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Reason
